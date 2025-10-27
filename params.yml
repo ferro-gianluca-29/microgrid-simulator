@@ -1,0 +1,17 @@
+
+battery:
+  soc_min: 0.2
+  soc_max: 0.8
+  capacity: 5.2        # [kWh]
+  power_max: 8         # [kW]
+  efficiency: 0.9
+  init_soc: 0.6
+  sample_time: 0.25     # [h]
+
+grid:
+  max_import_power: 8   # [kW]
+  max_export_power: 8   # [kW]
+  prices: [0.15, 0.05, 0.0, 0.0]
+
+simulation:
+  steps: 5
