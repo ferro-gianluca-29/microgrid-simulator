@@ -52,7 +52,7 @@ def test_online_real_time_simulation():
 
         observations, reward, done, info = microgrid.step(control, normalized = False)
 
-
+ 
     microgrid_df = simulator.get_simulation_log(microgrid)
     
     microgrid_df['load_consumption'] = data['load_consumption']
