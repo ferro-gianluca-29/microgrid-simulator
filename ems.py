@@ -6,10 +6,6 @@ from pandasgui import show
 
 from microgrid_simulator import MicrogridSimulator 
 
-from src.pymgrid.algos import RuleBasedControl
-
-
-
 present_grid_prices = np.array([0.15, 0.05, 0.0, 1.0])
 
 
