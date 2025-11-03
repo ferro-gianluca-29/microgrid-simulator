@@ -17,7 +17,7 @@ ems:
   kafka_topic: test_topic_661
   buffer_size: 96
   timezone: Europe/Rome
-  steps: 5
+  steps: 10
 
   price_bands:
     peak:
