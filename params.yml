@@ -13,5 +13,24 @@ grid:
   max_export_power: 8   # [kW]
   prices: [0.15, 0.05, 0.0, 0.0]
 
-simulation:
+ems:
+  kafka_topic: test_topic_661
+  buffer_size: 96
+  timezone: Europe/Rome
   steps: 5
+
+  price_bands:
+    peak:
+      buy: 0.35
+      sell: 0.12
+      ranges:
+        - [18, 20]
+    standard:
+      buy: 0.28
+      sell: 0.10
+      ranges:
+        - [7, 17]
+        - [21, 22]
+    offpeak:
+      buy: 0.20
+      sell: 0.08

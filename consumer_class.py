@@ -40,6 +40,7 @@ class KafkaConsumer:
         # Kafka
         self.consumer = None         # Tipo: Consumer
         self.running = False         # Flag esecuzione
+        self.thread = None           # Riferimento al thread di polling
         
         print(f" Consumer creato: buffer={buffer_size}, topic={topic}")
     
@@ -66,8 +67,9 @@ class KafkaConsumer:
         self.connect()                        # Connetti a Kafka
         self.running = True                   # Imposta flag esecuzione
         
-        thread = threading.Thread(target=self._loop, daemon=True)       # Crea thread in background
+        thread = threading.Thread(target=self._loop, daemon=False)      # Crea thread in background
         thread.start()                                                  # Avvia thread
+        self.thread = thread
         
         print(" Consumer in background")
     
@@ -129,5 +131,8 @@ class KafkaConsumer:
     def stop(self):
         """Ferma consumer"""
         self.running = False                    # Imposta flag esecuzione a False per fermare il loop
+        if self.thread and self.thread.is_alive():
+            self.thread.join(timeout=3.0)       # Attendi che il thread termini
         if self.consumer:                       # Se il consumer esiste
             self.consumer.close()               # Chiudi connessione Kafka
+            self.consumer = None
