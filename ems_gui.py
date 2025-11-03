@@ -23,7 +23,7 @@ def get_grid_prices(timestamp: datetime, price_config: dict):
     """
     hour = timestamp.hour
 
-    def hour_in_ranges(hr, ranges):
+    def hour_in_ranges(hr, ranges):      # Verifica se l'ora hr rientra in uno dei range specificati
         for rng in ranges or []:
             start, end = rng
             if start <= hr <= end:
@@ -31,9 +31,9 @@ def get_grid_prices(timestamp: datetime, price_config: dict):
         return False
 
     # Ordine preferito: peak -> standard -> offpeak (default)
-    for band_key in ("peak", "standard"):
+    for band_key in ("peak", "standard"):                        # Controlla fasce peak e standard 
         band_cfg = price_config.get(band_key)
-        if band_cfg and hour_in_ranges(hour, band_cfg.get("ranges")):
+        if band_cfg and hour_in_ranges(hour, band_cfg.get("ranges")):       # Se l'ora rientra nei range, restituisce i prezzi e la banda
             return (
                 np.array([band_cfg.get("buy", 0.0), band_cfg.get("sell", 0.0), 0.0, 1.0]),
                 band_key.upper(),
@@ -42,7 +42,7 @@ def get_grid_prices(timestamp: datetime, price_config: dict):
     # Se non è rientrato in nessuna fascia, usa quella di fallback (offpeak o la prima disponibile)
     fallback_key = "offpeak" if "offpeak" in price_config else next(iter(price_config))
     fallback_cfg = price_config.get(fallback_key, {})
-    return (
+    return (                                                                                 # Restituisce i prezzi di fallback e la banda
         np.array([fallback_cfg.get("buy", 0.0), fallback_cfg.get("sell", 0.0), 0.0, 1.0]),
         fallback_key.upper(),
     )
@@ -81,7 +81,9 @@ def deque_last(buffer: deque, default=None):
 
 
 def get_logger_last(logger, key, default=0.0):
-    """Ultimo valore disponibile per la chiave nel ModularLogger associato al modulo."""
+    """
+    Ultimo valore disponibile per la chiave nel ModularLogger associato al modulo.
+    """
     if logger is None:
         return default
     try:
@@ -103,7 +105,7 @@ def print_step_report(step_idx, timestamp, band, kafka_load, kafka_pv, load_kw, 
     Stampa un report leggibile per ogni step con dati Kafka vs simulator, controllo applicato,
     stato batteria, scambi rete, prezzi ed economia, facilitando il debug live.
     """
-    header = f"\n{'=' * 120}\nSTEP {step_idx} - {timestamp.strftime('%Y-%m-%d %H:%M:%S')} ({band})\n{'=' * 120}"
+    header = f"\n{'=' * 120}\nSTEP {step_idx} - {timestamp.strftime('%Y-%m-%d %H:%M:%S')} ({band})\n{'=' * 120}"    # Intestazione step
     print(header)
 
     print(f"Kafka Load/PV        : load={kafka_load:6.3f} kW | pv={kafka_pv:6.3f} kW")
@@ -139,10 +141,10 @@ def plot_results(df: pd.DataFrame, base_name: str):
     Ogni figura viene salvata a 160 dpi con nome basato su base_name, poi chiusa per liberare memoria; 
     la funzione restituisce i percorsi dei file generati per uso successivo.
     """
-    df = df.copy()
-    df["timestamp"] = pd.to_datetime(df["timestamp"])
-    df.sort_values("timestamp", inplace=True)
-    df.set_index("timestamp", inplace=True)
+    df = df.copy()                                         # Duplica DataFrame per evitare modifiche all'originale
+    df["timestamp"] = pd.to_datetime(df["timestamp"])      # Converte la colonna timestamp in datetime
+    df.sort_values("timestamp", inplace=True)              # Ordina per timestamp
+    df.set_index("timestamp", inplace=True)                # Imposta timestamp come indice
 
     # 1) Potenze istantanee
     fig, ax = plt.subplots(figsize=(12, 5))
@@ -262,7 +264,7 @@ def plot_results(df: pd.DataFrame, base_name: str):
     fig.savefig(economics_path, dpi=160)
     plt.close(fig)
 
-    return {
+    return {                             # Restituisce i percorsi dei file generati 
         "power": power_path,
         "grid": grid_path,
         "prices": prices_path,
