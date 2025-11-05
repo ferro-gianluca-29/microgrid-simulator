@@ -1,1 +1,12 @@
 venv_2
+# Ignora ambienti virtuali
+mio_env/
+mio_env*/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Simulation outputs
+ems_results_*.csv
+ems_results_*.png
