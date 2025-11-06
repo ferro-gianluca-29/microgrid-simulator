@@ -164,7 +164,24 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
     df["timestamp"] = timestamps
     df.dropna(subset=["timestamp"], inplace=True)          # Rimuove eventuali righe senza timestamp valido
     df.sort_values("timestamp", inplace=True)              # Ordina per timestamp
+    df.sort_values("timestamp", inplace=True)
+    df["timestamp_original"] = df["timestamp"]
     df.set_index("timestamp", inplace=True)                # Imposta timestamp come indice
+
+    # Rebase timeline to a regular range starting from the first timestamp.
+    inferred_freq = pd.infer_freq(df.index)
+    if inferred_freq is None and len(df.index) > 1:
+        deltas = df.index.to_series().diff().dropna()
+        if not deltas.empty:
+            inferred_freq = deltas.median()
+    if inferred_freq is None:
+        inferred_freq = pd.Timedelta(minutes=15)
+    aligned_index = pd.date_range(
+        start=df.index.min(),
+        periods=len(df.index),
+        freq=inferred_freq
+    )
+    df.index = aligned_index
 
     # 1) Potenze istantanee
     fig, ax = plt.subplots(figsize=(12, 5))
