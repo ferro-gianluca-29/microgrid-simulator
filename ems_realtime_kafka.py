@@ -13,7 +13,7 @@ from typing import Optional
 from pathlib import Path
 
 # Assicura che la cartella generator_and_consumer sia visibile agli import
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parent
 GENERATOR_DIR = PROJECT_ROOT / "generator_and_consumer"
 if GENERATOR_DIR.exists() and str(PROJECT_ROOT) not in sys.path:
     sys.path.append(str(PROJECT_ROOT))
