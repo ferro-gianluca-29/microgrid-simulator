@@ -1,79 +1,84 @@
-# Guida Completa alla Simulazione (ODA → Generatore → EMS)
+# End-to-End Simulation Guide (ODA → Generator → EMS)
 
-Questa guida descrive tutti i passaggi per eseguire un ciclo completo:
+This document walks through the complete workflow:
 
-1. Avvio della piattaforma **ODA** (Open Data Aggregator).
-2. Esecuzione del **generatore** Kafka che invia dati quartorari in kWh.
-3. Avvio dell’**EMS** (`ems_realtime_kafka.py`) che consuma i dati, popola la microgrid e crea report.
+1. Start the **ODA** (Open Data Aggregator) platform.
+2. Run the **Kafka generator**, which streams quarter-hour energy data (kWh).
+3. Launch the **EMS** (`ems_realtime_kafka.py`), which consumes the stream, updates the microgrid and produces reports.
 
-> Repository ODA: [https://github.com/di-unipi-socc/ODA](https://github.com/di-unipi-socc/ODA)
+> ODA repository: [https://github.com/di-unipi-socc/ODA](https://github.com/di-unipi-socc/ODA)
 
 ---
 
-## 1. Prerequisiti
+## 1. Prerequisites
 
 - Git.
 - Docker + Docker Compose.
-- Python 3.10 o superiore con `pip`.
-- Dataset CSV con colonne `datetime, solar, load` (energie in kWh per intervallo).
-- Porte libere: `50005` (API Gateway), `9094`/`9095` (Kafka), `8086` (InfluxDB).
+- Python 3.10+ and `pip`.
+- A CSV dataset with columns `datetime`, `solar`, `load` (energy per interval, in kWh).
+- Free ports: `50005` (API Gateway), `9094`/`9095` (Kafka), `8086` (InfluxDB).
 
-Struttura consigliata delle cartelle (stesso livello):
+Repository layout after cloning:
 
 ```
-D:\MieiProgetti\ODA
-D:\MieiProgetti\generator_and_consumer
-D:\MieiProgetti\microgrid-simulator
+microgrid-simulator/
+├─ generator_and_consumer/   # generator + Kafka consumer utilities
+│  ├─ data/
+│  ├─ consumer_class.py
+│  └─ ...
+├─ docs/
+├─ src/                      # customized PyMGrid fork
+├─ ems_realtime_kafka.py
+├─ params.yml
+└─ ...
 ```
 
 ---
 
-## 2. Avvio di ODA
+## 2. Start ODA
 
 ```bash
 git clone https://github.com/di-unipi-socc/ODA.git
 cd ODA
 ```
 
-1. Apri `.env` e verifica/compila:
+1. Edit `.env` and make sure these keys are set:
    ```env
    kafka_address=127.0.0.1
    kafka_port=9094
    kafka_address_static=127.0.0.1
    kafka_port_static=9095
    ```
-   Senza questi valori Kafka e l’API Gateway non partono.
-2. Avvia i container:
+   Without them Kafka and the API Gateway will not start correctly.
+2. Launch the stack:
    ```bash
    ./start.sh
    ```
-3. Verifica l’API Gateway:
+3. Check the API Gateway:
    ```bash
    curl http://localhost:50005/register/dc
    ```
-   L’output deve contenere `KAFKA_ENDPOINT`.
-4. Per fermare ODA:
+   The response must include `KAFKA_ENDPOINT`.
+4. Stop ODA when finished:
    ```bash
    ./stop.sh
    ```
 
 ---
 
-## 3. Generatore Realtime Kafka
-
-Cartella: `generator_and_consumer`
+## 3. Kafka generator (`generator_and_consumer/`)
 
 ```bash
 cd generator_and_consumer
-python -m venv venv
-venv\Scripts\activate           # Windows
-# oppure: source venv/bin/activate
+python -m venv venv_generator      # or any name you prefer
+venv_generator\Scripts\activate    # Windows
+# source venv_generator/bin/activate  # Linux/macOS
 pip install -r requirements.txt
 ```
 
-Il generatore legge i CSV da `generator_and_consumer/data/`. Il file di default è `data/processed_data_661_formatted.csv`, ma puoi aggiungere altri dataset nello stesso percorso.
+- The generator expects CSV files under `generator_and_consumer/data/`. The default dataset is `data/processed_data_661_formatted.csv`, but you can add any other file there and update the script/params accordingly.
 
-Parametri in `generatore_realtime_kafka.py`:
+Key settings in `generatore_realtime_kafka.py`:
 
 ```python
 API_GATEWAY_URL = "http://localhost:50005"
@@ -83,29 +88,27 @@ DATA_FILE = Path(__file__).resolve().parent / "data" / "processed_data_661_forma
 DELTA_T_SEC = 0.5
 ```
 
-Esegui:
+Run the generator:
 
 ```bash
 python generatore_realtime_kafka.py
 ```
 
-Lo script registra il generatore (`POST /register/dg`), legge il CSV e invia i pacchetti JSON. Sul terminale stampa timestamp e valori (in kWh). Lasciare in esecuzione fino al termine della simulazione.
+The script registers the generator (`POST /register/dg`), reads the CSV and sends JSON messages to Kafka, printing timestamp and values (kWh) on screen. Keep it running while the EMS operates.
 
 ---
 
 ## 4. EMS (`ems_realtime_kafka.py`)
 
-Cartella: `microgrid-simulator`
-
 ```bash
 cd microgrid-simulator
 python -m venv mio_env_ems
 mio_env_ems\Scripts\activate    # Windows
-# oppure: source mio_env_ems/bin/activate
+# source mio_env_ems/bin/activate
 pip install -r requirements.txt
 ```
 
-### Configurazione (`params.yml`)
+### Configuration (`params.yml`)
 
 ```yaml
 ems:
@@ -131,79 +134,79 @@ ems:
       ranges: []
 ```
 
-Le sezioni `battery` e `grid` definiscono limiti e potenze; adattale alla durata dello step (0,25 h per 15 minuti). `steps` controlla la lunghezza della simulazione (96 → 24 h, 672 → 7 giorni).
+Adjust the `battery` and `grid` sections to match your time-step length (default: 0.25 h for 15-minute data). `steps` controls the simulation length (96 = 24 hours, 672 = one week).
 
-`ems_realtime_kafka.py` importa `consumer_class` dal pacchetto `generator_and_consumer`; la cartella è aggiunta automaticamente al `sys.path`.
+`ems_realtime_kafka.py` automatically adds `generator_and_consumer/` to `sys.path`, so the consumer class is available without further configuration.
 
-### Esecuzione
+### Run the EMS
 
 ```bash
 python ems_realtime_kafka.py
 ```
 
-Lo script:
+What it does:
 
-1. Carica `params.yml`.
-2. Avvia `KafkaConsumer` e aspetta il primo messaggio.
-3. Costruisce la microgrid (`MicrogridSimulator`) in modalità online.
-4. Per ogni step legge l’ultimo valore, applica `rule_based_control`, esegue `microgrid.step`, stampa un report e memorizza i risultati.
-5. Al termine:
-   - salva `outputs/ems_results_<timestamp>.csv`;
-   - genera i grafici (flussi energia, scambi rete, prezzi, SOC batteria, economia) sempre in `outputs/`;
-   - stampa un riepilogo e apre i grafici (se possibile).
+1. Loads configuration from `params.yml`.
+2. Starts `KafkaConsumer` and waits for the first message.
+3. Builds the PyMGrid microgrid in online mode.
+4. For each step it reads the latest measurement, applies `rule_based_control`, calls `microgrid.step`, prints a report and stores the results.
+5. At the end it:
+   - Saves `outputs/ems_results_<timestamp>.csv`.
+   - Generates plots (energy flows, grid exchange, prices, battery SOC, economics) in `outputs/`.
+   - Prints a summary and tries to open the plots automatically.
 
-> **Nota:** la cartella `outputs/` viene creata automaticamente. Verifica che sia presente o versionala con un file `.gitkeep` se necessario.
-
----
-
-## 5. Sequenza consigliata
-
-1. `./start.sh` nella cartella ODA.
-2. `python generatore_realtime_kafka.py` (lascia in esecuzione).
-3. `python ems_realtime_kafka.py` nella cartella `microgrid-simulator`.
-4. Controlla i log EMS e attendi il salvataggio in `outputs/`.
-5. Per fermare: `Ctrl+C` su EMS e generatore, poi `./stop.sh` in ODA.
+> The `outputs/` folder is created automatically. Keep it in the repo (with a `.gitkeep`) so results land in a predictable location.
 
 ---
 
-## 6. Esempio di output (96 step)
+## 5. Suggested sequence
 
-Grafici generati automaticamente (files copiati in `docs/images/` per riferimento):
+1. `./start.sh` inside the ODA folder.
+2. `python generator_and_consumer/generatore_realtime_kafka.py` and keep it running.
+3. `python microgrid-simulator/ems_realtime_kafka.py`.
+4. Monitor EMS logs; when it finishes you will find CSV and plots inside `microgrid-simulator/outputs/`.
+5. Stop with `Ctrl+C` on both generator and EMS, then `./stop.sh` inside ODA.
+
+---
+
+## 6. Sample output (96 steps)
+
+The following figures show a real run (copied under `docs/images/` for reference):
 
 ![Energy Flows](docs/images/ems_results_20251106_142817_energy.png)  
-*Flussi per step: carico, produzione PV, flusso batteria netto ed energia accumulata.*
+*Energy per step: load, PV, net battery flow and stored energy.*
 
 ![Grid Exchange](docs/images/ems_results_20251106_142817_grid.png)  
-*Energia import/export per step (barre) e cumulata (linee).*
+*Import/export per step (bars) and cumulative curves.*
 
 ![Prices & Bands](docs/images/ems_results_20251106_142817_prices.png)  
-*Prezzi di acquisto/vendita con le fasce temporali evidenziate.*
+*Buy/sell prices with the configured time-of-use bands.*
 
 ![Battery SOC](docs/images/ems_results_20251106_142817_battery.png)  
-*Stato di carica (%) e energia di carica/scarica.*
+*Battery state-of-charge (%) and charge/discharge energy.*
 
 ![Economic Performance](docs/images/ems_results_20251106_142817_economics.png)  
-*Costi/ricavi per step e bilancio economico cumulato.*
+*Step costs/revenues and cumulative economic balance.*
 
 ---
 
-## 7. Troubleshooting rapido
+## 7. Troubleshooting
 
-| Problema | Possibile causa / soluzione |
+| Issue | Possible cause / fix |
 | --- | --- |
-| `requests.exceptions.ConnectionError` dal generatore | ODA non è avviata o l’API Gateway (porta 50005) non risponde. |
-| `KeyError: 'KAFKA_ENDPOINT'` | La risposta di `/register/dg` è vuota/errata. Controlla i log del gateway. |
-| L'EMS rimane in attesa | Il generatore non ha inviato dati (topic errato, CSV vuoto, `steps` troppo alto). |
-| Grafici con asse tempo sballato | Verifica i timestamp nel CSV e la timezone in `params.yml`. |
-| Batteria non si carica | La logica attuale carica solo con surplus PV. Modifica `rule_based_control` per consentire carica da rete. |
+| `requests.exceptions.ConnectionError` in the generator | ODA/API Gateway is not running (check `./start.sh` and port 50005). |
+| `KeyError: 'KAFKA_ENDPOINT'` | Gateway response is empty or malformed; inspect the API Gateway logs. |
+| EMS waiting forever | No data on the topic (wrong topic, empty CSV, `steps` too large). |
+| Weird time axis in plots | Ensure timestamps in the CSV are correct and the `timezone` in `params.yml` matches. |
+| Battery never charges | The default rule based control charges only with PV surplus. Update `rule_based_control` if the grid should charge the battery. |
 
 ---
 
-## 8. Risorse utili
+## 8. Useful resources
 
-- `generator_and_consumer/consumatore_realtime_kafka.py`: consumer standalone per debug (in kWh).
-- `generator_and_consumer/consumer_class.py`: classe riutilizzabile del Kafka consumer a buffer.
-- `microgrid-simulator/ems_realtime_kafka_guide.txt`: documentazione dettagliata dell’EMS.
-- Repository ODA: [https://github.com/di-unipi-socc/ODA](https://github.com/di-unipi-socc/ODA)
+- `generator_and_consumer/consumatore_realtime_kafka.py`: lightweight consumer for debugging (kWh).
+- `generator_and_consumer/consumer_class.py`: reusable Kafka consumer with rolling buffer.
+- `docs/ems_realtime_kafka_guide.txt`: in-depth walkthrough of the EMS script.
+- ODA documentation: [https://github.com/di-unipi-socc/ODA](https://github.com/di-unipi-socc/ODA)
 
-> Tutti i risultati della simulazione vengono salvati nella cartella `microgrid-simulator/outputs/`.
+> Simulation results (CSV + plots) are stored under `microgrid-simulator/outputs/`.
