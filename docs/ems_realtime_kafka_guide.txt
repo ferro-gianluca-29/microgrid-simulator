@@ -1,4 +1,4 @@
-ems_gui.py - spiegazione approfondita e aggiornata
+ems_realtime_kafka.py - spiegazione approfondita e aggiornata
 
 Indice sintetico
 1. Scopo generale dello script
@@ -110,5 +110,5 @@ Indice sintetico
 - In presenza di errori sui log (ex lunghezze disallineate), verificare che i moduli siano stati resettati e che il modulo di bilanciamento esista solo se configurato: il codice gestisce il fallback ma conviene sempre controllare `params.yml`.
 - Per test rapidi senza Kafka, è possibile simulare l arrivo di dati popolando manualmente le deque del consumer o sostituendo temporaneamente il consumer con un reader da CSV.
 - Prima di integrare nuove metriche, verificare via `get_logger_last` se il modulo logga la chiave desiderata; molti logger utilizzano nomi diversi (es. `import` vs `grid_import`).
-- Dopo modifiche sostanziali, eseguire `py -m py_compile ems_gui.py` o un run di prova per assicurarsi che i logger contengano le chiavi aggiornate.
+- Dopo modifiche sostanziali, eseguire `py -m py_compile ems_realtime_kafka.py` o un run di prova per assicurarsi che i logger contengano le chiavi aggiornate.
 

@@ -31,7 +31,7 @@ pip install -r requirements.txt
 
 ### External requirements
 - Python 3.10 or newer
-- Kafka broker reachable from this machine. The default registration endpoint is defined in `consumer_class.py` (`http://localhost:50005/register/dc`). Make sure the topic set in `params.yml` is available and publishes load/PV measurements.
+- Kafka broker reachable from this machine. The default registration endpoint is defined in `generator_and_consumer/consumer_class.py` (`http://localhost:50005/register/dc`). Make sure the topic set in `params.yml` is available and publishes load/PV measurements.
 
 ---
 
@@ -39,11 +39,11 @@ pip install -r requirements.txt
 
 | File | Description |
 |------|-------------|
-| `ems_gui.py` | Main script that ties Kafka, the simulator and the reporting pipeline. |
+| `ems_realtime_kafka.py` | Main script that ties Kafka, the simulator and the reporting pipeline. |
 | `params.yml` | Configuration for battery, grid, EMS parameters, Kafka topic and TOU price bands. |
-| `consumer_class.py` | Kafka consumer wrapper with `deque` buffers for load, PV and timestamps. |
+| `generator_and_consumer/consumer_class.py` | Kafka consumer wrapper with `deque` buffers for load, PV and timestamps. |
 | `microgrid_simulator.py` | Builds `pymgrid` modules (battery, grid, load, PV, balancing) from the YAML config. |
-| `ems_gui_spiegazione.txt` | Extended documentation of the current flow for reference. |
+| `ems_realtime_kafka_guide.txt` | Extended documentation of the current flow for reference. |
 
 ---
 
@@ -96,7 +96,7 @@ ems:
       ranges: []
 ```
 
-> Reduce `steps` for quick tests, change `kafka_topic` if you need to read from another stream, or edit `price_bands` to experiment with new tariffs. Every change takes effect at the next launch of `ems_gui.py`.
+> Reduce `steps` for quick tests, change `kafka_topic` if you need to read from another stream, or edit `price_bands` to experiment with new tariffs. Every change takes effect at the next launch of `ems_realtime_kafka.py`.
 
 ---
 
@@ -106,9 +106,9 @@ ems:
 2. Activate the virtual environment (see section 1).
 3. Run the EMS:
    ```bash
-   py ems_gui.py      # Windows
+   py ems_realtime_kafka.py      # Windows
    # or
-   python ems_gui.py  # macOS/Linux
+   python ems_realtime_kafka.py  # macOS/Linux
    ```
 4. For each step the script will:
    - pull the latest load/PV values and timestamp from Kafka,
@@ -144,9 +144,9 @@ CSV/PNG outputs are ignored by Git (`.gitignore`). Move or rename them if you wa
 - **Tariffs and TOU bands**: edit `ems.price_bands` in `params.yml`.
 - **Simulation length**: change `ems.steps`.
 - **Battery/grid limits**: tweak the `battery` and `grid` sections (capacity, power limits, initial SOC).
-- **Control strategy**: replace `rule_based_control` in `ems_gui.py` with your own logic (MPC, RL, etc.), keeping the control dictionary structure (`{"battery": [...], "grid": [...]}`).
+- **Control strategy**: replace `rule_based_control` in `ems_realtime_kafka.py` with your own logic (MPC, RL, etc.), keeping the control dictionary structure (`{"battery": [...], "grid": [...]}`).
 - **Additional metrics**: use the helper `get_logger_last` to read extra fields from `pymgrid` module loggers and include them in console output or CSV.
-- **Alternative data source**: if Kafka is unavailable, populate the consumer deques manually or adapt `consumer_class.py` to read from files.
+- **Alternative data source**: if Kafka is unavailable, populate the consumer deques manually or adapt `generator_and_consumer/consumer_class.py` to read from files.
 
 ---
 
@@ -154,7 +154,7 @@ CSV/PNG outputs are ignored by Git (`.gitignore`). Move or rename them if you wa
 
 - **Logger length mismatches**: ensure you are on the latest version (uses `get_logger_last`) and that the microgrid is reset before each new run.
 - **Charts do not open automatically**: associate the `.png` extension with an image viewer; files are still saved in the project root.
-- **Kafka topic empty**: double-check endpoint and credentials in `consumer_class.py` and verify the upstream producer.
+- **Kafka topic empty**: double-check endpoint and credentials in `generator_and_consumer/consumer_class.py` and verify the upstream producer.
 - **Early interruption**: press `Ctrl+C`; the script will still call `consumer.stop()` to cleanly stop the background thread.
 
 ---
@@ -162,8 +162,8 @@ CSV/PNG outputs are ignored by Git (`.gitignore`). Move or rename them if you wa
 ## 8. Contributing
 
 1. Create a dedicated branch (`git checkout -b feature/...`).
-2. Always run at least one simulation and `py -m py_compile ems_gui.py` before committing.
-3. Update `README.md` and/or `ems_gui_spiegazione.txt` if you change the workflow.
+2. Always run at least one simulation and `py -m py_compile ems_realtime_kafka.py` before committing.
+3. Update `README.md` and/or `ems_realtime_kafka_guide.txt` if you change the workflow.
 4. Open a pull request against the relevant branch (e.g. `Alessio`).
 
 ---

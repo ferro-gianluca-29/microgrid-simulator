@@ -1,4 +1,5 @@
-﻿import os
+import os
+import sys
 import time
 from collections import deque
 from datetime import datetime
@@ -7,8 +8,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import yaml
+import pytz
+from typing import Optional
+from pathlib import Path
 
-from consumer_class import KafkaConsumer
+# Assicura che la cartella generator_and_consumer sia visibile agli import
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+GENERATOR_DIR = PROJECT_ROOT / "generator_and_consumer"
+if GENERATOR_DIR.exists() and str(PROJECT_ROOT) not in sys.path:
+    sys.path.append(str(PROJECT_ROOT))
+
+from generator_and_consumer.consumer_class import KafkaConsumer
 from microgrid_simulator import MicrogridSimulator
 
 
@@ -21,7 +31,7 @@ def get_grid_prices(timestamp: datetime, price_config: dict):
     e restituisce vettore prezzi [buy, sell, 0, 1] più etichetta banda; se nessuna corrispondenza 
     usa fascia offpeak o la prima disponibile.
     """
-    hour = timestamp.hour
+    hour = timestamp.hour                # Estrae l'ora corrente dallo timestamp fornito
 
     def hour_in_ranges(hr, ranges):      # Verifica se l'ora hr rientra in uno dei range specificati
         for rng in ranges or []:
@@ -48,24 +58,25 @@ def get_grid_prices(timestamp: datetime, price_config: dict):
     )
 
 
-def rule_based_control(microgrid, load_kw, pv_kw):
+def rule_based_control(microgrid, load_kwh, pv_kwh):
     """ 
-    Implementa controllo greedy: se il carico supera il fotovoltaico tenta di scaricare 
-    la batteria fino al limite (max_production), importando da rete l'eventuale deficit; 
-    se il PV eccede il carico prova a caricare la batteria (max_consumption) ed esporta l'eccedenza residua.
+    Implementa controllo greedy sull'energia scambiata nello step corrente (kWh):
+    se il carico supera il fotovoltaico tenta di scaricare la batteria fino al limite (max_production),
+    importando da rete l'eventuale deficit; se il PV eccede il carico prova a caricare la batteria
+    (max_consumption) ed esporta l'eccedenza residua.
     """
     battery = microgrid.battery[0]
     e_grid = 0.0
     e_batt = 0.0
 
-    if load_kw > pv_kw:
+    if load_kwh > pv_kwh:
         e_batt = battery.max_production
-        deficit = load_kw - pv_kw - e_batt
+        deficit = load_kwh - pv_kwh - e_batt
         if deficit > 0:
             e_grid = deficit
-    elif pv_kw > load_kw:
+    elif pv_kwh > load_kwh:
         e_batt = -battery.max_consumption
-        surplus = pv_kw - load_kw - abs(e_batt)
+        surplus = pv_kwh - load_kwh - abs(e_batt)
         if surplus > 0:
             e_grid = -surplus
 
@@ -99,7 +110,7 @@ def get_logger_last(logger, key, default=0.0):
         return value if value is not None else default
 
 
-def print_step_report(step_idx, timestamp, band, kafka_load, kafka_pv, load_kw, pv_kw,
+def print_step_report(step_idx, timestamp, band, kafka_load, kafka_pv, load_kwh, pv_kwh,
                       battery_info, grid_info, energy_metrics, control, prices, economics):
     """
     Stampa un report leggibile per ogni step con dati Kafka vs simulator, controllo applicato,
@@ -108,9 +119,9 @@ def print_step_report(step_idx, timestamp, band, kafka_load, kafka_pv, load_kw, 
     header = f"\n{'=' * 120}\nSTEP {step_idx} - {timestamp.strftime('%Y-%m-%d %H:%M:%S')} ({band})\n{'=' * 120}"    # Intestazione step
     print(header)
 
-    print(f"Kafka Load/PV        : load={kafka_load:6.3f} kW | pv={kafka_pv:6.3f} kW")
-    print(f"Microgrid Load/PV    : load={load_kw:6.3f} kW | pv={pv_kw:6.3f} kW")
-    print(f"Controllo applicato  : battery={control['battery']:6.3f} kW | grid={control['grid']:6.3f} kW")
+    print(f"Kafka Load/PV        : load={kafka_load:6.3f} kWh | pv={kafka_pv:6.3f} kWh")
+    print(f"Microgrid Load/PV    : load={load_kwh:6.3f} kWh | pv={pv_kwh:6.3f} kWh")
+    print(f"Controllo applicato  : battery={control['battery']:6.3f} kWh | grid={control['grid']:6.3f} kWh")
 
     print("\nEnergia Microgrid:")
     print(f"  Load met          : {energy_metrics['load_met']:6.3f} kWh")
@@ -134,7 +145,7 @@ def print_step_report(step_idx, timestamp, band, kafka_load, kafka_pv, load_kw, 
     print(f"  Reward (approx)  : {economics['reward']:7.4f}")
 
 
-def plot_results(df: pd.DataFrame, base_name: str):
+def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = None):
     """
     Duplica il DataFrame finale, ordina per timestamp e genera cinque grafici (potenze, energia rete step+cumulata, 
     prezzi/bande TOU con fill_between, SOC e flussi batteria con doppio asse, metriche economiche con bilancio cumulativo).
@@ -142,24 +153,34 @@ def plot_results(df: pd.DataFrame, base_name: str):
     la funzione restituisce i percorsi dei file generati per uso successivo.
     """
     df = df.copy()                                         # Duplica DataFrame per evitare modifiche all'originale
-    df["timestamp"] = pd.to_datetime(df["timestamp"])      # Converte la colonna timestamp in datetime
+    timestamps = pd.to_datetime(df["timestamp"], errors="coerce")  # Converte la colonna timestamp in datetime
+
+    # Normalizza il timezone: se i timestamp sono tz-aware, convertili nel timezone configurato (se fornito)
+    if hasattr(timestamps.dt, "tz") and timestamps.dt.tz is not None:
+        if timezone:
+            tz = pytz.timezone(timezone)
+            timestamps = timestamps.dt.tz_convert(tz)
+        timestamps = timestamps.dt.tz_localize(None)       # Porta i timestamp a naive per matplotlib
+    df["timestamp"] = timestamps
+    df.dropna(subset=["timestamp"], inplace=True)          # Rimuove eventuali righe senza timestamp valido
     df.sort_values("timestamp", inplace=True)              # Ordina per timestamp
     df.set_index("timestamp", inplace=True)                # Imposta timestamp come indice
 
     # 1) Potenze istantanee
     fig, ax = plt.subplots(figsize=(12, 5))
-    ax.plot(df.index, df["mg_load_kw"], label="Load (kW)", linewidth=2)
-    ax.plot(df.index, df["mg_pv_kw"], label="PV (kW)", linewidth=2)
-    ax.plot(df.index, df["control_batt_kw"], label="Battery Power (kW)", linewidth=1.8, linestyle="-.")
-    ax.plot(df.index, df["control_grid_kw"], label="Grid Power (kW)", linewidth=1.8, linestyle="--")
-    ax.set_title("Power Flows")
-    ax.set_ylabel("Power [kW]")
+    ax.plot(df.index, df["mg_load_kwh"], label="Load (kWh)", linewidth=2)
+    ax.plot(df.index, df["mg_pv_kwh"], label="PV (kWh)", linewidth=2)
+    ax.plot(df.index, df["control_batt_kwh"], label="Battery Net Flow (kWh)", linewidth=1.8, linestyle="-.")
+    ax.plot(df.index, df["battery_current_charge_kwh"], label="Battery Stored Energy (kWh)", linewidth=1.8, linestyle=":")
+    ax.plot(df.index, df["control_grid_kwh"], label="Grid Energy (kWh)", linewidth=1.8, linestyle="--")
+    ax.set_title("Energy Flows per Step")
+    ax.set_ylabel("Energy [kWh]")
     ax.set_xlabel("Time")
     ax.legend()
     ax.grid(True, linestyle="--", alpha=0.4)
-    power_path = f"{base_name}_power.png"
+    energy_path = f"{base_name}_energy.png"
     fig.tight_layout()
-    fig.savefig(power_path, dpi=160)
+    fig.savefig(energy_path, dpi=160)
     plt.close(fig)
 
     # 2) Energia rete cumulativa e per step
@@ -188,8 +209,8 @@ def plot_results(df: pd.DataFrame, base_name: str):
 
     # 3) Prezzi vs band
     fig, ax = plt.subplots(figsize=(12, 5))
-    ax.plot(df.index, df["price_buy_eur_kwh"], label="Price Buy (€/kWh)", linewidth=2)
-    ax.plot(df.index, df["price_sell_eur_kwh"], label="Price Sell (€/kWh)", linewidth=2)
+    ax.plot(df.index, df["price_buy_eur_kwh"], label="Price Buy (eur/kWh)", linewidth=2)
+    ax.plot(df.index, df["price_sell_eur_kwh"], label="Price Sell (eur/kWh)", linewidth=2)
     unique_bands = df["band"].unique()
     for band in unique_bands:
         band_mask = df["band"] == band
@@ -203,7 +224,7 @@ def plot_results(df: pd.DataFrame, base_name: str):
                 label=f"Band {band}" if f"Band {band}" not in ax.get_legend_handles_labels()[1] else "",
             )
     ax.set_title("Grid Prices and Time-of-Use Bands")
-    ax.set_ylabel("€/kWh")
+    ax.set_ylabel("eur/kWh")
     ax.set_xlabel("Time")
     ax.legend()
     ax.grid(True, linestyle="--", alpha=0.4)
@@ -237,9 +258,9 @@ def plot_results(df: pd.DataFrame, base_name: str):
 
     # 5) Indicatori economici per step e cumulativi
     fig, ax1 = plt.subplots(figsize=(12, 5))
-    ax1.bar(df.index, df["cost_import_eur"], label="Import Cost (€/step)", color="tab:blue", alpha=0.45, width=0.025)
-    ax1.bar(df.index, df["revenue_export_eur"], label="Export Revenue (€/step)", color="tab:orange", alpha=0.45, width=0.025)
-    ax1.set_ylabel("€/step")
+    ax1.bar(df.index, df["cost_import_eur"], label="Import Cost (eur/step)", color="tab:blue", alpha=0.45, width=0.025)
+    ax1.bar(df.index, df["revenue_export_eur"], label="Export Revenue (eur/step)", color="tab:orange", alpha=0.45, width=0.025)
+    ax1.set_ylabel("eur/step")
     ax1.set_xlabel("Time")
     ax1.grid(True, linestyle="--", alpha=0.4)
 
@@ -264,8 +285,8 @@ def plot_results(df: pd.DataFrame, base_name: str):
     fig.savefig(economics_path, dpi=160)
     plt.close(fig)
 
-    return {                             # Restituisce i percorsi dei file generati 
-        "power": power_path,
+    return {                             # Restituisce i percorsi dei file generati
+        "energy": energy_path,
         "grid": grid_path,
         "prices": prices_path,
         "battery": battery_path,
@@ -277,21 +298,23 @@ def plot_results(df: pd.DataFrame, base_name: str):
 # Main
 # =============================================================================
 def main():
-    with open("params.yml", "r") as cfg_file:   # Carica configurazione EMS da file YAML
+    with open("params.yml", "r") as cfg_file:   # Carica configurazione da file YAML 
         full_config = yaml.safe_load(cfg_file)
 
-    ems_cfg = full_config.get("ems", {})                            # Parametri EMS con valori di default
-    kafka_topic = ems_cfg.get("kafka_topic", "test_topic_661")      # Topic Kafka
-    buffer_size = ems_cfg.get("buffer_size", 96)                    # Dimensione buffer dati (96 per 15min in 24h)
-    timezone = ems_cfg.get("timezone", "Europe/Rome")               # Timezone per timestamp
-    simulation_steps = ems_cfg.get("steps", 5)                      # Numero di step di simulazione
-    price_config = ems_cfg.get("price_bands", {})                   # Configurazione fasce orarie e prezzi
-    if not price_config:                         # Configurazione di default se non specificata
-        price_config = {
-            "peak": {"buy": 0.35, "sell": 0.12, "ranges": [[18, 20]]},
-            "standard": {"buy": 0.28, "sell": 0.10, "ranges": [[7, 17], [21, 22]]},
-            "offpeak": {"buy": 0.20, "sell": 0.08, "ranges": []},
-        }
+    ems_cfg = full_config.get("ems")            # Estrae sezione 'ems' dalla configurazione caricata 
+    if not ems_cfg:
+        raise KeyError("Sezione 'ems' mancante in params.yml")     # Verifica presenza sezione 'ems' altrimenti solleva errore
+
+    required_keys = ("kafka_topic", "buffer_size", "timezone", "steps", "price_bands")   # Chiavi richieste nella sezione 'ems'
+    missing_keys = [key for key in required_keys if key not in ems_cfg]
+    if missing_keys:
+        raise KeyError(f"Mancano le chiavi {missing_keys} nella sezione 'ems' di params.yml")   # Verifica presenza chiavi richieste
+
+    kafka_topic = ems_cfg["kafka_topic"]          # Topic Kafka
+    buffer_size = ems_cfg["buffer_size"]          # Dimensione buffer dati (96 per 15min in 24h)
+    timezone = ems_cfg["timezone"]                # Timezone per timestamp
+    simulation_steps = ems_cfg["steps"]           # Numero di step di simulazione
+    price_config = ems_cfg["price_bands"]         # Configurazione fasce orarie e prezzi
 
     print("\nInizializzazione Kafka Consumer...")
     consumer = KafkaConsumer(                          # Crea consumer Kafka con configurazione specificata
@@ -312,11 +335,11 @@ def main():
         online=True,                                   # Modalità online per dati in tempo reale
     )
     microgrid = simulator.build_microgrid()            # Costruisce microgrid da configurazione
-    load_module = microgrid.modules["load"][0]        
-    pv_module = microgrid.modules["pv"][0]
-    grid_module = microgrid.modules["grid"][0]
+    load_module = microgrid.modules["load"][0]         # Riferimento al modulo load 
+    pv_module = microgrid.modules["pv"][0]             # Riferimento al modulo PV
+    grid_module = microgrid.modules["grid"][0]         # Riferimento al modulo rete
     try:
-        balancing_module = microgrid.modules["balancing"][0]
+        balancing_module = microgrid.modules["balancing"][0]   # Riferimento al modulo balancing se presente, serve per i calcoli
     except (KeyError, IndexError, TypeError):
         balancing_module = None
     microgrid.reset()                                  # Resetta stato microgrid all'inizio della simulazione
@@ -329,8 +352,8 @@ def main():
             time.sleep(0.5)
         last_count = consumer.total_messages            # Aggiorna contatore messaggi
 
-        kafka_load = deque_last(consumer.load, 0.0)                     # Prende ultimi valori load da buffer Kafka con default 0.0
-        kafka_pv = deque_last(consumer.solar, 0.0)                      # Prende ultimi valori pv da buffer Kafka con default 0.0
+        kafka_load = deque_last(consumer.load, 0.0)                     # Energia load per intervallo dall'ultimo messaggio Kafka
+        kafka_pv = deque_last(consumer.solar, 0.0)                      # Energia PV per intervallo dall'ultimo messaggio Kafka
         timestamp = deque_last(consumer.timestamps, datetime.now())     # Prende ultimo timestamp da buffer Kafka con default ora corrente
 
         grid_prices, band = get_grid_prices(timestamp, price_config)    # Ottiene prezzi rete e banda oraria corrente
@@ -339,10 +362,10 @@ def main():
             {"load": kafka_load, "pv": kafka_pv, "grid": [grid_prices]}
         )
 
-        load_kw = load_module.current_load              # Legge potenza load attuale dalla microgrid (dovrebbe corrispondere a kafka_load)
-        pv_kw = pv_module.current_renewable             # Legge potenza pv attuale dalla microgrid (dovrebbe corrispondere a kafka_pv)
+        load_kwh = load_module.current_load             # Energia load attuale nello step della microgrid (dovrebbe corrispondere a kafka_load)
+        pv_kwh = pv_module.current_renewable            # Energia PV attuale nello step della microgrid (dovrebbe corrispondere a kafka_pv)
 
-        e_batt, e_grid = rule_based_control(microgrid, load_kw, pv_kw)    # Calcola controllo basato su regole 
+        e_batt, e_grid = rule_based_control(microgrid, load_kwh, pv_kwh)    # Calcola controllo basato su regole 
         control = {"battery": e_batt, "grid": e_grid}                     # Prepara dizionario controllo per report
 
         observations, reward, done, info = microgrid.step(                # Esegue step di simulazione con i controlli calcolati
@@ -370,8 +393,8 @@ def main():
         if loss_load_value is None:
             loss_load_value = get_logger_last(balancing_logger, "loss_load_energy", 0.0)
         energy_metrics = {                                                        # Metriche energetiche derivanti dai log
-            "load_met": get_logger_last(load_logger, "load_met", load_kw),
-            "renewable_used": get_logger_last(pv_logger, "renewable_used", min(pv_kw, load_kw)),
+            "load_met": get_logger_last(load_logger, "load_met", load_kwh),
+            "renewable_used": get_logger_last(pv_logger, "renewable_used", min(pv_kwh, load_kwh)),
             "curtailment": get_logger_last(pv_logger, "curtailment", 0.0),
             "loss_load": loss_load_value if loss_load_value is not None else 0.0,
         }
@@ -390,8 +413,8 @@ def main():
             band,
             kafka_load,
             kafka_pv,
-            load_kw,
-            pv_kw,
+            load_kwh,
+            pv_kwh,
             battery_info,
             grid_info,
             energy_metrics,
@@ -405,12 +428,12 @@ def main():
                 "step": step,
                 "timestamp": timestamp,
                 "band": band,
-                "kafka_load_kw": kafka_load,
-                "kafka_pv_kw": kafka_pv,
-                "mg_load_kw": load_kw,
-                "mg_pv_kw": pv_kw,
-                "control_batt_kw": e_batt,
-                "control_grid_kw": e_grid,
+                "kafka_load_kwh": kafka_load,
+                "kafka_pv_kwh": kafka_pv,
+                "mg_load_kwh": load_kwh,
+                "mg_pv_kwh": pv_kwh,
+                "control_batt_kwh": e_batt,
+                "control_grid_kwh": e_grid,
                 "grid_import_kwh": grid_info["import"],
                 "grid_export_kwh": grid_info["export"],
                 "price_buy_eur_kwh": prices["buy"],
@@ -434,11 +457,15 @@ def main():
     print("\nConsumer fermato.")
 
     results_df = pd.DataFrame(results)                                            # Crea DataFrame Pandas dai risultati raccolti
-    csv_name = f"ems_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"      # Nome file CSV con timestamp corrente
-    results_df.to_csv(csv_name, index=False)                                      # Salva risultati su file CSV 
+    output_dir = Path("outputs")
+    output_dir.mkdir(exist_ok=True)
+    timestamp_now = datetime.now().strftime('%Y%m%d_%H%M%S')
+    csv_name = f"ems_results_{timestamp_now}.csv"      # Nome file CSV con timestamp corrente
+    csv_path = output_dir / csv_name
+    results_df.to_csv(csv_path, index=False)                                      # Salva risultati su file CSV 
 
-    base_name = csv_name.replace(".csv", "")                         # Base name per i file grafici
-    plot_paths = plot_results(results_df, base_name)                 # Genera e salva i grafici, ottenendo i percorsi dei file
+    base_name = (output_dir / csv_name.replace(".csv", ""))                       # Base name per i file grafici
+    plot_paths = plot_results(results_df, str(base_name), timezone)       # Genera e salva i grafici, ottenendo i percorsi dei file
 
     print("\n" + "-" * 120)
     print("RESOCONTO FINALE")                                     # Stampa resoconto finale con metriche aggregate
@@ -472,3 +499,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
