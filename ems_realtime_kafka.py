@@ -1,18 +1,19 @@
-import ast
 import os
 import sys
 import time
 from collections import deque
 from datetime import datetime
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple, Any
 
+import ast
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
 import pandas as pd
 import yaml
 import pytz
-from typing import Optional
-from pathlib import Path
 
 # Assicura che la cartella generator_and_consumer sia visibile agli import
 PROJECT_ROOT = Path(__file__).resolve().parent
@@ -137,6 +138,26 @@ def _parse_int_config(value, key_name):
     raise ValueError(f"Il valore '{value}' per '{key_name}' deve essere un intero oppure un'espressione numerica.")
 
 
+@dataclass
+class EMSConfig:
+    kafka_topic: str
+    buffer_size: int
+    timezone: str
+    steps: int
+    price_bands: dict
+
+
+@dataclass
+class EMSModules:
+    simulator: MicrogridSimulator
+    microgrid: Any
+    load_module: Any
+    pv_module: Any
+    grid_module: Any
+    battery_module: Any
+    balancing_module: Optional[Any] = None
+
+
 def sum_module_info(info_dict, module_name, key):
     """
     Somma un determinato campo di info per tutte le istanze del modulo richiesto.
@@ -202,6 +223,54 @@ def update_live_battery_display(display, soc_pct, timestamp):
     display["time_text"].set_text(str(timestamp))
     display["fig"].canvas.draw()
     display["fig"].canvas.flush_events()
+
+
+def build_microgrid() -> EMSModules:
+    simulator = MicrogridSimulator(
+        config_path="params.yml",
+        time_series=None,
+        online=True,
+    )
+    microgrid = simulator.build_microgrid()
+    load_module = microgrid.modules["load"][0]
+    pv_module = microgrid.modules["pv"][0]
+    grid_module = microgrid.modules["grid"][0]
+    try:
+        balancing_module = microgrid.modules["balancing"][0]
+    except (KeyError, IndexError, TypeError):
+        balancing_module = None
+    microgrid.reset()
+    return EMSModules(
+        simulator=simulator,
+        microgrid=microgrid,
+        load_module=load_module,
+        pv_module=pv_module,
+        grid_module=grid_module,
+        battery_module=microgrid.battery[0],
+        balancing_module=balancing_module,
+    )
+
+
+def load_config(path: str = "params.yml") -> EMSConfig:
+    with open(path, "r") as cfg_file:
+        full_config = yaml.safe_load(cfg_file)
+
+    ems_cfg = full_config.get("ems")
+    if not ems_cfg:
+        raise KeyError("Sezione 'ems' mancante in params.yml")
+
+    required_keys = ("kafka_topic", "buffer_size", "timezone", "steps", "price_bands")
+    missing_keys = [key for key in required_keys if key not in ems_cfg]
+    if missing_keys:
+        raise KeyError(f"Mancano le chiavi {missing_keys} nella sezione 'ems' di params.yml")
+
+    return EMSConfig(
+        kafka_topic=ems_cfg["kafka_topic"],
+        buffer_size=_parse_int_config(ems_cfg["buffer_size"], "buffer_size"),
+        timezone=ems_cfg["timezone"],
+        steps=_parse_int_config(ems_cfg["steps"], "steps"),
+        price_bands=ems_cfg["price_bands"],
+    )
 
 
 def print_step_report(step_idx, timestamp, band, kafka_load, kafka_pv, load_kwh, pv_kwh,
@@ -410,51 +479,30 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
 # Main
 # =============================================================================
 def main():
-    with open("params.yml", "r") as cfg_file:   # Carica configurazione da file YAML 
-        full_config = yaml.safe_load(cfg_file)
-
-    ems_cfg = full_config.get("ems")            # Estrae sezione 'ems' dalla configurazione caricata 
-    if not ems_cfg:
-        raise KeyError("Sezione 'ems' mancante in params.yml")     # Verifica presenza sezione 'ems' altrimenti solleva errore
-
-    required_keys = ("kafka_topic", "buffer_size", "timezone", "steps", "price_bands")   # Chiavi richieste nella sezione 'ems'
-    missing_keys = [key for key in required_keys if key not in ems_cfg]
-    if missing_keys:
-        raise KeyError(f"Mancano le chiavi {missing_keys} nella sezione 'ems' di params.yml")   # Verifica presenza chiavi richieste
-
-    kafka_topic = ems_cfg["kafka_topic"]          # Topic Kafka
-    buffer_size = _parse_int_config(ems_cfg["buffer_size"], "buffer_size")
-    timezone = ems_cfg["timezone"]                # Timezone per timestamp
-    simulation_steps = _parse_int_config(ems_cfg["steps"], "steps")
-    price_config = ems_cfg["price_bands"]         # Configurazione fasce orarie e prezzi
+    config = load_config()
 
     print("\nInizializzazione Kafka Consumer...")
-    consumer = KafkaConsumer(                          # Crea consumer Kafka con configurazione specificata
-        buffer_size=buffer_size,
-        topic=kafka_topic,
-        timezone=timezone,
+    consumer = KafkaConsumer(
+        buffer_size=config.buffer_size,
+        topic=config.kafka_topic,
+        timezone=config.timezone,
     )
     consumer.start_background()                        # Avvia consumer in thread separato
+    price_config = config.price_bands
+    simulation_steps = config.steps
 
     print("Attesa primi dati...")
     while len(consumer.solar) == 0:                    # Attende che arrivino i primi dati
         time.sleep(0.5)
 
     print("Inizializzazione microgrid...")
-    simulator = MicrogridSimulator(                    # Crea microgrid simulator con configurazione specificata
-        config_path="params.yml",
-        time_series=None,
-        online=True,                                   # Modalità online per dati in tempo reale
-    )
-    microgrid = simulator.build_microgrid()            # Costruisce microgrid da configurazione
-    load_module = microgrid.modules["load"][0]         # Riferimento al modulo load 
-    pv_module = microgrid.modules["pv"][0]             # Riferimento al modulo PV
-    grid_module = microgrid.modules["grid"][0]         # Riferimento al modulo rete
-    try:
-        balancing_module = microgrid.modules["balancing"][0]   # Riferimento al modulo balancing se presente, serve per i calcoli
-    except (KeyError, IndexError, TypeError):
-        balancing_module = None
-    microgrid.reset()                                  # Resetta stato microgrid all'inizio della simulazione
+    modules = build_microgrid()
+    simulator = modules.simulator
+    microgrid = modules.microgrid
+    load_module = modules.load_module
+    pv_module = modules.pv_module
+    grid_module = modules.grid_module
+    balancing_module = modules.balancing_module
     results = []                                       # Lista per memorizzare i risultati di ogni step
     last_count = consumer.total_messages               # Conta messaggi processati per sincronizzazione
 
