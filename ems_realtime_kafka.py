@@ -7,7 +7,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Any
 
-import ast
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
@@ -95,47 +94,6 @@ def deque_last(buffer: deque, default=None):
     default quando la coda e' vuota (utile durante l'avvio del consumer).
     """
     return buffer[-1] if len(buffer) else default
-
-
-def get_logger_last(logger, key, default=0.0):
-    """
-    Ultimo valore disponibile per la chiave nel ModularLogger associato al modulo.
-    """
-    if logger is None:
-        return default
-    try:
-        values = logger.get(key)
-    except AttributeError:
-        return default
-    if not values:
-        return default
-    value = values[-1]
-    try:
-        return float(value)
-    except (TypeError, ValueError):
-        return value if value is not None else default
-
-
-def _parse_int_config(value, key_name):
-    """
-    Consente di specificare valori interi oppure espressioni (es. "96*2") nel file params.yml.
-    """
-    if isinstance(value, int):
-        return value
-    if isinstance(value, float):
-        if value.is_integer():
-            return int(value)
-        raise ValueError(f"Il valore '{value}' per '{key_name}' deve essere un intero.")
-    if isinstance(value, str):
-        try:
-            evaluated = ast.literal_eval(value)
-        except Exception as exc:
-            raise ValueError(f"Impossibile interpretare '{value}' per '{key_name}': {exc}") from exc
-        if isinstance(evaluated, (int, float)):
-            if isinstance(evaluated, float) and not evaluated.is_integer():
-                raise ValueError(f"Il valore '{value}' per '{key_name}' deve essere un intero.")
-            return int(evaluated)
-    raise ValueError(f"Il valore '{value}' per '{key_name}' deve essere un intero oppure un'espressione numerica.")
 
 
 @dataclass
@@ -264,11 +222,17 @@ def load_config(path: str = "params.yml") -> EMSConfig:
     if missing_keys:
         raise KeyError(f"Mancano le chiavi {missing_keys} nella sezione 'ems' di params.yml")
 
+    try:
+        buffer_size = int(ems_cfg["buffer_size"])
+        steps = int(ems_cfg["steps"])
+    except (TypeError, ValueError) as exc:
+        raise ValueError("I campi 'buffer_size' e 'steps' devono essere interi.") from exc
+
     return EMSConfig(
         kafka_topic=ems_cfg["kafka_topic"],
-        buffer_size=_parse_int_config(ems_cfg["buffer_size"], "buffer_size"),
+        buffer_size=buffer_size,
         timezone=ems_cfg["timezone"],
-        steps=_parse_int_config(ems_cfg["steps"], "steps"),
+        steps=steps,
         price_bands=ems_cfg["price_bands"],
     )
 
@@ -719,5 +683,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
