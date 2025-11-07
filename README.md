@@ -173,19 +173,19 @@ What it does:
 
 The following figures show a real run (copied under `docs/images/` for reference):
 
-![Energy Flows](docs/images/ems_results_20251106_142817_energy.png)  
+![Energy Flows](docs/images/ems_results_20251107_114929_energy.png)  
 *Energy per step: load, PV, net battery flow and stored energy.*
 
-![Grid Exchange](docs/images/ems_results_20251106_142817_grid.png)  
+![Grid Exchange](docs/images/ems_results_20251107_114929_grid.png)  
 *Import/export per step (bars) and cumulative curves.*
 
-![Prices & Bands](docs/images/ems_results_20251106_142817_prices.png)  
+![Prices & Bands](docs/images/ems_results_20251107_114929_prices.png)  
 *Buy/sell prices with the configured time-of-use bands.*
 
-![Battery SOC](docs/images/ems_results_20251106_142817_battery.png)  
+![Battery SOC](docs/images/ems_results_20251107_114929_battery.png)  
 *Battery state-of-charge (%) and charge/discharge energy.*
 
-![Economic Performance](docs/images/ems_results_20251106_142817_economics.png)  
+![Economic Performance](docs/images/ems_results_20251107_114929_economics.png)  
 *Step costs/revenues and cumulative economic balance.*
 
 ---
@@ -207,6 +207,7 @@ The following figures show a real run (copied under `docs/images/` for reference
 - `generator_and_consumer/consumatore_realtime_kafka.py`: lightweight consumer for debugging (kWh).
 - `generator_and_consumer/consumer_class.py`: reusable Kafka consumer with rolling buffer.
 - `docs/ems_realtime_kafka_guide.txt`: in-depth walkthrough of the EMS script.
+- `docs/generatore_realtime_kafka_guide.txt`: quick reference for the generator script and timestamp handling.
 - ODA documentation: [https://github.com/di-unipi-socc/ODA](https://github.com/di-unipi-socc/ODA)
 
 > Simulation results (CSV + plots) are stored under `microgrid-simulator/outputs/`.

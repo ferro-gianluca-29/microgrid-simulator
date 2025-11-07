@@ -14,6 +14,7 @@ import time
 import json
 import requests
 import pytz  # Per gestire fusi orari
+from pytz import NonExistentTimeError, AmbiguousTimeError
 
 
 # ============================================================================
@@ -61,6 +62,28 @@ print(f"\n Caricamento dati da {DATA_FILE}...")
 
 df = pd.read_csv(DATA_FILE, parse_dates=['datetime'])         # Carica CSV in DataFrame con pandas e parse colonna timestamp
 
+
+def normalize_timestamp(ts):
+    if pd.isna(ts):
+        return pd.NaT
+    ts = pd.Timestamp(ts)
+    if ts.tzinfo is not None:
+        return ts.tz_convert(TIMEZONE_ITALIA)
+    try:
+        return ts.tz_localize(TIMEZONE_ITALIA, ambiguous=True, nonexistent='shift_forward')
+    except NonExistentTimeError:
+        adjusted = ts + pd.Timedelta(hours=1)
+        return adjusted.tz_localize(TIMEZONE_ITALIA, ambiguous=True, nonexistent='shift_forward')
+    except AmbiguousTimeError:
+        return ts.tz_localize(TIMEZONE_ITALIA, ambiguous=True)
+
+
+df['datetime'] = df['datetime'].apply(normalize_timestamp)
+invalid_datetimes = df['datetime'].isna().sum()
+if invalid_datetimes:
+    print(f" ATTENZIONE: {invalid_datetimes} timestamp non validi saranno ignorati.")
+    df = df.dropna(subset=['datetime']).reset_index(drop=True)
+
 # Verifica colonne
 required_columns = {'datetime', 'solar', 'load'}
 missing_columns = required_columns.difference(df.columns)   # Trova colonne mancanti nel file CSV rispetto a quelle richieste
@@ -75,13 +98,6 @@ if first_valid_idx is None:
     exit(1)
 
 start_timestamp = df.at[first_valid_idx, 'datetime']
-if not isinstance(start_timestamp, pd.Timestamp):
-    start_timestamp = pd.to_datetime(start_timestamp)
-if start_timestamp.tzinfo is None:
-    start_timestamp = start_timestamp.tz_localize(TIMEZONE_ITALIA)
-else:
-    start_timestamp = start_timestamp.tz_convert(TIMEZONE_ITALIA)
-
 print(f" Caricati {len(df)} record")
 
 
@@ -121,13 +137,6 @@ try:
         if pd.isna(timestamp):
             print(f" ATTENZIONE: timestamp mancante alla riga {idx}, salto il record")
             continue
-
-        if not isinstance(timestamp, pd.Timestamp):
-            timestamp = pd.to_datetime(timestamp)
-        if timestamp.tzinfo is None:
-            timestamp = timestamp.tz_localize(TIMEZONE_ITALIA)
-        else:
-            timestamp = timestamp.tz_convert(TIMEZONE_ITALIA)
 
         # Leggi valori CSV (energie per intervallo in kWh)
         solar = float(row['solar'])

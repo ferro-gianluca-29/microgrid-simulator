@@ -1,0 +1,82 @@
+EMS_REALTME_KAFKA.PY – DETAILED WORKFLOW
+
+Overview
+--------
+The script orchestrates a complete simulation cycle:
+1. Read the latest energy measurements from Kafka.
+2. Feed them into PyMGrid.
+3. Apply a simple rule-based control strategy.
+4. Collect the resulting metrics from PyMGrid logs.
+5. Persist the results (CSV + plots) for each step.
+
+Path setup and configuration
+----------------------------
+- The script extends `sys.path` so it can import modules located in the sibling `generator_and_consumer/` directory.
+- It loads `params.yml` and demands explicit values for:
+  • `ems.kafka_topic`, `ems.buffer_size`, `ems.timezone`, `ems.steps`.
+  • Full `ems.price_bands` definition (peak/standard/off-peak).
+  • Battery and grid sections that describe capacity, power limits, efficiency, etc.
+
+Main simulation loop (main())
+----------------------------
+1. **KafkaConsumer** – pulls messages in real time, keeping the latest values in rolling `deque`s (`timestamps`, `solar`, `load`). Runs in a background thread so the main loop can continue.
+2. **Microgrid build** – `MicrogridSimulator.build_microgrid()` creates PyMGrid modules: battery, load, renewable (PV), grid and optionally a balancing module. These modules expose both current states and logs.
+3. **For each step (range(steps))**:
+   a. Wait for a new Kafka message (based on `consumer.total_messages`).
+   b. Pull the latest energy measurements (`kafka_load`, `kafka_pv`) and timestamp using `deque_last`.
+   c. Evaluate the current tariff band via `get_grid_prices(timestamp, price_config)` (hour-based TOU lookup).
+   d. Inject the data into the microgrid (`microgrid.ingest_real_time_data`).
+   e. Read the microgrid’s present state (`load_module.current_load`, `pv_module.current_renewable`).
+   f. Compute control actions with `rule_based_control`:
+      - If load > PV → discharge the battery up to `max_production`, then import the deficit from the grid.
+      - If PV > load → charge the battery up to `max_consumption`, then export the surplus to the grid.
+   g. Execute one PyMGrid step (`microgrid.step({"battery": [e_batt], "grid": [e_grid]}, normalized=False)`).
+
+PyMGrid logging and metrics
+---------------------------
+Every call to `microgrid.step` pushes data into module loggers (`ModuleLogger`). The script pulls the latest entries with `get_logger_last` to build step-level metrics.
+
+- Battery module → `soc`, `current_charge`, `charge_amount`, `discharge_amount`.
+- Grid module → `grid_import`, `grid_export`.
+- Load / PV modules → `load_met`, `renewable_used`, `curtailment`.
+- Balancing module (optional) → `loss_load` or `loss_load_energy`.
+- Economic indicators → computed externally from `grid_import`/`grid_export` using the current tariff.
+- `reward` → returned by `microgrid.step` and stored for reference.
+
+Step reporting
+--------------
+`print_step_report` receives:
+• Kafka vs. microgrid values.
+• Control actions (battery/grid energy).
+• Energy metrics (load met, renewable used, curtailment, loss of load).
+• Battery state data.
+• Grid exchange.
+• Price information.
+• Economic summary (cost, revenue, balance, reward).
+
+Persisting the results
+----------------------
+For each iteration, a dictionary is appended to `results` containing:
+• `timestamp`, `kafka_*`, `mg_*`, control actions, grid metrics.
+• Battery SOC / charge, energy metrics, economics.
+
+After the loop:
+1. Stop the Kafka consumer (joining the background thread).
+2. Create a DataFrame from `results`.
+3. Save `outputs/ems_results_<timestamp>.csv`.
+4. Call `plot_results` to generate five figures:
+   - Energy per step (load, PV, battery net flow, stored energy, grid).
+   - Grid exchange (bars + cumulative curves).
+   - Prices & TOU bands (line + `fill_between` shading).
+   - Battery SOC and charge/discharge.
+   - Economic performance (cost/revenue + cumulative balance).
+   To keep the x-axis tidy, `plot_results` infers the time-step frequency, builds a regular `DatetimeIndex`, and reindexes the data while storing the original timestamps in `timestamp_original`.
+5. Print a final summary showing totals and file paths.
+
+Key points
+----------
+- All energies are handled as kWh per step.
+- PyMGrid loggers provide authoritative values (load met, renewable used, grid import/export, battery charge, loss of load).
+- Control logic is a simple rule-based heuristic geared toward self-consumption.
+- Outputs live in `microgrid-simulator/outputs/` (CSV + PNGs).
+- Sample figures are stored under `docs/images/` for documentation and README previews.

@@ -1,3 +1,4 @@
+import ast
 import os
 import sys
 import time
@@ -5,6 +6,7 @@ from collections import deque
 from datetime import datetime
 
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 import numpy as np
 import pandas as pd
 import yaml
@@ -69,16 +71,19 @@ def rule_based_control(microgrid, load_kwh, pv_kwh):
     e_grid = 0.0
     e_batt = 0.0
 
-    if load_kwh > pv_kwh:
-        e_batt = battery.max_production
-        deficit = load_kwh - pv_kwh - e_batt
-        if deficit > 0:
-            e_grid = deficit
-    elif pv_kwh > load_kwh:
-        e_batt = -battery.max_consumption
-        surplus = pv_kwh - load_kwh - abs(e_batt)
-        if surplus > 0:
-            e_grid = -surplus
+    tolerance = 1e-6
+    if load_kwh > pv_kwh + tolerance:
+        deficit = load_kwh - pv_kwh
+        max_discharge = max(0.0, battery.max_production)
+        discharge = min(deficit, max_discharge)
+        e_batt = discharge
+        e_grid = max(deficit - discharge, 0.0)
+    elif pv_kwh > load_kwh + tolerance:
+        surplus = pv_kwh - load_kwh
+        max_charge = max(0.0, battery.max_consumption)
+        charge = min(surplus, max_charge)
+        e_batt = -charge
+        e_grid = -max(surplus - charge, 0.0)
 
     return e_batt, e_grid
 
@@ -108,6 +113,95 @@ def get_logger_last(logger, key, default=0.0):
         return float(value)
     except (TypeError, ValueError):
         return value if value is not None else default
+
+
+def _parse_int_config(value, key_name):
+    """
+    Consente di specificare valori interi oppure espressioni (es. "96*2") nel file params.yml.
+    """
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        if value.is_integer():
+            return int(value)
+        raise ValueError(f"Il valore '{value}' per '{key_name}' deve essere un intero.")
+    if isinstance(value, str):
+        try:
+            evaluated = ast.literal_eval(value)
+        except Exception as exc:
+            raise ValueError(f"Impossibile interpretare '{value}' per '{key_name}': {exc}") from exc
+        if isinstance(evaluated, (int, float)):
+            if isinstance(evaluated, float) and not evaluated.is_integer():
+                raise ValueError(f"Il valore '{value}' per '{key_name}' deve essere un intero.")
+            return int(evaluated)
+    raise ValueError(f"Il valore '{value}' per '{key_name}' deve essere un intero oppure un'espressione numerica.")
+
+
+def sum_module_info(info_dict, module_name, key):
+    """
+    Somma un determinato campo di info per tutte le istanze del modulo richiesto.
+    """
+    total = 0.0
+    for entry in info_dict.get(module_name, []):
+        if not isinstance(entry, dict):
+            continue
+        value = entry.get(key)
+        if value is None:
+            continue
+        try:
+            total += float(value)
+        except (TypeError, ValueError):
+            continue
+    return total
+
+
+def init_live_battery_display(initial_soc_pct, timestamp):
+    """
+    Crea una finestra interattiva con l'icona della batteria da aggiornare step-by-step.
+    """
+    try:
+        plt.ion()
+        fig, ax = plt.subplots(figsize=(3, 5))
+        ax.set_xlim(0, 1)
+        ax.set_ylim(0, 1.3)
+        ax.axis("off")
+
+        body = patches.Rectangle((0.2, 0.15), 0.6, 1.0, linewidth=2.5, edgecolor="black", facecolor="none", joinstyle="round")
+        cap = patches.Rectangle((0.4, 1.15), 0.2, 0.08, linewidth=2.0, edgecolor="black", facecolor="lightgray")
+        fill = patches.Rectangle(
+            (0.2, 0.15),
+            0.6,
+            max(0.0, min(1.0, initial_soc_pct / 100.0)) * 1.0,
+            facecolor="#32CD32",
+        )
+        ax.add_patch(fill)
+        ax.add_patch(body)
+        ax.add_patch(cap)
+        soc_text = ax.text(0.5, 0.05, f"{initial_soc_pct:5.1f}%", ha="center", va="center", fontsize=12, fontweight="bold")
+        time_text = ax.text(0.5, 1.28, str(timestamp), ha="center", va="bottom", fontsize=10)
+        fig.canvas.draw()
+        fig.canvas.flush_events()
+        return {"fig": fig, "fill": fill, "soc_text": soc_text, "time_text": time_text}
+    except Exception as exc:  # pragma: no cover
+        print(f"[WARN] impossibile inizializzare la batteria live: {exc}")
+        return None
+
+
+def update_live_battery_display(display, soc_pct, timestamp):
+    if not display:
+        return
+    soc_norm = max(0.0, min(1.0, soc_pct / 100.0))
+    display["fill"].set_height(soc_norm * 1.0)
+    if soc_pct <= 20:
+        display["fill"].set_color("#CC2936")  # rosso
+    elif soc_pct <= 40:
+        display["fill"].set_color("#FFA500")  # arancione
+    else:
+        display["fill"].set_color("#32CD32")  # verde
+    display["soc_text"].set_text(f"{soc_pct:5.1f}%")
+    display["time_text"].set_text(str(timestamp))
+    display["fig"].canvas.draw()
+    display["fig"].canvas.flush_events()
 
 
 def print_step_report(step_idx, timestamp, band, kafka_load, kafka_pv, load_kwh, pv_kwh,
@@ -273,6 +367,7 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
     fig.savefig(battery_path, dpi=160)
     plt.close(fig)
 
+    # 4b) Animazione batteria a forma di icona
     # 5) Indicatori economici per step e cumulativi
     fig, ax1 = plt.subplots(figsize=(12, 5))
     ax1.bar(df.index, df["cost_import_eur"], label="Import Cost (eur/step)", color="tab:blue", alpha=0.45, width=0.025)
@@ -328,9 +423,9 @@ def main():
         raise KeyError(f"Mancano le chiavi {missing_keys} nella sezione 'ems' di params.yml")   # Verifica presenza chiavi richieste
 
     kafka_topic = ems_cfg["kafka_topic"]          # Topic Kafka
-    buffer_size = ems_cfg["buffer_size"]          # Dimensione buffer dati (96 per 15min in 24h)
+    buffer_size = _parse_int_config(ems_cfg["buffer_size"], "buffer_size")
     timezone = ems_cfg["timezone"]                # Timezone per timestamp
-    simulation_steps = ems_cfg["steps"]           # Numero di step di simulazione
+    simulation_steps = _parse_int_config(ems_cfg["steps"], "steps")
     price_config = ems_cfg["price_bands"]         # Configurazione fasce orarie e prezzi
 
     print("\nInizializzazione Kafka Consumer...")
@@ -360,9 +455,50 @@ def main():
     except (KeyError, IndexError, TypeError):
         balancing_module = None
     microgrid.reset()                                  # Resetta stato microgrid all'inizio della simulazione
-
     results = []                                       # Lista per memorizzare i risultati di ogni step
     last_count = consumer.total_messages               # Conta messaggi processati per sincronizzazione
+
+    initial_timestamp = deque_last(consumer.timestamps, datetime.now())
+    initial_prices, initial_band = get_grid_prices(initial_timestamp, price_config)
+    battery_module = microgrid.battery[0]
+    initial_soc = (
+        battery_module.current_charge / simulator.nominal_capacity * 100.0
+        if simulator.nominal_capacity > 0
+        else 0.0
+    )
+    initial_battery_info = {
+        "soc_pct": initial_soc,
+        "current_charge": battery_module.current_charge,
+        "charge_amount": 0.0,
+        "discharge_amount": 0.0,
+    }
+    zero_energy = {
+        "load_met": 0.0,
+        "renewable_used": 0.0,
+        "curtailment": 0.0,
+        "loss_load": 0.0,
+    }
+    zero_grid = {"import": 0.0, "export": 0.0}
+    zero_control = {"battery": 0.0, "grid": 0.0}
+    zero_economics = {"cost": 0.0, "revenue": 0.0, "balance": 0.0, "reward": 0.0}
+
+    live_battery_display = init_live_battery_display(initial_soc, initial_timestamp)
+
+    print_step_report(
+        0,
+        initial_timestamp,
+        initial_band + " (INIT)",
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        initial_battery_info,
+        zero_grid,
+        zero_energy,
+        zero_control,
+        {"buy": initial_prices[0], "sell": initial_prices[1]},
+        zero_economics,
+    )
 
     for step in range(1, simulation_steps + 1):         # Loop principale per il numero di step specificato
         while consumer.total_messages == last_count:    # Attende nuovi dati Kafka se non sono arrivati 
@@ -390,30 +526,39 @@ def main():
         )
 
         battery_module = microgrid.battery[0]                                           # Riferimenti ai moduli batteria e rete
-        battery_logger = battery_module.logger
-        grid_logger = grid_module.logger
-        load_logger = load_module.logger
-        pv_logger = pv_module.logger
-        balancing_logger = balancing_module.logger if balancing_module is not None else None
+
+        grid_import = sum_module_info(info, "grid", "provided_energy")
+        grid_export = sum_module_info(info, "grid", "absorbed_energy")
+        battery_charge = sum_module_info(info, "battery", "absorbed_energy")
+        battery_discharge = sum_module_info(info, "battery", "provided_energy")
+        load_met = sum_module_info(info, "load", "absorbed_energy")
+        renewable_used = sum_module_info(info, "pv", "provided_energy")
+        curtailment = sum_module_info(info, "pv", "curtailment")
+        loss_load_value = sum_module_info(info, "balancing", "loss_load_energy")
+
+        actual_soc = 0.0
+        if simulator.nominal_capacity > 0:
+            actual_soc = np.clip(
+                battery_module.current_charge / simulator.nominal_capacity,
+                0.0,
+                1.0,
+            )
 
         battery_info = {                                                          # Prepara dizionario info batteria per report
-            "soc_pct": battery_module.soc * 100,
-            "current_charge": get_logger_last(battery_logger, "current_charge", battery_module.current_charge),
-            "charge_amount": get_logger_last(battery_logger, "charge_amount", 0.0),
-            "discharge_amount": get_logger_last(battery_logger, "discharge_amount", 0.0),
+            "soc_pct": actual_soc * 100.0,
+            "current_charge": battery_module.current_charge,
+            "charge_amount": battery_charge,
+            "discharge_amount": battery_discharge,
         }
         grid_info = {                                                             # Prepara dizionario info rete per report
-            "import": get_logger_last(grid_logger, "grid_import", get_logger_last(grid_logger, "import", 0.0)),
-            "export": get_logger_last(grid_logger, "grid_export", get_logger_last(grid_logger, "export", 0.0)),
+            "import": grid_import,
+            "export": grid_export,
         }
-        loss_load_value = get_logger_last(balancing_logger, "loss_load", None)
-        if loss_load_value is None:
-            loss_load_value = get_logger_last(balancing_logger, "loss_load_energy", 0.0)
         energy_metrics = {                                                        # Metriche energetiche derivanti dai log
-            "load_met": get_logger_last(load_logger, "load_met", load_kwh),
-            "renewable_used": get_logger_last(pv_logger, "renewable_used", min(pv_kwh, load_kwh)),
-            "curtailment": get_logger_last(pv_logger, "curtailment", 0.0),
-            "loss_load": loss_load_value if loss_load_value is not None else 0.0,
+            "load_met": load_met if load_met > 0 else load_kwh,
+            "renewable_used": renewable_used if renewable_used > 0 else min(pv_kwh, load_kwh),
+            "curtailment": curtailment,
+            "loss_load": loss_load_value,
         }
 
         prices = {"buy": grid_prices[0], "sell": grid_prices[1]}                  # Prepara dizionario prezzi per report
@@ -470,8 +615,18 @@ def main():
             }
         )
 
+        update_live_battery_display(live_battery_display, battery_info["soc_pct"], timestamp)
+
     consumer.stop()                         # Ferma il consumer Kafka
     print("\nConsumer fermato.")
+
+    if live_battery_display:
+        plt.ioff()
+        try:
+            live_battery_display["fig"].canvas.flush_events()
+        except Exception:
+            pass
+        plt.close(live_battery_display["fig"])
 
     results_df = pd.DataFrame(results)                                            # Crea DataFrame Pandas dai risultati raccolti
     output_dir = Path("outputs")
