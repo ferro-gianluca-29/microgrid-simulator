@@ -28,57 +28,50 @@ from microgrid_simulator import MicrogridSimulator
 # Funzioni di supporto
 # =============================================================================
 def get_grid_prices(timestamp: datetime, price_config: dict):
-    """
-    Calcola l'ora corrente, ricerca la fascia peak o standard in base ai range orari configurati, 
-    e restituisce vettore prezzi [buy, sell, 0, 1] più etichetta banda; se nessuna corrispondenza 
-    usa fascia offpeak o la prima disponibile.
-    """
-    hour = timestamp.hour                # Estrae l'ora corrente dallo timestamp fornito
+    """Determina la fascia oraria del timestamp e restituisce il vettore prezzi associato."""
+    hour = timestamp.hour  # Confrontiamo solo l'ora perché le fasce sono espresse in intervalli orari.
 
-    def hour_in_ranges(hr, ranges):      # Verifica se l'ora hr rientra in uno dei range specificati
+    def hour_in_ranges(hr, ranges):
+        """True se l'ora `hr` rientra in uno dei range dichiarati per la fascia (peak o standard), altrimenti False."""
         for rng in ranges or []:
             start, end = rng
             if start <= hr <= end:
                 return True
         return False
 
-    # Ordine preferito: peak -> standard -> offpeak (default)
-    for band_key in ("peak", "standard"):                        # Controlla fasce peak e standard 
+    # Ricerca prioritaria: prima le fasce più costose (peak) poi quelle standard.
+    for band_key in ('peak', 'standard'):
         band_cfg = price_config.get(band_key)
-        if band_cfg and hour_in_ranges(hour, band_cfg.get("ranges")):       # Se l'ora rientra nei range, restituisce i prezzi e la banda
+        if band_cfg and hour_in_ranges(hour, band_cfg.get('ranges')):
             return (
-                np.array([band_cfg.get("buy", 0.0), band_cfg.get("sell", 0.0), 0.0, 1.0]),
+                np.array([band_cfg.get('buy', 0.0), band_cfg.get('sell', 0.0), 0.0, 1.0]),
                 band_key.upper(),
             )
 
-    # Se non è rientrato in nessuna fascia, usa quella di fallback (offpeak o la prima disponibile)
-    fallback_key = "offpeak" if "offpeak" in price_config else next(iter(price_config))
+    # In assenza di match utilizziamo la fascia di fallback (offpeak o la prima definita).
+    fallback_key = 'offpeak' if 'offpeak' in price_config else next(iter(price_config))
     fallback_cfg = price_config.get(fallback_key, {})
-    return (                                                                                 # Restituisce i prezzi di fallback e la banda
-        np.array([fallback_cfg.get("buy", 0.0), fallback_cfg.get("sell", 0.0), 0.0, 1.0]),
+    return (
+        np.array([fallback_cfg.get('buy', 0.0), fallback_cfg.get('sell', 0.0), 0.0, 1.0]),
         fallback_key.upper(),
     )
 
-
 def rule_based_control(microgrid, load_kwh, pv_kwh):
-    """ 
-    Implementa controllo greedy sull'energia scambiata nello step corrente (kWh):
-    se il carico supera il fotovoltaico tenta di scaricare la batteria fino al limite (max_production),
-    importando da rete l'eventuale deficit; se il PV eccede il carico prova a caricare la batteria
-    (max_consumption) ed esporta l'eccedenza residua.
-    """
+    """Controllo greedy che decide quanta energia usare da batteria e rete nello step corrente."""
     battery = microgrid.battery[0]
     e_grid = 0.0
     e_batt = 0.0
 
-    tolerance = 1e-6
+    tolerance = 1e-6  # Evita oscillazioni dovute alle approssimazioni floating point.
     if load_kwh > pv_kwh + tolerance:
+        # Carico maggiore della produzione FV: scarica la batteria finché possibile e importa il resto.
         deficit = load_kwh - pv_kwh
         max_discharge = max(0.0, battery.max_production)
         discharge = min(deficit, max_discharge)
         e_batt = discharge
         e_grid = max(deficit - discharge, 0.0)
     elif pv_kwh > load_kwh + tolerance:
+        # Surplus FV: carica la batteria entro i limiti e riversa l'eccesso verso la rete.
         surplus = pv_kwh - load_kwh
         max_charge = max(0.0, battery.max_consumption)
         charge = min(surplus, max_charge)
@@ -87,11 +80,12 @@ def rule_based_control(microgrid, load_kwh, pv_kwh):
 
     return e_batt, e_grid
 
-
 def deque_last(buffer: deque, default=None):
     """
     Utility per prendere l'ultimo elemento da una deque, con valore di
     default quando la coda e' vuota (utile durante l'avvio del consumer).
+    Lo utiliziamo per ottenere gli ultimi valori di load, solar e timestamp da Kafka, 
+    dato che il consumer li memorizza in deques (buffer) di dimensione limitata.
     """
     return buffer[-1] if len(buffer) else default
 
@@ -135,69 +129,80 @@ def sum_module_info(info_dict, module_name, key):
 
 
 def init_live_battery_display(initial_soc_pct, timestamp):
-    """
-    Crea una finestra interattiva con l'icona della batteria da aggiornare step-by-step.
-    """
+    """Crea la finestra matplotlib con l'icona della batteria aggiornata ad ogni step."""
     try:
-        plt.ion()
+        plt.ion()  # Modalità interattiva per aggiornare il disegno senza bloccare l'esecuzione.
         fig, ax = plt.subplots(figsize=(3, 5))
         ax.set_xlim(0, 1)
         ax.set_ylim(0, 1.3)
-        ax.axis("off")
+        ax.axis('off')  # Nasconde gli assi per mostrare solo l'icona stilizzata.
 
-        body = patches.Rectangle((0.2, 0.15), 0.6, 1.0, linewidth=2.5, edgecolor="black", facecolor="none", joinstyle="round")
-        cap = patches.Rectangle((0.4, 1.15), 0.2, 0.08, linewidth=2.0, edgecolor="black", facecolor="lightgray")
+        # Corpo e cappuccio della batteria (solo contorni).
+        body = patches.Rectangle((0.2, 0.15), 0.6, 1.0, linewidth=2.5, edgecolor='black', facecolor='none', joinstyle='round')
+        cap = patches.Rectangle((0.4, 1.15), 0.2, 0.08, linewidth=2.0, edgecolor='black', facecolor='lightgray')
+
+        # Riempimento proporzionale allo stato di carica iniziale.
         fill = patches.Rectangle(
             (0.2, 0.15),
             0.6,
             max(0.0, min(1.0, initial_soc_pct / 100.0)) * 1.0,
-            facecolor="#32CD32",
+            facecolor='#32CD32',
         )
+
         ax.add_patch(fill)
         ax.add_patch(body)
         ax.add_patch(cap)
-        soc_text = ax.text(0.5, 0.05, f"{initial_soc_pct:5.1f}%", ha="center", va="center", fontsize=12, fontweight="bold")
-        time_text = ax.text(0.5, 1.28, str(timestamp), ha="center", va="bottom", fontsize=10)
+
+        # Testi dinamici per SOC e timestamp corrente.
+        soc_text = ax.text(0.5, 0.05, f"{initial_soc_pct:5.1f}%", ha='center', va='center', fontsize=12, fontweight='bold')
+        time_text = ax.text(0.5, 1.28, str(timestamp), ha='center', va='bottom', fontsize=10)
+
         fig.canvas.draw()
         fig.canvas.flush_events()
-        return {"fig": fig, "fill": fill, "soc_text": soc_text, "time_text": time_text}
+        return {'fig': fig, 'fill': fill, 'soc_text': soc_text, 'time_text': time_text}
     except Exception as exc:  # pragma: no cover
         print(f"[WARN] impossibile inizializzare la batteria live: {exc}")
         return None
 
-
 def update_live_battery_display(display, soc_pct, timestamp):
+    """Aggiorna colore, altezza del riempimento e testi della batteria live."""
     if not display:
         return
     soc_norm = max(0.0, min(1.0, soc_pct / 100.0))
-    display["fill"].set_height(soc_norm * 1.0)
-    if soc_pct <= 20:
-        display["fill"].set_color("#CC2936")  # rosso
-    elif soc_pct <= 40:
-        display["fill"].set_color("#FFA500")  # arancione
-    else:
-        display["fill"].set_color("#32CD32")  # verde
-    display["soc_text"].set_text(f"{soc_pct:5.1f}%")
-    display["time_text"].set_text(str(timestamp))
-    display["fig"].canvas.draw()
-    display["fig"].canvas.flush_events()
+    display['fill'].set_height(soc_norm * 1.0)
 
+    # Colori intuitivi in base allo stato di carica.
+    if soc_pct <= 20:
+        display['fill'].set_color('#CC2936')  # rosso
+    elif soc_pct <= 40:
+        display['fill'].set_color('#FFA500')  # arancione
+    else:
+        display['fill'].set_color('#32CD32')  # verde
+
+    display['soc_text'].set_text(f"{soc_pct:5.1f}%")
+    display['time_text'].set_text(str(timestamp))
+    display['fig'].canvas.draw()
+    display['fig'].canvas.flush_events()
 
 def build_microgrid() -> EMSModules:
+    """Istanzia il simulatore, recupera i moduli principali e li incapsula in `EMSModules`."""
     simulator = MicrogridSimulator(
-        config_path="params.yml",
+        config_path='params.yml',
         time_series=None,
         online=True,
     )
     microgrid = simulator.build_microgrid()
-    load_module = microgrid.modules["load"][0]
-    pv_module = microgrid.modules["pv"][0]
-    grid_module = microgrid.modules["grid"][0]
+
+    # I moduli vengono prelevati una volta sola per evitare ricerche ripetute nel loop principale.
+    load_module = microgrid.modules['load'][0]
+    pv_module = microgrid.modules['pv'][0]
+    grid_module = microgrid.modules['grid'][0]
     try:
-        balancing_module = microgrid.modules["balancing"][0]
+        balancing_module = microgrid.modules['balancing'][0]
     except (KeyError, IndexError, TypeError):
         balancing_module = None
-    microgrid.reset()
+
+    microgrid.reset()  # Porta la microgrid in uno stato noto prima di iniziare la simulazione.
     return EMSModules(
         simulator=simulator,
         microgrid=microgrid,
@@ -208,34 +213,34 @@ def build_microgrid() -> EMSModules:
         balancing_module=balancing_module,
     )
 
-
-def load_config(path: str = "params.yml") -> EMSConfig:
-    with open(path, "r") as cfg_file:
+def load_config(path: str = 'params.yml') -> EMSConfig:
+    """Legge la sezione `ems` dal file YAML e valida i campi necessari all'esecuzione."""
+    with open(path, 'r') as cfg_file:
         full_config = yaml.safe_load(cfg_file)
 
-    ems_cfg = full_config.get("ems")
+    ems_cfg = full_config.get('ems')
     if not ems_cfg:
         raise KeyError("Sezione 'ems' mancante in params.yml")
 
-    required_keys = ("kafka_topic", "buffer_size", "timezone", "steps", "price_bands")
+    # Verifica presenza chiavi richieste per evitare errori silenziosi più avanti.
+    required_keys = ('kafka_topic', 'buffer_size', 'timezone', 'steps', 'price_bands')
     missing_keys = [key for key in required_keys if key not in ems_cfg]
     if missing_keys:
         raise KeyError(f"Mancano le chiavi {missing_keys} nella sezione 'ems' di params.yml")
 
     try:
-        buffer_size = int(ems_cfg["buffer_size"])
-        steps = int(ems_cfg["steps"])
+        buffer_size = int(ems_cfg['buffer_size'])
+        steps = int(ems_cfg['steps'])
     except (TypeError, ValueError) as exc:
         raise ValueError("I campi 'buffer_size' e 'steps' devono essere interi.") from exc
 
     return EMSConfig(
-        kafka_topic=ems_cfg["kafka_topic"],
+        kafka_topic=ems_cfg['kafka_topic'],
         buffer_size=buffer_size,
-        timezone=ems_cfg["timezone"],
+        timezone=ems_cfg['timezone'],
         steps=steps,
-        price_bands=ems_cfg["price_bands"],
+        price_bands=ems_cfg['price_bands'],
     )
-
 
 def print_step_report(step_idx, timestamp, band, kafka_load, kafka_pv, load_kwh, pv_kwh,
                       battery_info, grid_info, energy_metrics, control, prices, economics):
@@ -445,11 +450,13 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
 def main():
     config = load_config()
 
+    timezone_str = config.timezone
+
     print("\nInizializzazione Kafka Consumer...")
     consumer = KafkaConsumer(
         buffer_size=config.buffer_size,
         topic=config.kafka_topic,
-        timezone=config.timezone,
+        timezone=timezone_str,
     )
     consumer.start_background()                        # Avvia consumer in thread separato
     price_config = config.price_bands
@@ -496,21 +503,15 @@ def main():
 
     live_battery_display = init_live_battery_display(initial_soc, initial_timestamp)
 
-    print_step_report(
-        0,
-        initial_timestamp,
-        initial_band + " (INIT)",
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        initial_battery_info,
-        zero_grid,
-        zero_energy,
-        zero_control,
-        {"buy": initial_prices[0], "sell": initial_prices[1]},
-        zero_economics,
-    )
+    print(f"\n{'=' * 120}")
+    print("STEP 0 - INITIAL GRID STATE (no timestamp available)")
+    print(f"{'=' * 120}")
+    print(f"Fascia prezzi     : {initial_band.upper()}")
+    print(f"Prezzi grid       : buy={initial_prices[0]:5.2f} EUR/kWh | sell={initial_prices[1]:5.2f} EUR/kWh")
+    print("\nBatteria iniziale:")
+    print(f"  SOC              : {initial_battery_info['soc_pct']:6.2f}%")
+    print(f"  Current charge   : {initial_battery_info['current_charge']:6.3f} kWh")
+    print(f"  Charge/Discharge : +{initial_battery_info['charge_amount']:6.3f} kWh | -{initial_battery_info['discharge_amount']:6.3f} kWh")
 
     for step in range(1, simulation_steps + 1):         # Loop principale per il numero di step specificato
         while consumer.total_messages == last_count:    # Attende nuovi dati Kafka se non sono arrivati 
@@ -649,7 +650,7 @@ def main():
     results_df.to_csv(csv_path, index=False)                                      # Salva risultati su file CSV 
 
     base_name = (output_dir / csv_name.replace(".csv", ""))                       # Base name per i file grafici
-    plot_paths = plot_results(results_df, str(base_name), timezone)       # Genera e salva i grafici, ottenendo i percorsi dei file
+    plot_paths = plot_results(results_df, str(base_name), timezone_str)       # Genera e salva i grafici, ottenendo i percorsi dei file
 
     print("\n" + "-" * 120)
     print("RESOCONTO FINALE")                                     # Stampa resoconto finale con metriche aggregate

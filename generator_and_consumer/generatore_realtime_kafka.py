@@ -84,6 +84,14 @@ if invalid_datetimes:
     print(f" ATTENZIONE: {invalid_datetimes} timestamp non validi saranno ignorati.")
     df = df.dropna(subset=['datetime']).reset_index(drop=True)
 
+# Converte solar/load in numerici e gestisce eventuali valori non validi
+df['solar'] = pd.to_numeric(df['solar'], errors='coerce')
+df['load'] = pd.to_numeric(df['load'], errors='coerce')
+invalid_energy = df[['solar', 'load']].isna().sum().sum()
+if invalid_energy:
+    print(f" ATTENZIONE: trovati {int(invalid_energy)} valori energy non validi (solar/load); verranno ignorati.")
+    df = df.dropna(subset=['solar', 'load']).reset_index(drop=True)
+
 # Verifica colonne
 required_columns = {'datetime', 'solar', 'load'}
 missing_columns = required_columns.difference(df.columns)   # Trova colonne mancanti nel file CSV rispetto a quelle richieste
