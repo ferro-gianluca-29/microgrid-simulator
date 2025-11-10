@@ -1,4 +1,4 @@
-import os
+﻿import os
 import sys
 import time
 from collections import deque
@@ -115,17 +115,17 @@ def sum_module_info(info_dict, module_name, key):
     Somma un determinato campo di info per tutte le istanze del modulo richiesto.
     """
     total = 0.0
-    for entry in info_dict.get(module_name, []):
-        if not isinstance(entry, dict):
+    for entry in info_dict.get(module_name, []):    # Itera su tutte le istanze del modulo
+        if not isinstance(entry, dict):             # Salta se l'entry non e' un dizionario valido
             continue
-        value = entry.get(key)
-        if value is None:
+        value = entry.get(key)                      # Prende il valore del campo specificato
+        if value is None:                           # Salta se il campo non esiste
             continue
         try:
-            total += float(value)
-        except (TypeError, ValueError):
+            total += float(value)                   # Aggiunge il valore convertito a float
+        except (TypeError, ValueError):             # Salta se la conversione fallisce
             continue
-    return total
+    return total                                    # Restituisce il totale calcolato
 
 
 def init_live_battery_display(initial_soc_pct, timestamp):
@@ -448,60 +448,60 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
 # Main
 # =============================================================================
 def main():
-    config = load_config()
+    config = load_config()              # Carica configurazione EMS da params.yml
 
-    timezone_str = config.timezone
+    timezone_str = config.timezone      # Configura timezone per timestamp 
 
     print("\nInizializzazione Kafka Consumer...")
-    consumer = KafkaConsumer(
+    consumer = KafkaConsumer(                         # Istanzia consumer Kafka con i parametri specificati
         buffer_size=config.buffer_size,
         topic=config.kafka_topic,
         timezone=timezone_str,
     )
     consumer.start_background()                        # Avvia consumer in thread separato
-    price_config = config.price_bands
-    simulation_steps = config.steps
+    price_config = config.price_bands                  # Configurazione fasce prezzi
+    simulation_steps = config.steps                    # Numero di step di simulazione da eseguire
 
     print("Attesa primi dati...")
-    while len(consumer.solar) == 0:                    # Attende che arrivino i primi dati
-        time.sleep(0.5)
+    while len(consumer.solar) == 0:                    # Attende che arrivino i primi dati da Kafka
+        time.sleep(0.5)                                # Esce dal loop solo quando c'e' almeno un dato PV
 
     print("Inizializzazione microgrid...")
-    modules = build_microgrid()
-    simulator = modules.simulator
-    microgrid = modules.microgrid
-    load_module = modules.load_module
-    pv_module = modules.pv_module
-    grid_module = modules.grid_module
-    balancing_module = modules.balancing_module
+    modules = build_microgrid()                        # Costruisce microgrid e recupera i moduli principali
+    simulator = modules.simulator                      # Modulo simulatore
+    microgrid = modules.microgrid                      # Modulo microgrid
+    load_module = modules.load_module                  # Modulo load
+    pv_module = modules.pv_module                      # Modulo PV
+    grid_module = modules.grid_module                  # Modulo rete
+    balancing_module = modules.balancing_module        # Modulo bilanciamento (se presente)
     results = []                                       # Lista per memorizzare i risultati di ogni step
     last_count = consumer.total_messages               # Conta messaggi processati per sincronizzazione
 
-    initial_timestamp = deque_last(consumer.timestamps, datetime.now())
-    initial_prices, initial_band = get_grid_prices(initial_timestamp, price_config)
-    battery_module = microgrid.battery[0]
-    initial_soc = (
+    initial_timestamp = deque_last(consumer.timestamps, datetime.now())                # Prende il primo timestamp disponibile da Kafka
+    initial_prices, initial_band = get_grid_prices(initial_timestamp, price_config)    # Ottiene prezzi iniziali e banda oraria
+    battery_module = microgrid.battery[0]                                              # Riferimento al modulo batteria
+    initial_soc = (                                                                    # Calcola SOC iniziale in percentuale
         battery_module.current_charge / simulator.nominal_capacity * 100.0
         if simulator.nominal_capacity > 0
         else 0.0
     )
-    initial_battery_info = {
+    initial_battery_info = {                                         # Prepara dizionario info batteria iniziale per report step 0
         "soc_pct": initial_soc,
         "current_charge": battery_module.current_charge,
         "charge_amount": 0.0,
         "discharge_amount": 0.0,
     }
-    zero_energy = {
+    zero_energy = {                                                  # Dizionario metriche energetiche iniziali a zero per report step 0
         "load_met": 0.0,
         "renewable_used": 0.0,
         "curtailment": 0.0,
         "loss_load": 0.0,
     }
-    zero_grid = {"import": 0.0, "export": 0.0}
-    zero_control = {"battery": 0.0, "grid": 0.0}
-    zero_economics = {"cost": 0.0, "revenue": 0.0, "balance": 0.0, "reward": 0.0}
+    zero_grid = {"import": 0.0, "export": 0.0}                                         # Dizionario info rete iniziali a zero per report step 0
+    zero_control = {"battery": 0.0, "grid": 0.0}                                       # Dizionario controllo iniziale a zero per report step 0
+    zero_economics = {"cost": 0.0, "revenue": 0.0, "balance": 0.0, "reward": 0.0}      # Dizionario economia iniziale a zero per report step 0
 
-    live_battery_display = init_live_battery_display(initial_soc, initial_timestamp)
+    live_battery_display = init_live_battery_display(initial_soc, initial_timestamp)   # Inizializza visualizzazione live batteria
 
     print(f"\n{'=' * 120}")
     print("STEP 0 - INITIAL GRID STATE (no timestamp available)")
@@ -532,28 +532,28 @@ def main():
         pv_kwh = pv_module.current_renewable            # Energia PV attuale nello step della microgrid (dovrebbe corrispondere a kafka_pv)
 
         e_batt, e_grid = rule_based_control(microgrid, load_kwh, pv_kwh)    # Calcola controllo basato su regole 
-        control = {"battery": e_batt, "grid": e_grid}                     # Prepara dizionario controllo per report
+        control = {"battery": e_batt, "grid": e_grid}                       # Prepara dizionario controllo per report
 
-        observations, reward, done, info = microgrid.step(                # Esegue step di simulazione con i controlli calcolati
+        observations, reward, done, info = microgrid.step(                  # Esegue step di simulazione con i controlli calcolati
             {"battery": [e_batt], "grid": [e_grid]}, normalized=False
         )
 
-        battery_module = microgrid.battery[0]                                           # Riferimenti ai moduli batteria e rete
+        battery_module = microgrid.battery[0]                                       # Riferimento al modulo batteria aggiornato
 
-        grid_import = sum_module_info(info, "grid", "provided_energy")
-        grid_export = sum_module_info(info, "grid", "absorbed_energy")
-        battery_charge = sum_module_info(info, "battery", "absorbed_energy")
-        battery_discharge = sum_module_info(info, "battery", "provided_energy")
-        load_met = sum_module_info(info, "load", "absorbed_energy")
-        renewable_used = sum_module_info(info, "pv", "provided_energy")
-        curtailment = sum_module_info(info, "pv", "curtailment")
-        loss_load_value = sum_module_info(info, "balancing", "loss_load_energy")
+        grid_import = sum_module_info(info, "grid", "provided_energy")              # Somma energia importata dalla rete per report step 
+        grid_export = sum_module_info(info, "grid", "absorbed_energy")              # Somma energia esportata verso la rete per report step
+        battery_charge = sum_module_info(info, "battery", "absorbed_energy")        # Somma energia caricata in batteria per report step
+        battery_discharge = sum_module_info(info, "battery", "provided_energy")     # Somma energia scaricata dalla batteria per report step
+        load_met = sum_module_info(info, "load", "absorbed_energy")                 # Somma energia load soddisfatta per report step
+        renewable_used = sum_module_info(info, "pv", "provided_energy")             # Somma energia rinnovabile usata per report step    
+        curtailment = sum_module_info(info, "pv", "curtailment")                    # Somma energia PV non utilizzata (curtailment) per report step
+        loss_load_value = sum_module_info(info, "balancing", "loss_load_energy")    # Somma energia di load non soddisfatta (loss of load) per report step
 
-        actual_soc = 0.0
-        if simulator.nominal_capacity > 0:
-            actual_soc = np.clip(
-                battery_module.current_charge / simulator.nominal_capacity,
-                0.0,
+        actual_soc = 0.0                                                        # Inizializza SOC reale a 0
+        if simulator.nominal_capacity > 0:                                      # Calcola SOC reale dopo lo step
+            actual_soc = np.clip(                                               # Clippa tra 0 e 1 per evitare valori anomali
+                battery_module.current_charge / simulator.nominal_capacity,     # Calcola SOC come frazione della capacità nominale
+                0.0,                                                            
                 1.0,
             )
 
@@ -567,7 +567,7 @@ def main():
             "import": grid_import,
             "export": grid_export,
         }
-        energy_metrics = {                                                        # Metriche energetiche derivanti dai log
+        energy_metrics = {                                                        # Metriche energetiche derivanti dai log 
             "load_met": load_met if load_met > 0 else load_kwh,
             "renewable_used": renewable_used if renewable_used > 0 else min(pv_kwh, load_kwh),
             "curtailment": curtailment,
@@ -628,29 +628,29 @@ def main():
             }
         )
 
-        update_live_battery_display(live_battery_display, battery_info["soc_pct"], timestamp)
+        update_live_battery_display(live_battery_display, battery_info["soc_pct"], timestamp)   # Aggiorna visualizzazione live batteria
 
     consumer.stop()                         # Ferma il consumer Kafka
     print("\nConsumer fermato.")
 
-    if live_battery_display:
+    if live_battery_display:                # Chiude la visualizzazione live della batteria
         plt.ioff()
         try:
-            live_battery_display["fig"].canvas.flush_events()
+            live_battery_display["fig"].canvas.flush_events()         
         except Exception:
             pass
         plt.close(live_battery_display["fig"])
 
     results_df = pd.DataFrame(results)                                            # Crea DataFrame Pandas dai risultati raccolti
-    output_dir = Path("outputs")
-    output_dir.mkdir(exist_ok=True)
-    timestamp_now = datetime.now().strftime('%Y%m%d_%H%M%S')
-    csv_name = f"ems_results_{timestamp_now}.csv"      # Nome file CSV con timestamp corrente
-    csv_path = output_dir / csv_name
+    output_dir = Path("outputs")                                                  # Directory di output per file CSV e grafici
+    output_dir.mkdir(exist_ok=True)                                               # Crea directory se non esiste
+    timestamp_now = datetime.now().strftime('%Y%m%d_%H%M%S')                      # Timestamp corrente per il nome file
+    csv_name = f"ems_results_{timestamp_now}.csv"                                 # Nome file CSV con timestamp corrente
+    csv_path = output_dir / csv_name                                              # Percorso completo del file CSV
     results_df.to_csv(csv_path, index=False)                                      # Salva risultati su file CSV 
 
     base_name = (output_dir / csv_name.replace(".csv", ""))                       # Base name per i file grafici
-    plot_paths = plot_results(results_df, str(base_name), timezone_str)       # Genera e salva i grafici, ottenendo i percorsi dei file
+    plot_paths = plot_results(results_df, str(base_name), timezone_str)           # Genera e salva i grafici, ottenendo i percorsi dei file
 
     print("\n" + "-" * 120)
     print("RESOCONTO FINALE")                                     # Stampa resoconto finale con metriche aggregate
