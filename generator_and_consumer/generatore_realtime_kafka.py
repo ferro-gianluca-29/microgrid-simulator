@@ -26,7 +26,8 @@ TOPIC = "test_topic_661"                      # Topic Kafka
 GENERATOR_ID = "casa_661"                     # Identificatore univoco del generatore
 
 DELTA_T_SEC = 0.5  # Secondi tra un invio e l'altro (simula dati quartorari)
-DATA_FILE = Path(__file__).resolve().parent / 'data' / 'processed_data_661_formatted.csv'  # Percorso CSV con colonne: datetime, solar e load in kWh per intervallo
+SAMPLE_TIME_HOURS = 0.25  # Durata dello step rappresentato dai campioni (15 minuti)
+DATA_FILE = Path(__file__).resolve().parent / 'data' / 'processed_data_661_formatted.csv'  # CSV con potenze medie (kW) per intervallo
 
 # FUSO ORARIO ITALIANO
 TIMEZONE_ITALIA = pytz.timezone('Europe/Rome')  # CET/CEST
@@ -84,7 +85,7 @@ if invalid_datetimes:
     print(f" ATTENZIONE: {invalid_datetimes} timestamp non validi saranno ignorati.")
     df = df.dropna(subset=['datetime']).reset_index(drop=True)
 
-# Converte solar/load in numerici e gestisce eventuali valori non validi
+# Converte solar/load in numerici (potenze medie kW) e gestisce eventuali valori non validi
 df['solar'] = pd.to_numeric(df['solar'], errors='coerce')
 df['load'] = pd.to_numeric(df['load'], errors='coerce')
 invalid_energy = df[['solar', 'load']].isna().sum().sum()
@@ -146,9 +147,11 @@ try:
             print(f" ATTENZIONE: timestamp mancante alla riga {idx}, salto il record")
             continue
 
-        # Leggi valori CSV (energie per intervallo in kWh)
-        solar = float(row['solar'])
-        load = float(row['load'])
+        # Leggi potenze medie (kW) e trasformale in energie per intervallo (kWh)
+        solar_kw = max(0.0, float(row['solar']))
+        load_kw = max(0.0, float(row['load']))
+        solar_kwh = solar_kw * SAMPLE_TIME_HOURS
+        load_kwh = load_kw * SAMPLE_TIME_HOURS
 
         iteration += 1                    # Incrementa contatore solo se invio effettuato
         
@@ -158,8 +161,8 @@ try:
             "generator_id": GENERATOR_ID,                                   # Identificatore generatore
             "topic": TOPIC,                                                 # Topic
             "data": json.dumps({                                            # Dati interni in JSON
-                "solar": {"value": float(solar), "unit": "kWh"},            # Energia solar per intervallo
-                "load": {"value": float(load), "unit": "kWh"}               # Energia load per intervallo
+                "solar": {"value": float(solar_kwh), "unit": "kWh"},        # Energia solar per intervallo
+                "load": {"value": float(load_kwh), "unit": "kWh"}           # Energia load per intervallo
             })
         }
         
@@ -173,7 +176,8 @@ try:
         
         # Stampa progresso
         print(f"[{iteration:4d}] {timestamp.strftime('%Y-%m-%d %H:%M:%S')} | "
-              f"Solar: {solar:6.2f} kWh | Load: {load:6.2f} kWh ")
+              f"Solar: {solar_kw:6.2f} kW ({solar_kwh:5.2f} kWh) | "
+              f"Load: {load_kw:6.2f} kW ({load_kwh:5.2f} kWh)")
         
         # Aspetta prima di inviare il prossimo
         time.sleep(DELTA_T_SEC)

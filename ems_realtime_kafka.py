@@ -320,7 +320,6 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
     ax.plot(df.index, df["mg_load_kwh"], label="Load (kWh)", linewidth=2)
     ax.plot(df.index, df["mg_pv_kwh"], label="PV (kWh)", linewidth=2)
     ax.plot(df.index, df["control_batt_kwh"], label="Battery Net Flow (kWh)", linewidth=1.8, linestyle="-.")
-    ax.plot(df.index, df["battery_current_charge_kwh"], label="Battery Stored Energy (kWh)", linewidth=1.8, linestyle=":")
     ax.plot(df.index, df["control_grid_kwh"], label="Grid Energy (kWh)", linewidth=1.8, linestyle="--")
     ax.set_title("Energy Flows per Step")
     ax.set_ylabel("Energy [kWh]")

@@ -15,7 +15,7 @@ This document walks through the complete workflow:
 - Git.
 - Docker + Docker Compose.
 - Python 3.10+ and `pip`.
-- A CSV dataset with columns `datetime`, `solar`, `load` (energy per interval, in kWh).
+- A CSV dataset with columns `datetime`, `solar`, `load` (potenze medie per intervallo, in kW; lo script le converte automaticamente in kWh).
 - Free ports: `50005` (API Gateway), `9094`/`9095` (Kafka), `8086` (InfluxDB).
 
 Repository layout after cloning:
@@ -76,7 +76,7 @@ venv_generator\Scripts\activate    # Windows
 pip install -r requirements.txt
 ```
 
-- The generator expects CSV files under `generator_and_consumer/data/`. The default dataset is `data/processed_data_661_formatted.csv`, but you can add any other file there and update the script/params accordingly.
+- The generator expects CSV files under `generator_and_consumer/data/`. The default dataset is `data/processed_data_661_formatted.csv` (potenze medie in kW); lo script converte ogni campione in energia kWh moltiplicando per la durata dello step (`SAMPLE_TIME_HOURS`, 0.25 h).
 
 Key settings in `generatore_realtime_kafka.py`:
 
@@ -94,7 +94,7 @@ Run the generator:
 python generatore_realtime_kafka.py
 ```
 
-The script registers the generator (`POST /register/dg`), reads the CSV and sends JSON messages to Kafka, printing timestamp and values (kWh) on screen. Keep it running while the EMS operates.
+The script registers the generator (`POST /register/dg`), reads the CSV, converte i valori kW→kWh and sends JSON messages to Kafka, printing timestamp and values on screen. Keep it running while the EMS operates.
 
 ---
 
@@ -134,7 +134,7 @@ ems:
       ranges: []
 ```
 
-Adjust the `battery` and `grid` sections to match your time-step length (default: 0.25 h for 15-minute data). `steps` controls the simulation length (96 = 24 hours, 672 = one week).
+Adjust the `battery` and `grid` sections to match your time-step length (default: 0.25 h for 15-minute data). `steps` controls the simulation length (96 = 24 hours, 672 = one week). Assicurati che il producer/consumer usino lo stesso `sample_time_hours` quando converti kW in kWh.
 
 `ems_realtime_kafka.py` automatically adds `generator_and_consumer/` to `sys.path`, so the consumer class is available without further configuration.
 
@@ -174,7 +174,7 @@ What it does:
 The following figures show a real run (copied under `docs/images/` for reference):
 
 ![Energy Flows](docs/images/ems_results_20251107_114929_energy.png)  
-*Energy per step: load, PV, net battery flow and stored energy.*
+*Energy per step: load, PV, net battery flow and grid exchange.*
 
 ![Grid Exchange](docs/images/ems_results_20251107_114929_grid.png)  
 *Import/export per step (bars) and cumulative curves.*

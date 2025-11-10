@@ -17,16 +17,17 @@ class KafkaConsumer:
     Consumer Kafka con buffer rolling.
     
     Uso:
-        consumer = KafkaConsumer(buffer_size=96, topic="test_topic", timezone='Europe/Rome')        # Crea consumer con i tre parametri settabili
+        consumer = KafkaConsumer(buffer_size=96, topic="test_topic", timezone='Europe/Rome')
         consumer.start_background()                                                                 # Avvia in background
         df = consumer.get_data()                                                                    # Prendi dati come DataFrame
     """
     
-    def __init__(self, buffer_size=96, topic="test_topic_661", timezone='Europe/Rome'):
+    def __init__(self, buffer_size=96, topic="test_topic_661", timezone='Europe/Rome', sample_time_hours=0.25):
         """Crea consumer con parametri configurabili"""
         
         self.buffer_size = buffer_size
         self.topic = topic
+        self.sample_time_hours = float(sample_time_hours)
         
         # TIMEZONE
         self.timezone = pytz.timezone(timezone)
@@ -100,8 +101,12 @@ class KafkaConsumer:
 
                 dati = json.loads(data['data'])                    # Estrai dati interni
                 
-                s = max(0.0, float(dati['solar']['value']))        # Estrai valore solar
-                l = max(0.0, float(dati['load']['value']))         # Estrai valore load
+                s_kw = max(0.0, float(dati['solar']['value']))     # Valore solar medio (kW)
+                l_kw = max(0.0, float(dati['load']['value']))      # Valore load medio (kW)
+
+                # Converte potenze quartorarie in energie per step (kWh)
+                s = s_kw * self.sample_time_hours
+                l = l_kw * self.sample_time_hours
                 
                 # Aggiungi a buffer
                 self.timestamps.append(timestamp)             # Aggiungi timestamp
