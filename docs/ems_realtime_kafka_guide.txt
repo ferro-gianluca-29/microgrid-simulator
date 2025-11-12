@@ -1,0 +1,81 @@
+﻿ems_realtime_kafka.py - guida aggiornata
+
+Indice sintetico
+1. Scopo generale
+2. Dipendenze e componenti
+3. Funzioni di supporto
+   3.1 get_grid_prices
+   3.2 rule_based_control
+   3.3 deque_last
+   3.4 sum_module_info
+   3.5 init/update_live_battery_display
+   3.6 build_microgrid
+   3.7 load_config
+   3.8 plot_results
+4. Configurazione e flusso principale
+   4.1 Lettura params.yml
+   4.2 KafkaConsumer
+   4.3 Costruzione microgrid
+   4.4 Loop di simulazione
+   4.5 Chiusura e salvataggio
+5. Metriche raccolte
+6. Estensioni e note di design
+7. Suggerimenti pratici
+
+1. Scopo generale
+Lo script coordina un EMS realtime: legge energia load/PV da Kafka (kWh per step), alimenta PyMGrid, applica un controllo greedy e genera report console/CSV/grafici. Può essere usato come simulatore stand-alone o integrato in pipeline più complesse.
+
+- Standard library: `os`, `sys`, `time`, `collections.deque`, `datetime`, `dataclasses`, `pathlib`, `typing`.
+- Scientifiche: `numpy`, `pandas`, `matplotlib.pyplot`, `matplotlib.patches` (per l'icona live della batteria).
+- Configurazione: `yaml`, `pytz`.
+- Componenti interni: `generator_and_consumer.consumer_class.KafkaConsumer` e `MicrogridSimulator` (wrapper sul fork PyMGrid presente in `src/`).
+
+3. Funzioni di supporto
+3.1 `get_grid_prices(timestamp, price_config)` restituisce `[buy, sell, 0, 1]` più il nome della fascia (PEAK/STANDARD/OFFPEAK). Se l'ora non rientra in nessun range, usa la fascia di fallback.
+
+3.2 `rule_based_control(microgrid, load_kwh, pv_kwh)` implementa un controllo greedy con tolleranza numerica. Se `load_kwh > pv_kwh` scarica la batteria fino a `max_production` e importa dalla rete solo l'eventuale deficit residuo; viceversa carica la batteria (`max_consumption`) e esporta l'eccedenza. Restituisce energie (kWh) per batteria e rete da passare a `microgrid.step`.
+
+3.3 `deque_last(buffer, default)` recupera l'ultimo elemento disponibile nei buffer del consumer, evitando eccezioni quando il buffer è ancora vuoto.
+
+3.4 `sum_module_info(info_dict, module_name, key)` somma un determinato campo per tutte le istanze del modulo richiesto (utile se la microgrid contiene più batterie o più load) filtrando eventuali log non numerici.
+
+3.5 `init_live_battery_display` e `update_live_battery_display` gestiscono una piccola finestra interattiva con l'icona della batteria. Se l'ambiente grafico non è disponibile, il resto dello script prosegue senza blocchi.
+
+3.6 `build_microgrid()` incapsula la creazione del `MicrogridSimulator`, recupera i riferimenti ai moduli principali (load, pv, grid, battery, balancing) e li restituisce tramite il dataclass `EMSModules`.
+
+3.7 `load_config(path)` legge la sezione `ems` del `params.yml`, verifica le chiavi obbligatorie e converte direttamente `buffer_size`/`steps` in interi (non vengono più accettate espressioni arbitrarie).
+
+3.8 `plot_results(df, base_name, timezone)` crea cinque grafici tematici (flussi energia, scambi grid, prezzi/bande, SOC, performance economica). Prima del plotting, il timestamp viene ordinato e riallineato su una timeline regolare per evitare assi X distorti. Ogni figura è salvata a 160 dpi e chiusa subito dopo.
+
+4. Configurazione e flusso principale
+4.1 Lettura `params.yml`: lo script richiede esplicitamente `kafka_topic`, `buffer_size`, `timezone`, `steps`, `price_bands`. I campi numerici devono ora essere interi già valutati; in caso contrario viene sollevato un `ValueError` esplicativo.
+
+4.2 KafkaConsumer: viene inizializzato con il topic e il buffer richiesti, parte in background, e popola i `deque` `timestamps/solar/load`. Il main loop attende il primo dato prima di procedere.
+
+4.3 Costruzione microgrid: `MicrogridSimulator.build_microgrid()` crea i moduli PyMGrid (battery, load, renewable, grid e opzionalmente balancing) e li resetta.
+
+4.4 Loop di simulazione (per `steps` iterazioni):
+   - prima di entrare nel loop viene stampato uno STEP 0 “statico” con solo stato batteria e fascia prezzi, senza timestamp (serve come baseline);
+   - per ogni iterazione: attesa del prossimo dato Kafka;
+   - calcolo fascia tariffaria;
+   - ingestione dati real-time nella microgrid;
+   - calcolo azioni `rule_based_control`;
+   - esecuzione `microgrid.step` con azioni non normalizzate;
+   - lettura log dei moduli e stampa del report step-by-step;
+   - aggiornamento della finestra live della batteria (se attiva);
+   - accumulo dei risultati nella lista `results`.
+
+4.5 Chiusura e salvataggio: stop del consumer, chiusura della finestra live (se presente), conversione `results` in DataFrame e salvataggio di CSV + grafici in `outputs/`. Il riepilogo finale stampa energy totals, stato batteria e bilancio economico, indicando i file generati.
+
+5. Metriche raccolte
+Per ogni step vengono memorizzati: timestamp, valori Kafka e microgrid, azioni batteria/rete, import/export grid, metriche energetiche (load_met, renewable_used, curtailment, loss_of_load), stato batteria (SOC %, carica attuale, energia carica/scarica), costi/ricavi e reward.
+
+6. Estensioni e note di design
+- Il controllo è volutamente semplice per facilitare la sostituzione con MPC/RL.
+- I log PyMGrid sono la fonte autorevole: eventuali analisi successive possono riutilizzare il CSV generato.
+- La live battery serve come feedback visivo durante test più lunghi ma è disattivata automaticamente se `matplotlib` non può aprire finestre.
+
+7. Suggerimenti pratici
+- Assicurarsi che il generatore invii dati prima di avviare l'EMS (il loop aspetta l'arrivo del primo messaggio).
+- Impostare `steps` e `buffer_size` come interi già valutati (es. `672` per una settimana a 15 minuti) per evitare errori di parsing.
+- I file prodotti finiscono in `outputs/`: mantenere la cartella pulita copiando solo le figure significative in `docs/images/` per la documentazione.

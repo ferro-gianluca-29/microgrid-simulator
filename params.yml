@@ -1,6 +1,6 @@
 
 battery:
-  soc_min: 0.2
+  soc_min: 0.2         
   soc_max: 0.8
   capacity: 5.2        # [kWh]
   power_max: 8         # [kW]
@@ -17,7 +17,7 @@ ems:
   kafka_topic: test_topic_661
   buffer_size: 96
   timezone: Europe/Rome
-  steps: 10
+  steps: 96 
 
   price_bands:
     peak:

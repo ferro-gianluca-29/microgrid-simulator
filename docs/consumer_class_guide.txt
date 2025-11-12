@@ -1,0 +1,61 @@
+generator_and_consumer/consumer_class.py – guida operativa
+
+Indice sintetico
+1. Scopo e panoramica
+2. Configurazione e attributi principali
+3. Ciclo di vita del consumer
+4. Accesso ai dati
+5. Utilizzi tipici
+6. Estensioni e personalizzazioni
+7. Suggerimenti pratici
+
+1. Scopo e panoramica
+- La classe `KafkaConsumer` incapsula la logica per ricevere misure da un topic Kafka in tempo reale.
+- È pensata per scenari “online”: avviata in un thread dedicato, mantiene un buffer circolare degli ultimi N campioni e mette a disposizione funzioni di utilità per l’orchestratore EMS.
+
+2. Configurazione e attributi principali
+- Parametri del costruttore:
+  * `buffer_size` (default 96): dimensione massima dei buffer circolari (≈ 24 h con step da 15 min).
+  * `topic`: topic Kafka da sottoscrivere.
+  * `timezone` (default `Europe/Rome`): fuso usato per normalizzare i timestamp dei messaggi.
+  * `sample_time_hours` (default 0.25): durata, in ore, rappresentata da ciascun campione. I valori `solar` e `load` vengono interpretati come potenze medie in kW e convertiti automaticamente in energie kWh moltiplicando per questo parametro prima di essere inseriti nei buffer.
+- Attributi aggiornati in tempo reale:
+  * `timestamps`, `solar`, `load`: `collections.deque` con `maxlen=buffer_size`.
+  * `total_messages`: contatore dei messaggi validi ricevuti.
+  * `consumer`, `running`, `thread`: stato del client Kafka e del thread di polling.
+
+3. Ciclo di vita del consumer
+- `connect()`: recupera l’endpoint Kafka tramite l’API gateway (`/register/dc`), crea il consumer e si sottoscrive al topic.
+- `start_background()`: invoca `connect()`, imposta `running=True` e avvia `_loop()` in un thread separato (non daemon, così è possibile chiudere ordinatamente).
+- `_loop()`:
+  * esegue `poll(1.0)` finché `running` è `True`;
+  * scarta messaggi nulli o con errore;
+  * decodifica il payload JSON, converte il timestamp in `datetime` (tz-aware, riportato nel fuso configurato);
+  * preleva i valori `solar`/`load` (forzati a float ≥ 0), li trasforma in energie usando `sample_time_hours` e li accoda nelle relative deques;
+  * incrementa `total_messages`.
+- `stop()`: ferma l’esecuzione con sicurezza (`running=False`, `thread.join(timeout=3)`, chiusura del consumer).
+
+4. Accesso ai dati
+- **Ultimo campione**: tipicamente si usa una funzione helper come `deque_last(consumer.load, default)` per lavorare sull’ultimo valore disponibile (pattern adottato da `ems_realtime_kafka.py`).
+- **Snapshot del buffer**: `get_data()` restituisce un `pandas.DataFrame` con `datetime`, `solar`, `load` per tutti i campioni conservati.
+- **Controllo riempimento**: `is_ready()` indica se il buffer ha raggiunto la capienza (`len(self.solar) >= buffer_size`), utile durante il bootstrap.
+
+5. Utilizzi tipici
+1. **EMS in streaming**: avvio in background, lettura dell’ultimo campione a ogni step e alimentazione del simulatore.
+2. **Record & replay**: accumulo per un certo periodo, salvataggio del DataFrame (`consumer.get_data().to_csv(...)`) e rianalisi offline.
+3. **Analisi rolling**: calcolo di medie/massimi mobili usando porzioni della deque (`np.mean(list(consumer.load)[-4:])`).
+4. **Dashboard live**: letture periodiche di `get_data()` per visualizzazioni (Streamlit, Dash, ecc.).
+5. **Monitoraggio qualità dati**: logiche di alert in `_loop()` o in thread secondari (es. se l’ultimo timestamp è troppo vecchio).
+
+6. Estensioni e personalizzazioni
+- **Logging errori**: sostituire il blocco `except: continue` con logging strutturato o metriche.
+- **Topic multipli**: instanziare più consumer o estendere la classe per gestire mapping topic→buffer.
+- **Persistenza su disco**: integrare la scrittura su file/DB in `_loop()` per avere uno storico completo.
+- **Buffer adattivo**: esporre metodi per cambiare `maxlen` a runtime o per statistiche su finestre diverse.
+- **Gestione heartbeat**: aggiungere callback o metriche Prometheus per monitorare il polling.
+
+7. Suggerimenti pratici
+- Controllare `consumer.total_messages` per sincronizzare il loop principale (pattern `last_count` nell’EMS).
+- Ricordare che la deque scarta i campioni più vecchi: aumentare `buffer_size` se servono periodi più lunghi.
+- Impostare `timezone` coerente con le misure ricevute per evitare fasce orarie errate.
+- Per test rapidi usare `consumer.get_data().tail()` e `consumer.stop()` per rilasciare le risorse Kafka.

@@ -29,6 +29,7 @@ class MicrogridSimulator():
         power_max = battery_cfg['power_max']
         sample_time = battery_cfg['sample_time']
 
+        self.nominal_capacity = capacity
         self.min_capacity = soc_min * capacity
         self.max_capacity = soc_max * capacity
         self.max_charge_per_step = power_max * sample_time

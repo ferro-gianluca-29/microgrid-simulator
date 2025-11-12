@@ -1,0 +1,36 @@
+﻿generatore_realtime_kafka.py – guida rapida
+
+1. Scopo
+Simula uno smart meter che legge un CSV di potenze quartorarie (`data/processed_data_661_formatted.csv`) e le pubblica su Kafka verso ODA. Ogni riga rappresenta la potenza media (kW) prodotta/consumata in un intervallo di 15 minuti, che il generatore converte in energia (`kWh`) moltiplicando per `SAMPLE_TIME_HOURS` prima di inviare a Kafka.
+
+2. Dipendenze
+- `confluent_kafka` per il producer
+- `pandas` per il caricamento CSV
+- `pytz` per la gestione dei timestamp
+- `requests` per registrarsi all API Gateway ODA
+
+3. Normalizzazione timestamp
+La colonna `datetime` viene convertita in `pandas.Timestamp` e normalizzata a `Europe/Rome` tramite la funzione `normalize_timestamp`. Sono gestiti anche i casi di ora mancante o ambigua (cambi DST):
+- se il timestamp è naive → `tz_localize` con `ambiguous=True, nonexistent='shift_forward'`
+- se è già tz-aware → `tz_convert`
+- se la localizzazione fallisce → il record viene scartato con warning
+
+4. Registrazione a ODA
+Lo script invia `POST /register/dg` all API Gateway (`API_GATEWAY_URL`). La risposta contiene `KAFKA_ENDPOINT` usato per configurare il producer.
+
+5. Loop di invio
+Per ogni riga del DataFrame:
+- si recuperano `solar` e `load` (potenze medie kW), li si porta a energia `kWh` tramite `SAMPLE_TIME_HOURS`
+- si costruisce il pacchetto JSON con timestamp ISO8601, `generator_id`, `topic` e i payload (unità `kWh`)
+- il producer invia il messaggio su Kafka; dopo ogni publish viene mostrato un log `timestamp | Solar | Load`
+
+6. Parametri principali
+- `DELTA_T_SEC`: ritardo tra un invio e l altro (default 0.5s per accelerare test)
+- `SAMPLE_TIME_HOURS`: durata dello step rappresentato dal campione (default 0.25h = 15min) usata per convertire kW in kWh
+- `DATA_FILE`: percorso del CSV all interno della cartella `generator_and_consumer/data`
+- `TOPIC` / `GENERATOR_ID`: identificativi da sincronizzare con l EMS
+
+7. Suggerimenti
+- Verificare che `processed_data_661_formatted.csv` contenga colonne `datetime`, `solar`, `load`.
+- Per dataset alternativi, copiare il nuovo file in `generator_and_consumer/data` e aggiornare `DATA_FILE`.
+- In caso di errori sui timestamp, controllare i warning generati dalla funzione `normalize_timestamp`.

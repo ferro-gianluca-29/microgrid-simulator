@@ -2,6 +2,11 @@ venv_2
 # Ignora ambienti virtuali
 mio_env/
 mio_env*/
+.vscode/
+generator_and_consumer/venv*/
+generator_and_consumer/venv_*/
+generator_and_consumer/venv_generator_consumer/
+outputs/
 
 # Cache Python
 __pycache__/
@@ -10,3 +15,4 @@ __pycache__/
 # Simulation outputs
 ems_results_*.csv
 ems_results_*.png
+!docs/images/ems_results_*.png
