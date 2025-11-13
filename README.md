@@ -116,6 +116,9 @@ ems:
   buffer_size: 96
   timezone: Europe/Rome
   steps: 96
+  mpc_config: MPC_MICROGRID_FILE/config.yml
+  mpc_horizon: 1
+  forecast_csv: generator_and_consumer/data/processed_data_661_formatted.csv
   price_bands:
     peak:
       buy: 0.35

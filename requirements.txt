@@ -12,6 +12,7 @@ pytz>=2023.3
 python-microgrid-custom @ git+https://github.com/ferro-gianluca-29/python-microgrid.git@65e29a0866e3511b35b17bdf5b3650d83f083819
 gymnasium>=0.29.1          # drop-in replacement di gym, compatibile con pymgrid
 cvxpy>=1.3.0
+ecos>=2.0.12               # solver ECOS/ECOS_BB usato come fallback per l'MPC
 
 # ===== GUI opzionale =====
 pandasgui==0.2.15

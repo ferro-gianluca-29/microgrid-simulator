@@ -3,7 +3,6 @@ import sys
 import time
 from collections import deque
 from datetime import datetime
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Any
 
@@ -56,27 +55,46 @@ def get_grid_prices(timestamp: datetime, price_config: dict):
         fallback_key.upper(),
     )
 
-def rule_based_control(microgrid, load_kwh, pv_kwh):
+def rule_based_control(microgrid, load_kwh, pv_kwh, band=None, allow_night_grid_charge=False):
     """Controllo greedy che decide quanta energia usare da batteria e rete nello step corrente."""
     battery = microgrid.battery[0]
     e_grid = 0.0
     e_batt = 0.0
 
     tolerance = 1e-6  # Evita oscillazioni dovute alle approssimazioni floating point.
+    max_discharge = max(0.0, battery.max_production)     # Limite massimo di scarica della batteria (kWh)
+    max_charge = max(0.0, battery.max_consumption)       # Limite massimo di carica della batteria (kWh)
+    band_normalized = (band or "").upper()               
+    night_grid_mode = allow_night_grid_charge and band_normalized == 'OFFPEAK'     # Modalita' notte attiva o no
+
     if load_kwh > pv_kwh + tolerance:
         # Carico maggiore della produzione FV: scarica la batteria finché possibile e importa il resto.
         deficit = load_kwh - pv_kwh
-        max_discharge = max(0.0, battery.max_production)
-        discharge = min(deficit, max_discharge)
-        e_batt = discharge
-        e_grid = max(deficit - discharge, 0.0)
+        if night_grid_mode:
+            # Di notte si preferisce importare dalla rete economica invece di scaricare la batteria.
+            e_batt = 0.0
+            e_grid = deficit
+        else:
+            discharge = min(deficit, max_discharge)     # Limita la scarica della batteria al massimo consentito
+            e_batt = discharge
+            e_grid = max(deficit - discharge, 0.0)      # Importa il resto dalla rete, se necessario
     elif pv_kwh > load_kwh + tolerance:
         # Surplus FV: carica la batteria entro i limiti e riversa l'eccesso verso la rete.
         surplus = pv_kwh - load_kwh
-        max_charge = max(0.0, battery.max_consumption)
-        charge = min(surplus, max_charge)
+        charge = min(surplus, max_charge)          # Limita la carica della batteria al massimo consentito
         e_batt = -charge
-        e_grid = -max(surplus - charge, 0.0)
+        e_grid = -max(surplus - charge, 0.0)       # Esporta il resto alla rete, se necessario
+
+    if night_grid_mode:
+        # In fascia off-peak possiamo importare energia extra per ricaricare la batteria.
+        available_headroom = max(0.0, battery.max_capacity - battery.current_charge)         # Spazio disponibile in batteria (kWh) per la carica
+        already_planned_charge = max(0.0, -e_batt)                                           # Energia gia' pianificata per la carica in questo step (kWh)
+        available_headroom = max(0.0, available_headroom - already_planned_charge)           # Spazio residuo in batteria dopo la carica pianificata
+
+        extra_charge = min(max_charge, available_headroom)            # Energia extra che possiamo caricare in batteria (kWh), limitata dal max charge
+        if extra_charge > tolerance:                # Evita di fare operazioni inutili se l'energia extra e' trascurabile
+            e_batt -= extra_charge                  # Aggiunge la carica extra alla batteria (negativo per carica)
+            e_grid += extra_charge                  # Aumenta l'import dalla rete per coprire la carica extra
 
     return e_batt, e_grid
 
@@ -88,26 +106,6 @@ def deque_last(buffer: deque, default=None):
     dato che il consumer li memorizza in deques (buffer) di dimensione limitata.
     """
     return buffer[-1] if len(buffer) else default
-
-
-@dataclass
-class EMSConfig:
-    kafka_topic: str
-    buffer_size: int
-    timezone: str
-    steps: int
-    price_bands: dict
-
-
-@dataclass
-class EMSModules:
-    simulator: MicrogridSimulator
-    microgrid: Any
-    load_module: Any
-    pv_module: Any
-    grid_module: Any
-    battery_module: Any
-    balancing_module: Optional[Any] = None
 
 
 def sum_module_info(info_dict, module_name, key):
@@ -184,36 +182,18 @@ def update_live_battery_display(display, soc_pct, timestamp):
     display['fig'].canvas.draw()
     display['fig'].canvas.flush_events()
 
-def build_microgrid() -> EMSModules:
-    """Istanzia il simulatore, recupera i moduli principali e li incapsula in `EMSModules`."""
+def build_microgrid():
+    """Istanzia il simulatore, costruisce la microgrid e la restituisce insieme al simulatore."""
     simulator = MicrogridSimulator(
         config_path='params.yml',
         time_series=None,
         online=True,
     )
-    microgrid = simulator.build_microgrid()
-
-    # I moduli vengono prelevati una volta sola per evitare ricerche ripetute nel loop principale.
-    load_module = microgrid.modules['load'][0]
-    pv_module = microgrid.modules['pv'][0]
-    grid_module = microgrid.modules['grid'][0]
-    try:
-        balancing_module = microgrid.modules['balancing'][0]
-    except (KeyError, IndexError, TypeError):
-        balancing_module = None
-
+    microgrid = simulator.build_microgrid()  # Costruisce la microgrid dai parametri nel file di configurazione.
     microgrid.reset()  # Porta la microgrid in uno stato noto prima di iniziare la simulazione.
-    return EMSModules(
-        simulator=simulator,
-        microgrid=microgrid,
-        load_module=load_module,
-        pv_module=pv_module,
-        grid_module=grid_module,
-        battery_module=microgrid.battery[0],
-        balancing_module=balancing_module,
-    )
+    return simulator, microgrid
 
-def load_config(path: str = 'params.yml') -> EMSConfig:
+def load_config(path='params.yml'):
     """Legge la sezione `ems` dal file YAML e valida i campi necessari all'esecuzione."""
     with open(path, 'r') as cfg_file:
         full_config = yaml.safe_load(cfg_file)
@@ -234,13 +214,14 @@ def load_config(path: str = 'params.yml') -> EMSConfig:
     except (TypeError, ValueError) as exc:
         raise ValueError("I campi 'buffer_size' e 'steps' devono essere interi.") from exc
 
-    return EMSConfig(
-        kafka_topic=ems_cfg['kafka_topic'],
-        buffer_size=buffer_size,
-        timezone=ems_cfg['timezone'],
-        steps=steps,
-        price_bands=ems_cfg['price_bands'],
-    )
+    return {
+        'kafka_topic': ems_cfg['kafka_topic'],
+        'buffer_size': buffer_size,
+        'timezone': ems_cfg['timezone'],
+        'steps': steps,
+        'price_bands': ems_cfg['price_bands'],
+        'allow_night_grid_charge': bool(ems_cfg.get('allow_night_grid_charge', False)),
+    }
 
 def print_step_report(step_idx, timestamp, band, kafka_load, kafka_pv, load_kwh, pv_kwh,
                       battery_info, grid_info, energy_metrics, control, prices, economics):
@@ -448,31 +429,27 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
 # =============================================================================
 def main():
     config = load_config()              # Carica configurazione EMS da params.yml
-
-    timezone_str = config.timezone      # Configura timezone per timestamp 
+    timezone_str = config['timezone']   # Configura timezone per timestamp 
+    night_charge_enabled = config.get('allow_night_grid_charge', False)
 
     print("\nInizializzazione Kafka Consumer...")
     consumer = KafkaConsumer(                         # Istanzia consumer Kafka con i parametri specificati
-        buffer_size=config.buffer_size,
-        topic=config.kafka_topic,
+        buffer_size=config['buffer_size'],
+        topic=config['kafka_topic'],
         timezone=timezone_str,
     )
     consumer.start_background()                        # Avvia consumer in thread separato
-    price_config = config.price_bands                  # Configurazione fasce prezzi
-    simulation_steps = config.steps                    # Numero di step di simulazione da eseguire
+    price_config = config['price_bands']               # Configurazione fasce prezzi
+    simulation_steps = config['steps']                 # Numero di step di simulazione da eseguire
 
     print("Attesa primi dati...")
     while len(consumer.solar) == 0:                    # Attende che arrivino i primi dati da Kafka
-        time.sleep(0.5)                                # Esce dal loop solo quando c'e' almeno un dato PV
+        time.sleep(0.1)                                # Esce dal loop solo quando c'e' almeno un dato PV
 
     print("Inizializzazione microgrid...")
-    modules = build_microgrid()                        # Costruisce microgrid e recupera i moduli principali
-    simulator = modules.simulator                      # Modulo simulatore
-    microgrid = modules.microgrid                      # Modulo microgrid
-    load_module = modules.load_module                  # Modulo load
-    pv_module = modules.pv_module                      # Modulo PV
-    grid_module = modules.grid_module                  # Modulo rete
-    balancing_module = modules.balancing_module        # Modulo bilanciamento (se presente)
+    simulator, microgrid = build_microgrid()           # Costruisce microgrid e restituisce i riferimenti principali
+    load_module = microgrid.modules['load'][0]         # Modulo load
+    pv_module = microgrid.modules['pv'][0]             # Modulo PV
     results = []                                       # Lista per memorizzare i risultati di ogni step
     last_count = consumer.total_messages               # Conta messaggi processati per sincronizzazione
 
@@ -514,7 +491,7 @@ def main():
 
     for step in range(1, simulation_steps + 1):         # Loop principale per il numero di step specificato
         while consumer.total_messages == last_count:    # Attende nuovi dati Kafka se non sono arrivati 
-            time.sleep(0.5)
+            time.sleep(0.1)
         last_count = consumer.total_messages            # Aggiorna contatore messaggi
 
         kafka_load = deque_last(consumer.load, 0.0)                     # Energia load per intervallo dall'ultimo messaggio Kafka
@@ -530,7 +507,13 @@ def main():
         load_kwh = load_module.current_load             # Energia load attuale nello step della microgrid (dovrebbe corrispondere a kafka_load)
         pv_kwh = pv_module.current_renewable            # Energia PV attuale nello step della microgrid (dovrebbe corrispondere a kafka_pv)
 
-        e_batt, e_grid = rule_based_control(microgrid, load_kwh, pv_kwh)    # Calcola controllo basato su regole 
+        e_batt, e_grid = rule_based_control(                                # Calcola controllo basato su regole 
+            microgrid,
+            load_kwh,
+            pv_kwh,
+            band=band,
+            allow_night_grid_charge=night_charge_enabled,
+        )
         control = {"battery": e_batt, "grid": e_grid}                       # Prepara dizionario controllo per report
 
         observations, reward, done, info = microgrid.step(                  # Esegue step di simulazione con i controlli calcolati

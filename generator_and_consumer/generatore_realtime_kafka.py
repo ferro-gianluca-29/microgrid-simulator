@@ -25,12 +25,13 @@ API_GATEWAY_URL = "http://localhost:50005"    # Indirizzo API Gateway ODA
 TOPIC = "test_topic_661"                      # Topic Kafka
 GENERATOR_ID = "casa_661"                     # Identificatore univoco del generatore
 
-DELTA_T_SEC = 0.5  # Secondi tra un invio e l'altro (simula dati quartorari)
+DELTA_T_SEC = 0.1  # Secondi tra un invio e l'altro (simula dati quartorari)
 SAMPLE_TIME_HOURS = 0.25  # Durata dello step rappresentato dai campioni (15 minuti)
 DATA_FILE = Path(__file__).resolve().parent / 'data' / 'processed_data_661_formatted.csv'  # CSV con potenze medie (kW) per intervallo
 
-# FUSO ORARIO ITALIANO
-TIMEZONE_ITALIA = pytz.timezone('Europe/Rome')  # CET/CEST
+# FUSO ORARIO 
+TIMEZONE_CHICAGO = pytz.timezone('America/Chicago')  
+#TIMEZONE_ITALIA = pytz.timezone('Europe/Rome')      # CET/CEST
 
 # ============================================================================
 # REGISTRAZIONE A ODA
@@ -69,14 +70,14 @@ def normalize_timestamp(ts):
         return pd.NaT
     ts = pd.Timestamp(ts)
     if ts.tzinfo is not None:
-        return ts.tz_convert(TIMEZONE_ITALIA)
+        return ts.tz_convert(TIMEZONE_CHICAGO)
     try:
-        return ts.tz_localize(TIMEZONE_ITALIA, ambiguous=True, nonexistent='shift_forward')
+        return ts.tz_localize(TIMEZONE_CHICAGO, ambiguous=True, nonexistent='shift_forward')
     except NonExistentTimeError:
         adjusted = ts + pd.Timedelta(hours=1)
-        return adjusted.tz_localize(TIMEZONE_ITALIA, ambiguous=True, nonexistent='shift_forward')
+        return adjusted.tz_localize(TIMEZONE_CHICAGO, ambiguous=True, nonexistent='shift_forward')
     except AmbiguousTimeError:
-        return ts.tz_localize(TIMEZONE_ITALIA, ambiguous=True)
+        return ts.tz_localize(TIMEZONE_CHICAGO, ambiguous=True)
 
 
 df['datetime'] = df['datetime'].apply(normalize_timestamp)
