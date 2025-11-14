@@ -85,7 +85,7 @@ API_GATEWAY_URL = "http://localhost:50005"
 TOPIC = "test_topic_661"
 GENERATOR_ID = "casa_661"
 DATA_FILE = Path(__file__).resolve().parent / "data" / "processed_data_661_formatted.csv"
-DELTA_T_SEC = 0.5
+DELTA_T_SEC = 0.1
 ```
 
 Run the generator:
@@ -163,31 +163,10 @@ What it does:
 
 > The `outputs/` folder is created automatically. Keep it in the repo (with a `.gitkeep`) so results land in a predictable location.
 
----
-
-## 5. EMS offline su CSV (`ems_offline_csv.py`)
-
-Per test rapidi senza ODA/Kafka puoi riprodurre il controllo sulle stesse configurazioni usando il dataset CSV:
-
-```bash
-python ems_offline_csv.py \
-  --params params.yml \
-  --csv generator_and_consumer/data/processed_data_661_formatted.csv \
-  --steps 96
-```
-
-Argomenti utili:
-
-- `--params`: file `params.yml` da usare (default `params.yml`).
-- `--csv`: percorso alternativo del dataset; se omesso usa `ems.forecast_csv`.
-- `--steps`: limita il numero di righe del CSV da riprodurre (default `ems.steps`).
-- `--enable-night-charge`: forza la ricarica notturna anche se `allow_night_grid_charge` è `false`.
-
-Il CSV deve avere le colonne `datetime`, `solar`, `load` (potenze medie in kW); lo script converte in kWh in base a `battery.sample_time`. Durante la simulazione offline viene attivato automaticamente il logger PyMGrid: oltre al classico CSV di risultati (`outputs/ems_offline_results_<ts>.csv`) troverai `outputs/ems_offline_pymgrid_log_<ts>.csv` con tutte le metriche native dei moduli.
 
 ---
 
-## 6. Suggested sequence
+## 5. Suggested sequence
 
 1. `./start.sh` inside the ODA folder.
 2. `python generator_and_consumer/generatore_realtime_kafka.py` and keep it running.
@@ -197,7 +176,7 @@ Il CSV deve avere le colonne `datetime`, `solar`, `load` (potenze medie in kW); 
 
 ---
 
-## 7. Sample output (96 steps)
+## 6. Sample output (96 steps)
 
 The following figures show a real run (copied under `docs/images/` for reference):
 
@@ -218,7 +197,7 @@ The following figures show a real run (copied under `docs/images/` for reference
 
 ---
 
-## 8. Troubleshooting
+## 7. Troubleshooting
 
 | Issue | Possible cause / fix |
 | --- | --- |
@@ -230,12 +209,11 @@ The following figures show a real run (copied under `docs/images/` for reference
 
 ---
 
-## 9. Useful resources
+## 8. Useful resources
 
 - `generator_and_consumer/consumatore_realtime_kafka.py`: lightweight consumer for debugging (kWh).
 - `generator_and_consumer/consumer_class.py`: reusable Kafka consumer with rolling buffer.
 - `docs/ems_realtime_kafka_guide.txt`: in-depth walkthrough of the EMS script.
-- `docs/ems_offline_csv_guide.txt`: guida sintetica per la modalità offline CSV.
 - `docs/generatore_realtime_kafka_guide.txt`: quick reference for the generator script and timestamp handling.
 - ODA documentation: [https://github.com/di-unipi-socc/ODA](https://github.com/di-unipi-socc/ODA)
 
