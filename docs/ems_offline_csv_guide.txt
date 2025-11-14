@@ -1,0 +1,42 @@
+ems_offline_csv.py - guida rapida
+
+Obiettivo
+---------
+Replicare il comportamento dell'EMS senza ODA/Kafka riproducendo i dati direttamente da un CSV con colonne `datetime`, `solar`, `load` (potenze medie in kW). Lo script riusa le stesse funzioni documentate per il realtime (`build_microgrid`, `load_config`, `rule_based_control`, `plot_results`) e abilita il logging nativo PyMGrid.
+
+Flusso
+------
+1. Legge `params.yml` (default `params.yml`, sovrascrivibile via `--params`).
+2. Determina il CSV da usare: flag `--csv` oppure `ems.forecast_csv`.
+3. Converte ogni riga in kWh moltiplicando per `battery.sample_time`.
+4. Chiama `rule_based_control` e `microgrid.step` per ogni riga.
+5. Salva i risultati in `outputs/`:
+   - `ems_offline_results_<timestamp>.csv`
+   - `ems_offline_pymgrid_log_<timestamp>.csv` (log PyMGrid completo)
+   - grafici generati da `plot_results`.
+
+Parametri CLI
+-------------
+- `--params PATH`: file di configurazione (default `params.yml`).
+- `--csv PATH`: dataset alternativo; se omesso usa `ems.forecast_csv`.
+- `--steps N`: limita il numero di righe processate (default `ems.steps`).
+- `--enable-night-charge`: forza la ricarica da rete in fascia `OFFPEAK` anche se `allow_night_grid_charge` e `false`.
+
+Note operative
+--------------
+- Il timezone viene ricavato da `ems.timezone` e applicato ai timestamp del CSV (gestione DST tramite `pytz`).
+- Per ottenere log coerenti assicurarsi che `battery.sample_time` corrisponda alla durata delle misure (es. 0.25 per dati quartorari).
+- Il microgrid logging viene attivato con `microgrid.enable_logging()` prima di iniziare il loop.
+- Il CSV di input deve essere ordinabile per timestamp; eventuali righe senza datetime vengono scartate.
+
+Esempio
+-------
+```
+python ems_offline_csv.py ^
+  --params params.yml ^
+  --csv generator_and_consumer/data/processed_data_661_formatted.csv ^
+  --steps 96 ^
+  --enable-night-charge
+```
+
+L'output riporta a console il riepilogo finale e i percorsi dei file generati in `outputs/`.

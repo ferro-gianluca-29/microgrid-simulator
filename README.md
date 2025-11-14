@@ -119,6 +119,7 @@ ems:
   mpc_config: MPC_MICROGRID_FILE/config.yml
   mpc_horizon: 1
   forecast_csv: generator_and_consumer/data/processed_data_661_formatted.csv
+  allow_night_grid_charge: false
   price_bands:
     peak:
       buy: 0.35
@@ -138,6 +139,8 @@ ems:
 ```
 
 Adjust the `battery` and `grid` sections to match your time-step length (default: 0.25 h for 15-minute data). `steps` controls the simulation length (96 = 24 hours, 672 = one week). Assicurati che il producer/consumer usino lo stesso `sample_time_hours` quando converti kW in kWh.
+
+`allow_night_grid_charge` (default `false`) abilita la ricarica della batteria dalla rete durante la fascia `OFFPEAK` usando il controllo greedy. Se vuoi forzare il comportamento solo offline puoi lasciarlo `false` e abilitare l'opzione da riga di comando (vedi sezione successiva).
 
 `ems_realtime_kafka.py` automatically adds `generator_and_consumer/` to `sys.path`, so the consumer class is available without further configuration.
 
@@ -162,7 +165,29 @@ What it does:
 
 ---
 
-## 5. Suggested sequence
+## 5. EMS offline su CSV (`ems_offline_csv.py`)
+
+Per test rapidi senza ODA/Kafka puoi riprodurre il controllo sulle stesse configurazioni usando il dataset CSV:
+
+```bash
+python ems_offline_csv.py \
+  --params params.yml \
+  --csv generator_and_consumer/data/processed_data_661_formatted.csv \
+  --steps 96
+```
+
+Argomenti utili:
+
+- `--params`: file `params.yml` da usare (default `params.yml`).
+- `--csv`: percorso alternativo del dataset; se omesso usa `ems.forecast_csv`.
+- `--steps`: limita il numero di righe del CSV da riprodurre (default `ems.steps`).
+- `--enable-night-charge`: forza la ricarica notturna anche se `allow_night_grid_charge` è `false`.
+
+Il CSV deve avere le colonne `datetime`, `solar`, `load` (potenze medie in kW); lo script converte in kWh in base a `battery.sample_time`. Durante la simulazione offline viene attivato automaticamente il logger PyMGrid: oltre al classico CSV di risultati (`outputs/ems_offline_results_<ts>.csv`) troverai `outputs/ems_offline_pymgrid_log_<ts>.csv` con tutte le metriche native dei moduli.
+
+---
+
+## 6. Suggested sequence
 
 1. `./start.sh` inside the ODA folder.
 2. `python generator_and_consumer/generatore_realtime_kafka.py` and keep it running.
@@ -172,7 +197,7 @@ What it does:
 
 ---
 
-## 6. Sample output (96 steps)
+## 7. Sample output (96 steps)
 
 The following figures show a real run (copied under `docs/images/` for reference):
 
@@ -193,7 +218,7 @@ The following figures show a real run (copied under `docs/images/` for reference
 
 ---
 
-## 7. Troubleshooting
+## 8. Troubleshooting
 
 | Issue | Possible cause / fix |
 | --- | --- |
@@ -205,11 +230,12 @@ The following figures show a real run (copied under `docs/images/` for reference
 
 ---
 
-## 8. Useful resources
+## 9. Useful resources
 
 - `generator_and_consumer/consumatore_realtime_kafka.py`: lightweight consumer for debugging (kWh).
 - `generator_and_consumer/consumer_class.py`: reusable Kafka consumer with rolling buffer.
 - `docs/ems_realtime_kafka_guide.txt`: in-depth walkthrough of the EMS script.
+- `docs/ems_offline_csv_guide.txt`: guida sintetica per la modalità offline CSV.
 - `docs/generatore_realtime_kafka_guide.txt`: quick reference for the generator script and timestamp handling.
 - ODA documentation: [https://github.com/di-unipi-socc/ODA](https://github.com/di-unipi-socc/ODA)
 
