@@ -109,5 +109,23 @@ class MicrogridSimulator():
         ]
 
         return microgrid_df
+    
+
+    def sum_module_info(self, info_dict, module_name, key):
+        """
+        Somma un determinato campo di info per tutte le istanze del modulo richiesto.
+        """
+        total = 0.0
+        for entry in info_dict.get(module_name, []):    # Itera su tutte le istanze del modulo
+            if not isinstance(entry, dict):             # Salta se l'entry non e' un dizionario valido
+                continue
+            value = entry.get(key)                      # Prende il valore del campo specificato
+            if value is None:                           # Salta se il campo non esiste
+                continue
+            try:
+                total += float(value)                   # Aggiunge il valore convertito a float
+            except (TypeError, ValueError):             # Salta se la conversione fallisce
+                continue
+        return total                                    # Restituisce il totale calcolato
         
         

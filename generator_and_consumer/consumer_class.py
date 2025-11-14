@@ -141,3 +141,12 @@ class KafkaConsumer:
         if self.consumer:                       # Se il consumer esiste
             self.consumer.close()               # Chiudi connessione Kafka
             self.consumer = None
+
+    def deque_last(self, buffer: deque, default=None):
+        """
+        Utility per prendere l'ultimo elemento da una deque, con valore di
+        default quando la coda e' vuota (utile durante l'avvio del consumer).
+        Lo utiliziamo per ottenere gli ultimi valori di load, solar e timestamp da Kafka, 
+        dato che il consumer li memorizza in deques (buffer) di dimensione limitata.
+        """
+        return buffer[-1] if len(buffer) else default
