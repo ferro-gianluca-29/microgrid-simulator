@@ -11,7 +11,7 @@ import pandas as pd
 
 
 
-def get_grid_prices(timestamp: datetime, price_config: dict):
+def get_online_grid_prices(timestamp: datetime, price_config: dict):
     """Determina la fascia oraria del timestamp e restituisce il vettore prezzi associato."""
     hour = timestamp.hour  # Confrontiamo solo l'ora perché le fasce sono espresse in intervalli orari.
 
@@ -330,3 +330,47 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
         "battery": battery_path,
         "economics": economics_path,
     }
+
+
+
+def compute_offline_tariff_vectors(ts_series, local_timezone, price_config):
+
+    hr = ts_series.dt.tz_convert(local_timezone).dt.hour
+
+    # List di condizioni e valori risultanti
+    condlist = []
+    buy_choices = []
+    sell_choices = []
+
+    # Itera sulle fasce definite nel file YAML
+    for band_name, band_data in price_config.items():
+        buy_val = float(band_data['buy'])
+        sell_val = float(band_data['sell'])
+
+        # Bande con ranges
+        if 'ranges' in band_data and band_data['ranges'] is not None:
+            band_conditions = None
+
+            # Ogni range è [start_hour, end_hour]
+            for start, end in band_data['ranges']:
+                # Se l’utente usa in YAML range inclusivi (es. 18–20)
+                # li interpretiamo come ore intere: start ≤ hr ≤ end
+                condition = hr.between(start, end)
+                band_conditions = condition if band_conditions is None else (band_conditions | condition)
+
+            condlist.append(band_conditions)
+
+        else:
+            # Bande senza ranges → si assume valida per tutte le ore non coperte da altre fasce
+            # Per evitare comportamenti non deterministici, creiamo una condizione placeholder;
+            # verrà assegnata *solo se nessuna delle fasce precedenti è valida* dopo np.select.
+            condlist.append(np.full(len(hr), True, dtype=bool))
+
+        buy_choices.append(buy_val)
+        sell_choices.append(sell_val)
+
+    # np.select valuta i condlist in ordine: la prima condizione vera viene assegnata
+    price_buy_vec = np.select(condlist, buy_choices).astype(float)
+    price_sell_vec = np.select(condlist, sell_choices).astype(float)
+
+    return price_buy_vec, price_sell_vec

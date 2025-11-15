@@ -16,7 +16,7 @@ from generator_and_consumer.consumer_class import KafkaConsumer
 
 
 from microgrid_simulator import MicrogridSimulator
-from tools import get_grid_prices, load_config, init_live_battery_display
+from tools import get_online_grid_prices, load_config, init_live_battery_display
 from tools import update_live_battery_display, print_step_report, plot_results
 from EMS import Rule_Based_EMS
 
@@ -54,7 +54,6 @@ def main():
 
     simulator = MicrogridSimulator(
         config_path='params.yml',
-        time_series=None,
         online=True,
     )
 
@@ -67,7 +66,7 @@ def main():
     last_count = consumer.total_messages               # Conta messaggi processati per sincronizzazione
 
     initial_timestamp = consumer.deque_last(consumer.timestamps, datetime.now())                # Prende il primo timestamp disponibile da Kafka
-    initial_prices, initial_band = get_grid_prices(initial_timestamp, price_config)    # Ottiene prezzi iniziali e banda oraria
+    initial_prices, initial_band = get_online_grid_prices(initial_timestamp, price_config)    # Ottiene prezzi iniziali e banda oraria
     battery_module = microgrid.battery[0]                                              # Riferimento al modulo batteria
 
 
@@ -128,7 +127,7 @@ def main():
         kafka_pv = consumer.deque_last(consumer.solar, 0.0)                      # Energia PV per intervallo dall'ultimo messaggio Kafka
         timestamp = consumer.deque_last(consumer.timestamps, datetime.now())     # Prende ultimo timestamp da buffer Kafka con default ora corrente
 
-        grid_prices, band = get_grid_prices(timestamp, price_config)    # Ottiene prezzi rete e banda oraria corrente
+        grid_prices, band = get_online_grid_prices(timestamp, price_config)    # Ottiene prezzi rete e banda oraria corrente
 
         microgrid.ingest_real_time_data(                                 # Inietta dati real-time nella microgrid
             {"load": kafka_load, "pv": kafka_pv, "grid": [grid_prices]}
@@ -138,7 +137,6 @@ def main():
         pv_kwh = pv_module.current_renewable            # Energia PV attuale nello step della microgrid (dovrebbe corrispondere a kafka_pv)
 
         e_batt, e_grid = rule_based_EMS.control(                                # Calcola controllo basato su regole 
-           # microgrid,
             load_kwh,
             pv_kwh,
             band=band,

@@ -1,10 +1,6 @@
 
 
-
-
 class Rule_Based_EMS:
-
-
     def __init__(self, microgrid):
 
         self.microgrid = microgrid
