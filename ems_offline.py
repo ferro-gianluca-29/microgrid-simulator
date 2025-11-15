@@ -84,7 +84,7 @@ rule_based_EMS = Rule_Based_EMS(microgrid)
 
 
 for step in range(1, simulation_steps + 1):         # Loop principale per il numero di step specificato
-
+ 
     load_kwh = load_module.current_load
     pv_kwh = pv_module.current_renewable
 
