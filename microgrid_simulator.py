@@ -7,19 +7,23 @@ from src.pymgrid import Microgrid
 from src.pymgrid.modules import GridModule, LoadModule, RenewableModule, BatteryModule
 
 from pandasgui import show
-
 import yaml
 
 
 class MicrogridSimulator():
 
-    def __init__(self, config_path, time_series, online):
+    def __init__(self, config_path, online, load_time_series = None, pv_time_series = None, grid_time_series = None):
 
         with open(config_path, 'r') as f:
             self.config = yaml.safe_load(f)
-
-        self.time_series = time_series
+        
         self.online = online
+
+        # Time Series
+
+        self.load_time_series = load_time_series
+        self.pv_time_series = pv_time_series
+        self.grid_time_series = grid_time_series
 
         # Parametri batteria
         battery_cfg = self.config['battery']
@@ -57,13 +61,13 @@ class MicrogridSimulator():
                                                         )
         
         load_module = LoadModule(
-        time_series=self.time_series,
+        time_series=self.load_time_series,
         online=self.online,
         initial_time_series_value=0.0,
         )
 
         pv_module = RenewableModule(
-            time_series=self.time_series,
+            time_series=self.pv_time_series,
             online=self.online,
             initial_time_series_value=0.0,
         )
@@ -71,7 +75,7 @@ class MicrogridSimulator():
         grid_module = GridModule(
                                     max_import = self.max_grid_import_power,
                                     max_export = self.max_grid_export_power, 
-                                    time_series=self.time_series,
+                                    time_series=self.grid_time_series,
                                     online=self.online,
                                     initial_time_series_value=self.present_grid_prices,
                                     normalized_action_bounds=( -self.max_grid_import_power, self.max_grid_import_power ))
@@ -86,7 +90,6 @@ class MicrogridSimulator():
         
         return microgrid
         
-
 
     def get_simulation_log(self, microgrid):
 
@@ -108,6 +111,24 @@ class MicrogridSimulator():
             ]
         ]
 
-        return microgrid_df
+        return microgrid_df, log
+    
+
+    def sum_module_info(self, info_dict, module_name, key):
+        """
+        Somma un determinato campo di info per tutte le istanze del modulo richiesto.
+        """
+        total = 0.0
+        for entry in info_dict.get(module_name, []):    # Itera su tutte le istanze del modulo
+            if not isinstance(entry, dict):             # Salta se l'entry non e' un dizionario valido
+                continue
+            value = entry.get(key)                      # Prende il valore del campo specificato
+            if value is None:                           # Salta se il campo non esiste
+                continue
+            try:
+                total += float(value)                   # Aggiunge il valore convertito a float
+            except (TypeError, ValueError):             # Salta se la conversione fallisce
+                continue
+        return total                                    # Restituisce il totale calcolato
         
         

@@ -16,8 +16,12 @@ grid:
 ems:
   kafka_topic: test_topic_661
   buffer_size: 96
-  timezone: Europe/Rome
+  timezone: America/Chicago
   steps: 96 
+  allow_night_grid_charge: false   # Carica da rete esclusivamente in fascia off-peak
+  mpc_config: MPC_MICROGRID_FILE/config.yml
+  mpc_horizon: 1
+  forecast_csv: generator_and_consumer/data/processed_data_661_formatted.csv
 
   price_bands:
     peak:

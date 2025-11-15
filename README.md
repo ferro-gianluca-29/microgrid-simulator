@@ -85,7 +85,7 @@ API_GATEWAY_URL = "http://localhost:50005"
 TOPIC = "test_topic_661"
 GENERATOR_ID = "casa_661"
 DATA_FILE = Path(__file__).resolve().parent / "data" / "processed_data_661_formatted.csv"
-DELTA_T_SEC = 0.5
+DELTA_T_SEC = 0.1
 ```
 
 Run the generator:
@@ -116,6 +116,10 @@ ems:
   buffer_size: 96
   timezone: Europe/Rome
   steps: 96
+  mpc_config: MPC_MICROGRID_FILE/config.yml
+  mpc_horizon: 1
+  forecast_csv: generator_and_consumer/data/processed_data_661_formatted.csv
+  allow_night_grid_charge: false
   price_bands:
     peak:
       buy: 0.35
@@ -135,6 +139,8 @@ ems:
 ```
 
 Adjust the `battery` and `grid` sections to match your time-step length (default: 0.25 h for 15-minute data). `steps` controls the simulation length (96 = 24 hours, 672 = one week). Assicurati che il producer/consumer usino lo stesso `sample_time_hours` quando converti kW in kWh.
+
+`allow_night_grid_charge` (default `false`) abilita la ricarica della batteria dalla rete durante la fascia `OFFPEAK` usando il controllo greedy. Se vuoi forzare il comportamento solo offline puoi lasciarlo `false` e abilitare l'opzione da riga di comando (vedi sezione successiva).
 
 `ems_realtime_kafka.py` automatically adds `generator_and_consumer/` to `sys.path`, so the consumer class is available without further configuration.
 
@@ -156,6 +162,7 @@ What it does:
    - Prints a summary and tries to open the plots automatically.
 
 > The `outputs/` folder is created automatically. Keep it in the repo (with a `.gitkeep`) so results land in a predictable location.
+
 
 ---
 
