@@ -13,7 +13,7 @@ This document walks through the complete workflow:
 ## 0. Get the project
 
 ```bash
-git clone https://github.com/di-unipi-socc/microgrid-simulator.git
+git clone https://github.com/ferro-gianluca-29/microgrid-simulator
 cd microgrid-simulator
 ```
 
