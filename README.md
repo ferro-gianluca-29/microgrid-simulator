@@ -10,12 +10,23 @@ This document walks through the complete workflow:
 
 ---
 
+## 0. Get the project
+
+```bash
+git clone https://github.com/di-unipi-socc/microgrid-simulator.git
+cd microgrid-simulator
+```
+
+All commands assume you run them from inside the cloned `microgrid-simulator/` folder.
+
+---
+
 ## 1. Prerequisites
 
 - Git.
 - Docker + Docker Compose.
 - Python 3.10+ and `pip`.
-- A CSV dataset with columns `datetime`, `solar`, `load` (potenze medie per intervallo, in kW; lo script le converte automaticamente in kWh).
+- A CSV dataset with columns `datetime`, `solar`, `load` (average power per interval, in kW; the script automatically converts the samples to kWh).
 - Free ports: `50005` (API Gateway), `9094`/`9095` (Kafka), `8086` (InfluxDB).
 
 Repository layout after cloning:
@@ -24,14 +35,23 @@ Repository layout after cloning:
 microgrid-simulator/
 ├─ generator_and_consumer/   # generator + Kafka consumer utilities
 │  ├─ data/
+│  ├─ generatore_realtime_kafka.py
 │  ├─ consumer_class.py
 │  └─ ...
 ├─ docs/
 ├─ src/                      # customized PyMGrid fork
 ├─ ems_realtime_kafka.py
+├─ ems_offline.py
 ├─ params.yml
 └─ ...
 ```
+
+Key scripts introduced with the latest refactor:
+
+- `ems_realtime_kafka.py` remains the online EMS entry-point.
+- `ems_offline.py` replays CSV traces without Kafka/ODA (ideal for quick tests).
+- `tools.py` now hosts the shared helpers (config loading, price handling, plotting, live battery widget).
+- `EMS.py` exposes the `Rule_Based_EMS` controller so both runners share the same logic.
 
 ---
 
@@ -76,7 +96,7 @@ venv_generator\Scripts\activate    # Windows
 pip install -r requirements.txt
 ```
 
-- The generator expects CSV files under `generator_and_consumer/data/`. The default dataset is `data/processed_data_661_formatted.csv` (potenze medie in kW); lo script converte ogni campione in energia kWh moltiplicando per la durata dello step (`SAMPLE_TIME_HOURS`, 0.25 h).
+- The generator expects CSV files under `generator_and_consumer/data/`. The default dataset is `data/processed_data_661_formatted.csv` (average power in kW); the script converts each sample to energy (kWh) by multiplying it by the step duration (`SAMPLE_TIME_HOURS`, 0.25 h).
 
 Key settings in `generatore_realtime_kafka.py`:
 
@@ -94,7 +114,7 @@ Run the generator:
 python generatore_realtime_kafka.py
 ```
 
-The script registers the generator (`POST /register/dg`), reads the CSV, converte i valori kW→kWh and sends JSON messages to Kafka, printing timestamp and values on screen. Keep it running while the EMS operates.
+The script registers the generator (`POST /register/dg`), reads the CSV, converts the kW values to kWh and sends JSON messages to Kafka, printing timestamp and values on screen. Keep it running while the EMS operates.
 
 ---
 
@@ -116,9 +136,6 @@ ems:
   buffer_size: 96
   timezone: Europe/Rome
   steps: 96
-  mpc_config: MPC_MICROGRID_FILE/config.yml
-  mpc_horizon: 1
-  forecast_csv: generator_and_consumer/data/processed_data_661_formatted.csv
   allow_night_grid_charge: false
   price_bands:
     peak:
@@ -138,11 +155,16 @@ ems:
       ranges: []
 ```
 
-Adjust the `battery` and `grid` sections to match your time-step length (default: 0.25 h for 15-minute data). `steps` controls the simulation length (96 = 24 hours, 672 = one week). Assicurati che il producer/consumer usino lo stesso `sample_time_hours` quando converti kW in kWh.
+Adjust the `battery` and `grid` sections to match your time-step length (default: 0.25 h for 15-minute data). `steps` controls the simulation length (96 = 24 hours, 672 = one week). Make sure the producer/consumer use the same `sample_time_hours` when you convert kW into kWh.
 
-`allow_night_grid_charge` (default `false`) abilita la ricarica della batteria dalla rete durante la fascia `OFFPEAK` usando il controllo greedy. Se vuoi forzare il comportamento solo offline puoi lasciarlo `false` e abilitare l'opzione da riga di comando (vedi sezione successiva).
+`allow_night_grid_charge` (default `false`) enables charging the battery from the grid during the `OFFPEAK` band with the greedy controller. If you want that behavior only offline you can keep it `false` in the YAML file and enable the CLI option instead (see the next section).
 
 `ems_realtime_kafka.py` automatically adds `generator_and_consumer/` to `sys.path`, so the consumer class is available without further configuration.
+
+The helper functions that used to live inside `ems_realtime_kafka.py` now reside in two reusable modules:
+
+- `tools.py` handles configuration loading, dynamic price computation, reporting and plotting.
+- `EMS.py` exposes the `Rule_Based_EMS` controller shared by both the online and offline runners.
 
 ### Run the EMS
 
@@ -163,6 +185,19 @@ What it does:
 
 > The `outputs/` folder is created automatically. Keep it in the repo (with a `.gitkeep`) so results land in a predictable location.
 
+### Offline mode (`ems_offline.py`)
+
+Use this runner when you want to test the EMS quickly without starting ODA/Kafka. It replays a local time series but leverages the same shared modules (`tools.py`, `Rule_Based_EMS`).
+
+1. Place the CSV dataset (columns `datetime`, `solar`, `load`) under `data/` or adjust the path at the top of the script.
+2. `params.yml` is parsed exactly like the online mode: same time-of-use bands and battery parameters 
+3. Run:
+   ```bash
+   python ems_offline.py
+   ```
+   The script builds the `MicrogridSimulator` with `online=False`, computes price vectors via `compute_offline_tariff_vectors`, applies the greedy controller and writes `microgrid_log.csv`. At the end it opens a `pandasgui` window (optional) to compare dataset and log.
+
+This mode is ideal for validating EMS changes or preparing demos without the full Kafka pipeline.
 
 ---
 
@@ -173,6 +208,8 @@ What it does:
 3. `python microgrid-simulator/ems_realtime_kafka.py`.
 4. Monitor EMS logs; when it finishes you will find CSV and plots inside `microgrid-simulator/outputs/`.
 5. Stop with `Ctrl+C` on both generator and EMS, then `./stop.sh` inside ODA.
+
+For quick experiments without the full infrastructure, run `python ems_offline.py`: it uses the same parameters and produces `microgrid_log.csv` plus the datasets displayed via `pandasgui`.
 
 ---
 
