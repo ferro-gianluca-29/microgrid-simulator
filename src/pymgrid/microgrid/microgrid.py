@@ -624,6 +624,8 @@ class Microgrid(yaml.YAMLObject):
         initial_step = self._modules.get_attrs('initial_step', unique=True)
 
         try:
+
+            #for key, value in _log_dict.items(): print(key, len(value))  # aggiunto per debug
             df = pd.DataFrame(_log_dict, index=pd.RangeIndex(start=initial_step, stop=self.current_step))
         except ValueError as e:
             if 'Length of values' in e.args[0]:

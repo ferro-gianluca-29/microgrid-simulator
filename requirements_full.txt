@@ -106,7 +106,6 @@ PyQtWebEngine-Qt5==5.15.2
 pytest==8.4.2
 python-dateutil==2.9.0.post0
 python-microgrid==1.4.1
-python-microgrid-custom @ git+https://github.com/ferro-gianluca-29/python-microgrid.git@65e29a0866e3511b35b17bdf5b3650d83f083819
 pytz==2024.2
 pywin32==310
 PyYAML==6.0.2

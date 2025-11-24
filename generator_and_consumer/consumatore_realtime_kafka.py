@@ -18,7 +18,7 @@ from collections import deque
 # CONFIGURAZIONE
 # ============================================================================
 
-ODA_URL = "http://localhost:50005"
+ODA_URL = "http://oda-nest.bologna.enea.it:50005"
 TOPIC = "test_topic_661"
 BUFFER_SIZE = 96  # 24 ore (96 x 15min) simulate
 

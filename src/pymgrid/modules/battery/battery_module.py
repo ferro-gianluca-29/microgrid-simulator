@@ -166,9 +166,14 @@ class BatteryModule(BaseMicrogridModule):
             Cost of charging or discharging.
 
         """
-        return np.abs(energy_change)*self.battery_cost_cycle
+        wear_cost = 0.0
+        transition_model = getattr(self, '_battery_transition_model', None)
+        if transition_model is not None and hasattr(transition_model, 'last_wear_cost'):
+            wear_cost = float(getattr(transition_model, 'last_wear_cost', 0.0))
 
-    def model_transition(self, energy):
+        return np.abs(energy_change) * self.battery_cost_cycle + wear_cost
+
+    def model_transition(self, energy, record_history: bool = True):
         """
         Convert an external energy request to a change in internal energy.
 
@@ -205,7 +210,11 @@ class BatteryModule(BaseMicrogridModule):
             Amount of energy that the battery must use or will retain given the external amount of energy.
 
         """
-        return self.battery_transition_model(external_energy_change=energy, **self.transition_kwargs())
+        return self.battery_transition_model(
+            external_energy_change=energy,
+            record_history=record_history,
+            **self.transition_kwargs(),
+        )
 
     def transition_kwargs(self):
         """
@@ -255,8 +264,8 @@ class BatteryModule(BaseMicrogridModule):
                     )
 
     def _set_min_max_act(self):
-        min_act = self.model_transition(-1 * self.max_charge)
-        max_act = self.model_transition(self.max_discharge)
+        min_act = self.model_transition(-1 * self.max_charge, record_history=False)
+        max_act = self.model_transition(self.max_discharge, record_history=False)
 
         return min_act, max_act
 
@@ -266,13 +275,18 @@ class BatteryModule(BaseMicrogridModule):
     @property
     def max_production(self):
         # Max discharge
-        return self.model_transition(min(self.max_discharge, self._current_charge-self.min_capacity))
+        return self.model_transition(
+            min(self.max_discharge, self._current_charge-self.min_capacity),
+            record_history=False,
+        )
 
     @property
     def max_consumption(self):
         # Max charge
-        return -1 * self.model_transition(-1 * min(self.max_charge, self.max_capacity - self._current_charge))
-
+        return -1 * self.model_transition(
+            -1 * min(self.max_charge, self.max_capacity - self._current_charge),
+            record_history=False,
+        )
     @property
     def current_charge(self):
         """

@@ -52,6 +52,10 @@ class BatteryTransitionModel(yaml.YAMLObject):
     yaml_loader = yaml.SafeLoader
     yaml_tag = u"!BatteryTransitionModel"
 
+
+    def __init__(self):
+        self._transition_history = []
+
     def __call__(self,
                  external_energy_change,
                  min_capacity,
@@ -61,7 +65,8 @@ class BatteryTransitionModel(yaml.YAMLObject):
                  efficiency,
                  battery_cost_cycle,
                  current_step,
-                 state_dict):
+                 state_dict,
+                 record_history: bool = True):
         return self.transition(
             external_energy_change=external_energy_change,
             min_capacity=min_capacity,
@@ -71,14 +76,26 @@ class BatteryTransitionModel(yaml.YAMLObject):
             efficiency=efficiency,
             battery_cost_cycle=battery_cost_cycle,
             current_step=current_step,
-            state_dict=state_dict
+            state_dict=state_dict,
+            record_history=record_history,
         )
 
-    def transition(self, external_energy_change, efficiency, **kwargs):
+    def transition(self, external_energy_change, efficiency, 
+                   current_step=None, record_history: bool = True, **kwargs):
         if external_energy_change < 0:
-            return external_energy_change / efficiency
+            internal_energy_change = external_energy_change / efficiency
         else:
-            return external_energy_change * efficiency
+            internal_energy_change = external_energy_change * efficiency
+
+        if record_history:
+            self._transition_history.append({
+                "time_hours": float(
+                    current_step if current_step is not None else len(self._transition_history)
+                ),
+                "internal_energy_change": float(internal_energy_change),
+            })
+
+        return internal_energy_change
 
     def new_kwargs(self):
         params = inspect.signature(self.__init__).parameters
@@ -106,3 +123,59 @@ class BatteryTransitionModel(yaml.YAMLObject):
             return cls(**mapping)
         else:
             return cls()
+        
+
+    def get_transition_history(self):
+        """Return a copy of the recorded transition history."""
+
+        return list(self._transition_history)
+
+    def save_transition_history(self, history_path: str):
+        """Persist transition history to a JSON file for offline plotting."""
+
+        import json
+
+        with open(history_path, "w", encoding="utf-8") as fp:
+            json.dump(self._transition_history, fp, ensure_ascii=False, indent=2)
+
+    @staticmethod
+    def load_transition_history(history_path: str):
+        """Load a transition history previously saved with :meth:`save_transition_history`."""
+
+        import json
+
+        with open(history_path, "r", encoding="utf-8") as fp:
+            return json.load(fp)
+
+    def plot_transition_history(self, save_path: str = None, show: bool = True, history=None):
+        """Plot internal energy change over time."""
+
+        import matplotlib.pyplot as plt
+
+        history_to_plot = history if history is not None else self._transition_history
+
+        if not history_to_plot:
+            raise ValueError("No transition history to plot. Run transition() before plotting.")
+
+        time_axis = [entry["time_hours"] for entry in history_to_plot]
+        internal_energy = [entry["internal_energy_change"] for entry in history_to_plot]
+
+        fig, ax_energy = plt.subplots(figsize=(10, 4))
+
+        ax_energy.plot(time_axis, internal_energy, linestyle="-", color="tab:orange")
+        ax_energy.set_xlabel("Time [h]")
+        ax_energy.set_ylabel("Internal energy change [kWh]")
+        ax_energy.set_title("BatteryTransitionModel internal energy change over time")
+        ax_energy.grid(True)
+
+        fig.tight_layout()
+
+        if save_path:
+            fig.savefig(save_path, bbox_inches="tight")
+
+        if show:
+            plt.show()
+        else:
+            plt.close(fig)
+
+        return fig, ax_energy
