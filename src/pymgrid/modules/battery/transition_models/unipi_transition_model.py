@@ -6,6 +6,10 @@ import scipy.io as sio
 from scipy.interpolate import RegularGridInterpolator
 import yaml
 
+import math
+import matplotlib.pyplot as plt
+from pathlib import Path
+
 from .transition_model import BatteryTransitionModel
 
 
@@ -192,7 +196,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         # opposite from the pymgrid convention 
 
         power_kw = -external_energy_change / delta_t # [kW]   
-        self.current_a = 1000.0 * power_kw / max(voc_prev, 1e-9) # [A]
+        self.current_a = 1000.0 * power_kw / max(v_batt, 1e-9) # [A]
 
         battery_pack_nominal_charge = self.c_n * self.np_batt # [Ah]
 
@@ -233,7 +237,12 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                 ),
                 "current_a": float(self.current_a),
                 "internal_energy_change": float(internal_energy_change),
+                "soc": float(self._soc),
+                "soe": float(soe_new),
+                "voltage_v": float(v_batt),
+                "power_kw": float(-power_kw),
             })
+
 
         #print(f"soc = {self._soc}") # per debug
 
@@ -272,52 +281,66 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             return json.load(fp)
 
     def plot_transition_history(self, save_path: str = None, show: bool = True, history=None):
-        """Plot current and internal energy change over time.
+        """Plot SoC, SoE, voltage, internal energy and power for this transition model."""
 
-        Parameters
-        ----------
-        save_path : str, optional
-            If provided, the plot is saved to this path using ``bbox_inches='tight'``.
-        show : bool, default True
-            Whether to display the figure. If False, the figure is closed after creation.
-        history : list[dict], optional
-            Explicit transition history to plot (e.g., loaded via :meth:`load_transition_history`).
-            Defaults to the history recorded on this instance.
-        """
-
-        import matplotlib.pyplot as plt
+        
 
         history_to_plot = history if history is not None else self._transition_history
 
         if not history_to_plot:
             raise ValueError("No transition history to plot. Run transition() before plotting.")
 
-        time_axis = [entry["time_hours"] for entry in history_to_plot]
-        currents = [entry["current_a"] for entry in history_to_plot]
-        internal_energy = [entry["internal_energy_change"] for entry in history_to_plot]
+        def _valid_series(key):
+            time_axis, values = [], []
+            for entry in history_to_plot:
+                value = entry.get(key)
+                if value is None or (isinstance(value, float) and math.isnan(value)):
+                    continue
+                time_axis.append(entry["time_hours"])
+                values.append(value)
+            return time_axis, values
 
-        fig, (ax_current, ax_energy) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
+        metric_specs = {
+            "soc": ("State of charge", "State of charge [0-1]", "tab:blue"),
+            "soe": ("State of energy", "State of energy [0-1]", "tab:green"),
+            "voltage_v": ("Battery voltage", "Voltage [V]", "tab:red"),
+            "internal_energy_change": ("Internal energy change", "Energy [kWh]", "tab:orange"),
+            "power_kw": ("Battery power", "Power [kW]", "tab:purple"),
+        }
 
-        ax_current.plot(time_axis, currents, linestyle="-", color="tab:blue")
-        ax_current.set_ylabel("Current [A]")
-        ax_current.set_title("UnipiTransitionModel current over time")
-        ax_current.grid(True)
+        figures = {}
 
-        ax_energy.plot(time_axis, internal_energy, linestyle="-", color="tab:orange")
-        ax_energy.set_xlabel("Time [h]")
-        ax_energy.set_ylabel("Internal energy change [kWh]")
-        ax_energy.set_title("UnipiTransitionModel internal energy change over time")
-        ax_energy.grid(True)
+        def _build_save_path(base_path: str, suffix: str) -> str:
+            path = Path(base_path)
+            if path.suffix:
+                return str(path.with_name(f"{path.stem}{suffix}{path.suffix}"))
+            return f"{base_path}{suffix}"
 
-        fig.tight_layout()
+        for key, (title, ylabel, color) in metric_specs.items():
+            time_axis, values = _valid_series(key)
+            if not values:
+                continue
 
-        if save_path:
-            fig.savefig(save_path, bbox_inches="tight")
+            fig, ax = plt.subplots(figsize=(10, 4))
+            ax.plot(time_axis, values, linestyle="-", color=color)
+            ax.set_xlabel("Time [h]")
+            ax.set_ylabel(ylabel)
+            ax.set_title(f"{self.__class__.__name__} {title} over time")
+            ax.grid(True)
 
-        if show:
-            plt.show()
-        else:
-            plt.close(fig)
+            fig.tight_layout()
 
-        return fig, (ax_current, ax_energy)
+            if save_path:
+                fig.savefig(_build_save_path(save_path, f"_{key}"), bbox_inches="tight")
 
+            if show:
+                plt.show()
+            else:
+                plt.close(fig)
+
+            figures[key] = (fig, ax)
+
+        if not figures:
+            raise ValueError("No plottable metrics found in transition history.")
+
+        return figures
