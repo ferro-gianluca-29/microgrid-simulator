@@ -2,7 +2,7 @@
 battery:
   soc_min: 0.2 # da modificare in soe_min
   soc_max: 0.8 # da modificare in soe_max
-  capacity: 5.2        # [kWh]
+  capacity: 5.12        # [kWh]
   power_max: 8         # [kW]
   efficiency: 0.9
   init_soc: 0.6 # da modificare in init_soe

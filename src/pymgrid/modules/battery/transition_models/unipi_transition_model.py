@@ -92,6 +92,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         self._last_voltage = None
         self._soe = None
         self.soc = None
+        self._v_prev = None
         self.current_a = 0
         self.last_wear_cost = 0.0
         self.last_dynamic_efficiency = None
@@ -165,6 +166,9 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         else:
             converted_energy_change = external_energy_change / (self.dyn_eta or efficiency) """
         
+
+        
+        
         # Compute the internal battery power and current
 
         
@@ -182,13 +186,15 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         delta_t = max(self.delta_t_hours, 1e-9) # questo va reso una variabile da dare in input al battery module 
 
         if current_step == 0:
-            self._soc = float(state_dict.get('soc', 0.0))
-            voc_prev, self.R0 = self._interp_voc_r0(self._soc, temperature_c)
-            v_batt = max(voc_prev, 1e-6)            
+            self.soc = float(state_dict.get('soc', 0.0))
+            voc_prev, self.R0 = self._interp_voc_r0(self.soc, temperature_c)
+            self._v_prev = voc_prev
+            #v_batt = max(voc_prev, 1e-6)
+                        
 
         else:
-            voc_prev, self.R0 = self._interp_voc_r0(self._soc, temperature_c)
-            v_batt = max(voc_prev - self.R0 * self.current_a, 1e-6)
+            voc_prev, self.R0 = self._interp_voc_r0(self.soc, temperature_c)
+            #v_batt = max(voc_prev - self.R0 * self.current_a, 1e-6)
             
 
         # here the minus sign is required, since the internal battery model is 
@@ -196,25 +202,32 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         # opposite from the pymgrid convention 
 
         power_kw = -external_energy_change / delta_t # [kW]   
-        self.current_a = 1000.0 * power_kw / max(v_batt, 1e-9) # [A]
+        self.current_a = 1000.0 * power_kw / max(self._v_prev, 1e-9) # [A]
+
+        v_batt = max(voc_prev - self.R0 * self.current_a, 1e-6)
 
         battery_pack_nominal_charge = self.c_n * self.np_batt # [Ah]
 
         current_charge_kWh = float(state_dict.get('current_charge', self._soe * max_capacity)) # [kWh]
         
-        current_charge_Ah = self._soc * battery_pack_nominal_charge + (self.current_a * delta_t)
+        current_charge_Ah = self.soc * battery_pack_nominal_charge + (self.current_a * delta_t)
 
-        soc_unbounded = self._soc - (self.current_a * delta_t) / (self.c_n * self.np_batt)
+        soc_unbounded = self.soc - (self.current_a * delta_t) / (self.c_n * self.np_batt)
 
         min_soc = (min_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) # questi forse vanno corretti
         max_soc = (max_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) # questi forse vanno corretti
+
+        #print(f"min_soc = {min_soc:.5f}")
+        #print(f"max_soc = {max_soc:.5f}")
+        """if record_history:
+            print(f"self.nominal_energy_kwh = {self.nominal_energy_kwh:.5f}")"""
 
         #min_soc = min_capacity / max_capacity   # questi forse vanno corretti, occorre decidere come settarli
         #max_soc = max_capacity / max_capacity   # questi forse vanno corretti, occorre decidere come settarli
 
         soc_new = float(np.clip(soc_unbounded, min_soc, max_soc))   # ricontrollare se è corretto 
 
-        self._soc = soc_new   # aggiorno il soc
+        self.soc = soc_new   # aggiorno il soc
 
         # compute dynamic efficiency
         self.dyn_eta = max(1e-9, self._dynamic_efficiency(self.current_a, voc_prev, v_batt))  # non entra nella logica di 
@@ -222,9 +235,22 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
         soe_new = self._soe - (self.current_a * voc_prev * delta_t / 1000) / self.nominal_energy_kwh   
 
-        internal_energy_change = (soe_new - self._soe) * max_capacity
+        self._v_prev = v_batt
 
-        self.last_wear_cost = self._compute_wear_cost(self._soc, self._soc, power_kw, delta_t)
+        internal_energy_change = (soe_new - self._soe) * self.nominal_energy_kwh
+
+        #updated_charge = float(np.clip(current_charge_kWh + internal_energy_change, min_capacity, max_capacity))
+        #internal_energy_change = updated_charge - current_charge_kWh
+
+
+        """if record_history:
+            print(f"Nuova Carica: {current_charge_kWh + internal_energy_change:.5f}")
+            print(f"min_capacity = {min_capacity}")
+            print(f"max_capacity = {max_capacity}")
+            print(f"current step = {current_step}")"""
+
+
+        self.last_wear_cost = self._compute_wear_cost(self.soc, self.soc, power_kw, delta_t)
         voc_next, r0_next = self._interp_voc_r0(soc_new, temperature_c)
 
 
@@ -237,14 +263,14 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                 ),
                 "current_a": float(self.current_a),
                 "internal_energy_change": float(internal_energy_change),
-                "soc": float(self._soc),
+                "soc": float(self.soc),
                 "soe": float(soe_new),
                 "voltage_v": float(v_batt),
                 "power_kw": float(-power_kw),
             })
 
 
-        #print(f"soc = {self._soc}") # per debug
+        #print(f"soc = {self.soc}") # per debug
 
         return internal_energy_change
 

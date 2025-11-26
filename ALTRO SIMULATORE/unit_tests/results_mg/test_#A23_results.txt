@@ -1,0 +1,22 @@
+[*CIPAR*] MG Class | MG simulation starts...
+[*CIPAR*] MG Class | SoE_before=0.95
+[*CIPAR*] MG Class | Generation excess - ESS not enough space - ESS over Pmax
+[*CIPAR*] MG Class | Generation excess - ESS enough space - ESS over Pmax
+[*CIPAR*] MG Class | p_G=8; p_L=0; p_GL=8; p_GL_S=0; p_GL_N=8  all in [kW]
+[*CIPAR*] MG Class | SoE_after=0.95
+[*CIPAR*] MG Class | Local energy production=1.99 [kWh]
+[*CIPAR*] MG Class | Drawn energy=0.0 [kWh]
+[*CIPAR*] MG Class | Shared energy=0.0 [kWh]
+[*CIPAR*] MG Class | Sold power =8 [kW]
+[*CIPAR*] MG Class | Purchased power =0 [kW]
+[*CIPAR*] MG Class | MG simulation ends.
+
+[*CIPAR*] test script | Data for mg0 start:
+[*CIPAR*] test script | Total cost mg0 = 0.09 [€]
+[*CIPAR*] test script | Revenues mg0 = 0.3 [€]
+[*CIPAR*] test script | Investment costs mg0 = 0.09 [€]
+[*CIPAR*] test script | ESS costs mg0 = 0.0 [€]
+[*CIPAR*] test script | Purchase costs mg0 = 0 [€]
+[*CIPAR*] test script | No PV costs mg0 = 0.0 [€]
+[*CIPAR*] test script | Data for mg0 end.
+

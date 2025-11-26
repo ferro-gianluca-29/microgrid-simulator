@@ -1,0 +1,168 @@
+{
+  "global": {
+    "EMS": "FIS",
+    "Trainer": "GA",
+    "Approach": "hier",
+    "Parallelization": "no",
+    "Simulation": "offline",
+    "Online window": 7,
+    "Executions": 1,
+    "Seed": 10
+  },
+
+  "simulation": {
+    "delta_t": 15
+  },
+
+  "economic_params": {
+    "CPR": 0.026,
+    "max_BTAU_m": 0.61,
+    "TRAS_e": 8.48,
+    "Pz": 3.2,
+    "TP_CE": 110,
+    "PR_3": 150,
+    "P_pur": 0.212,
+    "VAT": 0.1,
+    "u_pv": 0.047,
+    "bill_fixed_costs": 0.0029
+  },
+
+  "architecture": {
+
+    "mg0": {
+      "pv_plant": {
+        "pv_price": 7400
+      },
+      "ESS": {
+        "Q": 5,
+        "P_S_max": 7,
+        "a": 1100,
+        "b": 1.8,
+        "B": 4500,
+        "eta": 0.98,
+        "SoE_0": 0.50,
+        "V_n": 48,
+        "SoE_min": 0.15,
+        "SoE_max": 0.95,
+        "Q_n": 5,
+        "C_n": -99,
+        "eta_inverter": -99,
+        "Ns_batt": -99,
+        "Np_batt": -99,
+        "SoC_0": -99,
+        "T": -99
+      }
+    },
+
+    "mg1": {
+      "pv_plant": {
+        "pv_price": 6000
+      },
+      "ESS": {
+        "Q": 5,
+        "P_S_max": 7,
+        "a": 1100,
+        "b": 1.8,
+        "B": 4500,
+        "eta": 0.98,
+        "SoE_0": 0.75,
+        "V_n": 48,
+        "SoE_min": 0.15,
+        "SoE_max": 0.95,
+        "Q_n": 5,
+        "C_n": -99,
+        "eta_inverter": -99,
+        "Ns_batt": -99,
+        "Np_batt": -99,
+        "SoC_0": -99,
+        "T": -99
+      }
+    }
+
+  },
+
+  "objective_function": {
+    "of_name": "hier_of"
+  },
+
+  "optimization_params": {
+
+    "gene_lims": [
+		[0.04,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.04,0.01,0.04,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.04,0.01,0,0,0,0,0,1,1,1,1,1],
+		[4,0.99,3.33,1.99,3.33,1.99,3.33,1.99,4,0.99,4,0.99,3.33,1.99,3.33,1.99,3.33,1.99,4,0.99,1,1,1,1,1,5,5,5,5,5]
+    ],
+
+    "meta_params": {
+        "population_size": 100,
+        "crossover_fraction": 0.8,
+        "mutation_probability": 0.8,
+        "mutation_attenuation": 0.5,
+        "stopping_criteria": "max_gen",
+        "number_generations": 100,
+        "max_stall": 50,
+        "tolerance": 0.00001,
+        "number_elite": 1,
+        "tournament_size": 2,
+        "progeny": 0.8,
+        "of_threshold": 0.000027
+    }
+
+  },
+
+  "fuzzy_params": {
+	"name_fis":"fis_energy_community",
+	"type_fis":"mamdami",
+	"n_input":1,
+	"n_output":1,
+	"n_rules":5,
+	"and_method":"min",
+	"or_method":"max",
+	"imp_method":"min",
+	"agg_method":"max",
+	"defuzz_method":"centroid",
+	"name_input":"SoE",
+	"range_i":[0,1],
+	"n_MF_i":5,
+	"name_MF_1_i":"very_low",
+	"name_MF_2_i":"low",
+	"name_MF_3_i":"medium",
+	"name_MF_4_i":"high",
+	"name_MF_5_i":"very_high",
+	"type_MF_1_i":"trapmf",
+	"type_MF_2_i":"trimf",
+	"type_MF_3_i":"trimf",
+	"type_MF_4_i":"trimf",
+	"type_MF_5_i":"trapmf",
+	"abscissas_MF_1_i":[-0.1, 0, 0.1, 0.25],
+	"abscissas_MF_2_i":[0.15, 0.3, 0.45],
+	"abscissas_MF_3_i":[0.35, 0.5, 0.65],
+	"abscissas_MF_4_i":[0.55, 0.7, 0.85],
+	"abscissas_MF_5_i":[0.75, 0.9, 1, 1.1],
+	"name_output":"dec",
+	"range_o":[0,1],
+	"n_MF_o":5,
+	"name_MF_1_o":"very_low",
+	"name_MF_2_o":"low",
+	"name_MF_3_o":"medium",
+	"name_MF_4_o":"high",
+	"name_MF_5_o":"very_high",
+	"type_MF_1_o":"trapmf",
+	"type_MF_2_o":"trimf",
+	"type_MF_3_o":"trimf",
+	"type_MF_4_o":"trimf",
+	"type_MF_5_o":"trapmf",
+	"abscissas_MF_1_o":[-0.1, 0, 0.1, 0.25],
+	"abscissas_MF_2_o":[0.15, 0.3, 0.45],
+	"abscissas_MF_3_o":[0.35, 0.5, 0.65],
+	"abscissas_MF_4_o":[0.55, 0.7, 0.85],
+	"abscissas_MF_5_o":[0.75, 0.9, 1, 1.1],
+	"rules":[
+	[1,1,1,1],
+	[2,1,1,1],
+	[3,1,1,1],
+	[4,1,1,1],
+	[5,1,1,1]
+	]
+  }
+
+}
