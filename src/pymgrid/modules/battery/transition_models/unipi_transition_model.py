@@ -211,18 +211,15 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
         soc_unbounded = self.soc - (self.current_a * delta_t) / (self.c_n * self.np_batt)
 
-        min_soc = (min_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) # questi forse vanno corretti
-        max_soc = (max_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) # questi forse vanno corretti
+        min_soc = (min_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
+        max_soc = (max_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
 
-        #print(f"min_soc = {min_soc:.5f}")
-        #print(f"max_soc = {max_soc:.5f}")
+        #print(f"min_soc = {min_soc}")
+        #print(f"max_soc = {max_soc}")
         """if record_history:
             print(f"self.nominal_energy_kwh = {self.nominal_energy_kwh:.5f}")"""
-
-        #min_soc = min_capacity / max_capacity   # questi forse vanno corretti, occorre decidere come settarli
-        #max_soc = max_capacity / max_capacity   # questi forse vanno corretti, occorre decidere come settarli
-
-        soc_new = float(np.clip(soc_unbounded, min_soc, max_soc))   # ricontrollare se è corretto 
+        
+        soc_new = float(np.clip(soc_unbounded, min_soc, max_soc))    
 
         self.soc = soc_new   # aggiorno il soc
 
