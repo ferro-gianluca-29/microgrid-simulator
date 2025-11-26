@@ -187,14 +187,12 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
         if current_step == 0:
             self.soc = float(state_dict.get('soc', 0.0))
-            voc_prev, self.R0 = self._interp_voc_r0(self.soc, temperature_c)
-            self._v_prev = voc_prev
-            #v_batt = max(voc_prev, 1e-6)
+            self.voc, self.R0 = self._interp_voc_r0(self.soc, temperature_c)
+            self._v_prev = self.voc
                         
 
         else:
-            voc_prev, self.R0 = self._interp_voc_r0(self.soc, temperature_c)
-            #v_batt = max(voc_prev - self.R0 * self.current_a, 1e-6)
+            self.voc, self.R0 = self._interp_voc_r0(self.soc, temperature_c)
             
 
         # here the minus sign is required, since the internal battery model is 
@@ -204,7 +202,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         power_kw = -external_energy_change / delta_t # [kW]   
         self.current_a = 1000.0 * power_kw / max(self._v_prev, 1e-9) # [A]
 
-        v_batt = max(voc_prev - self.R0 * self.current_a, 1e-6)
+        v_batt = max(self.voc - self.R0 * self.current_a, 1e-6)
 
         battery_pack_nominal_charge = self.c_n * self.np_batt # [Ah]
 
@@ -230,10 +228,10 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         self.soc = soc_new   # aggiorno il soc
 
         # compute dynamic efficiency
-        self.dyn_eta = max(1e-9, self._dynamic_efficiency(self.current_a, voc_prev, v_batt))  # non entra nella logica di 
+        self.dyn_eta = max(1e-9, self._dynamic_efficiency(self.current_a, self.voc, v_batt))  # non entra nella logica di 
                                                                                         # aggiornamento di SoC e SoE
 
-        soe_new = self._soe - (self.current_a * voc_prev * delta_t / 1000) / self.nominal_energy_kwh   
+        soe_new = self._soe - (self.current_a * self.voc * delta_t / 1000) / self.nominal_energy_kwh   
 
         self._v_prev = v_batt
 
