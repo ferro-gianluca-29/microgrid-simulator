@@ -5,6 +5,11 @@ import pandas as pd
 
 from src.pymgrid import Microgrid
 from src.pymgrid.modules import GridModule, LoadModule, RenewableModule, BatteryModule
+from src.pymgrid.modules.battery.transition_models import (
+    LfpTransitionModel,
+    NcaTransitionModel,
+    NmcTransitionModel,
+)
 
 from pandasgui import show
 import yaml
@@ -12,7 +17,7 @@ import yaml
 
 class MicrogridSimulator():
 
-    def __init__(self, config_path, online, load_time_series = None, pv_time_series = None, grid_time_series = None):
+    def __init__(self, config_path, online, load_time_series = None, pv_time_series = None, grid_time_series = None, battery_chemistry=None):
 
         with open(config_path, 'r') as f:
             self.config = yaml.safe_load(f)
@@ -33,6 +38,10 @@ class MicrogridSimulator():
         power_max = battery_cfg['power_max']
         sample_time = battery_cfg['sample_time']
 
+        # Chimica batteria o modello di transizione esplicito
+        self.battery_chemistry = battery_chemistry or battery_cfg.get('chemistry') or battery_cfg.get('type') or 'generic'
+        self.battery_transition_model = battery_cfg.get('transition_model')
+
         self.nominal_capacity = capacity
         self.min_capacity = soc_min * capacity
         self.max_capacity = soc_max * capacity
@@ -51,13 +60,25 @@ class MicrogridSimulator():
 
     def build_microgrid(self):
 
-        battery = BatteryModule(      
+        transition_model = self.battery_transition_model
+        if transition_model is None:
+            chemistry_upper = str(self.battery_chemistry).upper()
+            if chemistry_upper == 'LFP':
+                transition_model = LfpTransitionModel()
+            elif chemistry_upper == 'NMC':
+                transition_model = NmcTransitionModel()
+            elif chemistry_upper == 'NCA':
+                transition_model = NcaTransitionModel()
+            # Otherwise, leave `transition_model` as None to use the default BatteryTransitionModel
+
+        battery = BatteryModule(
                               min_capacity = self.min_capacity, # [kWh]
                               max_capacity = self.max_capacity, # [kWh]
                               max_charge = self.max_charge_per_step, # [kWh]
                               max_discharge = self.max_discharge_per_step, # [kWh]
                               efficiency = self.battery_efficiency,
-                              init_soc = self.init_soc      
+                              init_soc = self.init_soc,
+                              battery_transition_model=transition_model
                                                         )
         
         load_module = LoadModule(

@@ -1,3 +1,7 @@
 from .transition_model import BatteryTransitionModel
 from .biased_transition_model import BiasedTransitionModel
 from .decay_transition_model import DecayTransitionModel, DecayCycleTransitionModel
+from .unipi_transition_model import UnipiChemistryTransitionModel
+from .lfp_transition_model import LfpTransitionModel
+from .nmc_transition_model import NmcTransitionModel
+from .nca_transition_model import NcaTransitionModel

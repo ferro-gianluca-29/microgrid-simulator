@@ -1,63 +1,51 @@
-"""
-Consumer Kafka - Buffer Real-Time
-
-1. Configura parametri
-2. Connetti a Kafka
-3. Ricevi dati e riempi buffer
-4. Stampa statistiche quando pieno
-"""
-
 from confluent_kafka import Consumer
 import json
 import requests
 import pandas as pd
 from collections import deque
-
+import time
+import os
 
 # ============================================================================
 # CONFIGURAZIONE
 # ============================================================================
 
-ODA_URL = "http://localhost:50005"
-TOPIC = "test_topic_661"
-BUFFER_SIZE = 96  # 24 ore (96 x 15min) simulate
-
+ODA_URL = "http://oda-nest.bologna.enea.it:50005"
+TOPIC = "dhomus.aggregator.1"
+BUFFER_SIZE = 96                 # 24h simulati (96 x 15min)
+CSV_UPDATE_INTERVAL = 50         # Salvataggio CSV ogni 50 messaggi
+CSV_FILE = "misure_realtime.csv"
 
 # ============================================================================
-# BUFFER (semplici deque, si aggiornano automaticamente)
+# BUFFER CIRCOLARE
 # ============================================================================
 
 timestamps = deque(maxlen=BUFFER_SIZE)
-solar = deque(maxlen=BUFFER_SIZE)
-load = deque(maxlen=BUFFER_SIZE)
+measurements = deque(maxlen=BUFFER_SIZE)
 total_messages = 0
-
 
 # ============================================================================
 # CONNESSIONE KAFKA
 # ============================================================================
 
 print("=" * 70)
-print("  CONSUMER KAFKA - BUFFER REAL-TIME")
+print("  CONSUMER KAFKA - REAL-TIME + CSV UPDATE")
 print("=" * 70)
-print()
 
 print(" Connessione a ODA...")
-response = requests.get(f"{ODA_URL}/register/dc")      # Ottieni endpoint Kafka
-kafka_endpoint = response.json()["KAFKA_ENDPOINT"]     # Estrai endpoint Kafka
+response = requests.get(f"{ODA_URL}/register/dc")
+kafka_endpoint = response.json()["KAFKA_ENDPOINT"]
 
 consumer = Consumer({
     'bootstrap.servers': kafka_endpoint,
-    'group.id': 'consumer_semplice',             # Identificatore del consumer group
-    'auto.offset.reset': 'latest'                # Inizia a leggere dai messaggi più recenti
+    'group.id': 'consumer_realtime',
+    'auto.offset.reset': 'latest'
 })
 
 consumer.subscribe([TOPIC])
 print(f" Connesso: {kafka_endpoint}")
 print(f" Topic: {TOPIC}")
-print(f" Buffer: {BUFFER_SIZE} timesteps (24h)\n")
 print(" Streaming attivo...\n")
-
 
 # ============================================================================
 # LOOP PRINCIPALE
@@ -65,92 +53,60 @@ print(" Streaming attivo...\n")
 
 try:
     while True:
-        
-        # Ricevi messaggio
-        msg = consumer.poll(1.0)       # Timeout di 1 secondo
-        
-        if msg is None:
-            continue
-        
-        if msg.error():                              # Gestione errori messaggio
-            print(f" Errore: {msg.error()}")
-            continue
-        
-        # Parse messaggio
-        try:
-            data = json.loads(msg.value().decode('utf-8'))        # Decodifica JSON 
-            timestamp = pd.to_datetime(data['timestamp'])         # Estrai timestamp
-            dati = json.loads(data['data'])                       # Estrai dati interni
-            
-            s = max(0.0, float(dati['solar']['value']))           # Estrai solar dai dati
-            l = max(0.0, float(dati['load']['value']))            # Estrai load dai dati
-        
-        except Exception as e:                                    # Gestione errori parsing
-            print(f" Errore parsing: {e}")
-            continue
-        
-        # Aggiungi a buffer
-        timestamps.append(timestamp)              # Aggiungi timestamp al buffer
-        solar.append(s)                           # Aggiungi solar al buffer
-        load.append(l)                            # Aggiungi load al buffer
-        total_messages += 1                       # Incrementa contatore messaggi
-        
-        # Stampa progresso
-        print(f"[{total_messages:4d}] {timestamp.strftime('%Y-%m-%d %H:%M:%S')} | "          # Stampa timestamp
-              f"Solar: {s:5.2f} kWh | Load: {l:5.2f} kWh | "                                   # Stampa valori
-              f"Buffer: {len(solar):2d}/{BUFFER_SIZE}")                                      # Stampa stato buffer
-        
-        # Quando buffer è pieno, stampa statistiche
-        if len(solar) >= BUFFER_SIZE:                       # Buffer pieno, calcola statistiche
-            
-            # Converti a DataFrame
-            df = pd.DataFrame({                          # Crea DataFrame dai buffer perchè pandas non supporta deque
-                'datetime': list(timestamps),
-                'solar': list(solar),
-                'load': list(load)
-            })
-            
-            # Calcola statistiche
-            solar_avg = df['solar'].mean()      # Media solar
-            solar_max = df['solar'].max()       # Max solar
-            load_avg = df['load'].mean()        # Media load
-            load_max = df['load'].max()         # Max load
-            
-            # Stampa
-            print(f"\n           Statistiche 24h:")
-            print(f"         Solar: media {solar_avg:.2f} kWh, max {solar_max:.2f} kWh")       # Stampa statistiche solar di 96 timesteps
-            print(f"         Load:  media {load_avg:.2f} kWh, max {load_max:.2f} kWh\n")       # Stampa statistiche load di 96 timesteps
 
+        msg = consumer.poll(0.5)
+        if msg is None or msg.error():
+            continue
 
-except KeyboardInterrupt:              # Gestione interruzione manuale con Ctrl+C
+        # Parse top-level
+        data = json.loads(msg.value().decode('utf-8'))
+        timestamp = data['timestamp']
+        inner = json.loads(data['data'])
+
+        # Stampa misure disponibili
+        print(f"\n[{total_messages+1}] {timestamp}")
+        for key, obj in inner.items():
+            print(f"  {key}: {obj['value']} {obj['unit']}")
+
+        # Costruisci record
+        record = {"timestamp": timestamp}
+        for key, obj in inner.items():
+            record[key] = obj["value"]
+
+        # Aggiorna buffer
+        timestamps.append(timestamp)
+        measurements.append(record)
+        total_messages += 1
+
+        # Salvataggio CSV periodico
+        if total_messages % CSV_UPDATE_INTERVAL == 0:
+            df = pd.DataFrame(measurements)
+            if os.path.exists(CSV_FILE):
+                df.to_csv(CSV_FILE, mode='w', index=False)
+            else:
+                df.to_csv(CSV_FILE, index=False)
+            print(f"\n ✅ CSV aggiornato ({CSV_FILE}) con {len(df)} righe\n")
+
+        # Buffer pieno → statistiche
+        if len(measurements) == BUFFER_SIZE:
+            df = pd.DataFrame(measurements)
+            print("\n=== STATISTICHE SU 24H ===")
+            for col in df.columns:
+                if col != "timestamp":
+                    print(f"{col}: media={df[col].mean():.2f}  max={df[col].max():.2f}")
+
+except KeyboardInterrupt:
     print("\n Interrotto\n")
 
 finally:
-    consumer.close()               # Chiudi connessione Kafka
-
-
-# ============================================================================
-# STATISTICHE FINALI (relative ai dati dell'ultimo buffer)
-# ============================================================================
+    consumer.close()
 
 print("=" * 70)
 print("  STATISTICHE FINALI")
 print("=" * 70)
-print(f"   Messaggi ricevuti: {total_messages}")          # Stampa numero totale messaggi ricevuti
-print(f"   Buffer finale: {len(solar)} valori")           # Stampa numero valori nel buffer finale 
+print(f"  Messaggi totali: {total_messages}")
 
-if len(solar) > 0:            # Se ci sono dati nel buffer
-    
-    # Salva buffer finale
-    df_finale = pd.DataFrame({              # Crea DataFrame dai buffer perchè pandas non supporta deque
-        'datetime': list(timestamps),
-        'solar': list(solar),
-        'load': list(load)
-    })
-    
-    print(f"\n   Periodo: {df_finale['datetime'].min()} → {df_finale['datetime'].max()}")                    # Stampa periodo coperto dai dati dell'ultimo buffer
-    print(f"   Solar: media {df_finale['solar'].mean():.2f} kWh, max {df_finale['solar'].max():.2f} kWh")      # Stampa statistiche solar dell'ultimo buffer
-    print(f"   Load:  media {df_finale['load'].mean():.2f} kWh, max {df_finale['load'].max():.2f} kWh")        # Stampa statistiche load dell'ultimo buffer
-    
-    df_finale.to_csv('buffer_finale.csv', index=False)          # Salva buffer finale in CSV
-    print(f"\n Salvato: buffer_finale.csv")                
+if len(measurements) > 0:
+    df_final = pd.DataFrame(measurements)
+    df_final.to_csv(CSV_FILE, index=False)
+    print(f" ✅ CSV salvato definitivamente: {CSV_FILE}")

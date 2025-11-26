@@ -1,0 +1,6722 @@
+[
+  {
+    "time_hours": 0.0,
+    "internal_energy_change": -1.6055555555555556,
+    "soc": 0.6,
+    "soe": 0.6,
+    "power_kw": null
+  },
+  {
+    "time_hours": 1.0,
+    "internal_energy_change": -1.8122222222222222,
+    "soc": 0.5608018663194445,
+    "soe": 0.5608018663194445,
+    "power_kw": null
+  },
+  {
+    "time_hours": 2.0,
+    "internal_energy_change": -1.5644444444444443,
+    "soc": 0.5165581597222223,
+    "soe": 0.5165581597222223,
+    "power_kw": null
+  },
+  {
+    "time_hours": 3.0,
+    "internal_energy_change": -1.8811111111111112,
+    "soc": 0.4783637152777779,
+    "soe": 0.4783637152777779,
+    "power_kw": null
+  },
+  {
+    "time_hours": 4.0,
+    "internal_energy_change": -1.21,
+    "soc": 0.4324381510416668,
+    "soe": 0.4324381510416668,
+    "power_kw": null
+  },
+  {
+    "time_hours": 5.0,
+    "internal_energy_change": -1.3833333333333335,
+    "soc": 0.4028971354166668,
+    "soe": 0.4028971354166668,
+    "power_kw": null
+  },
+  {
+    "time_hours": 6.0,
+    "internal_energy_change": -1.3044444444444443,
+    "soc": 0.36912434895833346,
+    "soe": 0.36912434895833346,
+    "power_kw": null
+  },
+  {
+    "time_hours": 7.0,
+    "internal_energy_change": -1.008888888888889,
+    "soc": 0.337277560763889,
+    "soe": 0.337277560763889,
+    "power_kw": null
+  },
+  {
+    "time_hours": 8.0,
+    "internal_energy_change": -1.5288888888888887,
+    "soc": 0.31264648437500014,
+    "soe": 0.31264648437500014,
+    "power_kw": null
+  },
+  {
+    "time_hours": 9.0,
+    "internal_energy_change": -0.8333333333333333,
+    "soc": 0.27532009548611125,
+    "soe": 0.27532009548611125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 10.0,
+    "internal_energy_change": -0.20377777777778405,
+    "soc": 0.25497504340277793,
+    "soe": 0.25497504340277793,
+    "power_kw": null
+  },
+  {
+    "time_hours": 11.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 12.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 13.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 14.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 15.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 16.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 17.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 18.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 19.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 20.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 21.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 22.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 23.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 24.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 25.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 26.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 27.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 28.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 29.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 30.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 31.0,
+    "internal_energy_change": 0.14220000000000002,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 32.0,
+    "internal_energy_change": 0.7875,
+    "soc": 0.2534716796875,
+    "soe": 0.2534716796875,
+    "power_kw": null
+  },
+  {
+    "time_hours": 33.0,
+    "internal_energy_change": 0.5004000000000001,
+    "soc": 0.27269775390625,
+    "soe": 0.27269775390625,
+    "power_kw": null
+  },
+  {
+    "time_hours": 34.0,
+    "internal_energy_change": 0.7722,
+    "soc": 0.28491455078125,
+    "soe": 0.28491455078125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 35.0,
+    "internal_energy_change": 0.42030000000000006,
+    "soc": 0.30376708984375,
+    "soe": 0.30376708984375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 36.0,
+    "internal_energy_change": 0.2178,
+    "soc": 0.3140283203125,
+    "soe": 0.3140283203125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 37.0,
+    "internal_energy_change": -0.3,
+    "soc": 0.319345703125,
+    "soe": 0.319345703125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 38.0,
+    "internal_energy_change": 0.15749999999999983,
+    "soc": 0.312021484375,
+    "soe": 0.312021484375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 39.0,
+    "internal_energy_change": 0.6138,
+    "soc": 0.31586669921875,
+    "soe": 0.31586669921875,
+    "power_kw": null
+  },
+  {
+    "time_hours": 40.0,
+    "internal_energy_change": 0.9630000000000001,
+    "soc": 0.33085205078124996,
+    "soe": 0.33085205078124996,
+    "power_kw": null
+  },
+  {
+    "time_hours": 41.0,
+    "internal_energy_change": 0.5121,
+    "soc": 0.35436279296874995,
+    "soe": 0.35436279296874995,
+    "power_kw": null
+  },
+  {
+    "time_hours": 42.0,
+    "internal_energy_change": 0.9422999999999998,
+    "soc": 0.36686523437499996,
+    "soe": 0.36686523437499996,
+    "power_kw": null
+  },
+  {
+    "time_hours": 43.0,
+    "internal_energy_change": 0.5202000000000001,
+    "soc": 0.38987060546874996,
+    "soe": 0.38987060546874996,
+    "power_kw": null
+  },
+  {
+    "time_hours": 44.0,
+    "internal_energy_change": 0.6228,
+    "soc": 0.4025708007812499,
+    "soe": 0.4025708007812499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 45.0,
+    "internal_energy_change": 0.7595999999999999,
+    "soc": 0.41777587890624995,
+    "soe": 0.41777587890624995,
+    "power_kw": null
+  },
+  {
+    "time_hours": 46.0,
+    "internal_energy_change": 0.16110000000000005,
+    "soc": 0.4363208007812499,
+    "soe": 0.4363208007812499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 47.0,
+    "internal_energy_change": -0.3766666666666666,
+    "soc": 0.44025390624999994,
+    "soe": 0.44025390624999994,
+    "power_kw": null
+  },
+  {
+    "time_hours": 48.0,
+    "internal_energy_change": -0.58,
+    "soc": 0.4310579427083333,
+    "soe": 0.4310579427083333,
+    "power_kw": null
+  },
+  {
+    "time_hours": 49.0,
+    "internal_energy_change": -0.35222222222222216,
+    "soc": 0.41689778645833336,
+    "soe": 0.41689778645833336,
+    "power_kw": null
+  },
+  {
+    "time_hours": 50.0,
+    "internal_energy_change": -0.9988888888888889,
+    "soc": 0.4082986111111112,
+    "soe": 0.4082986111111112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 51.0,
+    "internal_energy_change": -0.5077777777777779,
+    "soc": 0.3839116753472223,
+    "soe": 0.3839116753472223,
+    "power_kw": null
+  },
+  {
+    "time_hours": 52.0,
+    "internal_energy_change": -0.6755555555555554,
+    "soc": 0.3715147569444446,
+    "soe": 0.3715147569444446,
+    "power_kw": null
+  },
+  {
+    "time_hours": 53.0,
+    "internal_energy_change": -0.6577777777777776,
+    "soc": 0.355021701388889,
+    "soe": 0.355021701388889,
+    "power_kw": null
+  },
+  {
+    "time_hours": 54.0,
+    "internal_energy_change": -0.7688888888888888,
+    "soc": 0.33896267361111126,
+    "soe": 0.33896267361111126,
+    "power_kw": null
+  },
+  {
+    "time_hours": 55.0,
+    "internal_energy_change": -1.3066666666666669,
+    "soc": 0.32019097222222237,
+    "soe": 0.32019097222222237,
+    "power_kw": null
+  },
+  {
+    "time_hours": 56.0,
+    "internal_energy_change": -1.5683555555555628,
+    "soc": 0.28828993055555574,
+    "soe": 0.28828993055555574,
+    "power_kw": null
+  },
+  {
+    "time_hours": 57.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 58.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 59.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 60.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 61.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 62.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 63.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 64.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 65.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 66.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 67.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 68.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 69.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 70.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 71.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 72.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 73.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 74.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 75.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 76.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 77.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 78.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 79.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 80.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 81.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 82.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 83.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 84.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 85.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 86.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 87.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 88.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 89.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 90.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 91.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 92.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 93.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 94.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 95.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 96.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 97.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 98.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 99.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 100.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 101.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 102.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 103.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 104.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 105.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 106.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 107.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 108.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 109.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 110.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 111.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 112.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 113.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 114.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 115.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 116.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 117.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 118.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 119.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 120.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 121.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 122.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 123.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 124.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 125.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 126.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 127.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 128.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 129.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 130.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 131.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 132.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 133.0,
+    "internal_energy_change": 0.028800000000000027,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 134.0,
+    "internal_energy_change": -0.02880000000000038,
+    "soc": 0.250703125,
+    "soe": 0.250703125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 135.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 136.0,
+    "internal_energy_change": 0.15210000000000004,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 137.0,
+    "internal_energy_change": 0.3915,
+    "soc": 0.25371337890625,
+    "soe": 0.25371337890625,
+    "power_kw": null
+  },
+  {
+    "time_hours": 138.0,
+    "internal_energy_change": 0.3915,
+    "soc": 0.26327148437500003,
+    "soe": 0.26327148437500003,
+    "power_kw": null
+  },
+  {
+    "time_hours": 139.0,
+    "internal_energy_change": 0.36000000000000004,
+    "soc": 0.27282958984375005,
+    "soe": 0.27282958984375005,
+    "power_kw": null
+  },
+  {
+    "time_hours": 140.0,
+    "internal_energy_change": 0.41670000000000007,
+    "soc": 0.28161865234375005,
+    "soe": 0.28161865234375005,
+    "power_kw": null
+  },
+  {
+    "time_hours": 141.0,
+    "internal_energy_change": 0.522,
+    "soc": 0.2917919921875,
+    "soe": 0.2917919921875,
+    "power_kw": null
+  },
+  {
+    "time_hours": 142.0,
+    "internal_energy_change": 0.34650000000000003,
+    "soc": 0.3045361328125,
+    "soe": 0.3045361328125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 143.0,
+    "internal_energy_change": 0.037800000000000035,
+    "soc": 0.31299560546875005,
+    "soe": 0.31299560546875005,
+    "power_kw": null
+  },
+  {
+    "time_hours": 144.0,
+    "internal_energy_change": 0.18719999999999998,
+    "soc": 0.3139184570312501,
+    "soe": 0.3139184570312501,
+    "power_kw": null
+  },
+  {
+    "time_hours": 145.0,
+    "internal_energy_change": 0.17909999999999995,
+    "soc": 0.3184887695312501,
+    "soe": 0.3184887695312501,
+    "power_kw": null
+  },
+  {
+    "time_hours": 146.0,
+    "internal_energy_change": 0.0036000000000000034,
+    "soc": 0.32286132812500007,
+    "soe": 0.32286132812500007,
+    "power_kw": null
+  },
+  {
+    "time_hours": 147.0,
+    "internal_energy_change": 0.08279999999999997,
+    "soc": 0.3229492187500001,
+    "soe": 0.3229492187500001,
+    "power_kw": null
+  },
+  {
+    "time_hours": 148.0,
+    "internal_energy_change": -0.16,
+    "soc": 0.3249707031250001,
+    "soe": 0.3249707031250001,
+    "power_kw": null
+  },
+  {
+    "time_hours": 149.0,
+    "internal_energy_change": -0.3055555555555556,
+    "soc": 0.3210644531250001,
+    "soe": 0.3210644531250001,
+    "power_kw": null
+  },
+  {
+    "time_hours": 150.0,
+    "internal_energy_change": -0.6211111111111111,
+    "soc": 0.31360460069444457,
+    "soe": 0.31360460069444457,
+    "power_kw": null
+  },
+  {
+    "time_hours": 151.0,
+    "internal_energy_change": -0.5577777777777778,
+    "soc": 0.29844075520833346,
+    "soe": 0.29844075520833346,
+    "power_kw": null
+  },
+  {
+    "time_hours": 152.0,
+    "internal_energy_change": -0.2677777777777777,
+    "soc": 0.2848231336805557,
+    "soe": 0.2848231336805557,
+    "power_kw": null
+  },
+  {
+    "time_hours": 153.0,
+    "internal_energy_change": -0.5133333333333333,
+    "soc": 0.27828559027777794,
+    "soe": 0.27828559027777794,
+    "power_kw": null
+  },
+  {
+    "time_hours": 154.0,
+    "internal_energy_change": -0.645244444444451,
+    "soc": 0.2657530381944446,
+    "soe": 0.2657530381944446,
+    "power_kw": null
+  },
+  {
+    "time_hours": 155.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 156.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 157.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 158.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 159.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 160.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 161.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 162.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 163.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 164.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 165.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 166.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 167.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 168.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 169.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 170.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 171.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 172.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 173.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 174.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 175.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 176.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 177.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 178.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 179.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 180.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 181.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 182.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 183.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 184.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 185.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 186.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 187.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 188.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 189.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 190.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 191.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 192.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 193.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 194.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 195.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 196.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 197.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 198.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 199.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 200.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 201.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 202.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 203.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 204.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 205.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 206.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 207.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 208.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 209.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 210.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 211.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 212.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 213.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 214.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 215.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 216.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 217.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 218.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 219.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 220.0,
+    "internal_energy_change": 0.4194,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 221.0,
+    "internal_energy_change": 0.8964,
+    "soc": 0.2602392578125,
+    "soe": 0.2602392578125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 222.0,
+    "internal_energy_change": 1.0017,
+    "soc": 0.2821240234375,
+    "soe": 0.2821240234375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 223.0,
+    "internal_energy_change": 1.2294,
+    "soc": 0.30657958984374994,
+    "soe": 0.30657958984374994,
+    "power_kw": null
+  },
+  {
+    "time_hours": 224.0,
+    "internal_energy_change": 1.5920999999999998,
+    "soc": 0.33659423828124996,
+    "soe": 0.33659423828124996,
+    "power_kw": null
+  },
+  {
+    "time_hours": 225.0,
+    "internal_energy_change": 1.6209,
+    "soc": 0.37546386718749997,
+    "soe": 0.37546386718749997,
+    "power_kw": null
+  },
+  {
+    "time_hours": 226.0,
+    "internal_energy_change": 1.4877,
+    "soc": 0.41503662109374995,
+    "soe": 0.41503662109374995,
+    "power_kw": null
+  },
+  {
+    "time_hours": 227.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.45135742187499994,
+    "soe": 0.45135742187499994,
+    "power_kw": null
+  },
+  {
+    "time_hours": 228.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.5001855468749999,
+    "soe": 0.5001855468749999,
+    "power_kw": null
+  },
+  {
+    "time_hours": 229.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.5490136718749999,
+    "soe": 0.5490136718749999,
+    "power_kw": null
+  },
+  {
+    "time_hours": 230.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.5978417968749999,
+    "soe": 0.5978417968749999,
+    "power_kw": null
+  },
+  {
+    "time_hours": 231.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.6466699218749998,
+    "soe": 0.6466699218749998,
+    "power_kw": null
+  },
+  {
+    "time_hours": 232.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.6954980468749998,
+    "soe": 0.6954980468749998,
+    "power_kw": null
+  },
+  {
+    "time_hours": 233.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.7443261718749998,
+    "soe": 0.7443261718749998,
+    "power_kw": null
+  },
+  {
+    "time_hours": 234.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.7931542968749998,
+    "soe": 0.7931542968749998,
+    "power_kw": null
+  },
+  {
+    "time_hours": 235.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.8419824218749998,
+    "soe": 0.8419824218749998,
+    "power_kw": null
+  },
+  {
+    "time_hours": 236.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.8908105468749998,
+    "soe": 0.8908105468749998,
+    "power_kw": null
+  },
+  {
+    "time_hours": 237.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.9396386718749998,
+    "soe": 0.9396386718749998,
+    "power_kw": null
+  },
+  {
+    "time_hours": 238.0,
+    "internal_energy_change": 0.4724000000000075,
+    "soc": 0.9884667968749998,
+    "soe": 0.9884667968749998,
+    "power_kw": null
+  },
+  {
+    "time_hours": 239.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 240.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 241.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 242.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 243.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 244.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 245.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 246.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 247.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 248.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 249.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 250.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 251.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 252.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 253.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 254.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 255.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 256.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 257.0,
+    "internal_energy_change": -0.61,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 258.0,
+    "internal_energy_change": -1.42,
+    "soc": 0.985107421875,
+    "soe": 0.985107421875,
+    "power_kw": null
+  },
+  {
+    "time_hours": 259.0,
+    "internal_energy_change": -1.1022222222222222,
+    "soc": 0.950439453125,
+    "soe": 0.950439453125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 260.0,
+    "internal_energy_change": -1.4066666666666667,
+    "soc": 0.9235297309027777,
+    "soe": 0.9235297309027777,
+    "power_kw": null
+  },
+  {
+    "time_hours": 261.0,
+    "internal_energy_change": -1.2255555555555557,
+    "soc": 0.889187282986111,
+    "soe": 0.889187282986111,
+    "power_kw": null
+  },
+  {
+    "time_hours": 262.0,
+    "internal_energy_change": -1.346666666666667,
+    "soc": 0.8592664930555555,
+    "soe": 0.8592664930555555,
+    "power_kw": null
+  },
+  {
+    "time_hours": 263.0,
+    "internal_energy_change": -1.2755555555555553,
+    "soc": 0.8263888888888888,
+    "soe": 0.8263888888888888,
+    "power_kw": null
+  },
+  {
+    "time_hours": 264.0,
+    "internal_energy_change": -1.2755555555555553,
+    "soc": 0.7952473958333333,
+    "soe": 0.7952473958333333,
+    "power_kw": null
+  },
+  {
+    "time_hours": 265.0,
+    "internal_energy_change": -1.36,
+    "soc": 0.7641059027777777,
+    "soe": 0.7641059027777777,
+    "power_kw": null
+  },
+  {
+    "time_hours": 266.0,
+    "internal_energy_change": -1.3455555555555556,
+    "soc": 0.7309027777777778,
+    "soe": 0.7309027777777778,
+    "power_kw": null
+  },
+  {
+    "time_hours": 267.0,
+    "internal_energy_change": -1.6288888888888888,
+    "soc": 0.6980523003472222,
+    "soe": 0.6980523003472222,
+    "power_kw": null
+  },
+  {
+    "time_hours": 268.0,
+    "internal_energy_change": -1.2022222222222223,
+    "soc": 0.6582845052083334,
+    "soe": 0.6582845052083334,
+    "power_kw": null
+  },
+  {
+    "time_hours": 269.0,
+    "internal_energy_change": -1.1099999999999999,
+    "soc": 0.6289333767361112,
+    "soe": 0.6289333767361112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 270.0,
+    "internal_energy_change": -1.1099999999999999,
+    "soc": 0.6018337673611112,
+    "soe": 0.6018337673611112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 271.0,
+    "internal_energy_change": -1.251111111111111,
+    "soc": 0.5747341579861112,
+    "soe": 0.5747341579861112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 272.0,
+    "internal_energy_change": -1.2888888888888888,
+    "soc": 0.544189453125,
+    "soe": 0.544189453125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 273.0,
+    "internal_energy_change": -1.9833333333333332,
+    "soc": 0.5127224392361112,
+    "soe": 0.5127224392361112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 274.0,
+    "internal_energy_change": -1.617777777777778,
+    "soc": 0.46430121527777785,
+    "soe": 0.46430121527777785,
+    "power_kw": null
+  },
+  {
+    "time_hours": 275.0,
+    "internal_energy_change": -1.7900000000000003,
+    "soc": 0.42480468750000006,
+    "soe": 0.42480468750000006,
+    "power_kw": null
+  },
+  {
+    "time_hours": 276.0,
+    "internal_energy_change": -1.5722222222222222,
+    "soc": 0.38110351562500006,
+    "soe": 0.38110351562500006,
+    "power_kw": null
+  },
+  {
+    "time_hours": 277.0,
+    "internal_energy_change": -1.672222222222222,
+    "soc": 0.3427191840277778,
+    "soe": 0.3427191840277778,
+    "power_kw": null
+  },
+  {
+    "time_hours": 278.0,
+    "internal_energy_change": -1.3822222222222222,
+    "soc": 0.3018934461805556,
+    "soe": 0.3018934461805556,
+    "power_kw": null
+  },
+  {
+    "time_hours": 279.0,
+    "internal_energy_change": -0.7433333333333358,
+    "soc": 0.26814778645833337,
+    "soe": 0.26814778645833337,
+    "power_kw": null
+  },
+  {
+    "time_hours": 280.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 281.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 282.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 283.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 284.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 285.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 286.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 287.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 288.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 289.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 290.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 291.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 292.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 293.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 294.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 295.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 296.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 297.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 298.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 299.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 300.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 301.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 302.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 303.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 304.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 305.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 306.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 307.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 308.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 309.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 310.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 311.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 312.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 313.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 314.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 315.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 316.0,
+    "internal_energy_change": 0.2187,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 317.0,
+    "internal_energy_change": 0.8208000000000001,
+    "soc": 0.25533935546875003,
+    "soe": 0.25533935546875003,
+    "power_kw": null
+  },
+  {
+    "time_hours": 318.0,
+    "internal_energy_change": 0.9450000000000003,
+    "soc": 0.27537841796875,
+    "soe": 0.27537841796875,
+    "power_kw": null
+  },
+  {
+    "time_hours": 319.0,
+    "internal_energy_change": 0.8991000000000001,
+    "soc": 0.29844970703125,
+    "soe": 0.29844970703125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 320.0,
+    "internal_energy_change": 1.7424,
+    "soc": 0.32040039062500003,
+    "soe": 0.32040039062500003,
+    "power_kw": null
+  },
+  {
+    "time_hours": 321.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.36293945312500003,
+    "soe": 0.36293945312500003,
+    "power_kw": null
+  },
+  {
+    "time_hours": 322.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.411767578125,
+    "soe": 0.411767578125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 323.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.460595703125,
+    "soe": 0.460595703125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 324.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.509423828125,
+    "soe": 0.509423828125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 325.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.558251953125,
+    "soe": 0.558251953125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 326.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.607080078125,
+    "soe": 0.607080078125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 327.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.655908203125,
+    "soe": 0.655908203125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 328.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.704736328125,
+    "soe": 0.704736328125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 329.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.753564453125,
+    "soe": 0.753564453125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 330.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.8023925781249999,
+    "soe": 0.8023925781249999,
+    "power_kw": null
+  },
+  {
+    "time_hours": 331.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.8512207031249999,
+    "soe": 0.8512207031249999,
+    "power_kw": null
+  },
+  {
+    "time_hours": 332.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.9000488281249999,
+    "soe": 0.9000488281249999,
+    "power_kw": null
+  },
+  {
+    "time_hours": 333.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.9488769531249998,
+    "soe": 0.9488769531249998,
+    "power_kw": null
+  },
+  {
+    "time_hours": 334.0,
+    "internal_energy_change": 0.0940000000000083,
+    "soc": 0.9977050781249998,
+    "soe": 0.9977050781249998,
+    "power_kw": null
+  },
+  {
+    "time_hours": 335.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 336.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 337.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 338.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 339.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 340.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 341.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 342.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 343.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 344.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 345.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 346.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 347.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 348.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 349.0,
+    "internal_energy_change": -0.012222222222222233,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 350.0,
+    "internal_energy_change": -0.19333333333333336,
+    "soc": 0.9997016059027778,
+    "soe": 0.9997016059027778,
+    "power_kw": null
+  },
+  {
+    "time_hours": 351.0,
+    "internal_energy_change": -0.4388888888888889,
+    "soc": 0.9949815538194444,
+    "soe": 0.9949815538194444,
+    "power_kw": null
+  },
+  {
+    "time_hours": 352.0,
+    "internal_energy_change": -0.45111111111111113,
+    "soc": 0.9842664930555556,
+    "soe": 0.9842664930555556,
+    "power_kw": null
+  },
+  {
+    "time_hours": 353.0,
+    "internal_energy_change": -1.031111111111111,
+    "soc": 0.9732530381944444,
+    "soe": 0.9732530381944444,
+    "power_kw": null
+  },
+  {
+    "time_hours": 354.0,
+    "internal_energy_change": -1.2944444444444445,
+    "soc": 0.9480794270833334,
+    "soe": 0.9480794270833334,
+    "power_kw": null
+  },
+  {
+    "time_hours": 355.0,
+    "internal_energy_change": -0.9233333333333332,
+    "soc": 0.916476779513889,
+    "soe": 0.916476779513889,
+    "power_kw": null
+  },
+  {
+    "time_hours": 356.0,
+    "internal_energy_change": -1.0022222222222221,
+    "soc": 0.8939344618055557,
+    "soe": 0.8939344618055557,
+    "power_kw": null
+  },
+  {
+    "time_hours": 357.0,
+    "internal_energy_change": -0.7266666666666667,
+    "soc": 0.8694661458333334,
+    "soe": 0.8694661458333334,
+    "power_kw": null
+  },
+  {
+    "time_hours": 358.0,
+    "internal_energy_change": -0.85,
+    "soc": 0.8517252604166667,
+    "soe": 0.8517252604166667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 359.0,
+    "internal_energy_change": -0.7988888888888889,
+    "soc": 0.8309733072916667,
+    "soe": 0.8309733072916667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 360.0,
+    "internal_energy_change": -0.7566666666666667,
+    "soc": 0.8114691840277778,
+    "soe": 0.8114691840277778,
+    "power_kw": null
+  },
+  {
+    "time_hours": 361.0,
+    "internal_energy_change": -1.0499999999999998,
+    "soc": 0.7929958767361112,
+    "soe": 0.7929958767361112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 362.0,
+    "internal_energy_change": -1.1777777777777778,
+    "soc": 0.7673611111111112,
+    "soe": 0.7673611111111112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 363.0,
+    "internal_energy_change": -1.6555555555555557,
+    "soc": 0.7386067708333334,
+    "soe": 0.7386067708333334,
+    "power_kw": null
+  },
+  {
+    "time_hours": 364.0,
+    "internal_energy_change": -1.3411111111111111,
+    "soc": 0.6981879340277778,
+    "soe": 0.6981879340277778,
+    "power_kw": null
+  },
+  {
+    "time_hours": 365.0,
+    "internal_energy_change": -1.4500000000000002,
+    "soc": 0.6654459635416667,
+    "soe": 0.6654459635416667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 366.0,
+    "internal_energy_change": -1.2644444444444443,
+    "soc": 0.6300455729166667,
+    "soe": 0.6300455729166667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 367.0,
+    "internal_energy_change": -1.3477777777777777,
+    "soc": 0.5991753472222223,
+    "soe": 0.5991753472222223,
+    "power_kw": null
+  },
+  {
+    "time_hours": 368.0,
+    "internal_energy_change": -1.5044444444444445,
+    "soc": 0.5662706163194445,
+    "soe": 0.5662706163194445,
+    "power_kw": null
+  },
+  {
+    "time_hours": 369.0,
+    "internal_energy_change": -1.1833333333333333,
+    "soc": 0.5295410156250001,
+    "soe": 0.5295410156250001,
+    "power_kw": null
+  },
+  {
+    "time_hours": 370.0,
+    "internal_energy_change": -1.1911111111111112,
+    "soc": 0.5006510416666667,
+    "soe": 0.5006510416666667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 371.0,
+    "internal_energy_change": -1.4466666666666668,
+    "soc": 0.47157118055555564,
+    "soe": 0.47157118055555564,
+    "power_kw": null
+  },
+  {
+    "time_hours": 372.0,
+    "internal_energy_change": -1.4144444444444444,
+    "soc": 0.436252170138889,
+    "soe": 0.436252170138889,
+    "power_kw": null
+  },
+  {
+    "time_hours": 373.0,
+    "internal_energy_change": -1.4733333333333334,
+    "soc": 0.40171983506944453,
+    "soe": 0.40171983506944453,
+    "power_kw": null
+  },
+  {
+    "time_hours": 374.0,
+    "internal_energy_change": -1.1755555555555557,
+    "soc": 0.3657497829861112,
+    "soe": 0.3657497829861112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 375.0,
+    "internal_energy_change": -1.221111111111111,
+    "soc": 0.33704969618055564,
+    "soe": 0.33704969618055564,
+    "power_kw": null
+  },
+  {
+    "time_hours": 376.0,
+    "internal_energy_change": -0.9966666666666667,
+    "soc": 0.30723741319444453,
+    "soe": 0.30723741319444453,
+    "power_kw": null
+  },
+  {
+    "time_hours": 377.0,
+    "internal_energy_change": -0.9588888888888889,
+    "soc": 0.2829047309027779,
+    "soe": 0.2829047309027779,
+    "power_kw": null
+  },
+  {
+    "time_hours": 378.0,
+    "internal_energy_change": -0.38888888888889284,
+    "soc": 0.259494357638889,
+    "soe": 0.259494357638889,
+    "power_kw": null
+  },
+  {
+    "time_hours": 379.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 380.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 381.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 382.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 383.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 384.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 385.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 386.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 387.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 388.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 389.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 390.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 391.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 392.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 393.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 394.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 395.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 396.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 397.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 398.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 399.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 400.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 401.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 402.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 403.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 404.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 405.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 406.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 407.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 408.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 409.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 410.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 411.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 412.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 413.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 414.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 415.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 416.0,
+    "internal_energy_change": 0.008100000000000008,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 417.0,
+    "internal_energy_change": 0.261,
+    "soc": 0.25019775390625004,
+    "soe": 0.25019775390625004,
+    "power_kw": null
+  },
+  {
+    "time_hours": 418.0,
+    "internal_energy_change": 0.81,
+    "soc": 0.25656982421875,
+    "soe": 0.25656982421875,
+    "power_kw": null
+  },
+  {
+    "time_hours": 419.0,
+    "internal_energy_change": 0.3960000000000001,
+    "soc": 0.27634521484375,
+    "soe": 0.27634521484375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 420.0,
+    "internal_energy_change": 0.8316,
+    "soc": 0.28601318359375,
+    "soe": 0.28601318359375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 421.0,
+    "internal_energy_change": 0.7515,
+    "soc": 0.30631591796875,
+    "soe": 0.30631591796875,
+    "power_kw": null
+  },
+  {
+    "time_hours": 422.0,
+    "internal_energy_change": 0.8631,
+    "soc": 0.32466308593750004,
+    "soe": 0.32466308593750004,
+    "power_kw": null
+  },
+  {
+    "time_hours": 423.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.34573486328124997,
+    "soe": 0.34573486328124997,
+    "power_kw": null
+  },
+  {
+    "time_hours": 424.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.39456298828125,
+    "soe": 0.39456298828125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 425.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.44339111328125,
+    "soe": 0.44339111328125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 426.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.49221923828125,
+    "soe": 0.49221923828125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 427.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.54104736328125,
+    "soe": 0.54104736328125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 428.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.58987548828125,
+    "soe": 0.58987548828125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 429.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.63870361328125,
+    "soe": 0.63870361328125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 430.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.6875317382812499,
+    "soe": 0.6875317382812499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 431.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.7363598632812499,
+    "soe": 0.7363598632812499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 432.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.7851879882812499,
+    "soe": 0.7851879882812499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 433.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.8340161132812499,
+    "soe": 0.8340161132812499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 434.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.8828442382812499,
+    "soe": 0.8828442382812499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 435.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.9316723632812499,
+    "soe": 0.9316723632812499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 436.0,
+    "internal_energy_change": 0.7987000000000037,
+    "soc": 0.9805004882812499,
+    "soe": 0.9805004882812499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 437.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 438.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 439.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 440.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 441.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 442.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 443.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 444.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 445.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 446.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 447.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 448.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 449.0,
+    "internal_energy_change": -0.21222222222222223,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 450.0,
+    "internal_energy_change": -0.9255555555555555,
+    "soc": 0.9948187934027778,
+    "soe": 0.9948187934027778,
+    "power_kw": null
+  },
+  {
+    "time_hours": 451.0,
+    "internal_energy_change": -1.2677777777777777,
+    "soc": 0.9722222222222222,
+    "soe": 0.9722222222222222,
+    "power_kw": null
+  },
+  {
+    "time_hours": 452.0,
+    "internal_energy_change": -1.1344444444444444,
+    "soc": 0.9412706163194444,
+    "soe": 0.9412706163194444,
+    "power_kw": null
+  },
+  {
+    "time_hours": 453.0,
+    "internal_energy_change": -0.6133333333333334,
+    "soc": 0.9135742187499999,
+    "soe": 0.9135742187499999,
+    "power_kw": null
+  },
+  {
+    "time_hours": 454.0,
+    "internal_energy_change": -0.9266666666666666,
+    "soc": 0.8986002604166664,
+    "soe": 0.8986002604166664,
+    "power_kw": null
+  },
+  {
+    "time_hours": 455.0,
+    "internal_energy_change": -0.9177777777777777,
+    "soc": 0.8759765624999997,
+    "soe": 0.8759765624999997,
+    "power_kw": null
+  },
+  {
+    "time_hours": 456.0,
+    "internal_energy_change": -1.2766666666666666,
+    "soc": 0.8535698784722219,
+    "soe": 0.8535698784722219,
+    "power_kw": null
+  },
+  {
+    "time_hours": 457.0,
+    "internal_energy_change": -1.377777777777778,
+    "soc": 0.8224012586805554,
+    "soe": 0.8224012586805554,
+    "power_kw": null
+  },
+  {
+    "time_hours": 458.0,
+    "internal_energy_change": -1.8122222222222222,
+    "soc": 0.7887641059027775,
+    "soe": 0.7887641059027775,
+    "power_kw": null
+  },
+  {
+    "time_hours": 459.0,
+    "internal_energy_change": -1.8277777777777777,
+    "soc": 0.7445203993055554,
+    "soe": 0.7445203993055554,
+    "power_kw": null
+  },
+  {
+    "time_hours": 460.0,
+    "internal_energy_change": -1.2044444444444444,
+    "soc": 0.6998969184027775,
+    "soe": 0.6998969184027775,
+    "power_kw": null
+  },
+  {
+    "time_hours": 461.0,
+    "internal_energy_change": -1.1955555555555557,
+    "soc": 0.670491536458333,
+    "soe": 0.670491536458333,
+    "power_kw": null
+  },
+  {
+    "time_hours": 462.0,
+    "internal_energy_change": -1.281111111111111,
+    "soc": 0.6413031684027776,
+    "soe": 0.6413031684027776,
+    "power_kw": null
+  },
+  {
+    "time_hours": 463.0,
+    "internal_energy_change": -1.511111111111111,
+    "soc": 0.6100260416666664,
+    "soe": 0.6100260416666664,
+    "power_kw": null
+  },
+  {
+    "time_hours": 464.0,
+    "internal_energy_change": -1.2177777777777778,
+    "soc": 0.5731336805555554,
+    "soe": 0.5731336805555554,
+    "power_kw": null
+  },
+  {
+    "time_hours": 465.0,
+    "internal_energy_change": -1.2733333333333332,
+    "soc": 0.5434027777777776,
+    "soe": 0.5434027777777776,
+    "power_kw": null
+  },
+  {
+    "time_hours": 466.0,
+    "internal_energy_change": -1.348888888888889,
+    "soc": 0.5123155381944443,
+    "soe": 0.5123155381944443,
+    "power_kw": null
+  },
+  {
+    "time_hours": 467.0,
+    "internal_energy_change": -1.141111111111111,
+    "soc": 0.47938368055555536,
+    "soe": 0.47938368055555536,
+    "power_kw": null
+  },
+  {
+    "time_hours": 468.0,
+    "internal_energy_change": -1.0166666666666666,
+    "soc": 0.45152452256944425,
+    "soe": 0.45152452256944425,
+    "power_kw": null
+  },
+  {
+    "time_hours": 469.0,
+    "internal_energy_change": -0.7255555555555556,
+    "soc": 0.4267035590277776,
+    "soe": 0.4267035590277776,
+    "power_kw": null
+  },
+  {
+    "time_hours": 470.0,
+    "internal_energy_change": -0.9344444444444444,
+    "soc": 0.40898980034722204,
+    "soe": 0.40898980034722204,
+    "power_kw": null
+  },
+  {
+    "time_hours": 471.0,
+    "internal_energy_change": -1.1066666666666667,
+    "soc": 0.3861762152777776,
+    "soe": 0.3861762152777776,
+    "power_kw": null
+  },
+  {
+    "time_hours": 472.0,
+    "internal_energy_change": -0.7188888888888889,
+    "soc": 0.35915798611111094,
+    "soe": 0.35915798611111094,
+    "power_kw": null
+  },
+  {
+    "time_hours": 473.0,
+    "internal_energy_change": -0.6466666666666666,
+    "soc": 0.34160698784722204,
+    "soe": 0.34160698784722204,
+    "power_kw": null
+  },
+  {
+    "time_hours": 474.0,
+    "internal_energy_change": -0.8988888888888888,
+    "soc": 0.32581922743055536,
+    "soe": 0.32581922743055536,
+    "power_kw": null
+  },
+  {
+    "time_hours": 475.0,
+    "internal_energy_change": -0.7899999999999999,
+    "soc": 0.30387369791666646,
+    "soe": 0.30387369791666646,
+    "power_kw": null
+  },
+  {
+    "time_hours": 476.0,
+    "internal_energy_change": -1.0922222222222222,
+    "soc": 0.2845865885416665,
+    "soe": 0.2845865885416665,
+    "power_kw": null
+  },
+  {
+    "time_hours": 477.0,
+    "internal_energy_change": -0.3244444444444383,
+    "soc": 0.2579210069444443,
+    "soe": 0.2579210069444443,
+    "power_kw": null
+  },
+  {
+    "time_hours": 478.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 479.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 480.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 481.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 482.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 483.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 484.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 485.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 486.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 487.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 488.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 489.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 490.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 491.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 492.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 493.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 494.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 495.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 496.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 497.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 498.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 499.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 500.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 501.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 502.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 503.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 504.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 505.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 506.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 507.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 508.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 509.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 510.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 511.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 512.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 513.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 514.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 515.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 516.0,
+    "internal_energy_change": 0.3663,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 517.0,
+    "internal_energy_change": 0.33840000000000003,
+    "soc": 0.25894287109375,
+    "soe": 0.25894287109375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 518.0,
+    "internal_energy_change": 0.8127000000000001,
+    "soc": 0.26720458984375,
+    "soe": 0.26720458984375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 519.0,
+    "internal_energy_change": 1.5849,
+    "soc": 0.2870458984375,
+    "soe": 0.2870458984375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 520.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.32573974609374995,
+    "soe": 0.32573974609374995,
+    "power_kw": null
+  },
+  {
+    "time_hours": 521.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.37456787109374995,
+    "soe": 0.37456787109374995,
+    "power_kw": null
+  },
+  {
+    "time_hours": 522.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.42339599609374995,
+    "soe": 0.42339599609374995,
+    "power_kw": null
+  },
+  {
+    "time_hours": 523.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.47222412109374995,
+    "soe": 0.47222412109374995,
+    "power_kw": null
+  },
+  {
+    "time_hours": 524.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.5210522460937499,
+    "soe": 0.5210522460937499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 525.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.5698803710937499,
+    "soe": 0.5698803710937499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 526.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.6187084960937499,
+    "soe": 0.6187084960937499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 527.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.6675366210937499,
+    "soe": 0.6675366210937499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 528.0,
+    "internal_energy_change": 1.7487000000000001,
+    "soc": 0.7163647460937499,
+    "soe": 0.7163647460937499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 529.0,
+    "internal_energy_change": 1.233,
+    "soc": 0.7590576171874999,
+    "soe": 0.7590576171874999,
+    "power_kw": null
+  },
+  {
+    "time_hours": 530.0,
+    "internal_energy_change": 0.3384000000000001,
+    "soc": 0.7891601562499998,
+    "soe": 0.7891601562499998,
+    "power_kw": null
+  },
+  {
+    "time_hours": 531.0,
+    "internal_energy_change": -0.020000000000000018,
+    "soc": 0.7974218749999998,
+    "soe": 0.7974218749999998,
+    "power_kw": null
+  },
+  {
+    "time_hours": 532.0,
+    "internal_energy_change": 0.06839999999999996,
+    "soc": 0.7969335937499997,
+    "soe": 0.7969335937499997,
+    "power_kw": null
+  },
+  {
+    "time_hours": 533.0,
+    "internal_energy_change": 0.08009999999999998,
+    "soc": 0.7986035156249996,
+    "soe": 0.7986035156249996,
+    "power_kw": null
+  },
+  {
+    "time_hours": 534.0,
+    "internal_energy_change": -0.020000000000000018,
+    "soc": 0.8005590820312497,
+    "soe": 0.8005590820312497,
+    "power_kw": null
+  },
+  {
+    "time_hours": 535.0,
+    "internal_energy_change": -0.37888888888888894,
+    "soc": 0.8000708007812496,
+    "soe": 0.8000708007812496,
+    "power_kw": null
+  },
+  {
+    "time_hours": 536.0,
+    "internal_energy_change": -0.3766666666666666,
+    "soc": 0.7908205837673608,
+    "soe": 0.7908205837673608,
+    "power_kw": null
+  },
+  {
+    "time_hours": 537.0,
+    "internal_energy_change": -0.25666666666666654,
+    "soc": 0.7816246202256941,
+    "soe": 0.7816246202256941,
+    "power_kw": null
+  },
+  {
+    "time_hours": 538.0,
+    "internal_energy_change": -0.35999999999999993,
+    "soc": 0.7753583441840274,
+    "soe": 0.7753583441840274,
+    "power_kw": null
+  },
+  {
+    "time_hours": 539.0,
+    "internal_energy_change": -0.6388888888888888,
+    "soc": 0.7665692816840275,
+    "soe": 0.7665692816840275,
+    "power_kw": null
+  },
+  {
+    "time_hours": 540.0,
+    "internal_energy_change": -0.47222222222222227,
+    "soc": 0.7509714084201385,
+    "soe": 0.7509714084201385,
+    "power_kw": null
+  },
+  {
+    "time_hours": 541.0,
+    "internal_energy_change": -0.5822222222222221,
+    "soc": 0.7394425455729163,
+    "soe": 0.7394425455729163,
+    "power_kw": null
+  },
+  {
+    "time_hours": 542.0,
+    "internal_energy_change": -0.6499999999999999,
+    "soc": 0.7252281358506941,
+    "soe": 0.7252281358506941,
+    "power_kw": null
+  },
+  {
+    "time_hours": 543.0,
+    "internal_energy_change": -0.8866666666666667,
+    "soc": 0.7093589952256942,
+    "soe": 0.7093589952256942,
+    "power_kw": null
+  },
+  {
+    "time_hours": 544.0,
+    "internal_energy_change": -0.8133333333333332,
+    "soc": 0.6877118598090275,
+    "soe": 0.6877118598090275,
+    "power_kw": null
+  },
+  {
+    "time_hours": 545.0,
+    "internal_energy_change": -1.1955555555555557,
+    "soc": 0.6678550889756942,
+    "soe": 0.6678550889756942,
+    "power_kw": null
+  },
+  {
+    "time_hours": 546.0,
+    "internal_energy_change": -1.0622222222222222,
+    "soc": 0.6386667209201388,
+    "soe": 0.6386667209201388,
+    "power_kw": null
+  },
+  {
+    "time_hours": 547.0,
+    "internal_energy_change": -1.2144444444444447,
+    "soc": 0.6127335611979166,
+    "soe": 0.6127335611979166,
+    "power_kw": null
+  },
+  {
+    "time_hours": 548.0,
+    "internal_energy_change": -1.4377777777777778,
+    "soc": 0.583084038628472,
+    "soe": 0.583084038628472,
+    "power_kw": null
+  },
+  {
+    "time_hours": 549.0,
+    "internal_energy_change": -1.2066666666666668,
+    "soc": 0.5479820421006942,
+    "soe": 0.5479820421006942,
+    "power_kw": null
+  },
+  {
+    "time_hours": 550.0,
+    "internal_energy_change": -1.4244444444444444,
+    "soc": 0.5185224066840276,
+    "soe": 0.5185224066840276,
+    "power_kw": null
+  },
+  {
+    "time_hours": 551.0,
+    "internal_energy_change": -1.392222222222222,
+    "soc": 0.4837459309895832,
+    "soe": 0.4837459309895832,
+    "power_kw": null
+  },
+  {
+    "time_hours": 552.0,
+    "internal_energy_change": -1.338888888888889,
+    "soc": 0.4497561306423609,
+    "soe": 0.4497561306423609,
+    "power_kw": null
+  },
+  {
+    "time_hours": 553.0,
+    "internal_energy_change": -1.3633333333333335,
+    "soc": 0.4170684136284721,
+    "soe": 0.4170684136284721,
+    "power_kw": null
+  },
+  {
+    "time_hours": 554.0,
+    "internal_energy_change": -1.3800000000000001,
+    "soc": 0.3837839084201387,
+    "soe": 0.3837839084201387,
+    "power_kw": null
+  },
+  {
+    "time_hours": 555.0,
+    "internal_energy_change": -1.4700000000000002,
+    "soc": 0.3500925021701387,
+    "soe": 0.3500925021701387,
+    "power_kw": null
+  },
+  {
+    "time_hours": 556.0,
+    "internal_energy_change": -1.508888888888889,
+    "soc": 0.3142038302951387,
+    "soe": 0.3142038302951387,
+    "power_kw": null
+  },
+  {
+    "time_hours": 557.0,
+    "internal_energy_change": -1.1208999999999936,
+    "soc": 0.2773657226562498,
+    "soe": 0.2773657226562498,
+    "power_kw": null
+  },
+  {
+    "time_hours": 558.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 559.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 560.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 561.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 562.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 563.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 564.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 565.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 566.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 567.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 568.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 569.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 570.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 571.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 572.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 573.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 574.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 575.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 576.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 577.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 578.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 579.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 580.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 581.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 582.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 583.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 584.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 585.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 586.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 587.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 588.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 589.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 590.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 591.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 592.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 593.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 594.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 595.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 596.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 597.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 598.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 599.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 600.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 601.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 602.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 603.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 604.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 605.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 606.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 607.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 608.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 609.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 610.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 611.0,
+    "internal_energy_change": 0.38610000000000005,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 612.0,
+    "internal_energy_change": 0.14489999999999995,
+    "soc": 0.25942626953125003,
+    "soe": 0.25942626953125003,
+    "power_kw": null
+  },
+  {
+    "time_hours": 613.0,
+    "internal_energy_change": -0.5310000000000006,
+    "soc": 0.26296386718750003,
+    "soe": 0.26296386718750003,
+    "power_kw": null
+  },
+  {
+    "time_hours": 614.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 615.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 616.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 617.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 618.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 619.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 620.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 621.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 622.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 623.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 624.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 625.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 626.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 627.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 628.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 629.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 630.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 631.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 632.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 633.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 634.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 635.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 636.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 637.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 638.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 639.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 640.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 641.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 642.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 643.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 644.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 645.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 646.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 647.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 648.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 649.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 650.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 651.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 652.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 653.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 654.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 655.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 656.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 657.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 658.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 659.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 660.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 661.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 662.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 663.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 664.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 665.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 666.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 667.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 668.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 669.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 670.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 671.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 672.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 673.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 674.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 675.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 676.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 677.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 678.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 679.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 680.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 681.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 682.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 683.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 684.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 685.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 686.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 687.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 688.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 689.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 690.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 691.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 692.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 693.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 694.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 695.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 696.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 697.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 698.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 699.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 700.0,
+    "internal_energy_change": 0.28979999999999995,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 701.0,
+    "internal_energy_change": 0.6228,
+    "soc": 0.2570751953125,
+    "soe": 0.2570751953125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 702.0,
+    "internal_energy_change": 0.7119000000000002,
+    "soc": 0.2722802734375,
+    "soe": 0.2722802734375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 703.0,
+    "internal_energy_change": 1.4616000000000002,
+    "soc": 0.28966064453124996,
+    "soe": 0.28966064453124996,
+    "power_kw": null
+  },
+  {
+    "time_hours": 704.0,
+    "internal_energy_change": 1.9025999999999998,
+    "soc": 0.32534423828125,
+    "soe": 0.32534423828125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 705.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.37179443359375,
+    "soe": 0.37179443359375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 706.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.42062255859375003,
+    "soe": 0.42062255859375003,
+    "power_kw": null
+  },
+  {
+    "time_hours": 707.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.46945068359375,
+    "soe": 0.46945068359375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 708.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.51827880859375,
+    "soe": 0.51827880859375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 709.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.56710693359375,
+    "soe": 0.56710693359375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 710.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.61593505859375,
+    "soe": 0.61593505859375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 711.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.66476318359375,
+    "soe": 0.66476318359375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 712.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.71359130859375,
+    "soe": 0.71359130859375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 713.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.76241943359375,
+    "soe": 0.76241943359375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 714.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.81124755859375,
+    "soe": 0.81124755859375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 715.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.8600756835937499,
+    "soe": 0.8600756835937499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 716.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.9089038085937499,
+    "soe": 0.9089038085937499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 717.0,
+    "internal_energy_change": 1.7313000000000045,
+    "soc": 0.9577319335937499,
+    "soe": 0.9577319335937499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 718.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 719.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 720.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 721.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 722.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 723.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 724.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 725.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 726.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 727.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 728.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 729.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 730.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 731.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 732.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 733.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 734.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 735.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 736.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 737.0,
+    "internal_energy_change": -0.038888888888888924,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 738.0,
+    "internal_energy_change": -0.7333333333333334,
+    "soc": 0.999050564236111,
+    "soe": 0.999050564236111,
+    "power_kw": null
+  },
+  {
+    "time_hours": 739.0,
+    "internal_energy_change": -1.0866666666666667,
+    "soc": 0.9811469184027777,
+    "soe": 0.9811469184027777,
+    "power_kw": null
+  },
+  {
+    "time_hours": 740.0,
+    "internal_energy_change": -1.338888888888889,
+    "soc": 0.954616970486111,
+    "soe": 0.954616970486111,
+    "power_kw": null
+  },
+  {
+    "time_hours": 741.0,
+    "internal_energy_change": -1.2166666666666666,
+    "soc": 0.9219292534722222,
+    "soe": 0.9219292534722222,
+    "power_kw": null
+  },
+  {
+    "time_hours": 742.0,
+    "internal_energy_change": -1.141111111111111,
+    "soc": 0.8922254774305555,
+    "soe": 0.8922254774305555,
+    "power_kw": null
+  },
+  {
+    "time_hours": 743.0,
+    "internal_energy_change": -1.2944444444444445,
+    "soc": 0.8643663194444444,
+    "soe": 0.8643663194444444,
+    "power_kw": null
+  },
+  {
+    "time_hours": 744.0,
+    "internal_energy_change": -1.17,
+    "soc": 0.832763671875,
+    "soe": 0.832763671875,
+    "power_kw": null
+  },
+  {
+    "time_hours": 745.0,
+    "internal_energy_change": -1.3077777777777777,
+    "soc": 0.80419921875,
+    "soe": 0.80419921875,
+    "power_kw": null
+  },
+  {
+    "time_hours": 746.0,
+    "internal_energy_change": -1.3855555555555557,
+    "soc": 0.7722710503472222,
+    "soe": 0.7722710503472222,
+    "power_kw": null
+  },
+  {
+    "time_hours": 747.0,
+    "internal_energy_change": -1.4077777777777776,
+    "soc": 0.7384440104166666,
+    "soe": 0.7384440104166666,
+    "power_kw": null
+  },
+  {
+    "time_hours": 748.0,
+    "internal_energy_change": -1.227777777777778,
+    "soc": 0.704074435763889,
+    "soe": 0.704074435763889,
+    "power_kw": null
+  },
+  {
+    "time_hours": 749.0,
+    "internal_energy_change": -1.5488888888888888,
+    "soc": 0.6740993923611112,
+    "soe": 0.6740993923611112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 750.0,
+    "internal_energy_change": -1.3777777777777778,
+    "soc": 0.6362847222222222,
+    "soe": 0.6362847222222222,
+    "power_kw": null
+  },
+  {
+    "time_hours": 751.0,
+    "internal_energy_change": -1.46,
+    "soc": 0.6026475694444445,
+    "soe": 0.6026475694444445,
+    "power_kw": null
+  },
+  {
+    "time_hours": 752.0,
+    "internal_energy_change": -1.2244444444444444,
+    "soc": 0.5670030381944445,
+    "soe": 0.5670030381944445,
+    "power_kw": null
+  },
+  {
+    "time_hours": 753.0,
+    "internal_energy_change": -1.2255555555555557,
+    "soc": 0.5371093750000001,
+    "soe": 0.5371093750000001,
+    "power_kw": null
+  },
+  {
+    "time_hours": 754.0,
+    "internal_energy_change": -1.4966666666666668,
+    "soc": 0.5071885850694445,
+    "soe": 0.5071885850694445,
+    "power_kw": null
+  },
+  {
+    "time_hours": 755.0,
+    "internal_energy_change": -1.5688888888888888,
+    "soc": 0.4706488715277779,
+    "soe": 0.4706488715277779,
+    "power_kw": null
+  },
+  {
+    "time_hours": 756.0,
+    "internal_energy_change": -1.2799999999999998,
+    "soc": 0.432345920138889,
+    "soe": 0.432345920138889,
+    "power_kw": null
+  },
+  {
+    "time_hours": 757.0,
+    "internal_energy_change": -1.2444444444444445,
+    "soc": 0.40109592013888895,
+    "soe": 0.40109592013888895,
+    "power_kw": null
+  },
+  {
+    "time_hours": 758.0,
+    "internal_energy_change": -1.2388888888888892,
+    "soc": 0.37071397569444453,
+    "soe": 0.37071397569444453,
+    "power_kw": null
+  },
+  {
+    "time_hours": 759.0,
+    "internal_energy_change": -1.4733333333333334,
+    "soc": 0.3404676649305557,
+    "soe": 0.3404676649305557,
+    "power_kw": null
+  },
+  {
+    "time_hours": 760.0,
+    "internal_energy_change": -1.5844444444444443,
+    "soc": 0.3044976128472224,
+    "soe": 0.3044976128472224,
+    "power_kw": null
+  },
+  {
+    "time_hours": 761.0,
+    "internal_energy_change": -0.6477777777777831,
+    "soc": 0.2658148871527779,
+    "soe": 0.2658148871527779,
+    "power_kw": null
+  },
+  {
+    "time_hours": 762.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 763.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 764.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 765.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 766.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 767.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 768.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 769.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 770.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 771.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 772.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 773.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 774.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 775.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 776.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 777.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 778.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 779.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 780.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 781.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 782.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 783.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 784.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 785.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 786.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 787.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 788.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 789.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 790.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 791.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 792.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 793.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 794.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 795.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 796.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 797.0,
+    "internal_energy_change": 0.3401999999999999,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 798.0,
+    "internal_energy_change": 0.40410000000000007,
+    "soc": 0.2583056640625,
+    "soe": 0.2583056640625,
+    "power_kw": null
+  },
+  {
+    "time_hours": 799.0,
+    "internal_energy_change": 1.5011999999999999,
+    "soc": 0.26817138671874996,
+    "soe": 0.26817138671874996,
+    "power_kw": null
+  },
+  {
+    "time_hours": 800.0,
+    "internal_energy_change": 0.07469999999999997,
+    "soc": 0.30482177734375,
+    "soe": 0.30482177734375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 801.0,
+    "internal_energy_change": -0.6422222222222221,
+    "soc": 0.3066455078125,
+    "soe": 0.3066455078125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 802.0,
+    "internal_energy_change": -0.7611111111111112,
+    "soc": 0.2909662543402778,
+    "soe": 0.2909662543402778,
+    "power_kw": null
+  },
+  {
+    "time_hours": 803.0,
+    "internal_energy_change": -0.6311111111111111,
+    "soc": 0.2723844401041667,
+    "soe": 0.2723844401041667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 804.0,
+    "internal_energy_change": -0.2857555555555571,
+    "soc": 0.2569764539930556,
+    "soe": 0.2569764539930556,
+    "power_kw": null
+  },
+  {
+    "time_hours": 805.0,
+    "internal_energy_change": 1.7577,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 806.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.29291259765625,
+    "soe": 0.29291259765625,
+    "power_kw": null
+  },
+  {
+    "time_hours": 807.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.34174072265625,
+    "soe": 0.34174072265625,
+    "power_kw": null
+  },
+  {
+    "time_hours": 808.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.39056884765625,
+    "soe": 0.39056884765625,
+    "power_kw": null
+  },
+  {
+    "time_hours": 809.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.43939697265624994,
+    "soe": 0.43939697265624994,
+    "power_kw": null
+  },
+  {
+    "time_hours": 810.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.48822509765624994,
+    "soe": 0.48822509765624994,
+    "power_kw": null
+  },
+  {
+    "time_hours": 811.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.5370532226562499,
+    "soe": 0.5370532226562499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 812.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.5858813476562499,
+    "soe": 0.5858813476562499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 813.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.6347094726562499,
+    "soe": 0.6347094726562499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 814.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.6835375976562499,
+    "soe": 0.6835375976562499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 815.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.7323657226562499,
+    "soe": 0.7323657226562499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 816.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.7811938476562499,
+    "soe": 0.7811938476562499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 817.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.8300219726562499,
+    "soe": 0.8300219726562499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 818.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.8788500976562499,
+    "soe": 0.8788500976562499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 819.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.9276782226562499,
+    "soe": 0.9276782226562499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 820.0,
+    "internal_energy_change": 0.962300000000006,
+    "soc": 0.9765063476562499,
+    "soe": 0.9765063476562499,
+    "power_kw": null
+  },
+  {
+    "time_hours": 821.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 822.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 823.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 824.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 825.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 826.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 827.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 828.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 829.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 830.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 831.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 832.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 833.0,
+    "internal_energy_change": -0.7177777777777777,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 834.0,
+    "internal_energy_change": -0.9444444444444444,
+    "soc": 0.9824761284722222,
+    "soe": 0.9824761284722222,
+    "power_kw": null
+  },
+  {
+    "time_hours": 835.0,
+    "internal_energy_change": -1.0911111111111111,
+    "soc": 0.9594184027777779,
+    "soe": 0.9594184027777779,
+    "power_kw": null
+  },
+  {
+    "time_hours": 836.0,
+    "internal_energy_change": -1.1044444444444443,
+    "soc": 0.9327799479166667,
+    "soe": 0.9327799479166667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 837.0,
+    "internal_energy_change": -1.3666666666666667,
+    "soc": 0.9058159722222222,
+    "soe": 0.9058159722222222,
+    "power_kw": null
+  },
+  {
+    "time_hours": 838.0,
+    "internal_energy_change": -1.4466666666666668,
+    "soc": 0.8724500868055556,
+    "soe": 0.8724500868055556,
+    "power_kw": null
+  },
+  {
+    "time_hours": 839.0,
+    "internal_energy_change": -1.3244444444444445,
+    "soc": 0.837131076388889,
+    "soe": 0.837131076388889,
+    "power_kw": null
+  },
+  {
+    "time_hours": 840.0,
+    "internal_energy_change": -2.0,
+    "soc": 0.8047960069444445,
+    "soe": 0.8047960069444445,
+    "power_kw": null
+  },
+  {
+    "time_hours": 841.0,
+    "internal_energy_change": -1.3677777777777778,
+    "soc": 0.7559678819444445,
+    "soe": 0.7559678819444445,
+    "power_kw": null
+  },
+  {
+    "time_hours": 842.0,
+    "internal_energy_change": -1.2044444444444444,
+    "soc": 0.7225748697916667,
+    "soe": 0.7225748697916667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 843.0,
+    "internal_energy_change": -1.27,
+    "soc": 0.6931694878472223,
+    "soe": 0.6931694878472223,
+    "power_kw": null
+  },
+  {
+    "time_hours": 844.0,
+    "internal_energy_change": -1.248888888888889,
+    "soc": 0.6621636284722223,
+    "soe": 0.6621636284722223,
+    "power_kw": null
+  },
+  {
+    "time_hours": 845.0,
+    "internal_energy_change": -1.3633333333333335,
+    "soc": 0.6316731770833334,
+    "soe": 0.6316731770833334,
+    "power_kw": null
+  },
+  {
+    "time_hours": 846.0,
+    "internal_energy_change": -1.261111111111111,
+    "soc": 0.5983886718750001,
+    "soe": 0.5983886718750001,
+    "power_kw": null
+  },
+  {
+    "time_hours": 847.0,
+    "internal_energy_change": -1.4866666666666668,
+    "soc": 0.5675998263888891,
+    "soe": 0.5675998263888891,
+    "power_kw": null
+  },
+  {
+    "time_hours": 848.0,
+    "internal_energy_change": -1.3255555555555556,
+    "soc": 0.5313042534722223,
+    "soe": 0.5313042534722223,
+    "power_kw": null
+  },
+  {
+    "time_hours": 849.0,
+    "internal_energy_change": -1.1344444444444444,
+    "soc": 0.49894205729166674,
+    "soe": 0.49894205729166674,
+    "power_kw": null
+  },
+  {
+    "time_hours": 850.0,
+    "internal_energy_change": -1.0777777777777777,
+    "soc": 0.4712456597222223,
+    "soe": 0.4712456597222223,
+    "power_kw": null
+  },
+  {
+    "time_hours": 851.0,
+    "internal_energy_change": -1.2966666666666666,
+    "soc": 0.44493272569444453,
+    "soe": 0.44493272569444453,
+    "power_kw": null
+  },
+  {
+    "time_hours": 852.0,
+    "internal_energy_change": -1.0955555555555556,
+    "soc": 0.41327582465277785,
+    "soe": 0.41327582465277785,
+    "power_kw": null
+  },
+  {
+    "time_hours": 853.0,
+    "internal_energy_change": -0.6966666666666667,
+    "soc": 0.38652886284722227,
+    "soe": 0.38652886284722227,
+    "power_kw": null
+  },
+  {
+    "time_hours": 854.0,
+    "internal_energy_change": -0.9322222222222222,
+    "soc": 0.36952039930555564,
+    "soe": 0.36952039930555564,
+    "power_kw": null
+  },
+  {
+    "time_hours": 855.0,
+    "internal_energy_change": -0.9344444444444444,
+    "soc": 0.34676106770833337,
+    "soe": 0.34676106770833337,
+    "power_kw": null
+  },
+  {
+    "time_hours": 856.0,
+    "internal_energy_change": -0.97,
+    "soc": 0.32394748263888895,
+    "soe": 0.32394748263888895,
+    "power_kw": null
+  },
+  {
+    "time_hours": 857.0,
+    "internal_energy_change": -0.7233333333333334,
+    "soc": 0.30026584201388895,
+    "soe": 0.30026584201388895,
+    "power_kw": null
+  },
+  {
+    "time_hours": 858.0,
+    "internal_energy_change": -0.8566666666666667,
+    "soc": 0.28260633680555564,
+    "soe": 0.28260633680555564,
+    "power_kw": null
+  },
+  {
+    "time_hours": 859.0,
+    "internal_energy_change": -0.4788888888888909,
+    "soc": 0.26169162326388895,
+    "soe": 0.26169162326388895,
+    "power_kw": null
+  },
+  {
+    "time_hours": 860.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 861.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 862.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 863.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 864.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 865.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 866.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 867.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 868.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 869.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 870.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 871.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 872.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 873.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 874.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 875.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 876.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 877.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 878.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 879.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 880.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 881.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 882.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 883.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 884.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 885.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 886.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 887.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 888.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 889.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 890.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 891.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 892.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 893.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 894.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 895.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 896.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 897.0,
+    "internal_energy_change": -0.0,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 898.0,
+    "internal_energy_change": 0.04499999999999999,
+    "soc": 0.25,
+    "soe": 0.25,
+    "power_kw": null
+  },
+  {
+    "time_hours": 899.0,
+    "internal_energy_change": -0.008888888888888896,
+    "soc": 0.2510986328125,
+    "soe": 0.2510986328125,
+    "power_kw": null
+  },
+  {
+    "time_hours": 900.0,
+    "internal_energy_change": 0.12240000000000001,
+    "soc": 0.2508816189236111,
+    "soe": 0.2508816189236111,
+    "power_kw": null
+  },
+  {
+    "time_hours": 901.0,
+    "internal_energy_change": -0.08444444444444439,
+    "soc": 0.25386990017361116,
+    "soe": 0.25386990017361116,
+    "power_kw": null
+  },
+  {
+    "time_hours": 902.0,
+    "internal_energy_change": 0.2844,
+    "soc": 0.2518082682291667,
+    "soe": 0.2518082682291667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 903.0,
+    "internal_energy_change": 0.12780000000000002,
+    "soc": 0.25875162760416665,
+    "soe": 0.25875162760416665,
+    "power_kw": null
+  },
+  {
+    "time_hours": 904.0,
+    "internal_energy_change": 0.07019999999999997,
+    "soc": 0.2618717447916667,
+    "soe": 0.2618717447916667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 905.0,
+    "internal_energy_change": 0.37799999999999995,
+    "soc": 0.2635856119791667,
+    "soe": 0.2635856119791667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 906.0,
+    "internal_energy_change": 0.4392,
+    "soc": 0.2728141276041667,
+    "soe": 0.2728141276041667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 907.0,
+    "internal_energy_change": 0.7325999999999999,
+    "soc": 0.28353678385416664,
+    "soe": 0.28353678385416664,
+    "power_kw": null
+  },
+  {
+    "time_hours": 908.0,
+    "internal_energy_change": 0.9288000000000001,
+    "soc": 0.30142252604166664,
+    "soe": 0.30142252604166664,
+    "power_kw": null
+  },
+  {
+    "time_hours": 909.0,
+    "internal_energy_change": 0.8487,
+    "soc": 0.32409830729166667,
+    "soe": 0.32409830729166667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 910.0,
+    "internal_energy_change": 1.2915,
+    "soc": 0.34481852213541664,
+    "soe": 0.34481852213541664,
+    "power_kw": null
+  },
+  {
+    "time_hours": 911.0,
+    "internal_energy_change": 1.5219,
+    "soc": 0.3763492838541666,
+    "soe": 0.3763492838541666,
+    "power_kw": null
+  },
+  {
+    "time_hours": 912.0,
+    "internal_energy_change": 1.8477,
+    "soc": 0.41350504557291656,
+    "soe": 0.41350504557291656,
+    "power_kw": null
+  },
+  {
+    "time_hours": 913.0,
+    "internal_energy_change": 1.3401,
+    "soc": 0.45861490885416656,
+    "soe": 0.45861490885416656,
+    "power_kw": null
+  },
+  {
+    "time_hours": 914.0,
+    "internal_energy_change": 1.4508,
+    "soc": 0.49133219401041656,
+    "soe": 0.49133219401041656,
+    "power_kw": null
+  },
+  {
+    "time_hours": 915.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.5267521158854166,
+    "soe": 0.5267521158854166,
+    "power_kw": null
+  },
+  {
+    "time_hours": 916.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.5755802408854166,
+    "soe": 0.5755802408854166,
+    "power_kw": null
+  },
+  {
+    "time_hours": 917.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.6244083658854166,
+    "soe": 0.6244083658854166,
+    "power_kw": null
+  },
+  {
+    "time_hours": 918.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.6732364908854165,
+    "soe": 0.6732364908854165,
+    "power_kw": null
+  },
+  {
+    "time_hours": 919.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.7220646158854165,
+    "soe": 0.7220646158854165,
+    "power_kw": null
+  },
+  {
+    "time_hours": 920.0,
+    "internal_energy_change": 2.0,
+    "soc": 0.7708927408854165,
+    "soe": 0.7708927408854165,
+    "power_kw": null
+  },
+  {
+    "time_hours": 921.0,
+    "internal_energy_change": 1.8234,
+    "soc": 0.8197208658854165,
+    "soe": 0.8197208658854165,
+    "power_kw": null
+  },
+  {
+    "time_hours": 922.0,
+    "internal_energy_change": 1.4805000000000001,
+    "soc": 0.8642374674479165,
+    "soe": 0.8642374674479165,
+    "power_kw": null
+  },
+  {
+    "time_hours": 923.0,
+    "internal_energy_change": 1.0332,
+    "soc": 0.9003824869791665,
+    "soe": 0.9003824869791665,
+    "power_kw": null
+  },
+  {
+    "time_hours": 924.0,
+    "internal_energy_change": 1.2708,
+    "soc": 0.9256070963541665,
+    "soe": 0.9256070963541665,
+    "power_kw": null
+  },
+  {
+    "time_hours": 925.0,
+    "internal_energy_change": 0.8388000000000001,
+    "soc": 0.9566324869791665,
+    "soe": 0.9566324869791665,
+    "power_kw": null
+  },
+  {
+    "time_hours": 926.0,
+    "internal_energy_change": 0.7173,
+    "soc": 0.9771110026041665,
+    "soe": 0.9771110026041665,
+    "power_kw": null
+  },
+  {
+    "time_hours": 927.0,
+    "internal_energy_change": 0.22023333333333994,
+    "soc": 0.9946232096354165,
+    "soe": 0.9946232096354165,
+    "power_kw": null
+  },
+  {
+    "time_hours": 928.0,
+    "internal_energy_change": 0.0,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 929.0,
+    "internal_energy_change": -0.3299999999999999,
+    "soc": 1.0,
+    "soe": 1.0,
+    "power_kw": null
+  },
+  {
+    "time_hours": 930.0,
+    "internal_energy_change": -0.47,
+    "soc": 0.991943359375,
+    "soe": 0.991943359375,
+    "power_kw": null
+  },
+  {
+    "time_hours": 931.0,
+    "internal_energy_change": -0.611111111111111,
+    "soc": 0.9804687500000001,
+    "soe": 0.9804687500000001,
+    "power_kw": null
+  },
+  {
+    "time_hours": 932.0,
+    "internal_energy_change": -0.6455555555555555,
+    "soc": 0.9655490451388888,
+    "soe": 0.9655490451388888,
+    "power_kw": null
+  },
+  {
+    "time_hours": 933.0,
+    "internal_energy_change": -0.7677777777777777,
+    "soc": 0.9497884114583334,
+    "soe": 0.9497884114583334,
+    "power_kw": null
+  },
+  {
+    "time_hours": 934.0,
+    "internal_energy_change": -0.7644444444444444,
+    "soc": 0.9310438368055556,
+    "soe": 0.9310438368055556,
+    "power_kw": null
+  },
+  {
+    "time_hours": 935.0,
+    "internal_energy_change": -0.8099999999999999,
+    "soc": 0.9123806423611112,
+    "soe": 0.9123806423611112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 936.0,
+    "internal_energy_change": -0.6677777777777777,
+    "soc": 0.892605251736111,
+    "soe": 0.892605251736111,
+    "power_kw": null
+  },
+  {
+    "time_hours": 937.0,
+    "internal_energy_change": -0.7533333333333334,
+    "soc": 0.8763020833333333,
+    "soe": 0.8763020833333333,
+    "power_kw": null
+  },
+  {
+    "time_hours": 938.0,
+    "internal_energy_change": -0.7888888888888889,
+    "soc": 0.85791015625,
+    "soe": 0.85791015625,
+    "power_kw": null
+  },
+  {
+    "time_hours": 939.0,
+    "internal_energy_change": -0.9955555555555555,
+    "soc": 0.838650173611111,
+    "soe": 0.838650173611111,
+    "power_kw": null
+  },
+  {
+    "time_hours": 940.0,
+    "internal_energy_change": -0.9444444444444444,
+    "soc": 0.8143446180555556,
+    "soe": 0.8143446180555556,
+    "power_kw": null
+  },
+  {
+    "time_hours": 941.0,
+    "internal_energy_change": -1.2022222222222223,
+    "soc": 0.7912868923611112,
+    "soe": 0.7912868923611112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 942.0,
+    "internal_energy_change": -1.3033333333333335,
+    "soc": 0.761935763888889,
+    "soe": 0.761935763888889,
+    "power_kw": null
+  },
+  {
+    "time_hours": 943.0,
+    "internal_energy_change": -1.3144444444444445,
+    "soc": 0.7301161024305556,
+    "soe": 0.7301161024305556,
+    "power_kw": null
+  },
+  {
+    "time_hours": 944.0,
+    "internal_energy_change": -1.1622222222222223,
+    "soc": 0.6980251736111112,
+    "soe": 0.6980251736111112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 945.0,
+    "internal_energy_change": -1.2,
+    "soc": 0.669650607638889,
+    "soe": 0.669650607638889,
+    "power_kw": null
+  },
+  {
+    "time_hours": 946.0,
+    "internal_energy_change": -1.472222222222222,
+    "soc": 0.640353732638889,
+    "soe": 0.640353732638889,
+    "power_kw": null
+  },
+  {
+    "time_hours": 947.0,
+    "internal_energy_change": -1.2100000000000002,
+    "soc": 0.6044108072916667,
+    "soe": 0.6044108072916667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 948.0,
+    "internal_energy_change": -1.22,
+    "soc": 0.5748697916666667,
+    "soe": 0.5748697916666667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 949.0,
+    "internal_energy_change": -1.2122222222222223,
+    "soc": 0.5450846354166667,
+    "soe": 0.5450846354166667,
+    "power_kw": null
+  },
+  {
+    "time_hours": 950.0,
+    "internal_energy_change": -1.2933333333333332,
+    "soc": 0.5154893663194445,
+    "soe": 0.5154893663194445,
+    "power_kw": null
+  },
+  {
+    "time_hours": 951.0,
+    "internal_energy_change": -1.248888888888889,
+    "soc": 0.4839138454861112,
+    "soe": 0.4839138454861112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 952.0,
+    "internal_energy_change": -0.7055555555555556,
+    "soc": 0.4534233940972223,
+    "soe": 0.4534233940972223,
+    "power_kw": null
+  },
+  {
+    "time_hours": 953.0,
+    "internal_energy_change": -0.6677777777777777,
+    "soc": 0.43619791666666674,
+    "soe": 0.43619791666666674,
+    "power_kw": null
+  },
+  {
+    "time_hours": 954.0,
+    "internal_energy_change": -0.7766666666666666,
+    "soc": 0.41989474826388895,
+    "soe": 0.41989474826388895,
+    "power_kw": null
+  },
+  {
+    "time_hours": 955.0,
+    "internal_energy_change": -0.8877777777777778,
+    "soc": 0.40093315972222227,
+    "soe": 0.40093315972222227,
+    "power_kw": null
+  },
+  {
+    "time_hours": 956.0,
+    "internal_energy_change": -0.6533333333333333,
+    "soc": 0.3792588975694445,
+    "soe": 0.3792588975694445,
+    "power_kw": null
+  },
+  {
+    "time_hours": 957.0,
+    "internal_energy_change": -0.6477777777777777,
+    "soc": 0.3633083767361112,
+    "soe": 0.3633083767361112,
+    "power_kw": null
+  },
+  {
+    "time_hours": 958.0,
+    "internal_energy_change": -0.7322222222222222,
+    "soc": 0.3474934895833334,
+    "soe": 0.3474934895833334,
+    "power_kw": null
+  },
+  {
+    "time_hours": 959.0,
+    "internal_energy_change": -1.0899999999999999,
+    "soc": 0.32961697048611116,
+    "soe": 0.32961697048611116,
+    "power_kw": null
+  }
+]

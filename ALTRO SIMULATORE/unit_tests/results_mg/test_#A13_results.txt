@@ -1,0 +1,21 @@
+[*CIPAR*] MG Class | MG simulation starts...
+[*CIPAR*] MG Class | SoE_before=0.15
+[*CIPAR*] MG Class | Equilibrium between generation and load
+[*CIPAR*] MG Class | p_G=0; p_L=0; p_GL=0; p_GL_S=0; p_GL_N=0  all in [kW]
+[*CIPAR*] MG Class | SoE_after=0.15
+[*CIPAR*] MG Class | Local energy production=0.0 [kWh]
+[*CIPAR*] MG Class | Drawn energy=0.0 [kWh]
+[*CIPAR*] MG Class | Shared energy=0.0 [kWh]
+[*CIPAR*] MG Class | Sold power =0 [kW]
+[*CIPAR*] MG Class | Purchased power =0 [kW]
+[*CIPAR*] MG Class | MG simulation ends.
+
+[*CIPAR*] test script | Data for mg0 start:
+[*CIPAR*] test script | Total cost mg0 = 0.0 [€]
+[*CIPAR*] test script | Revenues mg0 = 0.0 [€]
+[*CIPAR*] test script | Investment costs mg0 = 0.0 [€]
+[*CIPAR*] test script | ESS costs mg0 = 0.0 [€]
+[*CIPAR*] test script | Purchase costs mg0 = 0 [€]
+[*CIPAR*] test script | No PV costs mg0 = 0.0 [€]
+[*CIPAR*] test script | Data for mg0 end.
+

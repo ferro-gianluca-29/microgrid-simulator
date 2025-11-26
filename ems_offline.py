@@ -101,8 +101,17 @@ microgrid_df, log = simulator.get_simulation_log(microgrid)
 
 log.to_csv("microgrid_log.csv", index=True)
 
-microgrid_df['pv_prod'] = time_series['solar'].iloc[:2]
-microgrid_df['consumption'] = time_series['load'].iloc[:2]
+microgrid_df['pv_prod'] = time_series['solar'].iloc[:]
+microgrid_df['consumption'] = time_series['load'].iloc[:]
+
+
+battery_module = microgrid.battery[0]
+transition_model = battery_module.battery_transition_model
+
+#print(transition_model)
+
+transition_model.plot_transition_history(save_path=f"transitions_{simulator.battery_chemistry}.png", show=True)
+transition_model.save_transition_history(history_path=f"transitions_{simulator.battery_chemistry}.json")
 
 
 show(time_series=time_series, microgrid_df=microgrid_df)
