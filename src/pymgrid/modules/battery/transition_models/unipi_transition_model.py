@@ -366,4 +366,3 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
         if not figures:
             raise ValueError("No plottable metrics found in transition history.")
-
