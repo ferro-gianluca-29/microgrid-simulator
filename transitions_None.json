@@ -2,1730 +2,1730 @@
   {
     "time_hours": 0.0,
     "internal_energy_change": -1.6055555555555556,
-    "soc": 0.6,
-    "soe": 0.6,
+    "soc": 0.390625,
+    "soe": 0.390625,
     "power_kw": null
   },
   {
     "time_hours": 1.0,
     "internal_energy_change": -1.8122222222222222,
-    "soc": 0.5608018663194445,
-    "soe": 0.5608018663194445,
+    "soc": 0.3592664930555556,
+    "soe": 0.3592664930555556,
     "power_kw": null
   },
   {
     "time_hours": 2.0,
     "internal_energy_change": -1.5644444444444443,
-    "soc": 0.5165581597222223,
-    "soe": 0.5165581597222223,
+    "soc": 0.3238715277777778,
+    "soe": 0.3238715277777778,
     "power_kw": null
   },
   {
     "time_hours": 3.0,
     "internal_energy_change": -1.8811111111111112,
-    "soc": 0.4783637152777779,
-    "soe": 0.4783637152777779,
+    "soc": 0.2933159722222223,
+    "soe": 0.2933159722222223,
     "power_kw": null
   },
   {
     "time_hours": 4.0,
     "internal_energy_change": -1.21,
-    "soc": 0.4324381510416668,
-    "soe": 0.4324381510416668,
+    "soc": 0.2565755208333334,
+    "soe": 0.2565755208333334,
     "power_kw": null
   },
   {
     "time_hours": 5.0,
     "internal_energy_change": -1.3833333333333335,
-    "soc": 0.4028971354166668,
-    "soe": 0.4028971354166668,
+    "soc": 0.2329427083333334,
+    "soe": 0.2329427083333334,
     "power_kw": null
   },
   {
     "time_hours": 6.0,
     "internal_energy_change": -1.3044444444444443,
-    "soc": 0.36912434895833346,
-    "soe": 0.36912434895833346,
+    "soc": 0.20592447916666673,
+    "soe": 0.20592447916666673,
     "power_kw": null
   },
   {
     "time_hours": 7.0,
     "internal_energy_change": -1.008888888888889,
-    "soc": 0.337277560763889,
-    "soe": 0.337277560763889,
+    "soc": 0.18044704861111116,
+    "soe": 0.18044704861111116,
     "power_kw": null
   },
   {
     "time_hours": 8.0,
     "internal_energy_change": -1.5288888888888887,
-    "soc": 0.31264648437500014,
-    "soe": 0.31264648437500014,
+    "soc": 0.16074218750000008,
+    "soe": 0.16074218750000008,
     "power_kw": null
   },
   {
     "time_hours": 9.0,
     "internal_energy_change": -0.8333333333333333,
-    "soc": 0.27532009548611125,
-    "soe": 0.27532009548611125,
+    "soc": 0.13088107638888896,
+    "soe": 0.13088107638888896,
     "power_kw": null
   },
   {
     "time_hours": 10.0,
-    "internal_energy_change": -0.20377777777778405,
-    "soc": 0.25497504340277793,
-    "soe": 0.25497504340277793,
+    "internal_energy_change": -1.1344444444444444,
+    "soc": 0.1146050347222223,
+    "soe": 0.1146050347222223,
     "power_kw": null
   },
   {
     "time_hours": 11.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7833333333333332,
+    "soc": 0.09244791666666675,
+    "soe": 0.09244791666666675,
     "power_kw": null
   },
   {
     "time_hours": 12.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8966666666666667,
+    "soc": 0.07714843750000008,
+    "soe": 0.07714843750000008,
     "power_kw": null
   },
   {
     "time_hours": 13.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8133333333333332,
+    "soc": 0.05963541666666676,
+    "soe": 0.05963541666666676,
     "power_kw": null
   },
   {
     "time_hours": 14.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6988888888888889,
+    "soc": 0.04375000000000009,
+    "soe": 0.04375000000000009,
     "power_kw": null
   },
   {
     "time_hours": 15.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.9966666666666667,
+    "soc": 0.03009982638888898,
+    "soe": 0.03009982638888898,
     "power_kw": null
   },
   {
     "time_hours": 16.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.5444444444444491,
+    "soc": 0.010633680555555644,
+    "soe": 0.010633680555555644,
     "power_kw": null
   },
   {
     "time_hours": 17.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 18.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 19.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 20.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 21.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 22.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 23.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 24.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 25.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 26.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 27.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 28.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 29.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 30.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 31.0,
     "internal_energy_change": 0.14220000000000002,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 32.0,
     "internal_energy_change": 0.7875,
-    "soc": 0.2534716796875,
-    "soe": 0.2534716796875,
+    "soc": 0.0027773437500000003,
+    "soe": 0.0027773437500000003,
     "power_kw": null
   },
   {
     "time_hours": 33.0,
     "internal_energy_change": 0.5004000000000001,
-    "soc": 0.27269775390625,
-    "soe": 0.27269775390625,
+    "soc": 0.018158203124999998,
+    "soe": 0.018158203124999998,
     "power_kw": null
   },
   {
     "time_hours": 34.0,
     "internal_energy_change": 0.7722,
-    "soc": 0.28491455078125,
-    "soe": 0.28491455078125,
+    "soc": 0.027931640624999997,
+    "soe": 0.027931640624999997,
     "power_kw": null
   },
   {
     "time_hours": 35.0,
     "internal_energy_change": 0.42030000000000006,
-    "soc": 0.30376708984375,
-    "soe": 0.30376708984375,
+    "soc": 0.043013671875,
+    "soe": 0.043013671875,
     "power_kw": null
   },
   {
     "time_hours": 36.0,
     "internal_energy_change": 0.2178,
-    "soc": 0.3140283203125,
-    "soe": 0.3140283203125,
+    "soc": 0.051222656250000005,
+    "soe": 0.051222656250000005,
     "power_kw": null
   },
   {
     "time_hours": 37.0,
     "internal_energy_change": -0.3,
-    "soc": 0.319345703125,
-    "soe": 0.319345703125,
+    "soc": 0.0554765625,
+    "soe": 0.0554765625,
     "power_kw": null
   },
   {
     "time_hours": 38.0,
     "internal_energy_change": 0.15749999999999983,
-    "soc": 0.312021484375,
-    "soe": 0.312021484375,
+    "soc": 0.04961718750000001,
+    "soe": 0.04961718750000001,
     "power_kw": null
   },
   {
     "time_hours": 39.0,
     "internal_energy_change": 0.6138,
-    "soc": 0.31586669921875,
-    "soe": 0.31586669921875,
+    "soc": 0.052693359375,
+    "soe": 0.052693359375,
     "power_kw": null
   },
   {
     "time_hours": 40.0,
     "internal_energy_change": 0.9630000000000001,
-    "soc": 0.33085205078124996,
-    "soe": 0.33085205078124996,
+    "soc": 0.064681640625,
+    "soe": 0.064681640625,
     "power_kw": null
   },
   {
     "time_hours": 41.0,
     "internal_energy_change": 0.5121,
-    "soc": 0.35436279296874995,
-    "soe": 0.35436279296874995,
+    "soc": 0.083490234375,
+    "soe": 0.083490234375,
     "power_kw": null
   },
   {
     "time_hours": 42.0,
     "internal_energy_change": 0.9422999999999998,
-    "soc": 0.36686523437499996,
-    "soe": 0.36686523437499996,
+    "soc": 0.0934921875,
+    "soe": 0.0934921875,
     "power_kw": null
   },
   {
     "time_hours": 43.0,
     "internal_energy_change": 0.5202000000000001,
-    "soc": 0.38987060546874996,
-    "soe": 0.38987060546874996,
+    "soc": 0.111896484375,
+    "soe": 0.111896484375,
     "power_kw": null
   },
   {
     "time_hours": 44.0,
     "internal_energy_change": 0.6228,
-    "soc": 0.4025708007812499,
-    "soe": 0.4025708007812499,
+    "soc": 0.12205664062499999,
+    "soe": 0.12205664062499999,
     "power_kw": null
   },
   {
     "time_hours": 45.0,
     "internal_energy_change": 0.7595999999999999,
-    "soc": 0.41777587890624995,
-    "soe": 0.41777587890624995,
+    "soc": 0.13422070312499998,
+    "soe": 0.13422070312499998,
     "power_kw": null
   },
   {
     "time_hours": 46.0,
     "internal_energy_change": 0.16110000000000005,
-    "soc": 0.4363208007812499,
-    "soe": 0.4363208007812499,
+    "soc": 0.149056640625,
+    "soe": 0.149056640625,
     "power_kw": null
   },
   {
     "time_hours": 47.0,
     "internal_energy_change": -0.3766666666666666,
-    "soc": 0.44025390624999994,
-    "soe": 0.44025390624999994,
+    "soc": 0.152203125,
+    "soe": 0.152203125,
     "power_kw": null
   },
   {
     "time_hours": 48.0,
     "internal_energy_change": -0.58,
-    "soc": 0.4310579427083333,
-    "soe": 0.4310579427083333,
+    "soc": 0.14484635416666664,
+    "soe": 0.14484635416666664,
     "power_kw": null
   },
   {
     "time_hours": 49.0,
     "internal_energy_change": -0.35222222222222216,
-    "soc": 0.41689778645833336,
-    "soe": 0.41689778645833336,
+    "soc": 0.13351822916666664,
+    "soe": 0.13351822916666664,
     "power_kw": null
   },
   {
     "time_hours": 50.0,
     "internal_energy_change": -0.9988888888888889,
-    "soc": 0.4082986111111112,
-    "soe": 0.4082986111111112,
+    "soc": 0.12663888888888886,
+    "soe": 0.12663888888888886,
     "power_kw": null
   },
   {
     "time_hours": 51.0,
     "internal_energy_change": -0.5077777777777779,
-    "soc": 0.3839116753472223,
-    "soe": 0.3839116753472223,
+    "soc": 0.10712934027777776,
+    "soe": 0.10712934027777776,
     "power_kw": null
   },
   {
     "time_hours": 52.0,
     "internal_energy_change": -0.6755555555555554,
-    "soc": 0.3715147569444446,
-    "soe": 0.3715147569444446,
+    "soc": 0.09721180555555553,
+    "soe": 0.09721180555555553,
     "power_kw": null
   },
   {
     "time_hours": 53.0,
     "internal_energy_change": -0.6577777777777776,
-    "soc": 0.355021701388889,
-    "soe": 0.355021701388889,
+    "soc": 0.08401736111111109,
+    "soe": 0.08401736111111109,
     "power_kw": null
   },
   {
     "time_hours": 54.0,
     "internal_energy_change": -0.7688888888888888,
-    "soc": 0.33896267361111126,
-    "soe": 0.33896267361111126,
+    "soc": 0.07117013888888887,
+    "soe": 0.07117013888888887,
     "power_kw": null
   },
   {
     "time_hours": 55.0,
     "internal_energy_change": -1.3066666666666669,
-    "soc": 0.32019097222222237,
-    "soe": 0.32019097222222237,
+    "soc": 0.05615277777777777,
+    "soe": 0.05615277777777777,
     "power_kw": null
   },
   {
     "time_hours": 56.0,
-    "internal_energy_change": -1.5683555555555628,
-    "soc": 0.28828993055555574,
-    "soe": 0.28828993055555574,
+    "internal_energy_change": -1.568355555555555,
+    "soc": 0.030631944444444434,
+    "soe": 0.030631944444444434,
     "power_kw": null
   },
   {
     "time_hours": 57.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 58.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 59.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 60.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 61.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 62.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 63.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 64.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 65.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 66.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 67.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 68.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 69.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 70.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 71.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 72.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 73.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 74.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 75.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 76.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 77.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 78.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 79.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 80.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 81.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 82.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 83.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 84.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 85.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 86.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 87.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 88.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 89.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 90.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 91.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 92.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 93.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 94.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 95.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 96.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 97.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 98.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 99.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 100.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 101.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 102.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 103.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 104.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 105.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 106.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 107.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 108.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 109.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 110.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 111.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 112.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 113.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 114.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 115.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 116.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 117.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 118.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 119.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 120.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 121.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 122.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 123.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 124.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 125.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 126.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 127.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 128.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 129.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 130.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 131.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 132.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 133.0,
     "internal_energy_change": 0.028800000000000027,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 134.0,
-    "internal_energy_change": -0.02880000000000038,
-    "soc": 0.250703125,
-    "soe": 0.250703125,
+    "internal_energy_change": -0.028800000000000027,
+    "soc": 0.0005625000000000005,
+    "soe": 0.0005625000000000005,
     "power_kw": null
   },
   {
     "time_hours": 135.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 136.0,
     "internal_energy_change": 0.15210000000000004,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 137.0,
     "internal_energy_change": 0.3915,
-    "soc": 0.25371337890625,
-    "soe": 0.25371337890625,
+    "soc": 0.0029707031250000007,
+    "soe": 0.0029707031250000007,
     "power_kw": null
   },
   {
     "time_hours": 138.0,
     "internal_energy_change": 0.3915,
-    "soc": 0.26327148437500003,
-    "soe": 0.26327148437500003,
+    "soc": 0.010617187500000002,
+    "soe": 0.010617187500000002,
     "power_kw": null
   },
   {
     "time_hours": 139.0,
     "internal_energy_change": 0.36000000000000004,
-    "soc": 0.27282958984375005,
-    "soe": 0.27282958984375005,
+    "soc": 0.018263671874999998,
+    "soe": 0.018263671874999998,
     "power_kw": null
   },
   {
     "time_hours": 140.0,
     "internal_energy_change": 0.41670000000000007,
-    "soc": 0.28161865234375005,
-    "soe": 0.28161865234375005,
+    "soc": 0.025294921875,
+    "soe": 0.025294921875,
     "power_kw": null
   },
   {
     "time_hours": 141.0,
     "internal_energy_change": 0.522,
-    "soc": 0.2917919921875,
-    "soe": 0.2917919921875,
+    "soc": 0.033433593750000004,
+    "soe": 0.033433593750000004,
     "power_kw": null
   },
   {
     "time_hours": 142.0,
     "internal_energy_change": 0.34650000000000003,
-    "soc": 0.3045361328125,
-    "soe": 0.3045361328125,
+    "soc": 0.04362890625000001,
+    "soe": 0.04362890625000001,
     "power_kw": null
   },
   {
     "time_hours": 143.0,
     "internal_energy_change": 0.037800000000000035,
-    "soc": 0.31299560546875005,
-    "soe": 0.31299560546875005,
+    "soc": 0.050396484375,
+    "soe": 0.050396484375,
     "power_kw": null
   },
   {
     "time_hours": 144.0,
     "internal_energy_change": 0.18719999999999998,
-    "soc": 0.3139184570312501,
-    "soe": 0.3139184570312501,
+    "soc": 0.051134765625,
+    "soe": 0.051134765625,
     "power_kw": null
   },
   {
     "time_hours": 145.0,
     "internal_energy_change": 0.17909999999999995,
-    "soc": 0.3184887695312501,
-    "soe": 0.3184887695312501,
+    "soc": 0.054791015624999995,
+    "soe": 0.054791015624999995,
     "power_kw": null
   },
   {
     "time_hours": 146.0,
     "internal_energy_change": 0.0036000000000000034,
-    "soc": 0.32286132812500007,
-    "soe": 0.32286132812500007,
+    "soc": 0.058289062499999995,
+    "soe": 0.058289062499999995,
     "power_kw": null
   },
   {
     "time_hours": 147.0,
     "internal_energy_change": 0.08279999999999997,
-    "soc": 0.3229492187500001,
-    "soe": 0.3229492187500001,
+    "soc": 0.058359375,
+    "soe": 0.058359375,
     "power_kw": null
   },
   {
     "time_hours": 148.0,
     "internal_energy_change": -0.16,
-    "soc": 0.3249707031250001,
-    "soe": 0.3249707031250001,
+    "soc": 0.05997656249999999,
+    "soe": 0.05997656249999999,
     "power_kw": null
   },
   {
     "time_hours": 149.0,
     "internal_energy_change": -0.3055555555555556,
-    "soc": 0.3210644531250001,
-    "soe": 0.3210644531250001,
+    "soc": 0.05685156249999999,
+    "soe": 0.05685156249999999,
     "power_kw": null
   },
   {
     "time_hours": 150.0,
     "internal_energy_change": -0.6211111111111111,
-    "soc": 0.31360460069444457,
-    "soe": 0.31360460069444457,
+    "soc": 0.05088368055555554,
+    "soe": 0.05088368055555554,
     "power_kw": null
   },
   {
     "time_hours": 151.0,
     "internal_energy_change": -0.5577777777777778,
-    "soc": 0.29844075520833346,
-    "soe": 0.29844075520833346,
+    "soc": 0.038752604166666656,
+    "soe": 0.038752604166666656,
     "power_kw": null
   },
   {
     "time_hours": 152.0,
     "internal_energy_change": -0.2677777777777777,
-    "soc": 0.2848231336805557,
-    "soe": 0.2848231336805557,
+    "soc": 0.02785850694444443,
+    "soe": 0.02785850694444443,
     "power_kw": null
   },
   {
     "time_hours": 153.0,
     "internal_energy_change": -0.5133333333333333,
-    "soc": 0.27828559027777794,
-    "soe": 0.27828559027777794,
+    "soc": 0.02262847222222221,
+    "soe": 0.02262847222222221,
     "power_kw": null
   },
   {
     "time_hours": 154.0,
-    "internal_energy_change": -0.645244444444451,
-    "soc": 0.2657530381944446,
-    "soe": 0.2657530381944446,
+    "internal_energy_change": -0.645244444444444,
+    "soc": 0.012602430555555546,
+    "soe": 0.012602430555555546,
     "power_kw": null
   },
   {
     "time_hours": 155.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 156.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 157.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 158.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 159.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 160.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 161.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 162.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 163.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 164.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 165.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 166.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 167.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 168.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 169.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 170.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 171.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 172.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 173.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 174.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 175.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 176.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 177.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 178.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 179.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 180.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 181.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 182.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 183.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 184.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 185.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 186.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 187.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 188.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 189.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 190.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 191.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 192.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 193.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 194.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 195.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 196.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 197.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 198.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 199.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 200.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 201.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 202.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 203.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 204.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 205.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 206.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 207.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 208.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 209.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 210.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 211.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 212.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 213.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 214.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 215.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 216.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 217.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 218.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 219.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 220.0,
     "internal_energy_change": 0.4194,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 221.0,
     "internal_energy_change": 0.8964,
-    "soc": 0.2602392578125,
-    "soe": 0.2602392578125,
+    "soc": 0.00819140625,
+    "soe": 0.00819140625,
     "power_kw": null
   },
   {
     "time_hours": 222.0,
     "internal_energy_change": 1.0017,
-    "soc": 0.2821240234375,
-    "soe": 0.2821240234375,
+    "soc": 0.025699218749999996,
+    "soe": 0.025699218749999996,
     "power_kw": null
   },
   {
     "time_hours": 223.0,
     "internal_energy_change": 1.2294,
-    "soc": 0.30657958984374994,
-    "soe": 0.30657958984374994,
+    "soc": 0.045263671874999994,
+    "soe": 0.045263671874999994,
     "power_kw": null
   },
   {
     "time_hours": 224.0,
     "internal_energy_change": 1.5920999999999998,
-    "soc": 0.33659423828124996,
-    "soe": 0.33659423828124996,
+    "soc": 0.06927539062499999,
+    "soe": 0.06927539062499999,
     "power_kw": null
   },
   {
     "time_hours": 225.0,
     "internal_energy_change": 1.6209,
-    "soc": 0.37546386718749997,
-    "soe": 0.37546386718749997,
+    "soc": 0.10037109374999999,
+    "soe": 0.10037109374999999,
     "power_kw": null
   },
   {
     "time_hours": 226.0,
     "internal_energy_change": 1.4877,
-    "soc": 0.41503662109374995,
-    "soe": 0.41503662109374995,
+    "soc": 0.13202929687499998,
+    "soe": 0.13202929687499998,
     "power_kw": null
   },
   {
     "time_hours": 227.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.45135742187499994,
-    "soe": 0.45135742187499994,
+    "internal_energy_change": 2.2428,
+    "soc": 0.16108593749999997,
+    "soe": 0.16108593749999997,
     "power_kw": null
   },
   {
     "time_hours": 228.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.5001855468749999,
-    "soe": 0.5001855468749999,
+    "internal_energy_change": 2.25,
+    "soc": 0.20489062499999994,
+    "soe": 0.20489062499999994,
     "power_kw": null
   },
   {
     "time_hours": 229.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.5490136718749999,
-    "soe": 0.5490136718749999,
+    "internal_energy_change": 2.25,
+    "soc": 0.24883593749999994,
+    "soe": 0.24883593749999994,
     "power_kw": null
   },
   {
     "time_hours": 230.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.5978417968749999,
-    "soe": 0.5978417968749999,
+    "internal_energy_change": 2.25,
+    "soc": 0.29278124999999994,
+    "soe": 0.29278124999999994,
     "power_kw": null
   },
   {
     "time_hours": 231.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.6466699218749998,
-    "soe": 0.6466699218749998,
+    "internal_energy_change": 2.25,
+    "soc": 0.33672656249999994,
+    "soe": 0.33672656249999994,
     "power_kw": null
   },
   {
     "time_hours": 232.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.6954980468749998,
-    "soe": 0.6954980468749998,
+    "internal_energy_change": 2.25,
+    "soc": 0.38067187499999994,
+    "soe": 0.38067187499999994,
     "power_kw": null
   },
   {
     "time_hours": 233.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.7443261718749998,
-    "soe": 0.7443261718749998,
+    "internal_energy_change": 2.25,
+    "soc": 0.42461718749999994,
+    "soe": 0.42461718749999994,
     "power_kw": null
   },
   {
     "time_hours": 234.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.7931542968749998,
-    "soe": 0.7931542968749998,
+    "internal_energy_change": 2.25,
+    "soc": 0.46856249999999994,
+    "soe": 0.46856249999999994,
     "power_kw": null
   },
   {
     "time_hours": 235.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.8419824218749998,
-    "soe": 0.8419824218749998,
+    "internal_energy_change": 2.25,
+    "soc": 0.5125078124999999,
+    "soe": 0.5125078124999999,
     "power_kw": null
   },
   {
     "time_hours": 236.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.8908105468749998,
-    "soe": 0.8908105468749998,
+    "internal_energy_change": 2.25,
+    "soc": 0.5564531249999999,
+    "soe": 0.5564531249999999,
     "power_kw": null
   },
   {
     "time_hours": 237.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.9396386718749998,
-    "soe": 0.9396386718749998,
+    "internal_energy_change": 2.25,
+    "soc": 0.6003984374999999,
+    "soe": 0.6003984374999999,
     "power_kw": null
   },
   {
     "time_hours": 238.0,
-    "internal_energy_change": 0.4724000000000075,
-    "soc": 0.9884667968749998,
-    "soe": 0.9884667968749998,
+    "internal_energy_change": 2.25,
+    "soc": 0.6443437499999999,
+    "soe": 0.6443437499999999,
     "power_kw": null
   },
   {
     "time_hours": 239.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.6882890624999999,
+    "soe": 0.6882890624999999,
     "power_kw": null
   },
   {
     "time_hours": 240.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.7322343749999999,
+    "soe": 0.7322343749999999,
     "power_kw": null
   },
   {
     "time_hours": 241.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.7761796874999999,
+    "soe": 0.7761796874999999,
     "power_kw": null
   },
   {
     "time_hours": 242.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.8201249999999999,
+    "soe": 0.8201249999999999,
     "power_kw": null
   },
   {
     "time_hours": 243.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.8640703124999999,
+    "soe": 0.8640703124999999,
     "power_kw": null
   },
   {
     "time_hours": 244.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.9080156249999999,
+    "soe": 0.9080156249999999,
     "power_kw": null
   },
   {
     "time_hours": 245.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.9519609374999999,
+    "soe": 0.9519609374999999,
     "power_kw": null
   },
   {
     "time_hours": 246.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 0.2096000000000089,
+    "soc": 0.9959062499999999,
+    "soe": 0.9959062499999999,
     "power_kw": null
   },
   {
@@ -1808,589 +1808,589 @@
   {
     "time_hours": 258.0,
     "internal_energy_change": -1.42,
-    "soc": 0.985107421875,
-    "soe": 0.985107421875,
+    "soc": 0.9880859375000001,
+    "soe": 0.9880859375000001,
     "power_kw": null
   },
   {
     "time_hours": 259.0,
     "internal_energy_change": -1.1022222222222222,
-    "soc": 0.950439453125,
-    "soe": 0.950439453125,
+    "soc": 0.9603515625,
+    "soe": 0.9603515625,
     "power_kw": null
   },
   {
     "time_hours": 260.0,
     "internal_energy_change": -1.4066666666666667,
-    "soc": 0.9235297309027777,
-    "soe": 0.9235297309027777,
+    "soc": 0.9388237847222222,
+    "soe": 0.9388237847222222,
     "power_kw": null
   },
   {
     "time_hours": 261.0,
     "internal_energy_change": -1.2255555555555557,
-    "soc": 0.889187282986111,
-    "soe": 0.889187282986111,
+    "soc": 0.9113498263888888,
+    "soe": 0.9113498263888888,
     "power_kw": null
   },
   {
     "time_hours": 262.0,
     "internal_energy_change": -1.346666666666667,
-    "soc": 0.8592664930555555,
-    "soe": 0.8592664930555555,
+    "soc": 0.8874131944444443,
+    "soe": 0.8874131944444443,
     "power_kw": null
   },
   {
     "time_hours": 263.0,
     "internal_energy_change": -1.2755555555555553,
-    "soc": 0.8263888888888888,
-    "soe": 0.8263888888888888,
+    "soc": 0.861111111111111,
+    "soe": 0.861111111111111,
     "power_kw": null
   },
   {
     "time_hours": 264.0,
     "internal_energy_change": -1.2755555555555553,
-    "soc": 0.7952473958333333,
-    "soe": 0.7952473958333333,
+    "soc": 0.8361979166666667,
+    "soe": 0.8361979166666667,
     "power_kw": null
   },
   {
     "time_hours": 265.0,
     "internal_energy_change": -1.36,
-    "soc": 0.7641059027777777,
-    "soe": 0.7641059027777777,
+    "soc": 0.8112847222222221,
+    "soe": 0.8112847222222221,
     "power_kw": null
   },
   {
     "time_hours": 266.0,
     "internal_energy_change": -1.3455555555555556,
-    "soc": 0.7309027777777778,
-    "soe": 0.7309027777777778,
+    "soc": 0.7847222222222222,
+    "soe": 0.7847222222222222,
     "power_kw": null
   },
   {
     "time_hours": 267.0,
     "internal_energy_change": -1.6288888888888888,
-    "soc": 0.6980523003472222,
-    "soe": 0.6980523003472222,
+    "soc": 0.7584418402777777,
+    "soe": 0.7584418402777777,
     "power_kw": null
   },
   {
     "time_hours": 268.0,
     "internal_energy_change": -1.2022222222222223,
-    "soc": 0.6582845052083334,
-    "soe": 0.6582845052083334,
+    "soc": 0.7266276041666666,
+    "soe": 0.7266276041666666,
     "power_kw": null
   },
   {
     "time_hours": 269.0,
     "internal_energy_change": -1.1099999999999999,
-    "soc": 0.6289333767361112,
-    "soe": 0.6289333767361112,
+    "soc": 0.7031467013888888,
+    "soe": 0.7031467013888888,
     "power_kw": null
   },
   {
     "time_hours": 270.0,
     "internal_energy_change": -1.1099999999999999,
-    "soc": 0.6018337673611112,
-    "soe": 0.6018337673611112,
+    "soc": 0.6814670138888888,
+    "soe": 0.6814670138888888,
     "power_kw": null
   },
   {
     "time_hours": 271.0,
     "internal_energy_change": -1.251111111111111,
-    "soc": 0.5747341579861112,
-    "soe": 0.5747341579861112,
+    "soc": 0.6597873263888888,
+    "soe": 0.6597873263888888,
     "power_kw": null
   },
   {
     "time_hours": 272.0,
     "internal_energy_change": -1.2888888888888888,
-    "soc": 0.544189453125,
-    "soe": 0.544189453125,
+    "soc": 0.6353515625,
+    "soe": 0.6353515625,
     "power_kw": null
   },
   {
     "time_hours": 273.0,
     "internal_energy_change": -1.9833333333333332,
-    "soc": 0.5127224392361112,
-    "soe": 0.5127224392361112,
+    "soc": 0.6101779513888889,
+    "soe": 0.6101779513888889,
     "power_kw": null
   },
   {
     "time_hours": 274.0,
     "internal_energy_change": -1.617777777777778,
-    "soc": 0.46430121527777785,
-    "soe": 0.46430121527777785,
+    "soc": 0.5714409722222222,
+    "soe": 0.5714409722222222,
     "power_kw": null
   },
   {
     "time_hours": 275.0,
     "internal_energy_change": -1.7900000000000003,
-    "soc": 0.42480468750000006,
-    "soe": 0.42480468750000006,
+    "soc": 0.53984375,
+    "soe": 0.53984375,
     "power_kw": null
   },
   {
     "time_hours": 276.0,
     "internal_energy_change": -1.5722222222222222,
-    "soc": 0.38110351562500006,
-    "soe": 0.38110351562500006,
+    "soc": 0.5048828125,
+    "soe": 0.5048828125,
     "power_kw": null
   },
   {
     "time_hours": 277.0,
     "internal_energy_change": -1.672222222222222,
-    "soc": 0.3427191840277778,
-    "soe": 0.3427191840277778,
+    "soc": 0.4741753472222222,
+    "soe": 0.4741753472222222,
     "power_kw": null
   },
   {
     "time_hours": 278.0,
     "internal_energy_change": -1.3822222222222222,
-    "soc": 0.3018934461805556,
-    "soe": 0.3018934461805556,
+    "soc": 0.4415147569444445,
+    "soe": 0.4415147569444445,
     "power_kw": null
   },
   {
     "time_hours": 279.0,
-    "internal_energy_change": -0.7433333333333358,
-    "soc": 0.26814778645833337,
-    "soe": 0.26814778645833337,
+    "internal_energy_change": -1.7166666666666666,
+    "soc": 0.4145182291666667,
+    "soe": 0.4145182291666667,
     "power_kw": null
   },
   {
     "time_hours": 280.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.0333333333333334,
+    "soc": 0.3809895833333334,
+    "soe": 0.3809895833333334,
     "power_kw": null
   },
   {
     "time_hours": 281.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6677777777777777,
+    "soc": 0.3608072916666667,
+    "soe": 0.3608072916666667,
     "power_kw": null
   },
   {
     "time_hours": 282.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.9099999999999999,
+    "soc": 0.3477647569444445,
+    "soe": 0.3477647569444445,
     "power_kw": null
   },
   {
     "time_hours": 283.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8877777777777778,
+    "soc": 0.32999131944444443,
+    "soe": 0.32999131944444443,
     "power_kw": null
   },
   {
     "time_hours": 284.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.9144444444444444,
+    "soc": 0.31265190972222223,
+    "soe": 0.31265190972222223,
     "power_kw": null
   },
   {
     "time_hours": 285.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.0666666666666667,
+    "soc": 0.2947916666666667,
+    "soe": 0.2947916666666667,
     "power_kw": null
   },
   {
     "time_hours": 286.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6877777777777777,
+    "soc": 0.2739583333333333,
+    "soe": 0.2739583333333333,
     "power_kw": null
   },
   {
     "time_hours": 287.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.011111111111111,
+    "soc": 0.2605251736111111,
+    "soe": 0.2605251736111111,
     "power_kw": null
   },
   {
     "time_hours": 288.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7911111111111111,
+    "soc": 0.24077690972222224,
+    "soe": 0.24077690972222224,
     "power_kw": null
   },
   {
     "time_hours": 289.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7666666666666666,
+    "soc": 0.22532552083333338,
+    "soe": 0.22532552083333338,
     "power_kw": null
   },
   {
     "time_hours": 290.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6877777777777777,
+    "soc": 0.21035156250000006,
+    "soe": 0.21035156250000006,
     "power_kw": null
   },
   {
     "time_hours": 291.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.5155555555555554,
+    "soc": 0.19691840277777783,
+    "soe": 0.19691840277777783,
     "power_kw": null
   },
   {
     "time_hours": 292.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8433333333333333,
+    "soc": 0.1868489583333334,
+    "soe": 0.1868489583333334,
     "power_kw": null
   },
   {
     "time_hours": 293.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6777777777777777,
+    "soc": 0.17037760416666672,
+    "soe": 0.17037760416666672,
     "power_kw": null
   },
   {
     "time_hours": 294.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8655555555555555,
+    "soc": 0.15713975694444451,
+    "soe": 0.15713975694444451,
     "power_kw": null
   },
   {
     "time_hours": 295.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.4211111111111111,
+    "soc": 0.14023437500000005,
+    "soe": 0.14023437500000005,
     "power_kw": null
   },
   {
     "time_hours": 296.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7633333333333332,
+    "soc": 0.13200954861111117,
+    "soe": 0.13200954861111117,
     "power_kw": null
   },
   {
     "time_hours": 297.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.5233333333333333,
+    "soc": 0.1171006944444445,
+    "soe": 0.1171006944444445,
     "power_kw": null
   },
   {
     "time_hours": 298.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6299999999999999,
+    "soc": 0.10687934027777783,
+    "soe": 0.10687934027777783,
     "power_kw": null
   },
   {
     "time_hours": 299.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6955555555555556,
+    "soc": 0.09457465277777782,
+    "soe": 0.09457465277777782,
     "power_kw": null
   },
   {
     "time_hours": 300.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.5799999999999998,
+    "soc": 0.08098958333333338,
+    "soe": 0.08098958333333338,
     "power_kw": null
   },
   {
     "time_hours": 301.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -2.25,
+    "soc": 0.05013020833333338,
+    "soe": 0.05013020833333338,
     "power_kw": null
   },
   {
     "time_hours": 302.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.3166666666666691,
+    "soc": 0.006184895833333381,
+    "soe": 0.006184895833333381,
     "power_kw": null
   },
   {
     "time_hours": 303.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 304.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 305.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 306.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 307.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 308.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 309.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 310.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 311.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 312.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 313.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 314.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 315.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 316.0,
     "internal_energy_change": 0.2187,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 317.0,
     "internal_energy_change": 0.8208000000000001,
-    "soc": 0.25533935546875003,
-    "soe": 0.25533935546875003,
+    "soc": 0.004271484375,
+    "soe": 0.004271484375,
     "power_kw": null
   },
   {
     "time_hours": 318.0,
     "internal_energy_change": 0.9450000000000003,
-    "soc": 0.27537841796875,
-    "soe": 0.27537841796875,
+    "soc": 0.020302734375,
+    "soe": 0.020302734375,
     "power_kw": null
   },
   {
     "time_hours": 319.0,
     "internal_energy_change": 0.8991000000000001,
-    "soc": 0.29844970703125,
-    "soe": 0.29844970703125,
+    "soc": 0.038759765625000005,
+    "soe": 0.038759765625000005,
     "power_kw": null
   },
   {
     "time_hours": 320.0,
     "internal_energy_change": 1.7424,
-    "soc": 0.32040039062500003,
-    "soe": 0.32040039062500003,
+    "soc": 0.056320312500000004,
+    "soe": 0.056320312500000004,
     "power_kw": null
   },
   {
     "time_hours": 321.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.36293945312500003,
-    "soe": 0.36293945312500003,
+    "internal_energy_change": 2.1465,
+    "soc": 0.0903515625,
+    "soe": 0.0903515625,
     "power_kw": null
   },
   {
     "time_hours": 322.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.411767578125,
-    "soe": 0.411767578125,
+    "internal_energy_change": 2.25,
+    "soc": 0.13227539062500002,
+    "soe": 0.13227539062500002,
     "power_kw": null
   },
   {
     "time_hours": 323.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.460595703125,
-    "soe": 0.460595703125,
+    "internal_energy_change": 2.25,
+    "soc": 0.17622070312500002,
+    "soe": 0.17622070312500002,
     "power_kw": null
   },
   {
     "time_hours": 324.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.509423828125,
-    "soe": 0.509423828125,
+    "internal_energy_change": 2.25,
+    "soc": 0.22016601562500002,
+    "soe": 0.22016601562500002,
     "power_kw": null
   },
   {
     "time_hours": 325.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.558251953125,
-    "soe": 0.558251953125,
+    "internal_energy_change": 2.25,
+    "soc": 0.264111328125,
+    "soe": 0.264111328125,
     "power_kw": null
   },
   {
     "time_hours": 326.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.607080078125,
-    "soe": 0.607080078125,
+    "internal_energy_change": 2.25,
+    "soc": 0.308056640625,
+    "soe": 0.308056640625,
     "power_kw": null
   },
   {
     "time_hours": 327.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.655908203125,
-    "soe": 0.655908203125,
+    "internal_energy_change": 2.25,
+    "soc": 0.352001953125,
+    "soe": 0.352001953125,
     "power_kw": null
   },
   {
     "time_hours": 328.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.704736328125,
-    "soe": 0.704736328125,
+    "internal_energy_change": 2.25,
+    "soc": 0.395947265625,
+    "soe": 0.395947265625,
     "power_kw": null
   },
   {
     "time_hours": 329.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.753564453125,
-    "soe": 0.753564453125,
+    "internal_energy_change": 2.25,
+    "soc": 0.439892578125,
+    "soe": 0.439892578125,
     "power_kw": null
   },
   {
     "time_hours": 330.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.8023925781249999,
-    "soe": 0.8023925781249999,
+    "internal_energy_change": 2.25,
+    "soc": 0.483837890625,
+    "soe": 0.483837890625,
     "power_kw": null
   },
   {
     "time_hours": 331.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.8512207031249999,
-    "soe": 0.8512207031249999,
+    "internal_energy_change": 2.25,
+    "soc": 0.5277832031249999,
+    "soe": 0.5277832031249999,
     "power_kw": null
   },
   {
     "time_hours": 332.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.9000488281249999,
-    "soe": 0.9000488281249999,
+    "internal_energy_change": 2.25,
+    "soc": 0.5717285156249999,
+    "soe": 0.5717285156249999,
     "power_kw": null
   },
   {
     "time_hours": 333.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.9488769531249998,
-    "soe": 0.9488769531249998,
+    "internal_energy_change": 2.25,
+    "soc": 0.6156738281249999,
+    "soe": 0.6156738281249999,
     "power_kw": null
   },
   {
     "time_hours": 334.0,
-    "internal_energy_change": 0.0940000000000083,
-    "soc": 0.9977050781249998,
-    "soe": 0.9977050781249998,
+    "internal_energy_change": 2.25,
+    "soc": 0.6596191406249999,
+    "soe": 0.6596191406249999,
     "power_kw": null
   },
   {
     "time_hours": 335.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 1.9422,
+    "soc": 0.7035644531249999,
+    "soe": 0.7035644531249999,
     "power_kw": null
   },
   {
     "time_hours": 336.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.741498046875,
+    "soe": 0.741498046875,
     "power_kw": null
   },
   {
     "time_hours": 337.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.785443359375,
+    "soe": 0.785443359375,
     "power_kw": null
   },
   {
     "time_hours": 338.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.829388671875,
+    "soe": 0.829388671875,
     "power_kw": null
   },
   {
     "time_hours": 339.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.873333984375,
+    "soe": 0.873333984375,
     "power_kw": null
   },
   {
     "time_hours": 340.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.917279296875,
+    "soe": 0.917279296875,
     "power_kw": null
   },
   {
     "time_hours": 341.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 1.985300000000002,
+    "soc": 0.961224609375,
+    "soe": 0.961224609375,
     "power_kw": null
   },
   {
@@ -2452,666 +2452,666 @@
   {
     "time_hours": 350.0,
     "internal_energy_change": -0.19333333333333336,
-    "soc": 0.9997016059027778,
-    "soe": 0.9997016059027778,
+    "soc": 0.9997612847222223,
+    "soe": 0.9997612847222223,
     "power_kw": null
   },
   {
     "time_hours": 351.0,
     "internal_energy_change": -0.4388888888888889,
-    "soc": 0.9949815538194444,
-    "soe": 0.9949815538194444,
+    "soc": 0.9959852430555556,
+    "soe": 0.9959852430555556,
     "power_kw": null
   },
   {
     "time_hours": 352.0,
     "internal_energy_change": -0.45111111111111113,
-    "soc": 0.9842664930555556,
-    "soe": 0.9842664930555556,
+    "soc": 0.9874131944444444,
+    "soe": 0.9874131944444444,
     "power_kw": null
   },
   {
     "time_hours": 353.0,
     "internal_energy_change": -1.031111111111111,
-    "soc": 0.9732530381944444,
-    "soe": 0.9732530381944444,
+    "soc": 0.9786024305555555,
+    "soe": 0.9786024305555555,
     "power_kw": null
   },
   {
     "time_hours": 354.0,
     "internal_energy_change": -1.2944444444444445,
-    "soc": 0.9480794270833334,
-    "soe": 0.9480794270833334,
+    "soc": 0.9584635416666667,
+    "soe": 0.9584635416666667,
     "power_kw": null
   },
   {
     "time_hours": 355.0,
     "internal_energy_change": -0.9233333333333332,
-    "soc": 0.916476779513889,
-    "soe": 0.916476779513889,
+    "soc": 0.9331814236111111,
+    "soe": 0.9331814236111111,
     "power_kw": null
   },
   {
     "time_hours": 356.0,
     "internal_energy_change": -1.0022222222222221,
-    "soc": 0.8939344618055557,
-    "soe": 0.8939344618055557,
+    "soc": 0.9151475694444445,
+    "soe": 0.9151475694444445,
     "power_kw": null
   },
   {
     "time_hours": 357.0,
     "internal_energy_change": -0.7266666666666667,
-    "soc": 0.8694661458333334,
-    "soe": 0.8694661458333334,
+    "soc": 0.8955729166666667,
+    "soe": 0.8955729166666667,
     "power_kw": null
   },
   {
     "time_hours": 358.0,
     "internal_energy_change": -0.85,
-    "soc": 0.8517252604166667,
-    "soe": 0.8517252604166667,
+    "soc": 0.8813802083333334,
+    "soe": 0.8813802083333334,
     "power_kw": null
   },
   {
     "time_hours": 359.0,
     "internal_energy_change": -0.7988888888888889,
-    "soc": 0.8309733072916667,
-    "soe": 0.8309733072916667,
+    "soc": 0.8647786458333334,
+    "soe": 0.8647786458333334,
     "power_kw": null
   },
   {
     "time_hours": 360.0,
     "internal_energy_change": -0.7566666666666667,
-    "soc": 0.8114691840277778,
-    "soe": 0.8114691840277778,
+    "soc": 0.8491753472222222,
+    "soe": 0.8491753472222222,
     "power_kw": null
   },
   {
     "time_hours": 361.0,
     "internal_energy_change": -1.0499999999999998,
-    "soc": 0.7929958767361112,
-    "soe": 0.7929958767361112,
+    "soc": 0.8343967013888889,
+    "soe": 0.8343967013888889,
     "power_kw": null
   },
   {
     "time_hours": 362.0,
     "internal_energy_change": -1.1777777777777778,
-    "soc": 0.7673611111111112,
-    "soe": 0.7673611111111112,
+    "soc": 0.813888888888889,
+    "soe": 0.813888888888889,
     "power_kw": null
   },
   {
     "time_hours": 363.0,
     "internal_energy_change": -1.6555555555555557,
-    "soc": 0.7386067708333334,
-    "soe": 0.7386067708333334,
+    "soc": 0.7908854166666668,
+    "soe": 0.7908854166666668,
     "power_kw": null
   },
   {
     "time_hours": 364.0,
     "internal_energy_change": -1.3411111111111111,
-    "soc": 0.6981879340277778,
-    "soe": 0.6981879340277778,
+    "soc": 0.7585503472222223,
+    "soe": 0.7585503472222223,
     "power_kw": null
   },
   {
     "time_hours": 365.0,
     "internal_energy_change": -1.4500000000000002,
-    "soc": 0.6654459635416667,
-    "soe": 0.6654459635416667,
+    "soc": 0.7323567708333334,
+    "soe": 0.7323567708333334,
     "power_kw": null
   },
   {
     "time_hours": 366.0,
     "internal_energy_change": -1.2644444444444443,
-    "soc": 0.6300455729166667,
-    "soe": 0.6300455729166667,
+    "soc": 0.7040364583333333,
+    "soe": 0.7040364583333333,
     "power_kw": null
   },
   {
     "time_hours": 367.0,
     "internal_energy_change": -1.3477777777777777,
-    "soc": 0.5991753472222223,
-    "soe": 0.5991753472222223,
+    "soc": 0.6793402777777777,
+    "soe": 0.6793402777777777,
     "power_kw": null
   },
   {
     "time_hours": 368.0,
     "internal_energy_change": -1.5044444444444445,
-    "soc": 0.5662706163194445,
-    "soe": 0.5662706163194445,
+    "soc": 0.6530164930555555,
+    "soe": 0.6530164930555555,
     "power_kw": null
   },
   {
     "time_hours": 369.0,
     "internal_energy_change": -1.1833333333333333,
-    "soc": 0.5295410156250001,
-    "soe": 0.5295410156250001,
+    "soc": 0.6236328124999999,
+    "soe": 0.6236328124999999,
     "power_kw": null
   },
   {
     "time_hours": 370.0,
     "internal_energy_change": -1.1911111111111112,
-    "soc": 0.5006510416666667,
-    "soe": 0.5006510416666667,
+    "soc": 0.6005208333333333,
+    "soe": 0.6005208333333333,
     "power_kw": null
   },
   {
     "time_hours": 371.0,
     "internal_energy_change": -1.4466666666666668,
-    "soc": 0.47157118055555564,
-    "soe": 0.47157118055555564,
+    "soc": 0.5772569444444444,
+    "soe": 0.5772569444444444,
     "power_kw": null
   },
   {
     "time_hours": 372.0,
     "internal_energy_change": -1.4144444444444444,
-    "soc": 0.436252170138889,
-    "soe": 0.436252170138889,
+    "soc": 0.549001736111111,
+    "soe": 0.549001736111111,
     "power_kw": null
   },
   {
     "time_hours": 373.0,
     "internal_energy_change": -1.4733333333333334,
-    "soc": 0.40171983506944453,
-    "soe": 0.40171983506944453,
+    "soc": 0.5213758680555555,
+    "soe": 0.5213758680555555,
     "power_kw": null
   },
   {
     "time_hours": 374.0,
     "internal_energy_change": -1.1755555555555557,
-    "soc": 0.3657497829861112,
-    "soe": 0.3657497829861112,
+    "soc": 0.49259982638888883,
+    "soe": 0.49259982638888883,
     "power_kw": null
   },
   {
     "time_hours": 375.0,
     "internal_energy_change": -1.221111111111111,
-    "soc": 0.33704969618055564,
-    "soe": 0.33704969618055564,
+    "soc": 0.46963975694444443,
+    "soe": 0.46963975694444443,
     "power_kw": null
   },
   {
     "time_hours": 376.0,
     "internal_energy_change": -0.9966666666666667,
-    "soc": 0.30723741319444453,
-    "soe": 0.30723741319444453,
+    "soc": 0.44578993055555555,
+    "soe": 0.44578993055555555,
     "power_kw": null
   },
   {
     "time_hours": 377.0,
     "internal_energy_change": -0.9588888888888889,
-    "soc": 0.2829047309027779,
-    "soe": 0.2829047309027779,
+    "soc": 0.4263237847222222,
+    "soe": 0.4263237847222222,
     "power_kw": null
   },
   {
     "time_hours": 378.0,
-    "internal_energy_change": -0.38888888888889284,
-    "soc": 0.259494357638889,
-    "soe": 0.259494357638889,
+    "internal_energy_change": -0.8233333333333333,
+    "soc": 0.4075954861111111,
+    "soe": 0.4075954861111111,
     "power_kw": null
   },
   {
     "time_hours": 379.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.9566666666666667,
+    "soc": 0.39151475694444443,
+    "soe": 0.39151475694444443,
     "power_kw": null
   },
   {
     "time_hours": 380.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8788888888888889,
+    "soc": 0.3728298611111111,
+    "soe": 0.3728298611111111,
     "power_kw": null
   },
   {
     "time_hours": 381.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.0822222222222222,
+    "soc": 0.3556640625,
+    "soe": 0.3556640625,
     "power_kw": null
   },
   {
     "time_hours": 382.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7611111111111111,
+    "soc": 0.33452690972222227,
+    "soe": 0.33452690972222227,
     "power_kw": null
   },
   {
     "time_hours": 383.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.85,
+    "soc": 0.3196614583333333,
+    "soe": 0.3196614583333333,
     "power_kw": null
   },
   {
     "time_hours": 384.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6933333333333334,
+    "soc": 0.3030598958333333,
+    "soe": 0.3030598958333333,
     "power_kw": null
   },
   {
     "time_hours": 385.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8311111111111111,
+    "soc": 0.28951822916666664,
+    "soe": 0.28951822916666664,
     "power_kw": null
   },
   {
     "time_hours": 386.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.4311111111111111,
+    "soc": 0.27328559027777777,
+    "soe": 0.27328559027777777,
     "power_kw": null
   },
   {
     "time_hours": 387.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8022222222222222,
+    "soc": 0.2648654513888889,
+    "soe": 0.2648654513888889,
     "power_kw": null
   },
   {
     "time_hours": 388.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.5044444444444445,
+    "soc": 0.24919704861111114,
+    "soe": 0.24919704861111114,
     "power_kw": null
   },
   {
     "time_hours": 389.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8677777777777778,
+    "soc": 0.23934461805555557,
+    "soe": 0.23934461805555557,
     "power_kw": null
   },
   {
     "time_hours": 390.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7588888888888888,
+    "soc": 0.22239583333333332,
+    "soe": 0.22239583333333332,
     "power_kw": null
   },
   {
     "time_hours": 391.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7266666666666667,
+    "soc": 0.2075737847222222,
+    "soe": 0.2075737847222222,
     "power_kw": null
   },
   {
     "time_hours": 392.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.5,
+    "soc": 0.19338107638888888,
+    "soe": 0.19338107638888888,
     "power_kw": null
   },
   {
     "time_hours": 393.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6455555555555555,
+    "soc": 0.18361545138888888,
+    "soe": 0.18361545138888888,
     "power_kw": null
   },
   {
     "time_hours": 394.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.5866666666666667,
+    "soc": 0.17100694444444445,
+    "soe": 0.17100694444444445,
     "power_kw": null
   },
   {
     "time_hours": 395.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -2.25,
+    "soc": 0.15954861111111113,
+    "soe": 0.15954861111111113,
     "power_kw": null
   },
   {
     "time_hours": 396.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -2.25,
+    "soc": 0.11560329861111114,
+    "soe": 0.11560329861111114,
     "power_kw": null
   },
   {
     "time_hours": 397.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -2.25,
+    "soc": 0.07165798611111114,
+    "soe": 0.07165798611111114,
     "power_kw": null
   },
   {
     "time_hours": 398.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.4188888888888904,
+    "soc": 0.02771267361111114,
+    "soe": 0.02771267361111114,
     "power_kw": null
   },
   {
     "time_hours": 399.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 400.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 401.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 402.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 403.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 404.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 405.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 406.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 407.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 408.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 409.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 410.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 411.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 412.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 413.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 414.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 415.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 416.0,
     "internal_energy_change": 0.008100000000000008,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 417.0,
     "internal_energy_change": 0.261,
-    "soc": 0.25019775390625004,
-    "soe": 0.25019775390625004,
+    "soc": 0.00015820312500000014,
+    "soe": 0.00015820312500000014,
     "power_kw": null
   },
   {
     "time_hours": 418.0,
     "internal_energy_change": 0.81,
-    "soc": 0.25656982421875,
-    "soe": 0.25656982421875,
+    "soc": 0.005255859375,
+    "soe": 0.005255859375,
     "power_kw": null
   },
   {
     "time_hours": 419.0,
     "internal_energy_change": 0.3960000000000001,
-    "soc": 0.27634521484375,
-    "soe": 0.27634521484375,
+    "soc": 0.021076171874999997,
+    "soe": 0.021076171874999997,
     "power_kw": null
   },
   {
     "time_hours": 420.0,
     "internal_energy_change": 0.8316,
-    "soc": 0.28601318359375,
-    "soe": 0.28601318359375,
+    "soc": 0.028810546875,
+    "soe": 0.028810546875,
     "power_kw": null
   },
   {
     "time_hours": 421.0,
     "internal_energy_change": 0.7515,
-    "soc": 0.30631591796875,
-    "soe": 0.30631591796875,
+    "soc": 0.045052734375,
+    "soe": 0.045052734375,
     "power_kw": null
   },
   {
     "time_hours": 422.0,
     "internal_energy_change": 0.8631,
-    "soc": 0.32466308593750004,
-    "soe": 0.32466308593750004,
+    "soc": 0.05973046875,
+    "soe": 0.05973046875,
     "power_kw": null
   },
   {
     "time_hours": 423.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.34573486328124997,
-    "soe": 0.34573486328124997,
+    "internal_energy_change": 2.25,
+    "soc": 0.076587890625,
+    "soe": 0.076587890625,
     "power_kw": null
   },
   {
     "time_hours": 424.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.39456298828125,
-    "soe": 0.39456298828125,
+    "internal_energy_change": 2.25,
+    "soc": 0.120533203125,
+    "soe": 0.120533203125,
     "power_kw": null
   },
   {
     "time_hours": 425.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.44339111328125,
-    "soe": 0.44339111328125,
+    "internal_energy_change": 2.25,
+    "soc": 0.164478515625,
+    "soe": 0.164478515625,
     "power_kw": null
   },
   {
     "time_hours": 426.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.49221923828125,
-    "soe": 0.49221923828125,
+    "internal_energy_change": 2.25,
+    "soc": 0.208423828125,
+    "soe": 0.208423828125,
     "power_kw": null
   },
   {
     "time_hours": 427.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.54104736328125,
-    "soe": 0.54104736328125,
+    "internal_energy_change": 2.25,
+    "soc": 0.252369140625,
+    "soe": 0.252369140625,
     "power_kw": null
   },
   {
     "time_hours": 428.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.58987548828125,
-    "soe": 0.58987548828125,
+    "internal_energy_change": 2.25,
+    "soc": 0.296314453125,
+    "soe": 0.296314453125,
     "power_kw": null
   },
   {
     "time_hours": 429.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.63870361328125,
-    "soe": 0.63870361328125,
+    "internal_energy_change": 2.25,
+    "soc": 0.34025976562500004,
+    "soe": 0.34025976562500004,
     "power_kw": null
   },
   {
     "time_hours": 430.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.6875317382812499,
-    "soe": 0.6875317382812499,
+    "internal_energy_change": 2.25,
+    "soc": 0.38420507812500004,
+    "soe": 0.38420507812500004,
     "power_kw": null
   },
   {
     "time_hours": 431.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.7363598632812499,
-    "soe": 0.7363598632812499,
+    "internal_energy_change": 2.25,
+    "soc": 0.42815039062500004,
+    "soe": 0.42815039062500004,
     "power_kw": null
   },
   {
     "time_hours": 432.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.7851879882812499,
-    "soe": 0.7851879882812499,
+    "internal_energy_change": 2.25,
+    "soc": 0.47209570312500004,
+    "soe": 0.47209570312500004,
     "power_kw": null
   },
   {
     "time_hours": 433.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.8340161132812499,
-    "soe": 0.8340161132812499,
+    "internal_energy_change": 2.25,
+    "soc": 0.516041015625,
+    "soe": 0.516041015625,
     "power_kw": null
   },
   {
     "time_hours": 434.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.8828442382812499,
-    "soe": 0.8828442382812499,
+    "internal_energy_change": 2.25,
+    "soc": 0.559986328125,
+    "soe": 0.559986328125,
     "power_kw": null
   },
   {
     "time_hours": 435.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.9316723632812499,
-    "soe": 0.9316723632812499,
+    "internal_energy_change": 2.25,
+    "soc": 0.603931640625,
+    "soe": 0.603931640625,
     "power_kw": null
   },
   {
     "time_hours": 436.0,
-    "internal_energy_change": 0.7987000000000037,
-    "soc": 0.9805004882812499,
-    "soe": 0.9805004882812499,
+    "internal_energy_change": 2.25,
+    "soc": 0.647876953125,
+    "soe": 0.647876953125,
     "power_kw": null
   },
   {
     "time_hours": 437.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.691822265625,
+    "soe": 0.691822265625,
     "power_kw": null
   },
   {
     "time_hours": 438.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.735767578125,
+    "soe": 0.735767578125,
     "power_kw": null
   },
   {
     "time_hours": 439.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.779712890625,
+    "soe": 0.779712890625,
     "power_kw": null
   },
   {
     "time_hours": 440.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.823658203125,
+    "soe": 0.823658203125,
     "power_kw": null
   },
   {
     "time_hours": 441.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.867603515625,
+    "soe": 0.867603515625,
     "power_kw": null
   },
   {
     "time_hours": 442.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.0745,
+    "soc": 0.911548828125,
+    "soe": 0.911548828125,
     "power_kw": null
   },
   {
     "time_hours": 443.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 1.5309000000000001,
+    "soc": 0.95206640625,
+    "soe": 0.95206640625,
     "power_kw": null
   },
   {
     "time_hours": 444.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 0.9232999999999976,
+    "soc": 0.9819667968750001,
+    "soe": 0.9819667968750001,
     "power_kw": null
   },
   {
@@ -3152,1933 +3152,1933 @@
   {
     "time_hours": 450.0,
     "internal_energy_change": -0.9255555555555555,
-    "soc": 0.9948187934027778,
-    "soe": 0.9948187934027778,
+    "soc": 0.9958550347222223,
+    "soe": 0.9958550347222223,
     "power_kw": null
   },
   {
     "time_hours": 451.0,
     "internal_energy_change": -1.2677777777777777,
-    "soc": 0.9722222222222222,
-    "soe": 0.9722222222222222,
+    "soc": 0.9777777777777777,
+    "soe": 0.9777777777777777,
     "power_kw": null
   },
   {
     "time_hours": 452.0,
     "internal_energy_change": -1.1344444444444444,
-    "soc": 0.9412706163194444,
-    "soe": 0.9412706163194444,
+    "soc": 0.9530164930555555,
+    "soe": 0.9530164930555555,
     "power_kw": null
   },
   {
     "time_hours": 453.0,
     "internal_energy_change": -0.6133333333333334,
-    "soc": 0.9135742187499999,
-    "soe": 0.9135742187499999,
+    "soc": 0.9308593749999999,
+    "soe": 0.9308593749999999,
     "power_kw": null
   },
   {
     "time_hours": 454.0,
     "internal_energy_change": -0.9266666666666666,
-    "soc": 0.8986002604166664,
-    "soe": 0.8986002604166664,
+    "soc": 0.9188802083333332,
+    "soe": 0.9188802083333332,
     "power_kw": null
   },
   {
     "time_hours": 455.0,
     "internal_energy_change": -0.9177777777777777,
-    "soc": 0.8759765624999997,
-    "soe": 0.8759765624999997,
+    "soc": 0.9007812499999998,
+    "soe": 0.9007812499999998,
     "power_kw": null
   },
   {
     "time_hours": 456.0,
     "internal_energy_change": -1.2766666666666666,
-    "soc": 0.8535698784722219,
-    "soe": 0.8535698784722219,
+    "soc": 0.8828559027777775,
+    "soe": 0.8828559027777775,
     "power_kw": null
   },
   {
     "time_hours": 457.0,
     "internal_energy_change": -1.377777777777778,
-    "soc": 0.8224012586805554,
-    "soe": 0.8224012586805554,
+    "soc": 0.8579210069444443,
+    "soe": 0.8579210069444443,
     "power_kw": null
   },
   {
     "time_hours": 458.0,
     "internal_energy_change": -1.8122222222222222,
-    "soc": 0.7887641059027775,
-    "soe": 0.7887641059027775,
+    "soc": 0.831011284722222,
+    "soe": 0.831011284722222,
     "power_kw": null
   },
   {
     "time_hours": 459.0,
     "internal_energy_change": -1.8277777777777777,
-    "soc": 0.7445203993055554,
-    "soe": 0.7445203993055554,
+    "soc": 0.7956163194444441,
+    "soe": 0.7956163194444441,
     "power_kw": null
   },
   {
     "time_hours": 460.0,
     "internal_energy_change": -1.2044444444444444,
-    "soc": 0.6998969184027775,
-    "soe": 0.6998969184027775,
+    "soc": 0.759917534722222,
+    "soe": 0.759917534722222,
     "power_kw": null
   },
   {
     "time_hours": 461.0,
     "internal_energy_change": -1.1955555555555557,
-    "soc": 0.670491536458333,
-    "soe": 0.670491536458333,
+    "soc": 0.7363932291666664,
+    "soe": 0.7363932291666664,
     "power_kw": null
   },
   {
     "time_hours": 462.0,
     "internal_energy_change": -1.281111111111111,
-    "soc": 0.6413031684027776,
-    "soe": 0.6413031684027776,
+    "soc": 0.7130425347222219,
+    "soe": 0.7130425347222219,
     "power_kw": null
   },
   {
     "time_hours": 463.0,
     "internal_energy_change": -1.511111111111111,
-    "soc": 0.6100260416666664,
-    "soe": 0.6100260416666664,
+    "soc": 0.688020833333333,
+    "soe": 0.688020833333333,
     "power_kw": null
   },
   {
     "time_hours": 464.0,
     "internal_energy_change": -1.2177777777777778,
-    "soc": 0.5731336805555554,
-    "soe": 0.5731336805555554,
+    "soc": 0.6585069444444441,
+    "soe": 0.6585069444444441,
     "power_kw": null
   },
   {
     "time_hours": 465.0,
     "internal_energy_change": -1.2733333333333332,
-    "soc": 0.5434027777777776,
-    "soe": 0.5434027777777776,
+    "soc": 0.6347222222222219,
+    "soe": 0.6347222222222219,
     "power_kw": null
   },
   {
     "time_hours": 466.0,
     "internal_energy_change": -1.348888888888889,
-    "soc": 0.5123155381944443,
-    "soe": 0.5123155381944443,
+    "soc": 0.6098524305555553,
+    "soe": 0.6098524305555553,
     "power_kw": null
   },
   {
     "time_hours": 467.0,
     "internal_energy_change": -1.141111111111111,
-    "soc": 0.47938368055555536,
-    "soe": 0.47938368055555536,
+    "soc": 0.5835069444444441,
+    "soe": 0.5835069444444441,
     "power_kw": null
   },
   {
     "time_hours": 468.0,
     "internal_energy_change": -1.0166666666666666,
-    "soc": 0.45152452256944425,
-    "soe": 0.45152452256944425,
+    "soc": 0.5612196180555552,
+    "soe": 0.5612196180555552,
     "power_kw": null
   },
   {
     "time_hours": 469.0,
     "internal_energy_change": -0.7255555555555556,
-    "soc": 0.4267035590277776,
-    "soe": 0.4267035590277776,
+    "soc": 0.5413628472222218,
+    "soe": 0.5413628472222218,
     "power_kw": null
   },
   {
     "time_hours": 470.0,
     "internal_energy_change": -0.9344444444444444,
-    "soc": 0.40898980034722204,
-    "soe": 0.40898980034722204,
+    "soc": 0.5271918402777774,
+    "soe": 0.5271918402777774,
     "power_kw": null
   },
   {
     "time_hours": 471.0,
     "internal_energy_change": -1.1066666666666667,
-    "soc": 0.3861762152777776,
-    "soe": 0.3861762152777776,
+    "soc": 0.5089409722222219,
+    "soe": 0.5089409722222219,
     "power_kw": null
   },
   {
     "time_hours": 472.0,
     "internal_energy_change": -0.7188888888888889,
-    "soc": 0.35915798611111094,
-    "soe": 0.35915798611111094,
+    "soc": 0.4873263888888886,
+    "soe": 0.4873263888888886,
     "power_kw": null
   },
   {
     "time_hours": 473.0,
     "internal_energy_change": -0.6466666666666666,
-    "soc": 0.34160698784722204,
-    "soe": 0.34160698784722204,
+    "soc": 0.4732855902777775,
+    "soe": 0.4732855902777775,
     "power_kw": null
   },
   {
     "time_hours": 474.0,
     "internal_energy_change": -0.8988888888888888,
-    "soc": 0.32581922743055536,
-    "soe": 0.32581922743055536,
+    "soc": 0.4606553819444441,
+    "soe": 0.4606553819444441,
     "power_kw": null
   },
   {
     "time_hours": 475.0,
     "internal_energy_change": -0.7899999999999999,
-    "soc": 0.30387369791666646,
-    "soe": 0.30387369791666646,
+    "soc": 0.44309895833333307,
+    "soe": 0.44309895833333307,
     "power_kw": null
   },
   {
     "time_hours": 476.0,
     "internal_energy_change": -1.0922222222222222,
-    "soc": 0.2845865885416665,
-    "soe": 0.2845865885416665,
+    "soc": 0.42766927083333306,
+    "soe": 0.42766927083333306,
     "power_kw": null
   },
   {
     "time_hours": 477.0,
-    "internal_energy_change": -0.3244444444444383,
-    "soc": 0.2579210069444443,
-    "soe": 0.2579210069444443,
+    "internal_energy_change": -0.7655555555555554,
+    "soc": 0.4063368055555553,
+    "soe": 0.4063368055555553,
     "power_kw": null
   },
   {
     "time_hours": 478.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8477777777777777,
+    "soc": 0.3913845486111109,
+    "soe": 0.3913845486111109,
     "power_kw": null
   },
   {
     "time_hours": 479.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7966666666666666,
+    "soc": 0.37482638888888864,
+    "soe": 0.37482638888888864,
     "power_kw": null
   },
   {
     "time_hours": 480.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8377777777777777,
+    "soc": 0.3592664930555553,
+    "soe": 0.3592664930555553,
     "power_kw": null
   },
   {
     "time_hours": 481.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8111111111111111,
+    "soc": 0.34290364583333305,
+    "soe": 0.34290364583333305,
     "power_kw": null
   },
   {
     "time_hours": 482.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8922222222222222,
+    "soc": 0.3270616319444442,
+    "soe": 0.3270616319444442,
     "power_kw": null
   },
   {
     "time_hours": 483.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6933333333333334,
+    "soc": 0.3096354166666664,
+    "soe": 0.3096354166666664,
     "power_kw": null
   },
   {
     "time_hours": 484.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.46888888888888886,
+    "soc": 0.29609374999999977,
+    "soe": 0.29609374999999977,
     "power_kw": null
   },
   {
     "time_hours": 485.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7411111111111112,
+    "soc": 0.28693576388888864,
+    "soe": 0.28693576388888864,
     "power_kw": null
   },
   {
     "time_hours": 486.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.43222222222222223,
+    "soc": 0.2724609374999997,
+    "soe": 0.2724609374999997,
     "power_kw": null
   },
   {
     "time_hours": 487.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.901111111111111,
+    "soc": 0.26401909722222194,
+    "soe": 0.26401909722222194,
     "power_kw": null
   },
   {
     "time_hours": 488.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.5277777777777778,
+    "soc": 0.24641927083333307,
+    "soe": 0.24641927083333307,
     "power_kw": null
   },
   {
     "time_hours": 489.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7355555555555556,
+    "soc": 0.23611111111111083,
+    "soe": 0.23611111111111083,
     "power_kw": null
   },
   {
     "time_hours": 490.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.44333333333333336,
+    "soc": 0.22174479166666639,
+    "soe": 0.22174479166666639,
     "power_kw": null
   },
   {
     "time_hours": 491.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.2922222222222222,
+    "soc": 0.2130859374999997,
+    "soe": 0.2130859374999997,
     "power_kw": null
   },
   {
     "time_hours": 492.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -2.25,
+    "soc": 0.18784722222222194,
+    "soe": 0.18784722222222194,
     "power_kw": null
   },
   {
     "time_hours": 493.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -2.25,
+    "soc": 0.14390190972222194,
+    "soe": 0.14390190972222194,
     "power_kw": null
   },
   {
     "time_hours": 494.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -2.25,
+    "soc": 0.09995659722222196,
+    "soe": 0.09995659722222196,
     "power_kw": null
   },
   {
     "time_hours": 495.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -2.25,
+    "soc": 0.05601128472222196,
+    "soe": 0.05601128472222196,
     "power_kw": null
   },
   {
     "time_hours": 496.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6177777777777642,
+    "soc": 0.012065972222221957,
+    "soe": 0.012065972222221957,
     "power_kw": null
   },
   {
     "time_hours": 497.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 498.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 499.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 500.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 501.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 502.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 503.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 504.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 505.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 506.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 507.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 508.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 509.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 510.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 511.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 512.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 513.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 514.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 515.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 516.0,
     "internal_energy_change": 0.3663,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 517.0,
     "internal_energy_change": 0.33840000000000003,
-    "soc": 0.25894287109375,
-    "soe": 0.25894287109375,
+    "soc": 0.007154296875,
+    "soe": 0.007154296875,
     "power_kw": null
   },
   {
     "time_hours": 518.0,
     "internal_energy_change": 0.8127000000000001,
-    "soc": 0.26720458984375,
-    "soe": 0.26720458984375,
+    "soc": 0.013763671875000001,
+    "soe": 0.013763671875000001,
     "power_kw": null
   },
   {
     "time_hours": 519.0,
     "internal_energy_change": 1.5849,
-    "soc": 0.2870458984375,
-    "soe": 0.2870458984375,
+    "soc": 0.029636718750000006,
+    "soe": 0.029636718750000006,
     "power_kw": null
   },
   {
     "time_hours": 520.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.32573974609374995,
-    "soe": 0.32573974609374995,
+    "internal_energy_change": 2.178,
+    "soc": 0.060591796875000006,
+    "soe": 0.060591796875000006,
     "power_kw": null
   },
   {
     "time_hours": 521.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.37456787109374995,
-    "soe": 0.37456787109374995,
+    "internal_energy_change": 2.25,
+    "soc": 0.10313085937500001,
+    "soe": 0.10313085937500001,
     "power_kw": null
   },
   {
     "time_hours": 522.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.42339599609374995,
-    "soe": 0.42339599609374995,
+    "internal_energy_change": 2.25,
+    "soc": 0.147076171875,
+    "soe": 0.147076171875,
     "power_kw": null
   },
   {
     "time_hours": 523.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.47222412109374995,
-    "soe": 0.47222412109374995,
+    "internal_energy_change": 2.25,
+    "soc": 0.191021484375,
+    "soe": 0.191021484375,
     "power_kw": null
   },
   {
     "time_hours": 524.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.5210522460937499,
-    "soe": 0.5210522460937499,
+    "internal_energy_change": 2.25,
+    "soc": 0.234966796875,
+    "soe": 0.234966796875,
     "power_kw": null
   },
   {
     "time_hours": 525.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.5698803710937499,
-    "soe": 0.5698803710937499,
+    "internal_energy_change": 2.25,
+    "soc": 0.278912109375,
+    "soe": 0.278912109375,
     "power_kw": null
   },
   {
     "time_hours": 526.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.6187084960937499,
-    "soe": 0.6187084960937499,
+    "internal_energy_change": 2.25,
+    "soc": 0.322857421875,
+    "soe": 0.322857421875,
     "power_kw": null
   },
   {
     "time_hours": 527.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.6675366210937499,
-    "soe": 0.6675366210937499,
+    "internal_energy_change": 2.25,
+    "soc": 0.366802734375,
+    "soe": 0.366802734375,
     "power_kw": null
   },
   {
     "time_hours": 528.0,
     "internal_energy_change": 1.7487000000000001,
-    "soc": 0.7163647460937499,
-    "soe": 0.7163647460937499,
+    "soc": 0.410748046875,
+    "soe": 0.410748046875,
     "power_kw": null
   },
   {
     "time_hours": 529.0,
     "internal_energy_change": 1.233,
-    "soc": 0.7590576171874999,
-    "soe": 0.7590576171874999,
+    "soc": 0.44490234375,
+    "soe": 0.44490234375,
     "power_kw": null
   },
   {
     "time_hours": 530.0,
     "internal_energy_change": 0.3384000000000001,
-    "soc": 0.7891601562499998,
-    "soe": 0.7891601562499998,
+    "soc": 0.468984375,
+    "soe": 0.468984375,
     "power_kw": null
   },
   {
     "time_hours": 531.0,
     "internal_energy_change": -0.020000000000000018,
-    "soc": 0.7974218749999998,
-    "soe": 0.7974218749999998,
+    "soc": 0.47559375,
+    "soe": 0.47559375,
     "power_kw": null
   },
   {
     "time_hours": 532.0,
     "internal_energy_change": 0.06839999999999996,
-    "soc": 0.7969335937499997,
-    "soe": 0.7969335937499997,
+    "soc": 0.475203125,
+    "soe": 0.475203125,
     "power_kw": null
   },
   {
     "time_hours": 533.0,
     "internal_energy_change": 0.08009999999999998,
-    "soc": 0.7986035156249996,
-    "soe": 0.7986035156249996,
+    "soc": 0.4765390625,
+    "soe": 0.4765390625,
     "power_kw": null
   },
   {
     "time_hours": 534.0,
     "internal_energy_change": -0.020000000000000018,
-    "soc": 0.8005590820312497,
-    "soe": 0.8005590820312497,
+    "soc": 0.47810351562500003,
+    "soe": 0.47810351562500003,
     "power_kw": null
   },
   {
     "time_hours": 535.0,
     "internal_energy_change": -0.37888888888888894,
-    "soc": 0.8000708007812496,
-    "soe": 0.8000708007812496,
+    "soc": 0.47771289062500005,
+    "soe": 0.47771289062500005,
     "power_kw": null
   },
   {
     "time_hours": 536.0,
     "internal_energy_change": -0.3766666666666666,
-    "soc": 0.7908205837673608,
-    "soe": 0.7908205837673608,
+    "soc": 0.47031271701388894,
+    "soe": 0.47031271701388894,
     "power_kw": null
   },
   {
     "time_hours": 537.0,
     "internal_energy_change": -0.25666666666666654,
-    "soc": 0.7816246202256941,
-    "soe": 0.7816246202256941,
+    "soc": 0.46295594618055563,
+    "soe": 0.46295594618055563,
     "power_kw": null
   },
   {
     "time_hours": 538.0,
     "internal_energy_change": -0.35999999999999993,
-    "soc": 0.7753583441840274,
-    "soe": 0.7753583441840274,
+    "soc": 0.4579429253472223,
+    "soe": 0.4579429253472223,
     "power_kw": null
   },
   {
     "time_hours": 539.0,
     "internal_energy_change": -0.6388888888888888,
-    "soc": 0.7665692816840275,
-    "soe": 0.7665692816840275,
+    "soc": 0.4509116753472223,
+    "soe": 0.4509116753472223,
     "power_kw": null
   },
   {
     "time_hours": 540.0,
     "internal_energy_change": -0.47222222222222227,
-    "soc": 0.7509714084201385,
-    "soe": 0.7509714084201385,
+    "soc": 0.4384333767361112,
+    "soe": 0.4384333767361112,
     "power_kw": null
   },
   {
     "time_hours": 541.0,
     "internal_energy_change": -0.5822222222222221,
-    "soc": 0.7394425455729163,
-    "soe": 0.7394425455729163,
+    "soc": 0.4292102864583334,
+    "soe": 0.4292102864583334,
     "power_kw": null
   },
   {
     "time_hours": 542.0,
     "internal_energy_change": -0.6499999999999999,
-    "soc": 0.7252281358506941,
-    "soe": 0.7252281358506941,
+    "soc": 0.4178387586805557,
+    "soe": 0.4178387586805557,
     "power_kw": null
   },
   {
     "time_hours": 543.0,
     "internal_energy_change": -0.8866666666666667,
-    "soc": 0.7093589952256942,
-    "soe": 0.7093589952256942,
+    "soc": 0.4051434461805557,
+    "soe": 0.4051434461805557,
     "power_kw": null
   },
   {
     "time_hours": 544.0,
     "internal_energy_change": -0.8133333333333332,
-    "soc": 0.6877118598090275,
-    "soe": 0.6877118598090275,
+    "soc": 0.38782573784722235,
+    "soe": 0.38782573784722235,
     "power_kw": null
   },
   {
     "time_hours": 545.0,
     "internal_energy_change": -1.1955555555555557,
-    "soc": 0.6678550889756942,
-    "soe": 0.6678550889756942,
+    "soc": 0.3719403211805557,
+    "soe": 0.3719403211805557,
     "power_kw": null
   },
   {
     "time_hours": 546.0,
     "internal_energy_change": -1.0622222222222222,
-    "soc": 0.6386667209201388,
-    "soe": 0.6386667209201388,
+    "soc": 0.3485896267361113,
+    "soe": 0.3485896267361113,
     "power_kw": null
   },
   {
     "time_hours": 547.0,
     "internal_energy_change": -1.2144444444444447,
-    "soc": 0.6127335611979166,
-    "soe": 0.6127335611979166,
+    "soc": 0.3278430989583335,
+    "soe": 0.3278430989583335,
     "power_kw": null
   },
   {
     "time_hours": 548.0,
     "internal_energy_change": -1.4377777777777778,
-    "soc": 0.583084038628472,
-    "soe": 0.583084038628472,
+    "soc": 0.304123480902778,
+    "soe": 0.304123480902778,
     "power_kw": null
   },
   {
     "time_hours": 549.0,
     "internal_energy_change": -1.2066666666666668,
-    "soc": 0.5479820421006942,
-    "soe": 0.5479820421006942,
+    "soc": 0.27604188368055577,
+    "soe": 0.27604188368055577,
     "power_kw": null
   },
   {
     "time_hours": 550.0,
     "internal_energy_change": -1.4244444444444444,
-    "soc": 0.5185224066840276,
-    "soe": 0.5185224066840276,
+    "soc": 0.25247417534722244,
+    "soe": 0.25247417534722244,
     "power_kw": null
   },
   {
     "time_hours": 551.0,
     "internal_energy_change": -1.392222222222222,
-    "soc": 0.4837459309895832,
-    "soe": 0.4837459309895832,
+    "soc": 0.2246529947916669,
+    "soe": 0.2246529947916669,
     "power_kw": null
   },
   {
     "time_hours": 552.0,
     "internal_energy_change": -1.338888888888889,
-    "soc": 0.4497561306423609,
-    "soe": 0.4497561306423609,
+    "soc": 0.19746115451388913,
+    "soe": 0.19746115451388913,
     "power_kw": null
   },
   {
     "time_hours": 553.0,
     "internal_energy_change": -1.3633333333333335,
-    "soc": 0.4170684136284721,
-    "soe": 0.4170684136284721,
+    "soc": 0.17131098090277802,
+    "soe": 0.17131098090277802,
     "power_kw": null
   },
   {
     "time_hours": 554.0,
     "internal_energy_change": -1.3800000000000001,
-    "soc": 0.3837839084201387,
-    "soe": 0.3837839084201387,
+    "soc": 0.14468337673611137,
+    "soe": 0.14468337673611137,
     "power_kw": null
   },
   {
     "time_hours": 555.0,
     "internal_energy_change": -1.4700000000000002,
-    "soc": 0.3500925021701387,
-    "soe": 0.3500925021701387,
+    "soc": 0.11773025173611136,
+    "soe": 0.11773025173611136,
     "power_kw": null
   },
   {
     "time_hours": 556.0,
     "internal_energy_change": -1.508888888888889,
-    "soc": 0.3142038302951387,
-    "soe": 0.3142038302951387,
+    "soc": 0.08901931423611137,
+    "soe": 0.08901931423611137,
     "power_kw": null
   },
   {
     "time_hours": 557.0,
-    "internal_energy_change": -1.1208999999999936,
-    "soc": 0.2773657226562498,
-    "soe": 0.2773657226562498,
+    "internal_energy_change": -1.301111111111111,
+    "soc": 0.05954882812500026,
+    "soe": 0.05954882812500026,
     "power_kw": null
   },
   {
     "time_hours": 558.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.7255555555555555,
+    "soc": 0.03413650173611137,
+    "soe": 0.03413650173611137,
     "power_kw": null
   },
   {
     "time_hours": 559.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.022233333333346872,
+    "soc": 0.0004342447916669311,
+    "soe": 0.0004342447916669311,
     "power_kw": null
   },
   {
     "time_hours": 560.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 561.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 562.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 563.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 564.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 565.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 566.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 567.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 568.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 569.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 570.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 571.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 572.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 573.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 574.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 575.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 576.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 577.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 578.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 579.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 580.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 581.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 582.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 583.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 584.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 585.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 586.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 587.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 588.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 589.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 590.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 591.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 592.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 593.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 594.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 595.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 596.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 597.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 598.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 599.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 600.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 601.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 602.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 603.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 604.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 605.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 606.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 607.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 608.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 609.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 610.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 611.0,
     "internal_energy_change": 0.38610000000000005,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 612.0,
     "internal_energy_change": 0.14489999999999995,
-    "soc": 0.25942626953125003,
-    "soe": 0.25942626953125003,
+    "soc": 0.007541015625,
+    "soe": 0.007541015625,
     "power_kw": null
   },
   {
     "time_hours": 613.0,
-    "internal_energy_change": -0.5310000000000006,
-    "soc": 0.26296386718750003,
-    "soe": 0.26296386718750003,
+    "internal_energy_change": -0.531,
+    "soc": 0.01037109375,
+    "soe": 0.01037109375,
     "power_kw": null
   },
   {
     "time_hours": 614.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 615.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 616.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 617.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 618.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 619.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 620.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 621.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 622.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 623.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 624.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 625.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 626.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 627.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 628.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 629.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 630.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 631.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 632.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 633.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 634.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 635.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 636.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 637.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 638.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 639.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 640.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 641.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 642.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 643.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 644.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 645.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 646.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 647.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 648.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 649.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 650.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 651.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 652.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 653.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 654.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 655.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 656.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 657.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 658.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 659.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 660.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 661.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 662.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 663.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 664.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 665.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 666.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 667.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 668.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 669.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 670.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 671.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 672.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 673.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 674.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 675.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 676.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 677.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 678.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 679.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 680.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 681.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 682.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 683.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 684.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 685.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 686.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 687.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 688.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 689.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 690.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 691.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 692.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 693.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 694.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 695.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 696.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 697.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 698.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 699.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 700.0,
     "internal_energy_change": 0.28979999999999995,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 701.0,
     "internal_energy_change": 0.6228,
-    "soc": 0.2570751953125,
-    "soe": 0.2570751953125,
+    "soc": 0.0056601562499999985,
+    "soe": 0.0056601562499999985,
     "power_kw": null
   },
   {
     "time_hours": 702.0,
     "internal_energy_change": 0.7119000000000002,
-    "soc": 0.2722802734375,
-    "soe": 0.2722802734375,
+    "soc": 0.01782421875,
+    "soe": 0.01782421875,
     "power_kw": null
   },
   {
     "time_hours": 703.0,
     "internal_energy_change": 1.4616000000000002,
-    "soc": 0.28966064453124996,
-    "soe": 0.28966064453124996,
+    "soc": 0.031728515625,
+    "soe": 0.031728515625,
     "power_kw": null
   },
   {
     "time_hours": 704.0,
     "internal_energy_change": 1.9025999999999998,
-    "soc": 0.32534423828125,
-    "soe": 0.32534423828125,
+    "soc": 0.06027539062500001,
+    "soe": 0.06027539062500001,
     "power_kw": null
   },
   {
     "time_hours": 705.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.37179443359375,
-    "soe": 0.37179443359375,
+    "internal_energy_change": 2.25,
+    "soc": 0.097435546875,
+    "soe": 0.097435546875,
     "power_kw": null
   },
   {
     "time_hours": 706.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.42062255859375003,
-    "soe": 0.42062255859375003,
+    "internal_energy_change": 2.25,
+    "soc": 0.141380859375,
+    "soe": 0.141380859375,
     "power_kw": null
   },
   {
     "time_hours": 707.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.46945068359375,
-    "soe": 0.46945068359375,
+    "internal_energy_change": 2.25,
+    "soc": 0.18532617187500003,
+    "soe": 0.18532617187500003,
     "power_kw": null
   },
   {
     "time_hours": 708.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.51827880859375,
-    "soe": 0.51827880859375,
+    "internal_energy_change": 2.25,
+    "soc": 0.22927148437500003,
+    "soe": 0.22927148437500003,
     "power_kw": null
   },
   {
     "time_hours": 709.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.56710693359375,
-    "soe": 0.56710693359375,
+    "internal_energy_change": 2.25,
+    "soc": 0.273216796875,
+    "soe": 0.273216796875,
     "power_kw": null
   },
   {
     "time_hours": 710.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.61593505859375,
-    "soe": 0.61593505859375,
+    "internal_energy_change": 2.25,
+    "soc": 0.317162109375,
+    "soe": 0.317162109375,
     "power_kw": null
   },
   {
     "time_hours": 711.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.66476318359375,
-    "soe": 0.66476318359375,
+    "internal_energy_change": 2.25,
+    "soc": 0.361107421875,
+    "soe": 0.361107421875,
     "power_kw": null
   },
   {
     "time_hours": 712.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.71359130859375,
-    "soe": 0.71359130859375,
+    "internal_energy_change": 2.25,
+    "soc": 0.405052734375,
+    "soe": 0.405052734375,
     "power_kw": null
   },
   {
     "time_hours": 713.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.76241943359375,
-    "soe": 0.76241943359375,
+    "internal_energy_change": 2.25,
+    "soc": 0.448998046875,
+    "soe": 0.448998046875,
     "power_kw": null
   },
   {
     "time_hours": 714.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.81124755859375,
-    "soe": 0.81124755859375,
+    "internal_energy_change": 2.25,
+    "soc": 0.492943359375,
+    "soe": 0.492943359375,
     "power_kw": null
   },
   {
     "time_hours": 715.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.8600756835937499,
-    "soe": 0.8600756835937499,
+    "internal_energy_change": 2.25,
+    "soc": 0.536888671875,
+    "soe": 0.536888671875,
     "power_kw": null
   },
   {
     "time_hours": 716.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.9089038085937499,
-    "soe": 0.9089038085937499,
+    "internal_energy_change": 2.25,
+    "soc": 0.580833984375,
+    "soe": 0.580833984375,
     "power_kw": null
   },
   {
     "time_hours": 717.0,
-    "internal_energy_change": 1.7313000000000045,
-    "soc": 0.9577319335937499,
-    "soe": 0.9577319335937499,
+    "internal_energy_change": 2.25,
+    "soc": 0.624779296875,
+    "soe": 0.624779296875,
     "power_kw": null
   },
   {
     "time_hours": 718.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.668724609375,
+    "soe": 0.668724609375,
     "power_kw": null
   },
   {
     "time_hours": 719.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.712669921875,
+    "soe": 0.712669921875,
     "power_kw": null
   },
   {
     "time_hours": 720.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.756615234375,
+    "soe": 0.756615234375,
     "power_kw": null
   },
   {
     "time_hours": 721.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.800560546875,
+    "soe": 0.800560546875,
     "power_kw": null
   },
   {
     "time_hours": 722.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.844505859375,
+    "soe": 0.844505859375,
     "power_kw": null
   },
   {
     "time_hours": 723.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.888451171875,
+    "soe": 0.888451171875,
     "power_kw": null
   },
   {
     "time_hours": 724.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.932396484375,
+    "soe": 0.932396484375,
     "power_kw": null
   },
   {
     "time_hours": 725.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 1.2113000000000014,
+    "soc": 0.976341796875,
+    "soe": 0.976341796875,
     "power_kw": null
   },
   {
@@ -5168,638 +5168,638 @@
   {
     "time_hours": 738.0,
     "internal_energy_change": -0.7333333333333334,
-    "soc": 0.999050564236111,
-    "soe": 0.999050564236111,
+    "soc": 0.9992404513888888,
+    "soe": 0.9992404513888888,
     "power_kw": null
   },
   {
     "time_hours": 739.0,
     "internal_energy_change": -1.0866666666666667,
-    "soc": 0.9811469184027777,
-    "soe": 0.9811469184027777,
+    "soc": 0.9849175347222222,
+    "soe": 0.9849175347222222,
     "power_kw": null
   },
   {
     "time_hours": 740.0,
     "internal_energy_change": -1.338888888888889,
-    "soc": 0.954616970486111,
-    "soe": 0.954616970486111,
+    "soc": 0.9636935763888889,
+    "soe": 0.9636935763888889,
     "power_kw": null
   },
   {
     "time_hours": 741.0,
     "internal_energy_change": -1.2166666666666666,
-    "soc": 0.9219292534722222,
-    "soe": 0.9219292534722222,
+    "soc": 0.9375434027777777,
+    "soe": 0.9375434027777777,
     "power_kw": null
   },
   {
     "time_hours": 742.0,
     "internal_energy_change": -1.141111111111111,
-    "soc": 0.8922254774305555,
-    "soe": 0.8922254774305555,
+    "soc": 0.9137803819444443,
+    "soe": 0.9137803819444443,
     "power_kw": null
   },
   {
     "time_hours": 743.0,
     "internal_energy_change": -1.2944444444444445,
-    "soc": 0.8643663194444444,
-    "soe": 0.8643663194444444,
+    "soc": 0.8914930555555556,
+    "soe": 0.8914930555555556,
     "power_kw": null
   },
   {
     "time_hours": 744.0,
     "internal_energy_change": -1.17,
-    "soc": 0.832763671875,
-    "soe": 0.832763671875,
+    "soc": 0.8662109375,
+    "soe": 0.8662109375,
     "power_kw": null
   },
   {
     "time_hours": 745.0,
     "internal_energy_change": -1.3077777777777777,
-    "soc": 0.80419921875,
-    "soe": 0.80419921875,
+    "soc": 0.8433593749999999,
+    "soe": 0.8433593749999999,
     "power_kw": null
   },
   {
     "time_hours": 746.0,
     "internal_energy_change": -1.3855555555555557,
-    "soc": 0.7722710503472222,
-    "soe": 0.7722710503472222,
+    "soc": 0.8178168402777777,
+    "soe": 0.8178168402777777,
     "power_kw": null
   },
   {
     "time_hours": 747.0,
     "internal_energy_change": -1.4077777777777776,
-    "soc": 0.7384440104166666,
-    "soe": 0.7384440104166666,
+    "soc": 0.7907552083333332,
+    "soe": 0.7907552083333332,
     "power_kw": null
   },
   {
     "time_hours": 748.0,
     "internal_energy_change": -1.227777777777778,
-    "soc": 0.704074435763889,
-    "soe": 0.704074435763889,
+    "soc": 0.763259548611111,
+    "soe": 0.763259548611111,
     "power_kw": null
   },
   {
     "time_hours": 749.0,
     "internal_energy_change": -1.5488888888888888,
-    "soc": 0.6740993923611112,
-    "soe": 0.6740993923611112,
+    "soc": 0.7392795138888887,
+    "soe": 0.7392795138888887,
     "power_kw": null
   },
   {
     "time_hours": 750.0,
     "internal_energy_change": -1.3777777777777778,
-    "soc": 0.6362847222222222,
-    "soe": 0.6362847222222222,
+    "soc": 0.7090277777777776,
+    "soe": 0.7090277777777776,
     "power_kw": null
   },
   {
     "time_hours": 751.0,
     "internal_energy_change": -1.46,
-    "soc": 0.6026475694444445,
-    "soe": 0.6026475694444445,
+    "soc": 0.6821180555555553,
+    "soe": 0.6821180555555553,
     "power_kw": null
   },
   {
     "time_hours": 752.0,
     "internal_energy_change": -1.2244444444444444,
-    "soc": 0.5670030381944445,
-    "soe": 0.5670030381944445,
+    "soc": 0.6536024305555552,
+    "soe": 0.6536024305555552,
     "power_kw": null
   },
   {
     "time_hours": 753.0,
     "internal_energy_change": -1.2255555555555557,
-    "soc": 0.5371093750000001,
-    "soe": 0.5371093750000001,
+    "soc": 0.6296874999999997,
+    "soe": 0.6296874999999997,
     "power_kw": null
   },
   {
     "time_hours": 754.0,
     "internal_energy_change": -1.4966666666666668,
-    "soc": 0.5071885850694445,
-    "soe": 0.5071885850694445,
+    "soc": 0.6057508680555553,
+    "soe": 0.6057508680555553,
     "power_kw": null
   },
   {
     "time_hours": 755.0,
     "internal_energy_change": -1.5688888888888888,
-    "soc": 0.4706488715277779,
-    "soe": 0.4706488715277779,
+    "soc": 0.5765190972222219,
+    "soe": 0.5765190972222219,
     "power_kw": null
   },
   {
     "time_hours": 756.0,
     "internal_energy_change": -1.2799999999999998,
-    "soc": 0.432345920138889,
-    "soe": 0.432345920138889,
+    "soc": 0.5458767361111109,
+    "soe": 0.5458767361111109,
     "power_kw": null
   },
   {
     "time_hours": 757.0,
     "internal_energy_change": -1.2444444444444445,
-    "soc": 0.40109592013888895,
-    "soe": 0.40109592013888895,
+    "soc": 0.5208767361111108,
+    "soe": 0.5208767361111108,
     "power_kw": null
   },
   {
     "time_hours": 758.0,
     "internal_energy_change": -1.2388888888888892,
-    "soc": 0.37071397569444453,
-    "soe": 0.37071397569444453,
+    "soc": 0.4965711805555553,
+    "soe": 0.4965711805555553,
     "power_kw": null
   },
   {
     "time_hours": 759.0,
     "internal_energy_change": -1.4733333333333334,
-    "soc": 0.3404676649305557,
-    "soe": 0.3404676649305557,
+    "soc": 0.47237413194444416,
+    "soe": 0.47237413194444416,
     "power_kw": null
   },
   {
     "time_hours": 760.0,
     "internal_energy_change": -1.5844444444444443,
-    "soc": 0.3044976128472224,
-    "soe": 0.3044976128472224,
+    "soc": 0.4435980902777775,
+    "soe": 0.4435980902777775,
     "power_kw": null
   },
   {
     "time_hours": 761.0,
-    "internal_energy_change": -0.6477777777777831,
-    "soc": 0.2658148871527779,
-    "soe": 0.2658148871527779,
+    "internal_energy_change": -1.2344444444444447,
+    "soc": 0.412651909722222,
+    "soe": 0.412651909722222,
     "power_kw": null
   },
   {
     "time_hours": 762.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.9322222222222222,
+    "soc": 0.3885416666666664,
+    "soe": 0.3885416666666664,
     "power_kw": null
   },
   {
     "time_hours": 763.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8322222222222222,
+    "soc": 0.3703342013888886,
+    "soe": 0.3703342013888886,
     "power_kw": null
   },
   {
     "time_hours": 764.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.94,
+    "soc": 0.35407986111111084,
+    "soe": 0.35407986111111084,
     "power_kw": null
   },
   {
     "time_hours": 765.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.9222222222222222,
+    "soc": 0.3357204861111108,
+    "soe": 0.3357204861111108,
     "power_kw": null
   },
   {
     "time_hours": 766.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6922222222222222,
+    "soc": 0.3177083333333331,
+    "soe": 0.3177083333333331,
     "power_kw": null
   },
   {
     "time_hours": 767.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.0733333333333333,
+    "soc": 0.3041883680555553,
+    "soe": 0.3041883680555553,
     "power_kw": null
   },
   {
     "time_hours": 768.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6755555555555556,
+    "soc": 0.2832248263888887,
+    "soe": 0.2832248263888887,
     "power_kw": null
   },
   {
     "time_hours": 769.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.0611111111111111,
+    "soc": 0.27003038194444423,
+    "soe": 0.27003038194444423,
     "power_kw": null
   },
   {
     "time_hours": 770.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.75,
+    "soc": 0.2493055555555553,
+    "soe": 0.2493055555555553,
     "power_kw": null
   },
   {
     "time_hours": 771.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.02,
+    "soc": 0.2346571180555553,
+    "soe": 0.2346571180555553,
     "power_kw": null
   },
   {
     "time_hours": 772.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.4755555555555555,
+    "soc": 0.21473524305555533,
+    "soe": 0.21473524305555533,
     "power_kw": null
   },
   {
     "time_hours": 773.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7222222222222222,
+    "soc": 0.20544704861111088,
+    "soe": 0.20544704861111088,
     "power_kw": null
   },
   {
     "time_hours": 774.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8311111111111111,
+    "soc": 0.19134114583333311,
+    "soe": 0.19134114583333311,
     "power_kw": null
   },
   {
     "time_hours": 775.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6733333333333333,
+    "soc": 0.17510850694444421,
+    "soe": 0.17510850694444421,
     "power_kw": null
   },
   {
     "time_hours": 776.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7011111111111111,
+    "soc": 0.16195746527777755,
+    "soe": 0.16195746527777755,
     "power_kw": null
   },
   {
     "time_hours": 777.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.5366666666666666,
+    "soc": 0.14826388888888867,
+    "soe": 0.14826388888888867,
     "power_kw": null
   },
   {
     "time_hours": 778.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7988888888888889,
+    "soc": 0.13778211805555532,
+    "soe": 0.13778211805555532,
     "power_kw": null
   },
   {
     "time_hours": 779.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7855555555555555,
+    "soc": 0.12217881944444423,
+    "soe": 0.12217881944444423,
     "power_kw": null
   },
   {
     "time_hours": 780.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.4311111111111112,
+    "soc": 0.10683593749999978,
+    "soe": 0.10683593749999978,
     "power_kw": null
   },
   {
     "time_hours": 781.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -2.25,
+    "soc": 0.0788845486111109,
+    "soe": 0.0788845486111109,
     "power_kw": null
   },
   {
     "time_hours": 782.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.788888888888878,
+    "soc": 0.0349392361111109,
+    "soe": 0.0349392361111109,
     "power_kw": null
   },
   {
     "time_hours": 783.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 784.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 785.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 786.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 787.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 788.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 789.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 790.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 791.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 792.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 793.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 794.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 795.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 796.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 797.0,
     "internal_energy_change": 0.3401999999999999,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 798.0,
     "internal_energy_change": 0.40410000000000007,
-    "soc": 0.2583056640625,
-    "soe": 0.2583056640625,
+    "soc": 0.006644531249999998,
+    "soe": 0.006644531249999998,
     "power_kw": null
   },
   {
     "time_hours": 799.0,
     "internal_energy_change": 1.5011999999999999,
-    "soc": 0.26817138671874996,
-    "soe": 0.26817138671874996,
+    "soc": 0.014537109375,
+    "soe": 0.014537109375,
     "power_kw": null
   },
   {
     "time_hours": 800.0,
     "internal_energy_change": 0.07469999999999997,
-    "soc": 0.30482177734375,
-    "soe": 0.30482177734375,
+    "soc": 0.043857421875,
+    "soe": 0.043857421875,
     "power_kw": null
   },
   {
     "time_hours": 801.0,
     "internal_energy_change": -0.6422222222222221,
-    "soc": 0.3066455078125,
-    "soe": 0.3066455078125,
+    "soc": 0.045316406249999996,
+    "soe": 0.045316406249999996,
     "power_kw": null
   },
   {
     "time_hours": 802.0,
     "internal_energy_change": -0.7611111111111112,
-    "soc": 0.2909662543402778,
-    "soe": 0.2909662543402778,
+    "soc": 0.032773003472222215,
+    "soe": 0.032773003472222215,
     "power_kw": null
   },
   {
     "time_hours": 803.0,
     "internal_energy_change": -0.6311111111111111,
-    "soc": 0.2723844401041667,
-    "soe": 0.2723844401041667,
+    "soc": 0.017907552083333327,
+    "soe": 0.017907552083333327,
     "power_kw": null
   },
   {
     "time_hours": 804.0,
-    "internal_energy_change": -0.2857555555555571,
-    "soc": 0.2569764539930556,
-    "soe": 0.2569764539930556,
+    "internal_energy_change": -0.2857555555555553,
+    "soc": 0.00558116319444444,
+    "soe": 0.00558116319444444,
     "power_kw": null
   },
   {
     "time_hours": 805.0,
     "internal_energy_change": 1.7577,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 806.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.29291259765625,
-    "soe": 0.29291259765625,
+    "internal_energy_change": 2.25,
+    "soc": 0.034330078124999996,
+    "soe": 0.034330078124999996,
     "power_kw": null
   },
   {
     "time_hours": 807.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.34174072265625,
-    "soe": 0.34174072265625,
+    "internal_energy_change": 2.25,
+    "soc": 0.078275390625,
+    "soe": 0.078275390625,
     "power_kw": null
   },
   {
     "time_hours": 808.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.39056884765625,
-    "soe": 0.39056884765625,
+    "internal_energy_change": 2.25,
+    "soc": 0.122220703125,
+    "soe": 0.122220703125,
     "power_kw": null
   },
   {
     "time_hours": 809.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.43939697265624994,
-    "soe": 0.43939697265624994,
+    "internal_energy_change": 2.25,
+    "soc": 0.166166015625,
+    "soe": 0.166166015625,
     "power_kw": null
   },
   {
     "time_hours": 810.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.48822509765624994,
-    "soe": 0.48822509765624994,
+    "internal_energy_change": 2.25,
+    "soc": 0.210111328125,
+    "soe": 0.210111328125,
     "power_kw": null
   },
   {
     "time_hours": 811.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.5370532226562499,
-    "soe": 0.5370532226562499,
+    "internal_energy_change": 2.25,
+    "soc": 0.254056640625,
+    "soe": 0.254056640625,
     "power_kw": null
   },
   {
     "time_hours": 812.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.5858813476562499,
-    "soe": 0.5858813476562499,
+    "internal_energy_change": 2.25,
+    "soc": 0.298001953125,
+    "soe": 0.298001953125,
     "power_kw": null
   },
   {
     "time_hours": 813.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.6347094726562499,
-    "soe": 0.6347094726562499,
+    "internal_energy_change": 2.25,
+    "soc": 0.341947265625,
+    "soe": 0.341947265625,
     "power_kw": null
   },
   {
     "time_hours": 814.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.6835375976562499,
-    "soe": 0.6835375976562499,
+    "internal_energy_change": 2.25,
+    "soc": 0.385892578125,
+    "soe": 0.385892578125,
     "power_kw": null
   },
   {
     "time_hours": 815.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.7323657226562499,
-    "soe": 0.7323657226562499,
+    "internal_energy_change": 2.25,
+    "soc": 0.429837890625,
+    "soe": 0.429837890625,
     "power_kw": null
   },
   {
     "time_hours": 816.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.7811938476562499,
-    "soe": 0.7811938476562499,
+    "internal_energy_change": 2.25,
+    "soc": 0.473783203125,
+    "soe": 0.473783203125,
     "power_kw": null
   },
   {
     "time_hours": 817.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.8300219726562499,
-    "soe": 0.8300219726562499,
+    "internal_energy_change": 2.25,
+    "soc": 0.517728515625,
+    "soe": 0.517728515625,
     "power_kw": null
   },
   {
     "time_hours": 818.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.8788500976562499,
-    "soe": 0.8788500976562499,
+    "internal_energy_change": 2.25,
+    "soc": 0.561673828125,
+    "soe": 0.561673828125,
     "power_kw": null
   },
   {
     "time_hours": 819.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.9276782226562499,
-    "soe": 0.9276782226562499,
+    "internal_energy_change": 2.25,
+    "soc": 0.605619140625,
+    "soe": 0.605619140625,
     "power_kw": null
   },
   {
     "time_hours": 820.0,
-    "internal_energy_change": 0.962300000000006,
-    "soc": 0.9765063476562499,
-    "soe": 0.9765063476562499,
+    "internal_energy_change": 2.25,
+    "soc": 0.649564453125,
+    "soe": 0.649564453125,
     "power_kw": null
   },
   {
     "time_hours": 821.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.693509765625,
+    "soe": 0.693509765625,
     "power_kw": null
   },
   {
     "time_hours": 822.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.737455078125,
+    "soe": 0.737455078125,
     "power_kw": null
   },
   {
     "time_hours": 823.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.781400390625,
+    "soe": 0.781400390625,
     "power_kw": null
   },
   {
     "time_hours": 824.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.825345703125,
+    "soe": 0.825345703125,
     "power_kw": null
   },
   {
     "time_hours": 825.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.869291015625,
+    "soe": 0.869291015625,
     "power_kw": null
   },
   {
     "time_hours": 826.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 2.25,
+    "soc": 0.913236328125,
+    "soe": 0.913236328125,
     "power_kw": null
   },
   {
     "time_hours": 827.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 1.4742,
+    "soc": 0.957181640625,
+    "soe": 0.957181640625,
     "power_kw": null
   },
   {
     "time_hours": 828.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 0.7180999999999997,
+    "soc": 0.985974609375,
+    "soe": 0.985974609375,
     "power_kw": null
   },
   {
@@ -5840,883 +5840,883 @@
   {
     "time_hours": 834.0,
     "internal_energy_change": -0.9444444444444444,
-    "soc": 0.9824761284722222,
-    "soe": 0.9824761284722222,
+    "soc": 0.9859809027777778,
+    "soe": 0.9859809027777778,
     "power_kw": null
   },
   {
     "time_hours": 835.0,
     "internal_energy_change": -1.0911111111111111,
-    "soc": 0.9594184027777779,
-    "soe": 0.9594184027777779,
+    "soc": 0.9675347222222223,
+    "soe": 0.9675347222222223,
     "power_kw": null
   },
   {
     "time_hours": 836.0,
     "internal_energy_change": -1.1044444444444443,
-    "soc": 0.9327799479166667,
-    "soe": 0.9327799479166667,
+    "soc": 0.9462239583333334,
+    "soe": 0.9462239583333334,
     "power_kw": null
   },
   {
     "time_hours": 837.0,
     "internal_energy_change": -1.3666666666666667,
-    "soc": 0.9058159722222222,
-    "soe": 0.9058159722222222,
+    "soc": 0.9246527777777778,
+    "soe": 0.9246527777777778,
     "power_kw": null
   },
   {
     "time_hours": 838.0,
     "internal_energy_change": -1.4466666666666668,
-    "soc": 0.8724500868055556,
-    "soe": 0.8724500868055556,
+    "soc": 0.8979600694444445,
+    "soe": 0.8979600694444445,
     "power_kw": null
   },
   {
     "time_hours": 839.0,
     "internal_energy_change": -1.3244444444444445,
-    "soc": 0.837131076388889,
-    "soe": 0.837131076388889,
+    "soc": 0.8697048611111111,
+    "soe": 0.8697048611111111,
     "power_kw": null
   },
   {
     "time_hours": 840.0,
-    "internal_energy_change": -2.0,
-    "soc": 0.8047960069444445,
-    "soe": 0.8047960069444445,
+    "internal_energy_change": -2.071111111111111,
+    "soc": 0.8438368055555556,
+    "soe": 0.8438368055555556,
     "power_kw": null
   },
   {
     "time_hours": 841.0,
     "internal_energy_change": -1.3677777777777778,
-    "soc": 0.7559678819444445,
-    "soe": 0.7559678819444445,
+    "soc": 0.8033854166666667,
+    "soe": 0.8033854166666667,
     "power_kw": null
   },
   {
     "time_hours": 842.0,
     "internal_energy_change": -1.2044444444444444,
-    "soc": 0.7225748697916667,
-    "soe": 0.7225748697916667,
+    "soc": 0.7766710069444446,
+    "soe": 0.7766710069444446,
     "power_kw": null
   },
   {
     "time_hours": 843.0,
     "internal_energy_change": -1.27,
-    "soc": 0.6931694878472223,
-    "soe": 0.6931694878472223,
+    "soc": 0.753146701388889,
+    "soe": 0.753146701388889,
     "power_kw": null
   },
   {
     "time_hours": 844.0,
     "internal_energy_change": -1.248888888888889,
-    "soc": 0.6621636284722223,
-    "soe": 0.6621636284722223,
+    "soc": 0.7283420138888889,
+    "soe": 0.7283420138888889,
     "power_kw": null
   },
   {
     "time_hours": 845.0,
     "internal_energy_change": -1.3633333333333335,
-    "soc": 0.6316731770833334,
-    "soe": 0.6316731770833334,
+    "soc": 0.7039496527777778,
+    "soe": 0.7039496527777778,
     "power_kw": null
   },
   {
     "time_hours": 846.0,
     "internal_energy_change": -1.261111111111111,
-    "soc": 0.5983886718750001,
-    "soe": 0.5983886718750001,
+    "soc": 0.677322048611111,
+    "soe": 0.677322048611111,
     "power_kw": null
   },
   {
     "time_hours": 847.0,
     "internal_energy_change": -1.4866666666666668,
-    "soc": 0.5675998263888891,
-    "soe": 0.5675998263888891,
+    "soc": 0.652690972222222,
+    "soe": 0.652690972222222,
     "power_kw": null
   },
   {
     "time_hours": 848.0,
     "internal_energy_change": -1.3255555555555556,
-    "soc": 0.5313042534722223,
-    "soe": 0.5313042534722223,
+    "soc": 0.6236545138888887,
+    "soe": 0.6236545138888887,
     "power_kw": null
   },
   {
     "time_hours": 849.0,
     "internal_energy_change": -1.1344444444444444,
-    "soc": 0.49894205729166674,
-    "soe": 0.49894205729166674,
+    "soc": 0.5977647569444442,
+    "soe": 0.5977647569444442,
     "power_kw": null
   },
   {
     "time_hours": 850.0,
     "internal_energy_change": -1.0777777777777777,
-    "soc": 0.4712456597222223,
-    "soe": 0.4712456597222223,
+    "soc": 0.5756076388888887,
+    "soe": 0.5756076388888887,
     "power_kw": null
   },
   {
     "time_hours": 851.0,
     "internal_energy_change": -1.2966666666666666,
-    "soc": 0.44493272569444453,
-    "soe": 0.44493272569444453,
+    "soc": 0.5545572916666665,
+    "soe": 0.5545572916666665,
     "power_kw": null
   },
   {
     "time_hours": 852.0,
     "internal_energy_change": -1.0955555555555556,
-    "soc": 0.41327582465277785,
-    "soe": 0.41327582465277785,
+    "soc": 0.5292317708333331,
+    "soe": 0.5292317708333331,
     "power_kw": null
   },
   {
     "time_hours": 853.0,
     "internal_energy_change": -0.6966666666666667,
-    "soc": 0.38652886284722227,
-    "soe": 0.38652886284722227,
+    "soc": 0.5078342013888887,
+    "soe": 0.5078342013888887,
     "power_kw": null
   },
   {
     "time_hours": 854.0,
     "internal_energy_change": -0.9322222222222222,
-    "soc": 0.36952039930555564,
-    "soe": 0.36952039930555564,
+    "soc": 0.49422743055555535,
+    "soe": 0.49422743055555535,
     "power_kw": null
   },
   {
     "time_hours": 855.0,
     "internal_energy_change": -0.9344444444444444,
-    "soc": 0.34676106770833337,
-    "soe": 0.34676106770833337,
+    "soc": 0.47601996527777757,
+    "soe": 0.47601996527777757,
     "power_kw": null
   },
   {
     "time_hours": 856.0,
     "internal_energy_change": -0.97,
-    "soc": 0.32394748263888895,
-    "soe": 0.32394748263888895,
+    "soc": 0.45776909722222203,
+    "soe": 0.45776909722222203,
     "power_kw": null
   },
   {
     "time_hours": 857.0,
     "internal_energy_change": -0.7233333333333334,
-    "soc": 0.30026584201388895,
-    "soe": 0.30026584201388895,
+    "soc": 0.43882378472222205,
+    "soe": 0.43882378472222205,
     "power_kw": null
   },
   {
     "time_hours": 858.0,
     "internal_energy_change": -0.8566666666666667,
-    "soc": 0.28260633680555564,
-    "soe": 0.28260633680555564,
+    "soc": 0.42469618055555536,
+    "soe": 0.42469618055555536,
     "power_kw": null
   },
   {
     "time_hours": 859.0,
-    "internal_energy_change": -0.4788888888888909,
-    "soc": 0.26169162326388895,
-    "soe": 0.26169162326388895,
+    "internal_energy_change": -0.9966666666666667,
+    "soc": 0.4079644097222221,
+    "soe": 0.4079644097222221,
     "power_kw": null
   },
   {
     "time_hours": 860.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8466666666666667,
+    "soc": 0.38849826388888875,
+    "soe": 0.38849826388888875,
     "power_kw": null
   },
   {
     "time_hours": 861.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.8933333333333333,
+    "soc": 0.3719618055555554,
+    "soe": 0.3719618055555554,
     "power_kw": null
   },
   {
     "time_hours": 862.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7577777777777778,
+    "soc": 0.3545138888888887,
+    "soe": 0.3545138888888887,
     "power_kw": null
   },
   {
     "time_hours": 863.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.051111111111111,
+    "soc": 0.33971354166666645,
+    "soe": 0.33971354166666645,
     "power_kw": null
   },
   {
     "time_hours": 864.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7322222222222222,
+    "soc": 0.31918402777777755,
+    "soe": 0.31918402777777755,
     "power_kw": null
   },
   {
     "time_hours": 865.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.888888888888889,
+    "soc": 0.30488281249999977,
+    "soe": 0.30488281249999977,
     "power_kw": null
   },
   {
     "time_hours": 866.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7277777777777777,
+    "soc": 0.28752170138888866,
+    "soe": 0.28752170138888866,
     "power_kw": null
   },
   {
     "time_hours": 867.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.121111111111111,
+    "soc": 0.2733072916666664,
+    "soe": 0.2733072916666664,
     "power_kw": null
   },
   {
     "time_hours": 868.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.48333333333333334,
+    "soc": 0.25141059027777757,
+    "soe": 0.25141059027777757,
     "power_kw": null
   },
   {
     "time_hours": 869.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7488888888888889,
+    "soc": 0.2419704861111109,
+    "soe": 0.2419704861111109,
     "power_kw": null
   },
   {
     "time_hours": 870.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.5388888888888889,
+    "soc": 0.2273437499999998,
+    "soe": 0.2273437499999998,
     "power_kw": null
   },
   {
     "time_hours": 871.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.9744444444444444,
+    "soc": 0.21681857638888866,
+    "soe": 0.21681857638888866,
     "power_kw": null
   },
   {
     "time_hours": 872.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.47888888888888886,
+    "soc": 0.1977864583333331,
+    "soe": 0.1977864583333331,
     "power_kw": null
   },
   {
     "time_hours": 873.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.7144444444444444,
+    "soc": 0.188433159722222,
+    "soe": 0.188433159722222,
     "power_kw": null
   },
   {
     "time_hours": 874.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.6211111111111112,
+    "soc": 0.17447916666666646,
+    "soe": 0.17447916666666646,
     "power_kw": null
   },
   {
     "time_hours": 875.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -0.9455555555555555,
+    "soc": 0.16234809027777758,
+    "soe": 0.16234809027777758,
     "power_kw": null
   },
   {
     "time_hours": 876.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.0688888888888888,
+    "soc": 0.14388020833333312,
+    "soe": 0.14388020833333312,
     "power_kw": null
   },
   {
     "time_hours": 877.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -2.25,
+    "soc": 0.12300347222222202,
+    "soe": 0.12300347222222202,
     "power_kw": null
   },
   {
     "time_hours": 878.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -2.25,
+    "soc": 0.07905815972222202,
+    "soe": 0.07905815972222202,
     "power_kw": null
   },
   {
     "time_hours": 879.0,
-    "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "internal_energy_change": -1.7977777777777675,
+    "soc": 0.03511284722222202,
+    "soe": 0.03511284722222202,
     "power_kw": null
   },
   {
     "time_hours": 880.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 881.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 882.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 883.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 884.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 885.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 886.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 887.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 888.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 889.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 890.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 891.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 892.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 893.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 894.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 895.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 896.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 897.0,
     "internal_energy_change": -0.0,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 898.0,
     "internal_energy_change": 0.04499999999999999,
-    "soc": 0.25,
-    "soe": 0.25,
+    "soc": 0.0,
+    "soe": 0.0,
     "power_kw": null
   },
   {
     "time_hours": 899.0,
     "internal_energy_change": -0.008888888888888896,
-    "soc": 0.2510986328125,
-    "soe": 0.2510986328125,
+    "soc": 0.0008789062499999998,
+    "soe": 0.0008789062499999998,
     "power_kw": null
   },
   {
     "time_hours": 900.0,
     "internal_energy_change": 0.12240000000000001,
-    "soc": 0.2508816189236111,
-    "soe": 0.2508816189236111,
+    "soc": 0.0007052951388888886,
+    "soe": 0.0007052951388888886,
     "power_kw": null
   },
   {
     "time_hours": 901.0,
     "internal_energy_change": -0.08444444444444439,
-    "soc": 0.25386990017361116,
-    "soe": 0.25386990017361116,
+    "soc": 0.0030959201388888885,
+    "soe": 0.0030959201388888885,
     "power_kw": null
   },
   {
     "time_hours": 902.0,
     "internal_energy_change": 0.2844,
-    "soc": 0.2518082682291667,
-    "soe": 0.2518082682291667,
+    "soc": 0.001446614583333334,
+    "soe": 0.001446614583333334,
     "power_kw": null
   },
   {
     "time_hours": 903.0,
     "internal_energy_change": 0.12780000000000002,
-    "soc": 0.25875162760416665,
-    "soe": 0.25875162760416665,
+    "soc": 0.007001302083333334,
+    "soe": 0.007001302083333334,
     "power_kw": null
   },
   {
     "time_hours": 904.0,
     "internal_energy_change": 0.07019999999999997,
-    "soc": 0.2618717447916667,
-    "soe": 0.2618717447916667,
+    "soc": 0.009497395833333333,
+    "soe": 0.009497395833333333,
     "power_kw": null
   },
   {
     "time_hours": 905.0,
     "internal_energy_change": 0.37799999999999995,
-    "soc": 0.2635856119791667,
-    "soe": 0.2635856119791667,
+    "soc": 0.010868489583333333,
+    "soe": 0.010868489583333333,
     "power_kw": null
   },
   {
     "time_hours": 906.0,
     "internal_energy_change": 0.4392,
-    "soc": 0.2728141276041667,
-    "soe": 0.2728141276041667,
+    "soc": 0.01825130208333333,
+    "soe": 0.01825130208333333,
     "power_kw": null
   },
   {
     "time_hours": 907.0,
     "internal_energy_change": 0.7325999999999999,
-    "soc": 0.28353678385416664,
-    "soe": 0.28353678385416664,
+    "soc": 0.02682942708333333,
+    "soe": 0.02682942708333333,
     "power_kw": null
   },
   {
     "time_hours": 908.0,
     "internal_energy_change": 0.9288000000000001,
-    "soc": 0.30142252604166664,
-    "soe": 0.30142252604166664,
+    "soc": 0.04113802083333333,
+    "soe": 0.04113802083333333,
     "power_kw": null
   },
   {
     "time_hours": 909.0,
     "internal_energy_change": 0.8487,
-    "soc": 0.32409830729166667,
-    "soe": 0.32409830729166667,
+    "soc": 0.059278645833333324,
+    "soe": 0.059278645833333324,
     "power_kw": null
   },
   {
     "time_hours": 910.0,
     "internal_energy_change": 1.2915,
-    "soc": 0.34481852213541664,
-    "soe": 0.34481852213541664,
+    "soc": 0.07585481770833333,
+    "soe": 0.07585481770833333,
     "power_kw": null
   },
   {
     "time_hours": 911.0,
     "internal_energy_change": 1.5219,
-    "soc": 0.3763492838541666,
-    "soe": 0.3763492838541666,
+    "soc": 0.10107942708333333,
+    "soe": 0.10107942708333333,
     "power_kw": null
   },
   {
     "time_hours": 912.0,
     "internal_energy_change": 1.8477,
-    "soc": 0.41350504557291656,
-    "soe": 0.41350504557291656,
+    "soc": 0.1308040364583333,
+    "soe": 0.1308040364583333,
     "power_kw": null
   },
   {
     "time_hours": 913.0,
     "internal_energy_change": 1.3401,
-    "soc": 0.45861490885416656,
-    "soe": 0.45861490885416656,
+    "soc": 0.1668919270833333,
+    "soe": 0.1668919270833333,
     "power_kw": null
   },
   {
     "time_hours": 914.0,
     "internal_energy_change": 1.4508,
-    "soc": 0.49133219401041656,
-    "soe": 0.49133219401041656,
+    "soc": 0.1930657552083333,
+    "soe": 0.1930657552083333,
     "power_kw": null
   },
   {
     "time_hours": 915.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.5267521158854166,
-    "soe": 0.5267521158854166,
+    "internal_energy_change": 2.25,
+    "soc": 0.2214016927083333,
+    "soe": 0.2214016927083333,
     "power_kw": null
   },
   {
     "time_hours": 916.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.5755802408854166,
-    "soe": 0.5755802408854166,
+    "internal_energy_change": 2.25,
+    "soc": 0.26534700520833326,
+    "soe": 0.26534700520833326,
     "power_kw": null
   },
   {
     "time_hours": 917.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.6244083658854166,
-    "soe": 0.6244083658854166,
+    "internal_energy_change": 2.0223,
+    "soc": 0.30929231770833326,
+    "soe": 0.30929231770833326,
     "power_kw": null
   },
   {
     "time_hours": 918.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.6732364908854165,
-    "soe": 0.6732364908854165,
+    "internal_energy_change": 2.25,
+    "soc": 0.3487903645833333,
+    "soe": 0.3487903645833333,
     "power_kw": null
   },
   {
     "time_hours": 919.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.7220646158854165,
-    "soe": 0.7220646158854165,
+    "internal_energy_change": 2.25,
+    "soc": 0.3927356770833333,
+    "soe": 0.3927356770833333,
     "power_kw": null
   },
   {
     "time_hours": 920.0,
-    "internal_energy_change": 2.0,
-    "soc": 0.7708927408854165,
-    "soe": 0.7708927408854165,
+    "internal_energy_change": 2.25,
+    "soc": 0.4366809895833333,
+    "soe": 0.4366809895833333,
     "power_kw": null
   },
   {
     "time_hours": 921.0,
     "internal_energy_change": 1.8234,
-    "soc": 0.8197208658854165,
-    "soe": 0.8197208658854165,
+    "soc": 0.4806263020833333,
+    "soe": 0.4806263020833333,
     "power_kw": null
   },
   {
     "time_hours": 922.0,
     "internal_energy_change": 1.4805000000000001,
-    "soc": 0.8642374674479165,
-    "soe": 0.8642374674479165,
+    "soc": 0.5162395833333333,
+    "soe": 0.5162395833333333,
     "power_kw": null
   },
   {
     "time_hours": 923.0,
     "internal_energy_change": 1.0332,
-    "soc": 0.9003824869791665,
-    "soe": 0.9003824869791665,
+    "soc": 0.5451555989583332,
+    "soe": 0.5451555989583332,
     "power_kw": null
   },
   {
     "time_hours": 924.0,
     "internal_energy_change": 1.2708,
-    "soc": 0.9256070963541665,
-    "soe": 0.9256070963541665,
+    "soc": 0.5653352864583333,
+    "soe": 0.5653352864583333,
     "power_kw": null
   },
   {
     "time_hours": 925.0,
     "internal_energy_change": 0.8388000000000001,
-    "soc": 0.9566324869791665,
-    "soe": 0.9566324869791665,
+    "soc": 0.5901555989583332,
+    "soe": 0.5901555989583332,
     "power_kw": null
   },
   {
     "time_hours": 926.0,
     "internal_energy_change": 0.7173,
-    "soc": 0.9771110026041665,
-    "soe": 0.9771110026041665,
+    "soc": 0.6065384114583333,
+    "soe": 0.6065384114583333,
     "power_kw": null
   },
   {
     "time_hours": 927.0,
-    "internal_energy_change": 0.22023333333333994,
-    "soc": 0.9946232096354165,
-    "soe": 0.9946232096354165,
+    "internal_energy_change": 0.2835000000000001,
+    "soc": 0.6205481770833333,
+    "soe": 0.6205481770833333,
     "power_kw": null
   },
   {
     "time_hours": 928.0,
-    "internal_energy_change": 0.0,
-    "soc": 1.0,
-    "soe": 1.0,
+    "internal_energy_change": 0.04589999999999999,
+    "soc": 0.6260852864583333,
+    "soe": 0.6260852864583333,
     "power_kw": null
   },
   {
     "time_hours": 929.0,
     "internal_energy_change": -0.3299999999999999,
-    "soc": 1.0,
-    "soe": 1.0,
+    "soc": 0.6269817708333333,
+    "soe": 0.6269817708333333,
     "power_kw": null
   },
   {
     "time_hours": 930.0,
     "internal_energy_change": -0.47,
-    "soc": 0.991943359375,
-    "soe": 0.991943359375,
+    "soc": 0.6205364583333334,
+    "soe": 0.6205364583333334,
     "power_kw": null
   },
   {
     "time_hours": 931.0,
     "internal_energy_change": -0.611111111111111,
-    "soc": 0.9804687500000001,
-    "soe": 0.9804687500000001,
+    "soc": 0.6113567708333334,
+    "soe": 0.6113567708333334,
     "power_kw": null
   },
   {
     "time_hours": 932.0,
     "internal_energy_change": -0.6455555555555555,
-    "soc": 0.9655490451388888,
-    "soe": 0.9655490451388888,
+    "soc": 0.5994210069444444,
+    "soe": 0.5994210069444444,
     "power_kw": null
   },
   {
     "time_hours": 933.0,
     "internal_energy_change": -0.7677777777777777,
-    "soc": 0.9497884114583334,
-    "soe": 0.9497884114583334,
+    "soc": 0.5868125,
+    "soe": 0.5868125,
     "power_kw": null
   },
   {
     "time_hours": 934.0,
     "internal_energy_change": -0.7644444444444444,
-    "soc": 0.9310438368055556,
-    "soe": 0.9310438368055556,
+    "soc": 0.5718168402777778,
+    "soe": 0.5718168402777778,
     "power_kw": null
   },
   {
     "time_hours": 935.0,
     "internal_energy_change": -0.8099999999999999,
-    "soc": 0.9123806423611112,
-    "soe": 0.9123806423611112,
+    "soc": 0.5568862847222222,
+    "soe": 0.5568862847222222,
     "power_kw": null
   },
   {
     "time_hours": 936.0,
     "internal_energy_change": -0.6677777777777777,
-    "soc": 0.892605251736111,
-    "soe": 0.892605251736111,
+    "soc": 0.5410659722222223,
+    "soe": 0.5410659722222223,
     "power_kw": null
   },
   {
     "time_hours": 937.0,
     "internal_energy_change": -0.7533333333333334,
-    "soc": 0.8763020833333333,
-    "soe": 0.8763020833333333,
+    "soc": 0.5280234375,
+    "soe": 0.5280234375,
     "power_kw": null
   },
   {
     "time_hours": 938.0,
     "internal_energy_change": -0.7888888888888889,
-    "soc": 0.85791015625,
-    "soe": 0.85791015625,
+    "soc": 0.5133098958333334,
+    "soe": 0.5133098958333334,
     "power_kw": null
   },
   {
     "time_hours": 939.0,
     "internal_energy_change": -0.9955555555555555,
-    "soc": 0.838650173611111,
-    "soe": 0.838650173611111,
+    "soc": 0.4979019097222223,
+    "soe": 0.4979019097222223,
     "power_kw": null
   },
   {
     "time_hours": 940.0,
     "internal_energy_change": -0.9444444444444444,
-    "soc": 0.8143446180555556,
-    "soe": 0.8143446180555556,
+    "soc": 0.4784574652777779,
+    "soe": 0.4784574652777779,
     "power_kw": null
   },
   {
     "time_hours": 941.0,
     "internal_energy_change": -1.2022222222222223,
-    "soc": 0.7912868923611112,
-    "soe": 0.7912868923611112,
+    "soc": 0.46001128472222236,
+    "soe": 0.46001128472222236,
     "power_kw": null
   },
   {
     "time_hours": 942.0,
     "internal_energy_change": -1.3033333333333335,
-    "soc": 0.761935763888889,
-    "soe": 0.761935763888889,
+    "soc": 0.43653038194444455,
+    "soe": 0.43653038194444455,
     "power_kw": null
   },
   {
     "time_hours": 943.0,
     "internal_energy_change": -1.3144444444444445,
-    "soc": 0.7301161024305556,
-    "soe": 0.7301161024305556,
+    "soc": 0.4110746527777779,
+    "soe": 0.4110746527777779,
     "power_kw": null
   },
   {
     "time_hours": 944.0,
     "internal_energy_change": -1.1622222222222223,
-    "soc": 0.6980251736111112,
-    "soe": 0.6980251736111112,
+    "soc": 0.3854019097222223,
+    "soe": 0.3854019097222223,
     "power_kw": null
   },
   {
     "time_hours": 945.0,
     "internal_energy_change": -1.2,
-    "soc": 0.669650607638889,
-    "soe": 0.669650607638889,
+    "soc": 0.3627022569444445,
+    "soe": 0.3627022569444445,
     "power_kw": null
   },
   {
     "time_hours": 946.0,
     "internal_energy_change": -1.472222222222222,
-    "soc": 0.640353732638889,
-    "soe": 0.640353732638889,
+    "soc": 0.3392647569444446,
+    "soe": 0.3392647569444446,
     "power_kw": null
   },
   {
     "time_hours": 947.0,
     "internal_energy_change": -1.2100000000000002,
-    "soc": 0.6044108072916667,
-    "soe": 0.6044108072916667,
+    "soc": 0.3105104166666668,
+    "soe": 0.3105104166666668,
     "power_kw": null
   },
   {
     "time_hours": 948.0,
     "internal_energy_change": -1.22,
-    "soc": 0.5748697916666667,
-    "soe": 0.5748697916666667,
+    "soc": 0.2868776041666668,
+    "soe": 0.2868776041666668,
     "power_kw": null
   },
   {
     "time_hours": 949.0,
     "internal_energy_change": -1.2122222222222223,
-    "soc": 0.5450846354166667,
-    "soe": 0.5450846354166667,
+    "soc": 0.26304947916666677,
+    "soe": 0.26304947916666677,
     "power_kw": null
   },
   {
     "time_hours": 950.0,
     "internal_energy_change": -1.2933333333333332,
-    "soc": 0.5154893663194445,
-    "soe": 0.5154893663194445,
+    "soc": 0.23937326388888902,
+    "soe": 0.23937326388888902,
     "power_kw": null
   },
   {
     "time_hours": 951.0,
     "internal_energy_change": -1.248888888888889,
-    "soc": 0.4839138454861112,
-    "soe": 0.4839138454861112,
+    "soc": 0.21411284722222235,
+    "soe": 0.21411284722222235,
     "power_kw": null
   },
   {
     "time_hours": 952.0,
     "internal_energy_change": -0.7055555555555556,
-    "soc": 0.4534233940972223,
-    "soe": 0.4534233940972223,
+    "soc": 0.18972048611111125,
+    "soe": 0.18972048611111125,
     "power_kw": null
   },
   {
     "time_hours": 953.0,
     "internal_energy_change": -0.6677777777777777,
-    "soc": 0.43619791666666674,
-    "soe": 0.43619791666666674,
+    "soc": 0.1759401041666668,
+    "soe": 0.1759401041666668,
     "power_kw": null
   },
   {
     "time_hours": 954.0,
     "internal_energy_change": -0.7766666666666666,
-    "soc": 0.41989474826388895,
-    "soe": 0.41989474826388895,
+    "soc": 0.16289756944444458,
+    "soe": 0.16289756944444458,
     "power_kw": null
   },
   {
     "time_hours": 955.0,
     "internal_energy_change": -0.8877777777777778,
-    "soc": 0.40093315972222227,
-    "soe": 0.40093315972222227,
+    "soc": 0.14772829861111125,
+    "soe": 0.14772829861111125,
     "power_kw": null
   },
   {
     "time_hours": 956.0,
     "internal_energy_change": -0.6533333333333333,
-    "soc": 0.3792588975694445,
-    "soe": 0.3792588975694445,
+    "soc": 0.13038888888888903,
+    "soe": 0.13038888888888903,
     "power_kw": null
   },
   {
     "time_hours": 957.0,
     "internal_energy_change": -0.6477777777777777,
-    "soc": 0.3633083767361112,
-    "soe": 0.3633083767361112,
+    "soc": 0.11762847222222236,
+    "soe": 0.11762847222222236,
     "power_kw": null
   },
   {
     "time_hours": 958.0,
     "internal_energy_change": -0.7322222222222222,
-    "soc": 0.3474934895833334,
-    "soe": 0.3474934895833334,
+    "soc": 0.10497656250000015,
+    "soe": 0.10497656250000015,
     "power_kw": null
   },
   {
     "time_hours": 959.0,
     "internal_energy_change": -1.0899999999999999,
-    "soc": 0.32961697048611116,
-    "soe": 0.32961697048611116,
+    "soc": 0.09067534722222237,
+    "soe": 0.09067534722222237,
     "power_kw": null
   }
 ]

@@ -160,11 +160,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                    state_dict,
                    record_history: bool = True):
         
-        """# Energy conversion from external EMS to internal battery chemical model (using dynamic efficiency)
-        if external_energy_change >= 0:
-            converted_energy_change = external_energy_change * (self.dyn_eta or efficiency) 
-        else:
-            converted_energy_change = external_energy_change / (self.dyn_eta or efficiency) """
+        
         
         # Compute the internal battery power and current
 
@@ -206,7 +202,6 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         battery_pack_nominal_charge = self.c_n * self.np_batt # [Ah]
 
         current_charge_kWh = float(state_dict.get('current_charge', self._soe * max_capacity)) # [kWh]
-        
         current_charge_Ah = self.soc * battery_pack_nominal_charge + (self.current_a * delta_t)
 
         soc_unbounded = self.soc - (self.current_a * delta_t) / (self.c_n * self.np_batt)
@@ -221,21 +216,22 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         
         soc_new = float(np.clip(soc_unbounded, min_soc, max_soc))    
 
-        self.soc = soc_new   # aggiorno il soc
-
         # compute dynamic efficiency
-        self.dyn_eta = max(1e-9, self._dynamic_efficiency(self.current_a, self.voc, v_batt))  # non entra nella logica di 
-                                                                                        # aggiornamento di SoC e SoE
-
-        soe_new = self._soe - (self.current_a * self._v_prev * delta_t / 1000) / self.nominal_energy_kwh   
-
+        self.dyn_eta = max(1e-9, self._dynamic_efficiency(self.current_a, self.voc, v_batt)) 
+                                                                                        
+        # update previous voltage for next iteration
         self._v_prev = v_batt
 
-        internal_energy_change = (soe_new - self._soe) * self.nominal_energy_kwh
+        
+        #soe_new = self._soe - (self.current_a * self.voc * delta_t / 1000) / self.nominal_energy_kwh   
+        #soe_new = np.clip(soe_new, min_capacity/max_capacity, 1)
+        #internal_energy_change = (soe_new - self._soe) * self.nominal_energy_kwh
 
-        #updated_charge = float(np.clip(current_charge_kWh + internal_energy_change, min_capacity, max_capacity))
-        #internal_energy_change = updated_charge - current_charge_kWh
-
+        # Energy conversion from external EMS to internal battery chemical model (using dynamic efficiency)
+        if external_energy_change >= 0:
+            internal_energy_change = external_energy_change * (self.dyn_eta or efficiency) 
+        else:
+            internal_energy_change = external_energy_change / (self.dyn_eta or efficiency) 
 
         """if record_history:
             print(f"Nuova Carica: {current_charge_kWh + internal_energy_change:.5f}")
@@ -244,11 +240,9 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             print(f"current step = {current_step}")"""
 
 
-        self.last_wear_cost = self._compute_wear_cost(self.soc, self.soc, power_kw, delta_t)
-        voc_next, r0_next = self._interp_voc_r0(soc_new, temperature_c)
+        self.last_wear_cost = self._compute_wear_cost(self.soc, soc_new, power_kw, delta_t)
 
-
-        if record_history:
+        if record_history: 
             self._transition_history.append({
                 "time_hours": float(
                     current_step * self.delta_t_hours
@@ -258,13 +252,12 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                 "current_a": float(self.current_a),
                 "internal_energy_change": float(internal_energy_change),
                 "soc": float(self.soc),
-                "soe": float(soe_new),
+                "soe": float(self._soe),
                 "voltage_v": float(v_batt),
                 "power_kw": float(-power_kw),
             })
 
-
-        #print(f"soc = {self.soc}") # per debug
+        self.soc = soc_new   # aggiorno il soc
 
         return internal_energy_change
 
@@ -302,8 +295,6 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
     def plot_transition_history(self, save_path: str = None, show: bool = True, history=None):
         """Plot SoC, SoE, voltage, internal energy and power for this transition model."""
-
-        
 
         history_to_plot = history if history is not None else self._transition_history
 

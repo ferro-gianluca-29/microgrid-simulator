@@ -84,7 +84,7 @@ rule_based_EMS = Rule_Based_EMS(microgrid)
 
 
 for step in range(1, simulation_steps + 1):         # Loop principale per il numero di step specificato
- 
+
     load_kwh = load_module.current_load
     pv_kwh = pv_module.current_renewable
 
@@ -96,12 +96,12 @@ for step in range(1, simulation_steps + 1):         # Loop principale per il num
     control = {"battery": e_batt, "grid": e_grid}   # Prepara dizionario controllo per report
     obs, reward, done, info = microgrid.step(control, normalized=False)
 
-microgrid_df, log = simulator.get_simulation_log(microgrid)
+"""microgrid_df, log = simulator.get_simulation_log(microgrid)
 
 log.to_csv("microgrid_log.csv", index=True)
 
 microgrid_df['pv_prod'] = time_series['solar'].iloc[:]
-microgrid_df['consumption'] = time_series['load'].iloc[:]
+microgrid_df['consumption'] = time_series['load'].iloc[:]"""
 
 
 battery_module = microgrid.battery[0]
@@ -113,4 +113,4 @@ transition_model.plot_transition_history(save_path=f"transitions_{simulator.batt
 transition_model.save_transition_history(history_path=f"transitions_{simulator.battery_chemistry}.json")
 
 
-show(time_series=time_series, microgrid_df=microgrid_df)
+#show(time_series=time_series, microgrid_df=microgrid_df)

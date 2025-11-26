@@ -1,11 +1,11 @@
 
 battery:
   capacity: 51.2        # [kWh]  
-  power_max: 8          # [kW]
+  power_max: 9          # [kW]
   efficiency: 0.9
-  init_charge: 51.2     # [kWh] 
+  init_charge: 20     # [kWh] 
   sample_time: 0.25     # [h]
-  chemistry: LFP        # Seleziona la chimica della batteria (es. LFP, NMC, NCA)
+  chemistry: None        # Seleziona la chimica della batteria (es. LFP, NMC, NCA)
   # In alternativa è possibile specificare direttamente il modello di transizione UNIPI
   # transition_model: !LfpTransitionModel {}
 
