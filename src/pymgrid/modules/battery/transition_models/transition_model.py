@@ -1,5 +1,8 @@
 import inspect
 import yaml
+from pathlib import Path
+import math
+import matplotlib.pyplot as plt
 
 
 class BatteryTransitionModel(yaml.YAMLObject):
@@ -87,12 +90,25 @@ class BatteryTransitionModel(yaml.YAMLObject):
         else:
             internal_energy_change = external_energy_change * efficiency
 
+        state_dict = kwargs.get("state_dict", {}) or {}
+        soc = state_dict.get("soc")
+        current_charge = state_dict.get("current_charge")
+        max_capacity = kwargs.get("max_capacity")
+        soe = None
+        if current_charge is not None and max_capacity not in (None, 0):
+            soe = current_charge / max_capacity
+
+        power_kw = kwargs.get("power_kw")
+
         if record_history:
             self._transition_history.append({
                 "time_hours": float(
                     current_step if current_step is not None else len(self._transition_history)
                 ),
                 "internal_energy_change": float(internal_energy_change),
+                "soc": float(soc) if soc is not None else None,
+                "soe": float(soe) if soe is not None else None,
+                "power_kw": float(power_kw) if power_kw is not None else None,
             })
 
         return internal_energy_change
@@ -148,7 +164,7 @@ class BatteryTransitionModel(yaml.YAMLObject):
             return json.load(fp)
 
     def plot_transition_history(self, save_path: str = None, show: bool = True, history=None):
-        """Plot internal energy change over time."""
+        """Plot state of charge, state of energy, terminal voltage, energy and power."""
 
         import matplotlib.pyplot as plt
 
@@ -157,25 +173,57 @@ class BatteryTransitionModel(yaml.YAMLObject):
         if not history_to_plot:
             raise ValueError("No transition history to plot. Run transition() before plotting.")
 
-        time_axis = [entry["time_hours"] for entry in history_to_plot]
-        internal_energy = [entry["internal_energy_change"] for entry in history_to_plot]
+        def _valid_series(key):
+            time_axis, values = [], []
+            for entry in history_to_plot:
+                value = entry.get(key)
+                if value is None or (isinstance(value, float) and math.isnan(value)):
+                    continue
+                time_axis.append(entry["time_hours"])
+                values.append(value)
+            return time_axis, values
 
-        fig, ax_energy = plt.subplots(figsize=(10, 4))
+        metric_specs = {
+            "soc": ("State of charge", "State of charge [0-1]", "tab:blue"),
+            "soe": ("State of energy", "State of energy [0-1]", "tab:green"),
+            "voltage_v": ("Battery voltage", "Voltage [V]", "tab:red"),
+            "internal_energy_change": ("Internal energy change", "Energy [kWh]", "tab:orange"),
+            "power_kw": ("Battery power", "Power [kW]", "tab:purple"),
+        }
 
-        ax_energy.plot(time_axis, internal_energy, linestyle="-", color="tab:orange")
-        ax_energy.set_xlabel("Time [h]")
-        ax_energy.set_ylabel("Internal energy change [kWh]")
-        ax_energy.set_title("BatteryTransitionModel internal energy change over time")
-        ax_energy.grid(True)
+        figures = {}
 
-        fig.tight_layout()
+        def _build_save_path(base_path: str, suffix: str) -> str:
+            path = Path(base_path)
+            if path.suffix:
+                return str(path.with_name(f"{path.stem}{suffix}{path.suffix}"))
+            return f"{base_path}{suffix}"
 
-        if save_path:
-            fig.savefig(save_path, bbox_inches="tight")
+        for key, (title, ylabel, color) in metric_specs.items():
+            time_axis, values = _valid_series(key)
+            if not values:
+                continue
 
-        if show:
-            plt.show()
-        else:
-            plt.close(fig)
+            fig, ax = plt.subplots(figsize=(10, 4))
+            ax.plot(time_axis, values, linestyle="-", color=color)
+            ax.set_xlabel("Time [h]")
+            ax.set_ylabel(ylabel)
+            ax.set_title(f"{self.__class__.__name__} {title} over time")
+            ax.grid(True)
 
-        return fig, ax_energy
+            fig.tight_layout()
+
+            if save_path:
+                fig.savefig(_build_save_path(save_path, f"_{key}"), bbox_inches="tight")
+
+            if show:
+                plt.show()
+            else:
+                plt.close(fig)
+
+            figures[key] = (fig, ax)
+
+        if not figures:
+            raise ValueError("No plottable metrics found in transition history.")
+
+        return figures

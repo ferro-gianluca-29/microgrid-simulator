@@ -109,7 +109,6 @@ transition_model = battery_module.battery_transition_model
 
 #print(transition_model)
 
-
 transition_model.plot_transition_history(save_path=f"transitions_{simulator.battery_chemistry}.png", show=True)
 transition_model.save_transition_history(history_path=f"transitions_{simulator.battery_chemistry}.json")
 

@@ -13,7 +13,8 @@ class NcaTransitionModel(UnipiChemistryTransitionModel):
     def __init__(self, **kwargs):
         super().__init__(
             parameters_mat="parameters_cell_NCA.mat",
-            reference_cell_capacity_ah=3.0,
+           # reference_cell_capacity_ah=100.0,
+            reference_cell_capacity_ah=87.671,
             nominal_cell_voltage=3.65,
             **kwargs,
         )

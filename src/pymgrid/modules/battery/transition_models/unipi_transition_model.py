@@ -63,7 +63,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                  reference_cell_capacity_ah: float,
                  nominal_cell_voltage: float,
                  ns_batt: int = 16,
-                 np_batt: int = 1,
+                 np_batt: int = 10,
                  c_n: float = None,
                  temperature_c: float = 25.0,
                  eta_inverter: float = 1.0,
@@ -166,9 +166,6 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         else:
             converted_energy_change = external_energy_change / (self.dyn_eta or efficiency) """
         
-
-        
-        
         # Compute the internal battery power and current
 
         
@@ -202,6 +199,8 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         power_kw = -external_energy_change / delta_t # [kW]   
         self.current_a = 1000.0 * power_kw / max(self._v_prev, 1e-9) # [A]
 
+        if record_history: print(f"timestep: {current_step} \t corrente:{self.current_a}")
+
         v_batt = max(self.voc - self.R0 * self.current_a, 1e-6)
 
         battery_pack_nominal_charge = self.c_n * self.np_batt # [Ah]
@@ -231,7 +230,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         self.dyn_eta = max(1e-9, self._dynamic_efficiency(self.current_a, self.voc, v_batt))  # non entra nella logica di 
                                                                                         # aggiornamento di SoC e SoE
 
-        soe_new = self._soe - (self.current_a * self.voc * delta_t / 1000) / self.nominal_energy_kwh   
+        soe_new = self._soe - (self.current_a * self._v_prev * delta_t / 1000) / self.nominal_energy_kwh   # con self._v_prev al posto di v_oc funziona
 
         self._v_prev = v_batt
 
@@ -328,6 +327,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             "soc": ("State of charge", "State of charge [0-1]", "tab:blue"),
             "soe": ("State of energy", "State of energy [0-1]", "tab:green"),
             "voltage_v": ("Battery voltage", "Voltage [V]", "tab:red"),
+            "current_a": ("Battery current", "Current [A]", "tab:gray"),
             "internal_energy_change": ("Internal energy change", "Energy [kWh]", "tab:orange"),
             "power_kw": ("Battery power", "Power [kW]", "tab:purple"),
         }
@@ -367,4 +367,3 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         if not figures:
             raise ValueError("No plottable metrics found in transition history.")
 
-        return figures
