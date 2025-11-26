@@ -158,7 +158,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                    battery_cost_cycle, 
                    current_step,
                    state_dict,
-                   record_history: bool = True):
+                   state_update: bool = True):
         
         
         
@@ -195,7 +195,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         power_kw = -external_energy_change / delta_t # [kW]   
         self.current_a = 1000.0 * power_kw / max(self._v_prev, 1e-9) # [A]
 
-        if record_history: print(f"timestep: {current_step} \t corrente:{self.current_a}")
+        if state_update: print(f"timestep: {current_step} \t corrente:{self.current_a}")
 
         v_batt = max(self.voc - self.R0 * self.current_a, 1e-6)
 
@@ -211,7 +211,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
         #print(f"min_soc = {min_soc}")
         #print(f"max_soc = {max_soc}")
-        """if record_history:
+        """if state_update:
             print(f"self.nominal_energy_kwh = {self.nominal_energy_kwh:.5f}")"""
         
         soc_new = float(np.clip(soc_unbounded, min_soc, max_soc))    
@@ -233,7 +233,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         else:
             internal_energy_change = external_energy_change / (self.dyn_eta or efficiency) 
 
-        """if record_history:
+        """if state_update:
             print(f"Nuova Carica: {current_charge_kWh + internal_energy_change:.5f}")
             print(f"min_capacity = {min_capacity}")
             print(f"max_capacity = {max_capacity}")
@@ -242,7 +242,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
         self.last_wear_cost = self._compute_wear_cost(self.soc, soc_new, power_kw, delta_t)
 
-        if record_history: 
+        if state_update: 
             self._transition_history.append({
                 "time_hours": float(
                     current_step * self.delta_t_hours

@@ -175,7 +175,7 @@ class BatteryModule(BaseMicrogridModule):
 
         return np.abs(energy_change) * self.battery_cost_cycle + wear_cost
 
-    def model_transition(self, energy, record_history: bool = True):
+    def model_transition(self, energy, state_update: bool = True):
         """
         Convert an external energy request to a change in internal energy.
 
@@ -214,7 +214,7 @@ class BatteryModule(BaseMicrogridModule):
         """
         return self.battery_transition_model(
             external_energy_change=energy,
-            record_history=record_history,
+            state_update=state_update,
             **self.transition_kwargs(),
         )
 
@@ -266,8 +266,8 @@ class BatteryModule(BaseMicrogridModule):
                     )
 
     def _set_min_max_act(self):
-        min_act = self.model_transition(-1 * self.max_charge, record_history=False)
-        max_act = self.model_transition(self.max_discharge, record_history=False)
+        min_act = self.model_transition(-1 * self.max_charge, state_update=False)
+        max_act = self.model_transition(self.max_discharge, state_update=False)
 
         return min_act, max_act
 
@@ -279,7 +279,7 @@ class BatteryModule(BaseMicrogridModule):
         # Max discharge
         return self.model_transition(
             min(self.max_discharge, self._current_charge-self.min_capacity),
-            record_history=False,
+            state_update=False,
         )
 
     @property
@@ -287,7 +287,7 @@ class BatteryModule(BaseMicrogridModule):
         # Max charge
         return -1 * self.model_transition(
             -1 * min(self.max_charge, self.max_capacity - self._current_charge),
-            record_history=False,
+            state_update=False,
         )
     @property
     def current_charge(self):
