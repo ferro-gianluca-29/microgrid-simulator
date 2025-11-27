@@ -230,7 +230,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         self.dyn_eta = max(1e-9, self._dynamic_efficiency(self.current_a, self.voc, v_batt))  # non entra nella logica di 
                                                                                         # aggiornamento di SoC e SoE
 
-        soe_new = self._soe - (self.current_a * self._v_prev * delta_t / 1000) / self.nominal_energy_kwh   # con self._v_prev al posto di v_oc funziona
+        soe_new = self._soe - (self.current_a * self._v_prev * delta_t / 1000) / self.nominal_energy_kwh   
 
         self._v_prev = v_batt
 
