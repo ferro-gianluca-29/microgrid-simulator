@@ -69,7 +69,7 @@ class BatteryTransitionModel(yaml.YAMLObject):
                  battery_cost_cycle,
                  current_step,
                  state_dict,
-                 record_history: bool = True):
+                 state_update: bool = True):
         return self.transition(
             external_energy_change=external_energy_change,
             min_capacity=min_capacity,
@@ -80,11 +80,11 @@ class BatteryTransitionModel(yaml.YAMLObject):
             battery_cost_cycle=battery_cost_cycle,
             current_step=current_step,
             state_dict=state_dict,
-            record_history=record_history,
+            state_update=state_update,
         )
 
     def transition(self, external_energy_change, efficiency, 
-                   current_step=None, record_history: bool = True, **kwargs):
+                   current_step=None, state_update: bool = True, **kwargs):
         if external_energy_change < 0:
             internal_energy_change = external_energy_change / efficiency
         else:
@@ -100,7 +100,7 @@ class BatteryTransitionModel(yaml.YAMLObject):
 
         power_kw = kwargs.get("power_kw")
 
-        if record_history:
+        if state_update:
             self._transition_history.append({
                 "time_hours": float(
                     current_step if current_step is not None else len(self._transition_history)

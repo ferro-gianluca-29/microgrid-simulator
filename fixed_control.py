@@ -10,24 +10,19 @@ import matplotlib.patches as patches
 import numpy as np
 import pandas as pd
 
- 
-
-
 from microgrid_simulator import MicrogridSimulator
 from tools import load_config, compute_offline_tariff_vectors
-from EMS import Rule_Based_EMS
 
 from pandasgui import show
 
-
-###### LOAD CONFIGURATION FROM YAML 
+###### LOAD CONFIGURATION FROM YAML
 
 config = load_config()              # Carica configurazione EMS da params.yml
 
 price_config = config['price_bands']               # Configurazione fasce prezzi
 simulation_steps = config['steps']                 # Numero di step di simulazione da eseguire
 
-timezone_str = config['timezone']   # Configura timezone per timestamp 
+timezone_str = config['timezone']   # Configura timezone per timestamp
 
 ##########  TIME SERIES DATASET   ###############
 
@@ -66,8 +61,8 @@ print("Inizializzazione microgrid...")
 simulator = MicrogridSimulator(
     config_path='params.yml',
     online=False,
-    load_time_series = load_time_series, 
-    pv_time_series = pv_time_series, 
+    load_time_series = load_time_series,
+    pv_time_series = pv_time_series,
     grid_time_series = grid_time_series
 )
 
@@ -75,40 +70,45 @@ microgrid = simulator.build_microgrid()  # Costruisce la microgrid dai parametri
 
 load_module = microgrid.modules['load'][0]         # Modulo load
 pv_module = microgrid.modules['pv'][0]             # Modulo PV
+battery_module = microgrid.battery[0]
 
 microgrid.reset()  # Porta la microgrid in uno stato noto prima di iniziare la simulazione.
 
 
-###### INSTANTIATE ENERGY MANAGEMENT SYSTEM AND RUN SIMULATION
+###### FIXED CHARGE/DISCHARGE CONTROL AND RUN SIMULATION
 
-rule_based_EMS = Rule_Based_EMS(microgrid)
-
+sample_time = 0.25
+phase_steps = max(1, int(round(3 / sample_time)))   # Numero di step per ogni fase di 3 ore
+cycle_actions = [-1] * phase_steps + [1] * phase_steps  # -1: carica, +1: scarica
+cycle_length = len(cycle_actions)
 
 for step in range(1, simulation_steps + 1):         # Loop principale per il numero di step specificato
 
     load_kwh = load_module.current_load
     pv_kwh = pv_module.current_renewable
 
-    e_batt, e_grid = rule_based_EMS.control(                                # Calcola controllo basato su regole 
-        load_kwh = load_kwh, 
-        pv_kwh = pv_kwh,       
-        )
-    
+    phase_action = cycle_actions[(step - 1) % cycle_length]
+    if phase_action < 0:
+        e_batt = -5    
+    else:
+        e_batt =  5       
+
+    # Il controllo della rete bilancia carico, produzione FV e stato della batteria.
+    e_grid = load_kwh - pv_kwh - e_batt
+    #e_grid = 0 
+
     control = {"battery": e_batt, "grid": e_grid}   # Prepara dizionario controllo per report
     obs, reward, done, info = microgrid.step(control, normalized=False)
 
-microgrid_df, log = simulator.get_simulation_log(microgrid)
+"""microgrid_df, log = simulator.get_simulation_log(microgrid)
 
 log.to_csv("microgrid_log.csv", index=True)
 
 microgrid_df['pv_prod'] = time_series['solar'].iloc[:]
-microgrid_df['consumption'] = time_series['load'].iloc[:]
+microgrid_df['consumption'] = time_series['load'].iloc[:]"""
 
 
-battery_module = microgrid.battery[0]
 transition_model = battery_module.battery_transition_model
-
-#print(transition_model)
 
 transition_model.plot_transition_history(save_path=f"transitions_{simulator.battery_chemistry}.png", show=True)
 transition_model.save_transition_history(history_path=f"transitions_{simulator.battery_chemistry}.json")

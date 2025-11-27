@@ -32,8 +32,6 @@ class MicrogridSimulator():
 
         # Parametri batteria
         battery_cfg = self.config['battery']
-        soc_min = battery_cfg['soc_min']
-        soc_max = battery_cfg['soc_max']
         capacity = battery_cfg['capacity']
         power_max = battery_cfg['power_max']
         sample_time = battery_cfg['sample_time']
@@ -43,12 +41,10 @@ class MicrogridSimulator():
         self.battery_transition_model = battery_cfg.get('transition_model')
 
         self.nominal_capacity = capacity
-        self.min_capacity = soc_min * capacity
-        self.max_capacity = soc_max * capacity
         self.max_charge_per_step = power_max * sample_time
         self.max_discharge_per_step = power_max * sample_time
         self.battery_efficiency = battery_cfg['efficiency']
-        self.init_soc = battery_cfg['init_soc']
+        self.init_charge = battery_cfg['init_charge']
 
         # Parametri rete
         grid_cfg = self.config['grid']
@@ -72,12 +68,12 @@ class MicrogridSimulator():
             # Otherwise, leave `transition_model` as None to use the default BatteryTransitionModel
 
         battery = BatteryModule(
-                              min_capacity = self.min_capacity, # [kWh]
-                              max_capacity = self.max_capacity, # [kWh]
+                              min_capacity = 0, # [kWh]
+                              max_capacity = self.nominal_capacity, # [kWh]
                               max_charge = self.max_charge_per_step, # [kWh]
                               max_discharge = self.max_discharge_per_step, # [kWh]
                               efficiency = self.battery_efficiency,
-                              init_soc = self.init_soc,
+                              init_charge = self.init_charge,
                               battery_transition_model=transition_model
                                                         )
         
