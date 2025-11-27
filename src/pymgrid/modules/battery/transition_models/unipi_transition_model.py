@@ -215,19 +215,22 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                 dyn_eta = efficiency
             else:
                 dyn_eta = max(1e-9, self._dynamic_efficiency(current_a, voc, R0, v_batt)) 
+
+            self.dyn_eta = dyn_eta
+            self.last_dynamic_efficiency = dyn_eta
                                                                                             
             # update previous voltage for next iteration
             self.v_prev = v_batt
 
-            soe_new = soe - (current_a * voc * delta_t / 1000) / self.nominal_energy_kwh   
-            soe_new = np.clip(soe_new, min_capacity/max_capacity, 1)
-            internal_energy_change = (soe_new - soe) * self.nominal_energy_kwh
+            #soe_new = soe - (current_a * voc * delta_t / 1000) / self.nominal_energy_kwh   
+            #soe_new = np.clip(soe_new, min_capacity/max_capacity, 1)
+            #internal_energy_change = (soe_new - soe) * self.nominal_energy_kwh
 
             # Energy conversion from external EMS to internal battery chemical model (using dynamic efficiency)
-            """if external_energy_change >= 0:
+            if external_energy_change >= 0:
                 internal_energy_change = external_energy_change * (dyn_eta) 
             else:
-                internal_energy_change = external_energy_change / (dyn_eta) """
+                internal_energy_change = external_energy_change / (dyn_eta) 
 
             self.last_wear_cost = self._compute_wear_cost(self.soc, soc_new, power_kw, delta_t)
  
