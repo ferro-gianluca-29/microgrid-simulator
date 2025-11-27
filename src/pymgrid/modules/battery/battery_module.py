@@ -147,8 +147,6 @@ class BatteryModule(BaseMicrogridModule):
     def _update_state(self, energy_change):
         self._current_charge += energy_change
         if self._current_charge < self.min_capacity:
-            print(f"self._current_charge: {self._current_charge}")
-            print(f"self.min_capacity: {self.min_capacity}")
             assert np.isclose(self._current_charge, self.min_capacity)
             self._current_charge = self.min_capacity
         self._soc = self._current_charge/self.max_capacity

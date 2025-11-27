@@ -195,7 +195,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             power_kw = -external_energy_change / delta_t # [kW]   
             current_a = 1000.0 * power_kw / max(self.v_prev, 1e-9) # [A]
 
-            print(f"timestep: {current_step} \t corrente:{current_a}")
+            #print(f"timestep: {current_step} \t corrente:{current_a}")
 
             v_batt = max(voc - R0 * current_a, 1e-6)
 
@@ -291,7 +291,6 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                 voc, R0 = self._interp_voc_r0(soc, temperature_c)
                 v_prev = self.v_prev
                 
-
             # here the minus sign is required, since the internal battery model is 
             # based on positive sign when discharging and negative when charging, which is the 
             # opposite from the pymgrid convention 
@@ -313,8 +312,6 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
             #print(f"min_soc = {min_soc}")
             #print(f"max_soc = {max_soc}")
-            """if state_update:
-                print(f"self.nominal_energy_kwh = {self.nominal_energy_kwh:.5f}")"""
             
             # compute dynamic efficiency
             if current_step == 0:
@@ -322,15 +319,15 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             else:
                 dyn_eta = max(1e-9, self._dynamic_efficiency(current_a, voc, R0, v_batt)) 
                                                                                             
-            soe_new = soe - (current_a * voc * delta_t / 1000) / self.nominal_energy_kwh   
-            soe_new = np.clip(soe_new, min_capacity/max_capacity, 1)
-            internal_energy_change = (soe_new - soe) * self.nominal_energy_kwh
+            #soe_new = soe - (current_a * voc * delta_t / 1000) / self.nominal_energy_kwh   
+            #soe_new = np.clip(soe_new, min_capacity/max_capacity, 1)
+            #internal_energy_change = (soe_new - soe) * self.nominal_energy_kwh
 
             # Energy conversion from external EMS to internal battery chemical model (using dynamic efficiency)
-            """if external_energy_change >= 0:
+            if external_energy_change >= 0:
                 internal_energy_change = external_energy_change * (dyn_eta) 
             else:
-                internal_energy_change = external_energy_change / (dyn_eta) """
+                internal_energy_change = external_energy_change / (dyn_eta) 
 
             return internal_energy_change
 
