@@ -9,9 +9,12 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
 import pandas as pd
+import yaml
 
- 
+# Registra i costruttori YAML per le classi di transizione della batteria
+from src.pymgrid.modules.battery.transition_models.unipi_transition_model import register_transition_model_yaml_constructors
 
+register_transition_model_yaml_constructors()
 
 from microgrid_simulator import MicrogridSimulator
 from tools import load_config, compute_offline_tariff_vectors
@@ -71,6 +74,9 @@ simulator = MicrogridSimulator(
     grid_time_series = grid_time_series
 )
 
+print(f"Chimica della batteria configurata: {simulator.battery_chemistry}")
+print(f"State of Health: {simulator.state_of_health}")
+
 microgrid = simulator.build_microgrid()  # Costruisce la microgrid dai parametri nel file di configurazione.
 
 load_module = microgrid.modules['load'][0]         # Modulo load
@@ -109,6 +115,16 @@ battery_module = microgrid.battery[0]
 transition_model = battery_module.battery_transition_model
 
 #print(transition_model)
+
+import os
+current_dir = os.getcwd()
+transition_filename = f"transitions_{simulator.battery_chemistry}.png"
+full_path = os.path.join(current_dir, transition_filename)
+
+print(f"\nSalvataggio grafici e dati di transizione...")
+print(f"Chimica della batteria: {simulator.battery_chemistry}")
+print(f"File di transizione: {transition_filename}")
+print(f"Percorso completo: {full_path}")
 
 transition_model.plot_transition_history(save_path=f"transitions_{simulator.battery_chemistry}.png", show=True)
 transition_model.save_transition_history(history_path=f"transitions_{simulator.battery_chemistry}.json")

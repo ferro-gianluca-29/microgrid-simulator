@@ -13,6 +13,45 @@ from pathlib import Path
 from .transition_model import BatteryTransitionModel
 
 
+def register_transition_model_yaml_constructors():
+    """Register YAML constructors for transition model tags.
+    
+    This allows YAML to properly deserialize tags like:
+    - !LfpTransitionModel {}
+    - !LfpTransitionModel {soh: 0.95}
+    - !NmcTransitionModel {soh: 0.90}
+    etc.
+    """
+    # Import here to avoid circular imports
+    from .lfp_transition_model import LfpTransitionModel
+    from .nmc_transition_model import NmcTransitionModel
+    from .nca_transition_model import NcaTransitionModel
+    
+    def construct_transition_model(ModelClass):
+        """Create a constructor for a transition model class."""
+        def constructor(loader, node):
+            # Handle both mapping nodes (with parameters) and scalar nodes (empty)
+            if isinstance(node, yaml.MappingNode):
+                # Parameters provided: !ModelName {param1: value1, param2: value2}
+                kwargs = loader.construct_mapping(node)
+                return ModelClass(**kwargs)
+            else:
+                # No parameters: !ModelName {}
+                return ModelClass()
+        return constructor
+    
+    try:
+        yaml.SafeLoader.add_constructor('!LfpTransitionModel', 
+                                       construct_transition_model(LfpTransitionModel))
+        yaml.SafeLoader.add_constructor('!NmcTransitionModel', 
+                                       construct_transition_model(NmcTransitionModel))
+        yaml.SafeLoader.add_constructor('!NcaTransitionModel', 
+                                       construct_transition_model(NcaTransitionModel))
+    except:
+        # Constructors already registered, ignore
+        pass
+
+
 class UnipiChemistryTransitionModel(BatteryTransitionModel):
     """Base class for UNIPI chemistry-aware battery transition models.
 
@@ -53,6 +92,9 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         Optional empirical wear coefficients; if provided, ``get_wear_cost``
         mirrors the ESS_UNIPI_* cost estimator. Otherwise, ``get_wear_cost``
         returns 0.
+    soh : float, default 1.0
+        State of Health (0-1) of the battery. Used as a multiplier for the
+        nominal capacity in SOC calculations.
     """
 
     yaml_dumper = yaml.SafeDumper
@@ -70,7 +112,8 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                  delta_t_hours: float = 0.25, 
                  wear_a: float = None,
                  wear_b: float = None,
-                 wear_B: float = None):
+                 wear_B: float = None,
+                 soh: float = 1.0):
         
         self.parameters_mat = parameters_mat
         self.reference_cell_capacity_ah = reference_cell_capacity_ah
@@ -84,7 +127,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         self.wear_a = wear_a
         self.wear_b = wear_b
         self.wear_B = wear_B
-        self.dyn_eta = None
+        self.soh = soh  # State of Health
 
         self.nominal_energy_kwh = (
             self.c_n * self.nominal_cell_voltage * self.ns_batt * self.np_batt / 1000.0
@@ -102,25 +145,72 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         self._transition_history = []
 
     def _load_tables(self):
+        """Load battery parameters from .mat file.
+        
+        The .mat file should contain parameters with the following structure:
+        - For SOH=1.0 (full health): rows 0 to N-1
+        - For SOH=0.8 (degraded): rows N to 2N-1
+        
+        Each row contains: [SOC, R0@20C, R0@40C, SOC_dup, Voc@20C, Voc@40C]
+        """
         base_dir = os.path.join(os.path.dirname(__file__), "data")
         data_path = os.path.join(base_dir, self.parameters_mat)
         parameters = sio.loadmat(data_path)[os.path.splitext(self.parameters_mat)[0]]
-        self.soc_grid = np.linspace(0, 1, len(parameters))
+        
+        # Determine SOH grid based on file structure
+        num_rows = len(parameters)
+        num_soc_points = num_rows // 2  # Assume 2 SOH points (1.0 and 0.8)
+        
+        # Extract SOC grid from first half (for SOH=1.0)
+        soc_from_file = parameters[:num_soc_points, 0]
+        self.soc_grid = soc_from_file
         self.temperature_grid = np.array([20, 40])
+        self.soh_grid = np.array([0.8, 1.0])  # SOH grid from 0.8 to 1.0
+        
+        # Reshape data for 3D interpolation: (num_soc, num_temp, num_soh)
+        # First half: SOH=1.0, Second half: SOH=0.8
+        voc_data_soh1 = parameters[:num_soc_points, 4:6] * self.ns_batt  # Voc at SOH=1.0
+        voc_data_soh08 = parameters[num_soc_points:, 4:6] * self.ns_batt  # Voc at SOH=0.8
+        
+        # Stack along SOH dimension: shape (num_soc, num_temp, num_soh)
+        voc_data_3d = np.stack([voc_data_soh08, voc_data_soh1], axis=2)
+        
         self.voc_interpolator = RegularGridInterpolator(
-            (self.soc_grid, self.temperature_grid), parameters[:, 4:6] * self.ns_batt
+            (self.soc_grid, self.temperature_grid, self.soh_grid),
+            voc_data_3d
         )
-
+        
+        # Same for R0
         scaling = (self.ns_batt / self.np_batt) * (self.reference_cell_capacity_ah / self.c_n)
+        r0_data_soh1 = parameters[:num_soc_points, 1:3] * scaling  # R0 at SOH=1.0
+        r0_data_soh08 = parameters[num_soc_points:, 1:3] * scaling  # R0 at SOH=0.8
+        
+        r0_data_3d = np.stack([r0_data_soh08, r0_data_soh1], axis=2)
+        
         self.r0_interpolator = RegularGridInterpolator(
-            (self.soc_grid, self.temperature_grid), parameters[:, 1:3] * scaling
+            (self.soc_grid, self.temperature_grid, self.soh_grid),
+            r0_data_3d
         )
 
-    def _interp_voc_r0(self, soc: float, temperature_c: float) -> Tuple[float, float]:
+    def _interp_voc_r0(self, soc: float, temperature_c: float, soh: float = None) -> Tuple[float, float]:
+        """Interpolate Voc and R0 using trilinear interpolation (SOC, Temperature, SOH).
+
+        Parameters
+        ----------
+        soc : float
+            State of charge (0-1).
+        temperature_c : float
+            Temperature in Celsius.
+        soh : float, optional
+            State of health to use for interpolation. If None, uses ``self.soh``.
+        """
         soc_clipped = float(np.clip(soc, self.soc_grid[0], self.soc_grid[-1]))
         temp_clipped = float(np.clip(temperature_c, self.temperature_grid[0], self.temperature_grid[-1]))
-        voc = float(self.voc_interpolator((soc_clipped, temp_clipped)))
-        r0 = float(self.r0_interpolator((soc_clipped, temp_clipped)))
+        soh_to_use = self.soh if soh is None else soh
+        soh_clipped = float(np.clip(soh_to_use, self.soh_grid[0], self.soh_grid[-1]))
+        
+        voc = float(self.voc_interpolator((soc_clipped, temp_clipped, soh_clipped)))
+        r0 = float(self.r0_interpolator((soc_clipped, temp_clipped, soh_clipped)))
         return voc, r0
 
     def _dynamic_efficiency(self, current_a: float, voc: float, R0: float, v_batt: float) -> float:
@@ -181,12 +271,20 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             delta_t = max(self.delta_t_hours, 1e-9) # questo va reso una variabile da dare in input al battery module 
 
             if current_step == 0:
-                self.soc = float(state_dict.get('soc', 0.0))
-                voc, R0 = self._interp_voc_r0(self.soc, temperature_c)
+                raw_soc = float(state_dict.get('soc', 0.0))
+                # If the incoming value is >1, assume it's an energy value (kWh)
+                # and convert to a fraction of max_capacity. Otherwise use as-is.
+                if raw_soc > 1.0 and max_capacity and max_capacity > 0:
+                    init_soc = float(raw_soc / max_capacity)
+                else:
+                    init_soc = raw_soc
+                # Clip to valid [0,1]
+                self.soc = float(np.clip(init_soc, 0.0, 1.0))
+                voc, R0 = self._interp_voc_r0(self.soc, temperature_c, self.soh)
                 self.v_prev = voc
                             
             else:
-                voc, R0 = self._interp_voc_r0(self.soc, temperature_c)
+                voc, R0 = self._interp_voc_r0(self.soc, temperature_c, self.soh)
                 
             # here the minus sign is required, since the internal battery model is 
             # based on positive sign when discharging and negative when charging, which is the 
@@ -199,16 +297,22 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
             v_batt = max(voc - R0 * current_a, 1e-6)
 
-            battery_pack_nominal_charge = self.c_n * self.np_batt # [Ah]
+            battery_pack_nominal_charge = self.soh * self.c_n * self.np_batt # [Ah]
             current_charge_kWh = float(state_dict.get('current_charge', soe * max_capacity)) # [kWh]
             current_charge_Ah = self.soc * battery_pack_nominal_charge + (current_a * delta_t)
 
-            soc_unbounded = self.soc - (current_a * delta_t) / (self.c_n * self.np_batt)
+            soc_unbounded = self.soc - (current_a * delta_t) / (self.soh * self.c_n * self.np_batt)
 
             min_soc = (min_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
             max_soc = (max_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
-            
-            soc_new = float(np.clip(soc_unbounded, min_soc, max_soc))    
+
+            # Ensure min/max SOC are within physical bounds [0,1]
+            min_soc = float(np.clip(min_soc, 0.0, 1.0))
+            max_soc = float(np.clip(max_soc, 0.0, 1.0))
+
+            soc_new = float(np.clip(soc_unbounded, min_soc, max_soc))
+            # Final safety clamp to absolute bounds
+            soc_new = float(np.clip(soc_new, 0.0, 1.0))
 
             # compute dynamic efficiency
             if current_step == 0:
@@ -285,13 +389,18 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             delta_t = max(self.delta_t_hours, 1e-9) # questo va reso una variabile da dare in input al battery module 
 
             if current_step == 0:
-                soc = float(state_dict.get('soc', 0.0))
-                voc, R0 = self._interp_voc_r0(soc, temperature_c)
+                raw_soc = float(state_dict.get('soc', 0.0))
+                if raw_soc > 1.0 and max_capacity and max_capacity > 0:
+                    soc = float(raw_soc / max_capacity)
+                else:
+                    soc = raw_soc
+                soc = float(np.clip(soc, 0.0, 1.0))
+                voc, R0 = self._interp_voc_r0(soc, temperature_c, self.soh)
                 v_prev = voc
                             
             else:
                 soc = self.soc
-                voc, R0 = self._interp_voc_r0(soc, temperature_c)
+                voc, R0 = self._interp_voc_r0(soc, temperature_c, self.soh)
                 v_prev = self.v_prev
                 
             # here the minus sign is required, since the internal battery model is 
@@ -303,15 +412,19 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
             v_batt = max(voc - R0 * current_a, 1e-6)
 
-            battery_pack_nominal_charge = self.c_n * self.np_batt # [Ah]
+            battery_pack_nominal_charge = self.soh * self.c_n * self.np_batt # [Ah]
 
             current_charge_kWh = float(state_dict.get('current_charge', soe * max_capacity)) # [kWh]
             current_charge_Ah = soc * battery_pack_nominal_charge + (current_a * delta_t)
 
-            soc_unbounded = soc - (current_a * delta_t) / (self.c_n * self.np_batt)
+            soc_unbounded = soc - (current_a * delta_t) / (self.soh * self.c_n * self.np_batt)
 
             min_soc = (min_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
             max_soc = (max_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
+
+            # Ensure min/max SOC are within physical bounds [0,1]
+            min_soc = float(np.clip(min_soc, 0.0, 1.0))
+            max_soc = float(np.clip(max_soc, 0.0, 1.0))
 
             #print(f"min_soc = {min_soc}")
             #print(f"max_soc = {max_soc}")

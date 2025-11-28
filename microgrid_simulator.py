@@ -14,6 +14,11 @@ from src.pymgrid.modules.battery.transition_models import (
 from pandasgui import show
 import yaml
 
+# Registra i costruttori YAML per le classi di transizione della batteria
+from src.pymgrid.modules.battery.transition_models.unipi_transition_model import register_transition_model_yaml_constructors
+
+register_transition_model_yaml_constructors()
+
 
 class MicrogridSimulator():
 
@@ -35,10 +40,22 @@ class MicrogridSimulator():
         capacity = battery_cfg['capacity']
         power_max = battery_cfg['power_max']
         sample_time = battery_cfg['sample_time']
+        self.state_of_health = battery_cfg.get('state_of_health', 1.0)  # Default 1.0 se non specificato
 
         # Chimica batteria o modello di transizione esplicito
         self.battery_chemistry = battery_chemistry or battery_cfg.get('chemistry') or battery_cfg.get('type') or 'generic'
         self.battery_transition_model = battery_cfg.get('transition_model')
+        
+        # Se il transition_model è definito, estrai la chimica dal nome della classe
+        if self.battery_transition_model is not None:
+            transition_class_name = self.battery_transition_model.__class__.__name__
+            # Estrae la chimica dal nome: LfpTransitionModel -> LFP, NmcTransitionModel -> NMC, etc.
+            if 'Lfp' in transition_class_name:
+                self.battery_chemistry = 'LFP'
+            elif 'Nmc' in transition_class_name:
+                self.battery_chemistry = 'NMC'
+            elif 'Nca' in transition_class_name:
+                self.battery_chemistry = 'NCA'
 
         self.nominal_capacity = capacity
         self.max_charge_per_step = power_max * sample_time
@@ -60,12 +77,17 @@ class MicrogridSimulator():
         if transition_model is None:
             chemistry_upper = str(self.battery_chemistry).upper()
             if chemistry_upper == 'LFP':
-                transition_model = LfpTransitionModel()
+                transition_model = LfpTransitionModel(soh=self.state_of_health)
             elif chemistry_upper == 'NMC':
-                transition_model = NmcTransitionModel()
+                transition_model = NmcTransitionModel(soh=self.state_of_health)
             elif chemistry_upper == 'NCA':
-                transition_model = NcaTransitionModel()
+                transition_model = NcaTransitionModel(soh=self.state_of_health)
             # Otherwise, leave `transition_model` as None to use the default BatteryTransitionModel
+        else:
+            # Se il transition_model è già stato creato dal YAML, aggiorna il SOH se non è già stato specificato
+            if hasattr(transition_model, 'soh') and transition_model.soh == 1.0:
+                # Se il SOH è al valore di default, aggiornalo con il valore da params.yml
+                transition_model.soh = self.state_of_health
 
         battery = BatteryModule(
                               min_capacity = 0, # [kWh]
