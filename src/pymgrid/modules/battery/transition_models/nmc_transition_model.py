@@ -13,7 +13,7 @@ class NmcTransitionModel(UnipiChemistryTransitionModel):
     def __init__(self, **kwargs):
         super().__init__(
             parameters_mat="parameters_cell_NMC.mat",
-            reference_cell_capacity_ah=86.486,
+            reference_cell_capacity_ah=3.2,
             nominal_cell_voltage=3.7,
             **kwargs,
         )

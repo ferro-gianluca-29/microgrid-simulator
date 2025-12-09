@@ -13,7 +13,7 @@ class LfpTransitionModel(UnipiChemistryTransitionModel):
     def __init__(self, **kwargs):
         super().__init__(
             parameters_mat="parameters_cell_LFP.mat",
-            reference_cell_capacity_ah=100.0,
+            reference_cell_capacity_ah=3.704,
             nominal_cell_voltage=3.2,
             **kwargs,
         )

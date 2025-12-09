@@ -105,7 +105,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                  reference_cell_capacity_ah: float,
                  nominal_cell_voltage: float,
                  ns_batt: int = 16,
-                 np_batt: int = 10,
+                 np_batt: int = 270,
                  c_n: float = None,
                  temperature_c: float = 25.0,
                  eta_inverter: float = 1.0,
@@ -127,6 +127,22 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         self.wear_a = wear_a
         self.wear_b = wear_b
         self.wear_B = wear_B
+        
+        # Determine chemistry from filename
+        mat_basename = os.path.splitext(self.parameters_mat)[0].lower()
+        if 'lfp' in mat_basename:
+            self.chemistry = 'LFP'
+        elif 'nca' in mat_basename:
+            self.chemistry = 'NCA'
+        elif 'nmc' in mat_basename:
+            self.chemistry = 'NMC'
+        else:
+            self.chemistry = 'UNKNOWN'
+        
+        # LFP and NCA only support SOH=1.0
+        if self.chemistry in ('LFP', 'NCA') and not np.isclose(soh, 1.0):
+            raise ValueError(f"{self.chemistry} chemistry only supports SOH=1.0. Got SOH={soh}")
+        
         self.soh = soh  # State of Health
 
         self.nominal_energy_kwh = (
@@ -147,9 +163,9 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
     def _load_tables(self):
         """Load battery parameters from .mat file.
         
-        The .mat file should contain parameters with the following structure:
-        - For SOH=1.0 (full health): rows 0 to N-1
-        - For SOH=0.8 (degraded): rows N to 2N-1
+        File structure depends on chemistry:
+        - LFP/NCA: 21 rows × 6 columns (SOH=1.0 only)
+        - NMC: 105 rows × 6 columns (5 blocks of 21 rows each for SOH=[1.0, 0.863, 0.835, 0.82, 0.799])
         
         Each row contains: [SOC, R0@20C, R0@40C, SOC_dup, Voc@20C, Voc@40C]
         """
@@ -157,40 +173,67 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         data_path = os.path.join(base_dir, self.parameters_mat)
         parameters = sio.loadmat(data_path)[os.path.splitext(self.parameters_mat)[0]]
         
-        # Determine SOH grid based on file structure
         num_rows = len(parameters)
-        num_soc_points = num_rows // 2  # Assume 2 SOH points (1.0 and 0.8)
+        num_soc_points = 21  # Standard SOC grid size (0-1 at 21 points)
         
-        # Extract SOC grid from first half (for SOH=1.0)
+        # Determine SOH grid based on chemistry and file size
+        if self.chemistry in ('LFP', 'NCA'):
+            # LFP/NCA: only SOH=1.0 (21 rows total)
+            if num_rows != num_soc_points:
+                raise ValueError(f"{self.chemistry} file should have exactly 21 rows, got {num_rows}")
+            self.soh_grid = np.array([1.0])
+            num_soh_points = 1
+        elif self.chemistry == 'NMC':
+            # NMC: 5 SOH points (105 rows = 5*21)
+            if num_rows != 105:
+                raise ValueError(f"NMC file should have exactly 105 rows (5×21), got {num_rows}")
+            self.soh_grid = np.array([1.0, 0.863, 0.835, 0.82, 0.799])
+            num_soh_points = 5
+        else:
+            raise ValueError(f"Unknown chemistry: {self.chemistry}")
+        
+        # Extract SOC grid from first block (rows 0:21)
         soc_from_file = parameters[:num_soc_points, 0]
         self.soc_grid = soc_from_file
         self.temperature_grid = np.array([20, 40])
-        self.soh_grid = np.array([0.8, 1.0])  # SOH grid from 0.8 to 1.0
         
-        # Reshape data for 3D interpolation: (num_soc, num_temp, num_soh)
-        # First half: SOH=1.0, Second half: SOH=0.8
-        voc_data_soh1 = parameters[:num_soc_points, 4:6] * self.ns_batt  # Voc at SOH=1.0
-        voc_data_soh08 = parameters[num_soc_points:, 4:6] * self.ns_batt  # Voc at SOH=0.8
+        # Build 3D data arrays: (num_soc, num_temp, num_soh)
+        voc_data_3d = np.zeros((num_soc_points, 2, num_soh_points))
+        r0_data_3d = np.zeros((num_soc_points, 2, num_soh_points))
         
-        # Stack along SOH dimension: shape (num_soc, num_temp, num_soh)
-        voc_data_3d = np.stack([voc_data_soh08, voc_data_soh1], axis=2)
+        # Fill in data from each SOH block
+        for soh_idx in range(num_soh_points):
+            row_start = soh_idx * num_soc_points
+            row_end = row_start + num_soc_points
+            
+            voc_data_3d[:, :, soh_idx] = parameters[row_start:row_end, 4:6] * self.ns_batt
+            r0_data_3d[:, :, soh_idx] = parameters[row_start:row_end, 1:3]
         
-        self.voc_interpolator = RegularGridInterpolator(
-            (self.soc_grid, self.temperature_grid, self.soh_grid),
-            voc_data_3d
-        )
-        
-        # Same for R0
+        # Scale R0 based on cell configuration
         scaling = (self.ns_batt / self.np_batt) * (self.reference_cell_capacity_ah / self.c_n)
-        r0_data_soh1 = parameters[:num_soc_points, 1:3] * scaling  # R0 at SOH=1.0
-        r0_data_soh08 = parameters[num_soc_points:, 1:3] * scaling  # R0 at SOH=0.8
+        r0_data_3d *= scaling
         
-        r0_data_3d = np.stack([r0_data_soh08, r0_data_soh1], axis=2)
-        
-        self.r0_interpolator = RegularGridInterpolator(
-            (self.soc_grid, self.temperature_grid, self.soh_grid),
-            r0_data_3d
-        )
+        # Create interpolators (handles 1D or 3D SOH depending on chemistry)
+        if num_soh_points == 1:
+            # For LFP/NCA: squeeze out SOH dimension for 2D interpolation
+            self.voc_interpolator = RegularGridInterpolator(
+                (self.soc_grid, self.temperature_grid, self.soh_grid),
+                voc_data_3d
+            )
+            self.r0_interpolator = RegularGridInterpolator(
+                (self.soc_grid, self.temperature_grid, self.soh_grid),
+                r0_data_3d
+            )
+        else:
+            # For NMC: full 3D interpolation
+            self.voc_interpolator = RegularGridInterpolator(
+                (self.soc_grid, self.temperature_grid, self.soh_grid),
+                voc_data_3d
+            )
+            self.r0_interpolator = RegularGridInterpolator(
+                (self.soc_grid, self.temperature_grid, self.soh_grid),
+                r0_data_3d
+            )
 
     def _interp_voc_r0(self, soc: float, temperature_c: float, soh: float = None) -> Tuple[float, float]:
         """Interpolate Voc and R0 using trilinear interpolation (SOC, Temperature, SOH).

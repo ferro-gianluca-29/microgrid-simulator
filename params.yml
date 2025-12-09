@@ -5,8 +5,8 @@ battery:
   efficiency: 0.9
   init_charge: 20     # [kWh] 
   sample_time: 0.25     # [h]
-  state_of_health: 0.8   # [0-1] Stato di salute della batteria (1.0 = piena salute). Viene automaticamente applicato al modello di transizione.
-  chemistry: LFP        # Seleziona la chimica della batteria (es. LFP, NMC, NCA, None)
+  state_of_health: 1   # [0-1] Stato di salute della batteria (1.0 = piena salute). Viene automaticamente applicato al modello di transizione.
+  chemistry: NCA        # Seleziona la chimica della batteria (es. LFP, NMC, NCA, None)
   # ALTERNATIVA: specificare il modello di transizione UNIPI direttamente (ignora il parametro state_of_health se present)
   # transition_model: !LfpTransitionModel {}
   # transition_model: !NmcTransitionModel {}
