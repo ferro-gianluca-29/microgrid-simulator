@@ -156,9 +156,15 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         self.last_wear_cost = 0.0
         self.last_dynamic_efficiency = None
         self._load_tables()
-
+        
+        # Load SOH vs Ah throughput curve for NMC (only used if chemistry == 'NMC')
+        self.soh_ah_interpolator = None
+        if self.chemistry == 'NMC':
+            self._load_soh_curve()
 
         self._transition_history = []
+        self.cumulative_ah_throughput = 0.0  # Track total Ah throughput (absolute value) for SOH curve
+        self.last_soh = soh  # Track last SOH value to ensure monotonic decrease
 
     def _load_tables(self):
         """Load battery parameters from .mat file.
@@ -234,6 +240,81 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                 (self.soc_grid, self.temperature_grid, self.soh_grid),
                 r0_data_3d
             )
+
+    def _load_soh_curve(self):
+        """Load SOH vs Ah throughput curve from Excel file for NMC chemistry.
+        
+        The file is expected in the data directory with name 'NMC-SOHAh.xlsx'.
+        Columns: [Ah_throughput, SOH_%]
+        """
+        try:
+            import pandas as pd
+        except ImportError:
+            raise ImportError("pandas is required to load SOH curves. Install with: pip install pandas openpyxl")
+        
+        base_dir = os.path.join(os.path.dirname(__file__), "data")
+        excel_path = os.path.join(base_dir, "NMC-SOHAh.xlsx")
+        
+        if not os.path.exists(excel_path):
+            raise FileNotFoundError(f"SOH curve file not found: {excel_path}")
+        
+        df = pd.read_excel(excel_path)
+        
+        # Excel columns are [Ah_throughput, SOH_%]
+        # Convert column names to simpler form
+        ah_throughput = df.iloc[:, 0].values  # First column
+        soh_percent = df.iloc[:, 1].values     # Second column
+        
+        # Convert SOH from percentage to fraction (e.g., 95.5% -> 0.955)
+        soh_fraction = soh_percent / 100.0
+        
+        # Create interpolator: Ah_throughput -> SOH (fraction)
+        from scipy.interpolate import interp1d
+        self.soh_ah_interpolator = interp1d(
+            ah_throughput, 
+            soh_fraction, 
+            kind='linear', 
+            bounds_error=False, 
+            fill_value=(soh_fraction[0], soh_fraction[-1])  # Extrapolate with boundary values
+        )
+
+    def _update_soh_from_ah(self, current_charge_ah_per_cell: float, delta_ah: float) -> float:
+        """Update SOH based on cumulative Ah throughput per cell.
+        
+        Parameters
+        ----------
+        current_charge_ah_per_cell : float
+            Current charge in Ah for a single cell (current_charge_Ah / np_batt)
+        delta_ah : float
+            Change in Ah since last step (absolute value, for throughput calculation)
+        
+        Returns
+        -------
+        float
+            Updated SOH value (0-1), guaranteed to be monotonically non-increasing
+        """
+        if self.chemistry != 'NMC' or self.soh_ah_interpolator is None:
+            return self.soh
+        
+        # Accumulate absolute Ah throughput (charge/discharge cycles)
+        self.cumulative_ah_throughput += abs(delta_ah)
+        
+        # If this is the very first step (throughput was 0 before), return SOH=1.0
+        # The curve's first point may not be exactly 1.0, so we handle this explicitly
+        if self.cumulative_ah_throughput == abs(delta_ah):  # First update ever
+            return 1.0
+        
+        # Interpolate SOH from the curve using cumulative throughput
+        soh_from_curve = float(self.soh_ah_interpolator(self.cumulative_ah_throughput))
+        
+        # Clip to valid range [0.799, 1.0] (minimum from NMC curve)
+        soh_from_curve = float(np.clip(soh_from_curve, 0.799, 1.0))
+        
+        # Ensure monotonic decrease: new SOH should never be higher than last
+        soh_updated = min(soh_from_curve, self.last_soh)
+        self.last_soh = soh_updated
+        
+        return soh_updated
 
     def _interp_voc_r0(self, soc: float, temperature_c: float, soh: float = None) -> Tuple[float, float]:
         """Interpolate Voc and R0 using trilinear interpolation (SOC, Temperature, SOH).
@@ -342,7 +423,12 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
             battery_pack_nominal_charge = self.soh * self.c_n * self.np_batt # [Ah]
             current_charge_kWh = float(state_dict.get('current_charge', soe * max_capacity)) # [kWh]
-            current_charge_Ah = self.soc * battery_pack_nominal_charge + (current_a * delta_t)
+            delta_ah = current_a * delta_t  # Change in Ah during this time step
+            current_charge_Ah = self.soc * battery_pack_nominal_charge + delta_ah
+            
+            # Update SOH from cumulative Ah throughput per cell (for NMC only)
+            delta_ah_per_cell = delta_ah / self.np_batt
+            self.soh = self._update_soh_from_ah(current_charge_Ah / self.np_batt, delta_ah_per_cell)
 
             soc_unbounded = self.soc - (current_a * delta_t) / (self.soh * self.c_n * self.np_batt)
 
@@ -393,6 +479,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                 "soe": float(soe),
                 "voltage_v": float(v_batt),
                 "power_kw": float(-power_kw),
+                "soh": float(self.soh),  # Add SOH tracking
             })
 
             self.soc = soc_new   # aggiorno il soc
@@ -458,7 +545,12 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             battery_pack_nominal_charge = self.soh * self.c_n * self.np_batt # [Ah]
 
             current_charge_kWh = float(state_dict.get('current_charge', soe * max_capacity)) # [kWh]
-            current_charge_Ah = soc * battery_pack_nominal_charge + (current_a * delta_t)
+            delta_ah = current_a * delta_t  # Change in Ah during this time step
+            current_charge_Ah = soc * battery_pack_nominal_charge + delta_ah
+            
+            # Update SOH from cumulative Ah throughput per cell (for NMC only)
+            delta_ah_per_cell = delta_ah / self.np_batt
+            self.soh = self._update_soh_from_ah(current_charge_Ah / self.np_batt, delta_ah_per_cell)
 
             soc_unbounded = soc - (current_a * delta_t) / (self.soh * self.c_n * self.np_batt)
 
@@ -547,6 +639,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             "current_a": ("Battery current", "Current [A]", "tab:gray"),
             "internal_energy_change": ("Internal energy change", "Energy [kWh]", "tab:orange"),
             "power_kw": ("Battery power", "Power [kW]", "tab:purple"),
+            "soh": ("State of Health", "State of Health [0-1]", "tab:brown"),
         }
 
         figures = {}
