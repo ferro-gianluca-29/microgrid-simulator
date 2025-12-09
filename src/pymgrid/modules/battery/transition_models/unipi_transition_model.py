@@ -246,6 +246,10 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         
         The file is expected in the data directory with name 'NMC-SOHAh.xlsx'.
         Columns: [Ah_throughput, SOH_%]
+        
+        The curve is used as discrete points: SOH remains at the previous level
+        until the cumulative Ah throughput reaches the next Ah threshold, at which
+        point it drops to the corresponding SOH value.
         """
         try:
             import pandas as pd
@@ -262,24 +266,25 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         
         # Excel columns are [Ah_throughput, SOH_%]
         # Convert column names to simpler form
-        ah_throughput = df.iloc[:, 0].values  # First column
-        soh_percent = df.iloc[:, 1].values     # Second column
+        self.soh_ah_thresholds = df.iloc[:, 0].values  # Ah throughput thresholds
+        self.soh_ah_values = df.iloc[:, 1].values / 100.0  # Convert to fractions
         
-        # Convert SOH from percentage to fraction (e.g., 95.5% -> 0.955)
-        soh_fraction = soh_percent / 100.0
-        
-        # Create interpolator: Ah_throughput -> SOH (fraction)
+        # Also create linear interpolator as fallback for values between thresholds
         from scipy.interpolate import interp1d
         self.soh_ah_interpolator = interp1d(
-            ah_throughput, 
-            soh_fraction, 
+            self.soh_ah_thresholds, 
+            self.soh_ah_values, 
             kind='linear', 
             bounds_error=False, 
-            fill_value=(soh_fraction[0], soh_fraction[-1])  # Extrapolate with boundary values
+            fill_value=(self.soh_ah_values[0], self.soh_ah_values[-1])  # Extrapolate with boundary values
         )
 
     def _update_soh_from_ah(self, current_charge_ah_per_cell: float, delta_ah: float) -> float:
         """Update SOH based on cumulative Ah throughput per cell.
+        
+        Uses continuous interpolation along the experimental SOH vs Ah curve.
+        The curve naturally exhibits a steep initial drop (from 1.0 to 0.955 in first 29.3 Ah)
+        followed by a gradual degradation.
         
         Parameters
         ----------
@@ -299,19 +304,23 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         # Accumulate absolute Ah throughput (charge/discharge cycles)
         self.cumulative_ah_throughput += abs(delta_ah)
         
-        # If this is the very first step (throughput was 0 before), return SOH=1.0
-        # The curve's first point may not be exactly 1.0, so we handle this explicitly
-        if self.cumulative_ah_throughput == abs(delta_ah):  # First update ever
-            return 1.0
-        
-        # Interpolate SOH from the curve using cumulative throughput
-        soh_from_curve = float(self.soh_ah_interpolator(self.cumulative_ah_throughput))
-        
-        # Clip to valid range [0.799, 1.0] (minimum from NMC curve)
-        soh_from_curve = float(np.clip(soh_from_curve, 0.799, 1.0))
+        # Use linear interpolation along the SOH curve
+        # At cumulative_ah=0, SOH=1.0 (initial state)
+        # At each Excel point, SOH interpolates smoothly to that value
+        # Beyond the curve, SOH stays at the final value
+        if self.cumulative_ah_throughput <= 0:
+            soh_updated = 1.0
+        elif self.cumulative_ah_throughput < self.soh_ah_thresholds[0]:
+            # Before first point: linearly interpolate from 1.0 to first point
+            # This creates the steep initial drop
+            ah_ratio = self.cumulative_ah_throughput / self.soh_ah_thresholds[0]
+            soh_updated = 1.0 + ah_ratio * (self.soh_ah_values[0] - 1.0)
+        else:
+            # Use the precomputed interpolator for the curve
+            soh_updated = float(self.soh_ah_interpolator(self.cumulative_ah_throughput))
         
         # Ensure monotonic decrease: new SOH should never be higher than last
-        soh_updated = min(soh_from_curve, self.last_soh)
+        soh_updated = min(soh_updated, self.last_soh)
         self.last_soh = soh_updated
         
         return soh_updated
@@ -404,6 +413,13 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                     init_soc = raw_soc
                 # Clip to valid [0,1]
                 self.soc = float(np.clip(init_soc, 0.0, 1.0))
+                
+                # For NMC, reset SOH to 1.0 at the start of simulation
+                if self.chemistry == 'NMC':
+                    self.soh = 1.0
+                    self.last_soh = 1.0
+                    self.cumulative_ah_throughput = 0.0
+                
                 voc, R0 = self._interp_voc_r0(self.soc, temperature_c, self.soh)
                 self.v_prev = voc
                             
@@ -525,6 +541,13 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                 else:
                     soc = raw_soc
                 soc = float(np.clip(soc, 0.0, 1.0))
+                
+                # For NMC, reset SOH to 1.0 at the start of simulation
+                if self.chemistry == 'NMC':
+                    self.soh = 1.0
+                    self.last_soh = 1.0
+                    self.cumulative_ah_throughput = 0.0
+                
                 voc, R0 = self._interp_voc_r0(soc, temperature_c, self.soh)
                 v_prev = voc
                             
