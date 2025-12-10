@@ -1,6 +1,6 @@
 import os
 from typing import Tuple
-
+import csv
 import numpy as np
 import scipy.io as sio
 from scipy.interpolate import RegularGridInterpolator
@@ -49,6 +49,10 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
     delta_t_hours : float, default 1.0
         Duration (in hours) represented by each transition call. External
         energy is divided by ``delta_t_hours`` to obtain the requested power.
+    debug_energy : bool, default False
+        If True, prints detailed intermediate values used to compute
+        ``internal_energy_change`` for both the ``dyn_eta`` and ``soe_new``
+        calculation paths.
     wear_a, wear_b, wear_B : float or None
         Optional empirical wear coefficients; if provided, ``get_wear_cost``
         mirrors the ESS_UNIPI_* cost estimator. Otherwise, ``get_wear_cost``
@@ -68,6 +72,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                  temperature_c: float = 25.0,
                  eta_inverter: float = 1.0,
                  delta_t_hours: float = 0.25, 
+                 debug_energy: bool = True,
                  wear_a: float = None,
                  wear_b: float = None,
                  wear_B: float = None):
@@ -81,10 +86,12 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         self.temperature_c = temperature_c
         self.eta_inverter = eta_inverter
         self.delta_t_hours = delta_t_hours
+        self.debug_energy = debug_energy
         self.wear_a = wear_a
         self.wear_b = wear_b
         self.wear_B = wear_B
         self.dyn_eta = None
+        self.debug_log_path = Path(__file__).resolve().parent / "debug_log.csv"
 
         self.nominal_energy_kwh = (
             self.c_n * self.nominal_cell_voltage * self.ns_batt * self.np_batt / 1000.0
@@ -101,6 +108,58 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
         self._transition_history = []
 
+    def _debug_internal_energy_change(self,
+                                       *,
+                                       context: str,
+                                       current_step: int,
+                                       external_energy_change: float,
+                                       temperature_c: float,
+                                       delta_t: float,
+                                       voc: float,
+                                       R0: float,
+                                       v_prev: float,
+                                       v_batt: float,
+                                       power_kw: float,
+                                       current_a: float,
+                                       soc_previous: float,
+                                       soc_unbounded: float,
+                                       soc_new: float,
+                                       dyn_eta: float,
+                                       soe_previous: float,
+                                       soe_new: float,
+                                       internal_energy_change: float):
+        if not self.debug_energy:
+            return
+
+        log_entry = {
+            "context": context,
+            "current_step": current_step,
+            "temperature_c": temperature_c,
+            "delta_t_hours": delta_t,
+            "voc_v": voc,
+            "R0_ohm": R0,
+            "v_prev_v": v_prev,
+            "v_batt_v": v_batt,
+            "external_energy_change_kwh": external_energy_change,
+            "power_kw": power_kw,
+            "current_a": current_a,
+            "soc_previous": soc_previous,
+            "soc_unbounded": soc_unbounded,
+            "soc_new": soc_new,
+            "dyn_eta": dyn_eta,
+            "soe_previous": soe_previous,
+            "soe_new": soe_new,
+            "internal_energy_change_kwh": internal_energy_change,
+        }
+
+        file_exists = self.debug_log_path.exists()
+
+        with self.debug_log_path.open("a", newline="") as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=log_entry.keys())
+            if not file_exists:
+                writer.writeheader()
+            writer.writerow(log_entry)
+
     def _load_tables(self):
         base_dir = os.path.join(os.path.dirname(__file__), "data")
         data_path = os.path.join(base_dir, self.parameters_mat)
@@ -115,6 +174,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         self.r0_interpolator = RegularGridInterpolator(
             (self.soc_grid, self.temperature_grid), parameters[:, 1:3] * scaling
         )
+        
 
     def _interp_voc_r0(self, soc: float, temperature_c: float) -> Tuple[float, float]:
         soc_clipped = float(np.clip(soc, self.soc_grid[0], self.soc_grid[-1]))
@@ -163,7 +223,6 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         
         
         # Compute the internal battery power and current
-
         
         #print(f"current_step: {current_step}") # per debug
         
@@ -175,13 +234,15 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
 
 
         if state_update:
-
-            soe = float(state_dict.get('soc', 0.0))  # previous soe
+        
             temperature_c = float(state_dict.get('temperature_c', self.temperature_c)) # present temperature (dict to be implemented)
             delta_t = max(self.delta_t_hours, 1e-9) # questo va reso una variabile da dare in input al battery module 
 
+            soc_previous = self.soc if self.soc is not None else float(state_dict.get('soc', 0.0))
+
             if current_step == 0:
                 self.soc = float(state_dict.get('soc', 0.0))
+                self.soe = float(state_dict.get('soc', 0.0))
                 voc, R0 = self._interp_voc_r0(self.soc, temperature_c)
                 self.v_prev = voc
                             
@@ -200,7 +261,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             v_batt = max(voc - R0 * current_a, 1e-6)
 
             battery_pack_nominal_charge = self.c_n * self.np_batt # [Ah]
-            current_charge_kWh = float(state_dict.get('current_charge', soe * max_capacity)) # [kWh]
+            current_charge_kWh = float(state_dict.get('current_charge', self.soe * max_capacity)) # [kWh]
             current_charge_Ah = self.soc * battery_pack_nominal_charge + (current_a * delta_t)
 
             soc_unbounded = self.soc - (current_a * delta_t) / (self.c_n * self.np_batt)
@@ -222,17 +283,46 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             # update previous voltage for next iteration
             self.v_prev = v_batt
 
-            #soe_new = soe - (current_a * voc * delta_t / 1000) / self.nominal_energy_kwh   
-            #soe_new = np.clip(soe_new, min_capacity/max_capacity, 1)
-            #internal_energy_change = (soe_new - soe) * self.nominal_energy_kwh
+            soe_new = self.soe - (current_a * voc * delta_t / 1000) / self.nominal_energy_kwh   
+            soe_new = np.clip(soe_new, min_capacity/max_capacity, 1)
+            internal_energy_change = (soe_new - self.soe) * self.nominal_energy_kwh
+            internal_energy_change = np.clip(internal_energy_change, -max_discharge, max_charge)
 
             # Energy conversion from external EMS to internal battery chemical model (using dynamic efficiency)
-            if external_energy_change >= 0:
+            """if external_energy_change >= 0:
                 internal_energy_change = external_energy_change * (dyn_eta) 
             else:
-                internal_energy_change = external_energy_change / (dyn_eta) 
+                internal_energy_change = external_energy_change / (dyn_eta)"""
+
+
+            self._debug_internal_energy_change(
+                context="transition (state_update=True)",
+                current_step=current_step,
+                external_energy_change=external_energy_change,
+                temperature_c=temperature_c,
+                delta_t=delta_t,
+                voc=voc,
+                R0=R0,
+                v_prev=self.v_prev,
+                v_batt=v_batt,
+                power_kw=power_kw,
+                current_a=current_a,
+                soc_previous=soc_previous if soc_previous is not None else self.soc,
+                soc_unbounded=soc_unbounded,
+                soc_new=soc_new,
+                dyn_eta=dyn_eta,
+                soe_previous=self.soe,
+                soe_new=soe_new,
+                internal_energy_change=internal_energy_change,
+            )
+
 
             self.last_wear_cost = self._compute_wear_cost(self.soc, soc_new, power_kw, delta_t)
+
+            # update previous SoC and SoE for next iteration
+
+            self.soc = soc_new   # aggiorno il soc
+            self.soe = soe_new   # aggiorno il soe
  
             self._transition_history.append({
                 "time_hours": float(
@@ -243,19 +333,18 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                 "current_a": float(current_a),
                 "internal_energy_change": float(internal_energy_change),
                 "soc": float(self.soc),
-                "soe": float(soe),
+                "soe": float(self.soe),
                 "voltage_v": float(v_batt),
                 "power_kw": float(-power_kw),
             })
 
-            self.soc = soc_new   # aggiorno il soc
 
             return internal_energy_change
         
         if not state_update:
 
             internal_energy_change = self.transition_without_update(
-                   external_energy_change,
+                   -1 * external_energy_change, # inverted sign is needed for max_production and max_consumption sign coherence in battery module
                    min_capacity,
                    max_capacity,
                    max_charge,
@@ -265,7 +354,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                    current_step,
                    state_dict)
             
-            return internal_energy_change
+            return -1 * internal_energy_change
             
 
     def transition_without_update(self,
@@ -279,18 +368,18 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                    current_step,
                    state_dict):
 
-
-            soe = float(state_dict.get('soc', 0.0))  # previous soe
             temperature_c = float(state_dict.get('temperature_c', self.temperature_c)) # present temperature (dict to be implemented)
             delta_t = max(self.delta_t_hours, 1e-9) # questo va reso una variabile da dare in input al battery module 
 
             if current_step == 0:
+                soe = float(state_dict.get('soc', 0.0))
                 soc = float(state_dict.get('soc', 0.0))
                 voc, R0 = self._interp_voc_r0(soc, temperature_c)
                 v_prev = voc
                             
             else:
                 soc = self.soc
+                soe = self.soe
                 voc, R0 = self._interp_voc_r0(soc, temperature_c)
                 v_prev = self.v_prev
                 
@@ -304,33 +393,18 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             v_batt = max(voc - R0 * current_a, 1e-6)
 
             battery_pack_nominal_charge = self.c_n * self.np_batt # [Ah]
-
-            current_charge_kWh = float(state_dict.get('current_charge', soe * max_capacity)) # [kWh]
-            current_charge_Ah = soc * battery_pack_nominal_charge + (current_a * delta_t)
-
-            soc_unbounded = soc - (current_a * delta_t) / (self.c_n * self.np_batt)
-
-            min_soc = (min_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
-            max_soc = (max_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
-
-            #print(f"min_soc = {min_soc}")
-            #print(f"max_soc = {max_soc}")
-            
-            # compute dynamic efficiency
-            if current_step == 0:
-                dyn_eta = efficiency
-            else:
-                dyn_eta = max(1e-9, self._dynamic_efficiency(current_a, voc, R0, v_batt)) 
                                                                                             
-            #soe_new = soe - (current_a * voc * delta_t / 1000) / self.nominal_energy_kwh   
-            #soe_new = np.clip(soe_new, min_capacity/max_capacity, 1)
-            #internal_energy_change = (soe_new - soe) * self.nominal_energy_kwh
+            soe_new = soe - (current_a * voc * delta_t / 1000) / self.nominal_energy_kwh   
+            soe_new = np.clip(soe_new, min_capacity/max_capacity, 1)
+
+            internal_energy_change = (soe_new - soe) * self.nominal_energy_kwh
+            internal_energy_change = np.clip(internal_energy_change, -max_discharge, max_charge)
 
             # Energy conversion from external EMS to internal battery chemical model (using dynamic efficiency)
-            if external_energy_change >= 0:
+            """if external_energy_change >= 0:
                 internal_energy_change = external_energy_change * (dyn_eta) 
             else:
-                internal_energy_change = external_energy_change / (dyn_eta) 
+                internal_energy_change = external_energy_change / (dyn_eta)""" 
 
             return internal_energy_change
 

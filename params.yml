@@ -5,7 +5,7 @@ battery:
   efficiency: 0.9
   init_charge: 20     # [kWh] 
   sample_time: 0.25     # [h]
-  chemistry: LFP        # Seleziona la chimica della batteria (es. LFP, NMC, NCA)
+  chemistry: LFP    # Seleziona la chimica della batteria (es. LFP, NMC, NCA)
   # In alternativa è possibile specificare direttamente il modello di transizione UNIPI
   # transition_model: !LfpTransitionModel {}
 
@@ -18,7 +18,7 @@ ems:
   kafka_topic: test_topic_661
   buffer_size: 96
   timezone: America/Chicago
-  steps: 960
+  steps: 9600
   allow_night_grid_charge: false   # Carica da rete esclusivamente in fascia off-peak
 
   price_bands:
