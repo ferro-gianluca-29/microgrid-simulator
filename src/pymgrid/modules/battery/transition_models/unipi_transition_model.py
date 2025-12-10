@@ -354,7 +354,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                    current_step,
                    state_dict)
             
-            return -1 * internal_energy_change
+            return -1 * internal_energy_change # inverted sign is needed for max_production and max_consumption sign coherence in battery module
             
 
     def transition_without_update(self,
