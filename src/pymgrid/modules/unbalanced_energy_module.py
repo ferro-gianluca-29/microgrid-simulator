@@ -36,8 +36,10 @@ class UnbalancedEnergyModule(BaseMicrogridModule):
         info = {info_key: external_energy_change}
         if as_source:
             info['loss_load_energy'] = external_energy_change
+            info['overgeneration_energy'] = 0.0 # riga aggiunta per evitare errori nel log
         else:
             info['overgeneration_energy'] = external_energy_change
+            info['loss_load_energy'] = 0.0  # riga aggiunta per evitare errori nel log
 
         return reward, False, info
 

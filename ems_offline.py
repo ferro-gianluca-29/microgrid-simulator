@@ -9,9 +9,12 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
 import pandas as pd
+from pandas import MultiIndex
+
+
 
 from microgrid_simulator import MicrogridSimulator
-from tools import load_config, compute_offline_tariff_vectors
+from tools import load_config, compute_offline_tariff_vectors, plot_results, add_module_columns
 from EMS import Rule_Based_EMS
 
 from pandasgui import show
@@ -40,11 +43,14 @@ load_time_series = time_series['load']
 
 timestamps = time_series['datetime']
 
+
 price_buy_time_series, price_sell_time_series = compute_offline_tariff_vectors(
     ts_series=timestamps,
     local_timezone=timezone_str,
     price_config=price_config
 )
+price_buy_time_series = price_buy_time_series
+price_sell_time_series = price_sell_time_series
 
 # time series containing values for cost of carbon dioxide emissions (not accounted for this task, so put to zero)
 emissions_time_series = np.zeros(len(price_buy_time_series))
@@ -68,17 +74,16 @@ simulator = MicrogridSimulator(
     grid_time_series = grid_time_series
 )
 
-microgrid = simulator.build_microgrid()  # Costruisce la microgrid dai parametri nel file di configurazione.
+microgrid = simulator.build_microgrid()  # Costruisce la microgrid con i moduli specificati nel file di configurazione 
 
 load_module = microgrid.modules['load'][0]         # Modulo load
 pv_module = microgrid.modules['pv'][0]             # Modulo PV
 
 microgrid.reset()  # Porta la microgrid in uno stato noto prima di iniziare la simulazione.
 
-
 ###### INSTANTIATE ENERGY MANAGEMENT SYSTEM AND RUN SIMULATION
 
-rule_based_EMS = Rule_Based_EMS(microgrid)
+rule_based_EMS = Rule_Based_EMS(microgrid)       # Crea istanza EMS basato su regole per la microgrid
 
 
 for step in range(1, simulation_steps + 1):         # Loop principale per il numero di step specificato
@@ -90,25 +95,58 @@ for step in range(1, simulation_steps + 1):         # Loop principale per il num
         load_kwh = load_kwh, 
         pv_kwh = pv_kwh,       
         )
-    
-    control = {"battery": e_batt, "grid": e_grid}   # Prepara dizionario controllo per report
+
+    control = {"battery": e_batt, "grid": e_grid}   # Prepara il dizionario di controllo per lo step corrente
+
     obs, reward, done, info = microgrid.step(control, normalized=False)
 
-"""microgrid_df, log = simulator.get_simulation_log(microgrid)
 
-log.to_csv("microgrid_log.csv", index=True)
+microgrid_df, log = simulator.get_simulation_log(microgrid)     # Ottiene il log della simulazione come DataFrame pandas con tutti gli step
 
-microgrid_df['pv_prod'] = time_series['solar'].iloc[:]
-microgrid_df['consumption'] = time_series['load'].iloc[:]"""
+log.to_csv("microgrid_log.csv", index=True)                     # Salva il log della simulazione su file CSV
 
+battery_module = microgrid.battery[0]                           # Ottiene il modulo batteria dalla microgrid
+transition_model = battery_module.battery_transition_model      # Ottiene il modello di transizione della batteria
 
-battery_module = microgrid.battery[0]
-transition_model = battery_module.battery_transition_model
+history = transition_model.get_transition_history()                 # Ottiene la cronologia delle transizioni della batteria
+eta_dynamic = [entry['eta_dynamic'] for entry in history]           # Estrae l'efficienza dinamica dalla cronologia
 
-#print(transition_model)
+additional_columns = {
+    ('datetime', 0, 'timestamp'): time_series['datetime'].to_numpy()[:len(microgrid_df)],
+    ('pv', 0, 'pv_prod_input'): time_series['solar'].to_numpy()[:len(microgrid_df)],             # Aggiunge la produzione PV in input come colonna al DataFrame della microgrid
+    ('load', 0, 'consumption_input'): time_series['load'].to_numpy()[:len(microgrid_df)],        # Aggiunge il consumo in input come colonna al DataFrame della microgrid
+    ('battery', 0, 'eta_dynamic'): np.asarray(eta_dynamic),                                       # Aggiunge l'efficienza dinamica al DataFrame della microgrid
+    ('price', 0, 'price_buy'): price_buy_time_series[: len(microgrid_df)],                       # Aggiunge la colonna price_buy al DataFrame della microgrid
+    ('price', 0, 'price_sell'): price_sell_time_series[: len(microgrid_df)]                      # Aggiunge la colonna price_sell al DataFrame della microgrid
+}
 
-transition_model.plot_transition_history(save_path=f"./battery_simulation_data/transitions_{simulator.battery_chemistry}.png", show=True)
-transition_model.save_transition_history(history_path=f"./battery_simulation_data/transitions_{simulator.battery_chemistry}.json")
+microgrid_df = add_module_columns(microgrid_df, additional_columns)
 
+print(transition_model)
+
+transition_model.plot_transition_history(save_path=f"transitions_{simulator.battery_chemistry}.png", show=True)
+transition_model.save_transition_history(history_path=f"transitions_{simulator.battery_chemistry}.json")
+
+#print(microgrid.log.columns)
 
 #show(time_series=time_series, microgrid_df=microgrid_df)
+
+
+
+###### PLOT FINAL RESULTS #######
+
+timestamp_now = datetime.now().strftime('%Y%m%d_%H%M%S')
+csv_name = f"ems_results_{timestamp_now}.csv"      
+output_dir = Path("outputs")  
+csv_path = output_dir / csv_name                                                  # Directory di output per file CSV e grafici
+output_dir.mkdir(exist_ok=True)  
+base_name = (output_dir / csv_name.replace(".csv", ""))
+
+"""plot_paths = plot_results(microgrid_df, str(base_name), timezone_str)       # Genera e salva i grafici, ottenendo i percorsi dei file
+
+print("\nApertura grafici...")
+for label, path in plot_paths.items():              # Tenta di aprire automaticamente i file grafici generati
+    try:
+        os.startfile(os.path.abspath(path))
+    except OSError:
+        print(f"  Impossibile aprire automaticamente {path}")"""

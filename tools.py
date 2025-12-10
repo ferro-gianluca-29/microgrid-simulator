@@ -174,6 +174,39 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
     la funzione restituisce i percorsi dei file generati per uso successivo.
     """
     df = df.copy()                                         # Duplica DataFrame per evitare modifiche all'originale
+
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = [
+            "_".join(str(x) for x in col if x not in (None, ""))
+            for col in df.columns
+        ]
+
+    column_mapping = {
+        "datetime_0_timestamp": "timestamp",
+        "pv_0_pv_prod_input": "pv_prod",
+        "load_0_consumption_input": "consumption",
+        "price_0_price_buy": "price_buy",
+        "price_0_price_sell": "price_sell",
+        "grid_0_grid_import": "grid_import",
+        "grid_0_grid_export": "grid_export",
+        "battery_0_soc": "soc",
+        "battery_0_current_charge": "current_charge",
+        "battery_0_charge_amount": "charge_amount",
+        "battery_0_discharge_amount": "discharge_amount",
+        "battery_0_reward": "wear_cost_battery",
+        "balance_0_reward": "economic_balance_eur",
+    }
+    df.rename(
+        columns={old: new for old, new in column_mapping.items() if old in df.columns},
+        inplace=True,
+    )
+
+    if "cost_import_eur" not in df.columns and {"grid_import", "price_buy"}.issubset(df.columns):
+        df["cost_import_eur"] = df["grid_import"] * df["price_buy"]
+
+    if "revenue_export_eur" not in df.columns and {"grid_export", "price_sell"}.issubset(df.columns):
+        df["revenue_export_eur"] = df["grid_export"] * df["price_sell"]
+
     timestamps = pd.to_datetime(df["timestamp"], errors="coerce")  # Converte la colonna timestamp in datetime
 
     # Normalizza il timezone: se i timestamp sono tz-aware, convertili nel timezone configurato (se fornito)
@@ -204,12 +237,14 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
     )
     df.index = aligned_index
 
-    # 1) Potenze istantanee
+    # 1) Energie istantanee
     fig, ax = plt.subplots(figsize=(12, 5))
-    ax.plot(df.index, df["mg_load_kwh"], label="Load (kWh)", linewidth=2)
-    ax.plot(df.index, df["mg_pv_kwh"], label="PV (kWh)", linewidth=2)
-    ax.plot(df.index, df["control_batt_kwh"], label="Battery Net Flow (kWh)", linewidth=1.8, linestyle="-.")
-    ax.plot(df.index, df["control_grid_kwh"], label="Grid Energy (kWh)", linewidth=1.8, linestyle="--")
+    control_batt = df["discharge_amount"] - df["charge_amount"] 
+    control_grid = df["grid_import"] - df["grid_export"]
+    ax.plot(df.index, df["consumption"], label="Load (kWh)", linewidth=2)
+    ax.plot(df.index, df["pv_prod"], label="PV (kWh)", linewidth=2)
+    ax.plot(df.index, control_batt, label="Battery Net Flow (kWh)", linewidth=1.8, linestyle="-.")
+    ax.plot(df.index, control_grid, label="Grid Energy (kWh)", linewidth=1.8, linestyle="--")
     ax.set_title("Energy Flows per Step")
     ax.set_ylabel("Energy [kWh]")
     ax.set_xlabel("Time")
@@ -221,11 +256,11 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
     plt.close(fig)
 
     # 2) Energia rete cumulativa e per step
-    cumulative_import = df["grid_import_kwh"].cumsum()
-    cumulative_export = df["grid_export_kwh"].cumsum()
+    cumulative_import = df["grid_import"].cumsum()
+    cumulative_export = df["grid_export"].cumsum()
     fig, ax1 = plt.subplots(figsize=(12, 5))
-    ax1.bar(df.index, df["grid_import_kwh"], label="Import step (kWh)", color="tab:blue", alpha=0.45, width=0.025)
-    ax1.bar(df.index, -df["grid_export_kwh"], label="Export step (kWh)", color="tab:orange", alpha=0.45, width=0.025)
+    ax1.bar(df.index, df["grid_import"], label="Import step (kWh)", color="tab:blue", alpha=0.45, width=0.025)
+    ax1.bar(df.index, -df["grid_export"], label="Export step (kWh)", color="tab:orange", alpha=0.45, width=0.025)
     ax1.set_ylabel("Energy per step [kWh]")
     ax1.set_xlabel("Time")
     ax1.grid(True, linestyle="--", alpha=0.4)
@@ -244,23 +279,12 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
     fig.savefig(grid_path, dpi=160)
     plt.close(fig)
 
-    # 3) Prezzi vs band
+    # 3) Prezzi
     fig, ax = plt.subplots(figsize=(12, 5))
-    ax.plot(df.index, df["price_buy_eur_kwh"], label="Price Buy (eur/kWh)", linewidth=2)
-    ax.plot(df.index, df["price_sell_eur_kwh"], label="Price Sell (eur/kWh)", linewidth=2)
-    unique_bands = df["band"].unique()
-    for band in unique_bands:
-        band_mask = df["band"] == band
-        if band_mask.any():
-            ax.fill_between(
-                df.index,
-                df["price_buy_eur_kwh"].min() * 0.95,
-                df["price_buy_eur_kwh"].max() * 1.05,
-                where=band_mask,
-                alpha=0.08,
-                label=f"Band {band}" if f"Band {band}" not in ax.get_legend_handles_labels()[1] else "",
-            )
-    ax.set_title("Grid Prices and Time-of-Use Bands")
+    ax.plot(df.index, df["price_buy"], label="Price Buy (eur/kWh)", linewidth=2)
+    ax.plot(df.index, df["price_sell"], label="Price Sell (eur/kWh)", linewidth=2)
+    
+    ax.set_title("Grid Prices Over Time")
     ax.set_ylabel("eur/kWh")
     ax.set_xlabel("Time")
     ax.legend()
@@ -271,15 +295,16 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
     plt.close(fig)
 
     # 4) Batteria: SOC e flussi
+    battery_soc_pct = df["soc"]*100
     fig, ax1 = plt.subplots(figsize=(12, 5))
-    ax1.plot(df.index, df["battery_soc_pct"], color="tab:blue", label="SOC (%)", linewidth=2.2)
+    ax1.plot(df.index, battery_soc_pct, color="tab:blue", label="SOC (%)", linewidth=2.2)
     ax1.set_ylabel("SOC [%]", color="tab:blue")
     ax1.tick_params(axis="y", labelcolor="tab:blue")
     ax1.grid(True, linestyle="--", alpha=0.4)
 
     ax2 = ax1.twinx()
-    ax2.bar(df.index, df["battery_charge_kwh"], label="Charge (kWh)", color="tab:green", alpha=0.4, width=0.025)
-    ax2.bar(df.index, -df["battery_discharge_kwh"], label="Discharge (kWh)", color="tab:red", alpha=0.4, width=0.025)
+    ax2.bar(df.index, df["charge_amount"], label="Charge (kWh)", color="tab:green", alpha=0.4, width=0.025)
+    ax2.bar(df.index, -df["discharge_amount"], label="Discharge (kWh)", color="tab:red", alpha=0.4, width=0.025)
     ax2.set_ylabel("Charge / Discharge [kWh]", color="tab:red")
     ax2.tick_params(axis="y", labelcolor="tab:red")
 
@@ -295,9 +320,12 @@ def plot_results(df: pd.DataFrame, base_name: str, timezone: Optional[str] = Non
 
     # 4b) Animazione batteria a forma di icona
     # 5) Indicatori economici per step e cumulativi
+    wear_cost_battery = -df["wear_cost_battery"]
     fig, ax1 = plt.subplots(figsize=(12, 5))
     ax1.bar(df.index, df["cost_import_eur"], label="Import Cost (eur/step)", color="tab:blue", alpha=0.45, width=0.025)
     ax1.bar(df.index, df["revenue_export_eur"], label="Export Revenue (eur/step)", color="tab:orange", alpha=0.45, width=0.025)
+    ax1.bar(df.index, wear_cost_battery, label="Wear cost battery (eur/step)", color="tab:green", alpha=0.45, width=0.025)
+
     ax1.set_ylabel("eur/step")
     ax1.set_xlabel("Time")
     ax1.grid(True, linestyle="--", alpha=0.4)
@@ -374,3 +402,31 @@ def compute_offline_tariff_vectors(ts_series, local_timezone, price_config):
     price_sell_vec = np.select(condlist, sell_choices).astype(float)
 
     return price_buy_vec, price_sell_vec
+
+
+def add_module_columns(df, mapping):
+    """
+    Aggiunge colonne extra al DataFrame preservandone la MultiIndex e l'ordine dei moduli.
+
+    I nuovi campi vengono raggruppati accanto alle colonne del relativo modulo,
+    così l'ispezione resta ordinata anche dopo l'aggiunta di grandezze derivate.
+    """
+    if not isinstance(df.columns, pd.MultiIndex):
+        for column_key, values in mapping.items():
+            df[column_key] = np.asarray(values)
+        return df
+
+    module_order = list(dict.fromkeys(df.columns.get_level_values(0)))
+
+    for column_key, values in mapping.items():
+        df.loc[:, column_key] = np.asarray(values)
+        module_name = column_key[0] if isinstance(column_key, tuple) else column_key
+        if module_name not in module_order:
+            module_order.append(module_name)
+
+    ordered_cols = []
+    for module_name in module_order:
+        ordered_cols.extend([col for col in df.columns if col[0] == module_name])
+
+    df = df.loc[:, ordered_cols]
+    return df

@@ -118,13 +118,21 @@ class MicrogridSimulator():
                 ('load', 0, 'load_met'),
                 ('pv', 0, 'renewable_used'),
                 ('pv', 0, 'curtailment'),
-                ('balancing', 0, 'loss_load'),
+                ('pv', 0, 'reward'),
                 ('battery', 0, 'soc'),
                 ('battery', 0, 'current_charge'),
                 ('battery', 0, 'discharge_amount'),
                 ('battery', 0, 'charge_amount'),
+                ('battery', 0, 'reward'),
                 ('grid', 0, 'grid_import'),
-                ('grid', 0, 'grid_export')  # opzionale
+                ('grid', 0, 'grid_export'),
+                ('grid', 0, 'export_price_current'),
+                ('grid', 0, 'import_price_current'),
+                ('grid', 0, 'reward'),
+                ('balancing', 0, 'loss_load'),
+                ('balancing', 0, 'overgeneration'),
+                ('balance', 0, 'reward'),
+                
             ]
         ]
 

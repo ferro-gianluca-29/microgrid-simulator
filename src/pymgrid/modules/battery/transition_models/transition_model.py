@@ -186,7 +186,9 @@ class BatteryTransitionModel(yaml.YAMLObject):
         metric_specs = {
             "soc": ("State of charge", "State of charge [0-1]", "tab:blue"),
             "soe": ("State of energy", "State of energy [0-1]", "tab:green"),
+            "soh": ("State of health", "State of health [0-1]", "tab:brown"),
             "voltage_v": ("Battery voltage", "Voltage [V]", "tab:red"),
+            "current_a": ("Battery current", "Current [A]", "tab:gray"),
             "internal_energy_change": ("Internal energy change", "Energy [kWh]", "tab:orange"),
             "power_kw": ("Battery power", "Power [kW]", "tab:purple"),
         }
