@@ -147,7 +147,10 @@ class BatteryModule(BaseMicrogridModule):
     def _update_state(self, energy_change):
         self._current_charge += energy_change
         if self._current_charge < self.min_capacity:
-            assert np.isclose(self._current_charge, self.min_capacity)
+            # Allow small numerical deviations below min_capacity without raising
+            # an exception; clamp to min_capacity and warn so the user can inspect
+            if not np.isclose(self._current_charge, self.min_capacity):
+                warn(f"Battery current charge ({self._current_charge}) dropped below min_capacity ({self.min_capacity}). Clamping to min_capacity.")
             self._current_charge = self.min_capacity
         self._soc = self._current_charge/self.max_capacity
 

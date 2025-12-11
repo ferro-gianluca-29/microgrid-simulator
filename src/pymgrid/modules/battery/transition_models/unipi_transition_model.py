@@ -3,6 +3,7 @@ from typing import Tuple
 
 import numpy as np
 import scipy.io as sio
+import json
 from scipy.interpolate import RegularGridInterpolator
 import yaml
 
@@ -190,11 +191,35 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             self.soh_grid = np.array([1.0])
             num_soh_points = 1
         elif self.chemistry == 'NMC':
-            # NMC: 5 SOH points (105 rows = 5*21)
-            if num_rows != 105:
-                raise ValueError(f"NMC file should have exactly 105 rows (5×21), got {num_rows}")
-            self.soh_grid = np.array([1.0, 0.863, 0.835, 0.82, 0.799])
-            num_soh_points = 5
+            # NMC: variable number of SOH blocks (each block = 21 SOC rows)
+            if num_rows % num_soc_points != 0:
+                raise ValueError(f"NMC file row count ({num_rows}) is not a multiple of {num_soc_points}")
+            num_soh_points = int(num_rows // num_soc_points)
+
+            # Prefer an explicit metadata file with the SOH grid if present
+            # Example filename: parameters_cell_NMC_soh_grid.json -> [1.0, 0.863, 0.835, 0.82, 0.799]
+            meta_filename = os.path.splitext(self.parameters_mat)[0] + "_soh_grid.json"
+            meta_path = os.path.join(base_dir, meta_filename)
+            if os.path.exists(meta_path):
+                try:
+                    with open(meta_path, 'r') as fh:
+                        loaded = json.load(fh)
+                    if not isinstance(loaded, list) or len(loaded) != num_soh_points:
+                        raise ValueError("Invalid SOH grid metadata: length mismatch or wrong format")
+                    self.soh_grid = np.array(loaded, dtype=float)
+                except Exception as e:
+                    raise ValueError(f"Failed to load SOH grid metadata {meta_path}: {e}")
+            else:
+                # Legacy behaviour: accept the historical 5-point layout, otherwise require metadata
+                if num_soh_points == 5:
+                    self.soh_grid = np.array([1.0, 0.863, 0.835, 0.82, 0.799])
+                else:
+                    raise ValueError(
+                        f"Detected {num_soh_points} SOH blocks in {self.parameters_mat}.\n"
+                        "Please provide an explicit SOH grid metadata file named '"
+                        f"{meta_filename}' in the data directory with a JSON array of SOH values "
+                        "(e.g. [1.0, 0.95, 0.9, 0.85, 0.8, 0.7])."
+                    )
         else:
             raise ValueError(f"Unknown chemistry: {self.chemistry}")
         
@@ -219,6 +244,21 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
         scaling = (self.ns_batt / self.np_batt) * (self.reference_cell_capacity_ah / self.c_n)
         r0_data_3d *= scaling
         
+        # Ensure SOH grid is strictly increasing for RegularGridInterpolator.
+        # If the provided `self.soh_grid` is not increasing, sort it and
+        # reorder the SOH axis of the data arrays to keep data aligned.
+        try:
+            soh_sort_idx = np.argsort(self.soh_grid)
+            if not np.all(soh_sort_idx == np.arange(len(self.soh_grid))):
+                # reorder soh_grid and corresponding data
+                self.soh_grid = np.array(self.soh_grid)[soh_sort_idx]
+                voc_data_3d = voc_data_3d[:, :, soh_sort_idx]
+                r0_data_3d = r0_data_3d[:, :, soh_sort_idx]
+        except Exception:
+            # If soh_grid is not sortable for some reason, leave as-is and
+            # let RegularGridInterpolator raise a meaningful error later.
+            pass
+
         # Create interpolators (handles 1D or 3D SOH depending on chemistry)
         if num_soh_points == 1:
             # For LFP/NCA: squeeze out SOH dimension for 2D interpolation
@@ -403,6 +443,15 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             temperature_c = float(state_dict.get('temperature_c', self.temperature_c)) # present temperature (dict to be implemented)
             delta_t = max(self.delta_t_hours, 1e-9) # questo va reso una variabile da dare in input al battery module 
 
+            # battery pack nominal charge (Ah) based on current SOH
+            pack_nominal_charge = self.soh * self.c_n * self.np_batt # [Ah]
+
+            # battery pack nominal charge (Ah) based on current SOH
+            battery_pack_nominal_charge = self.soh * self.c_n * self.np_batt # [Ah]
+
+            # battery pack nominal charge (Ah) based on current SOH
+            battery_pack_nominal_charge = self.soh * self.c_n * self.np_batt # [Ah]
+
             if current_step == 0:
                 raw_soc = float(state_dict.get('soc', 0.0))
                 # If the incoming value is >1, assume it's an energy value (kWh)
@@ -422,31 +471,40 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                 
                 voc, R0 = self._interp_voc_r0(self.soc, temperature_c, self.soh)
                 self.v_prev = voc
+                # For step 0 also compute the implied current and update SOH
+                power_kw = -external_energy_change / delta_t # [kW]
+                # Use previous voltage if available; otherwise estimate Voc for a safe fallback
+                v_ref = self.v_prev if self.v_prev is not None else float(self._interp_voc_r0(self.soc, temperature_c, self.soh)[0])
+                current_a = 1000.0 * power_kw / max(v_ref, 1e-9) # [A]
+                delta_ah = current_a * delta_t
+                current_charge_Ah = self.soc * battery_pack_nominal_charge + delta_ah
+                delta_ah_per_cell = delta_ah / self.np_batt
+                self.soh = self._update_soh_from_ah(current_charge_Ah / self.np_batt, delta_ah_per_cell)
+                v_batt = max(voc - R0 * current_a, 1e-6)
+                soc_unbounded = self.soc - (current_a * delta_t) / (self.soh * self.c_n * self.np_batt)
                             
             else:
+                # Compute power/current using previous voltage (v_prev)
+                power_kw = -external_energy_change / delta_t # [kW]
+                v_ref = self.v_prev if self.v_prev is not None else float(self._interp_voc_r0(self.soc, temperature_c, self.soh)[0])
+                current_a = 1000.0 * power_kw / max(v_ref, 1e-9) # [A]
+
+                # Update cumulative Ah and SOH before interpolating Voc/R0 for this step
+                battery_pack_nominal_charge = self.soh * self.c_n * self.np_batt # [Ah] using previous SOH
+                current_charge_kWh = float(state_dict.get('current_charge', soe * max_capacity)) # [kWh]
+                delta_ah = current_a * delta_t  # Change in Ah during this time step
+                current_charge_Ah = self.soc * battery_pack_nominal_charge + delta_ah
+
+                # Update SOH from cumulative Ah throughput per cell (for NMC only)
+                delta_ah_per_cell = delta_ah / self.np_batt
+                self.soh = self._update_soh_from_ah(current_charge_Ah / self.np_batt, delta_ah_per_cell)
+
+                # Now interpolate Voc/R0 using the UPDATED SOH for the current time step
                 voc, R0 = self._interp_voc_r0(self.soc, temperature_c, self.soh)
-                
-            # here the minus sign is required, since the internal battery model is 
-            # based on positive sign when discharging and negative when charging, which is the 
-            # opposite from the pymgrid convention 
 
-            power_kw = -external_energy_change / delta_t # [kW]   
-            current_a = 1000.0 * power_kw / max(self.v_prev, 1e-9) # [A]
+                v_batt = max(voc - R0 * current_a, 1e-6)
 
-            #print(f"timestep: {current_step} \t corrente:{current_a}")
-
-            v_batt = max(voc - R0 * current_a, 1e-6)
-
-            battery_pack_nominal_charge = self.soh * self.c_n * self.np_batt # [Ah]
-            current_charge_kWh = float(state_dict.get('current_charge', soe * max_capacity)) # [kWh]
-            delta_ah = current_a * delta_t  # Change in Ah during this time step
-            current_charge_Ah = self.soc * battery_pack_nominal_charge + delta_ah
-            
-            # Update SOH from cumulative Ah throughput per cell (for NMC only)
-            delta_ah_per_cell = delta_ah / self.np_batt
-            self.soh = self._update_soh_from_ah(current_charge_Ah / self.np_batt, delta_ah_per_cell)
-
-            soc_unbounded = self.soc - (current_a * delta_t) / (self.soh * self.c_n * self.np_batt)
+                soc_unbounded = self.soc - (current_a * delta_t) / (self.soh * self.c_n * self.np_batt)
 
             min_soc = (min_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
             max_soc = (max_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
@@ -550,35 +608,45 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
                 
                 voc, R0 = self._interp_voc_r0(soc, temperature_c, self.soh)
                 v_prev = voc
+                # For step 0 also compute implied current and update SOH so downstream vars exist
+                power_kw = -external_energy_change / delta_t # [kW]
+                current_a = 1000.0 * power_kw / max(v_prev, 1e-9) # [A]
+                delta_ah = current_a * delta_t
+                current_charge_Ah = soc * (self.soh * self.c_n * self.np_batt) + delta_ah
+                delta_ah_per_cell = delta_ah / self.np_batt
+                self.soh = self._update_soh_from_ah(current_charge_Ah / self.np_batt, delta_ah_per_cell)
+                v_batt = max(voc - R0 * current_a, 1e-6)
+                soc_unbounded = soc - (current_a * delta_t) / (self.soh * self.c_n * self.np_batt)
+                min_soc = (min_capacity * 1000) / ((self.soh * self.c_n * self.np_batt) * (self.nominal_cell_voltage * self.ns_batt)) 
+                max_soc = (max_capacity * 1000) / ((self.soh * self.c_n * self.np_batt) * (self.nominal_cell_voltage * self.ns_batt)) 
                             
             else:
                 soc = self.soc
+
+                # Compute power/current using previous voltage (v_prev)
+                power_kw = -external_energy_change / delta_t # [kW]
+                v_ref = self.v_prev if self.v_prev is not None else float(self._interp_voc_r0(soc, temperature_c, self.soh)[0])
+                current_a = 1000.0 * power_kw / max(v_ref, 1e-9) # [A]
+
+                # Estimate Ah throughput and update SOH before interpolating Voc/R0
+                pack_nominal_charge = self.soh * self.c_n * self.np_batt # [Ah] using previous SOH
+                current_charge_kWh = float(state_dict.get('current_charge', soe * max_capacity)) # [kWh]
+                delta_ah = current_a * delta_t  # Change in Ah during this time step
+                current_charge_Ah = soc * pack_nominal_charge + delta_ah
+
+                delta_ah_per_cell = delta_ah / self.np_batt
+                self.soh = self._update_soh_from_ah(current_charge_Ah / self.np_batt, delta_ah_per_cell)
+
+                # Interpolate Voc/R0 with updated SOH
                 voc, R0 = self._interp_voc_r0(soc, temperature_c, self.soh)
                 v_prev = self.v_prev
-                
-            # here the minus sign is required, since the internal battery model is 
-            # based on positive sign when discharging and negative when charging, which is the 
-            # opposite from the pymgrid convention 
 
-            power_kw = -external_energy_change / delta_t # [kW]   
-            current_a = 1000.0 * power_kw / max(v_prev, 1e-9) # [A]
+                v_batt = max(voc - R0 * current_a, 1e-6)
 
-            v_batt = max(voc - R0 * current_a, 1e-6)
+                soc_unbounded = soc - (current_a * delta_t) / (self.soh * self.c_n * self.np_batt)
 
-            battery_pack_nominal_charge = self.soh * self.c_n * self.np_batt # [Ah]
-
-            current_charge_kWh = float(state_dict.get('current_charge', soe * max_capacity)) # [kWh]
-            delta_ah = current_a * delta_t  # Change in Ah during this time step
-            current_charge_Ah = soc * battery_pack_nominal_charge + delta_ah
-            
-            # Update SOH from cumulative Ah throughput per cell (for NMC only)
-            delta_ah_per_cell = delta_ah / self.np_batt
-            self.soh = self._update_soh_from_ah(current_charge_Ah / self.np_batt, delta_ah_per_cell)
-
-            soc_unbounded = soc - (current_a * delta_t) / (self.soh * self.c_n * self.np_batt)
-
-            min_soc = (min_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
-            max_soc = (max_capacity * 1000) / (battery_pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
+                min_soc = (min_capacity * 1000) / (pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
+                max_soc = (max_capacity * 1000) / (pack_nominal_charge * (self.nominal_cell_voltage * self.ns_batt)) 
 
             # Ensure min/max SOC are within physical bounds [0,1]
             min_soc = float(np.clip(min_soc, 0.0, 1.0))
