@@ -12,8 +12,8 @@ class Rule_Based_EMS:
         e_batt = 0.0
 
         tolerance = 1e-6  # Evita oscillazioni dovute alle approssimazioni floating point.
-        max_discharge = max(0.0, battery.max_production)     # Limite massimo di scarica della batteria (kWh)
-        max_charge = max(0.0, battery.max_consumption)       # Limite massimo di carica della batteria (kWh)
+        max_discharge = max(0.0, min(battery.max_production, battery.max_discharge))    
+        max_charge = max(0.0, min(battery.max_consumption, battery.max_charge))   
         band_normalized = (band or "").upper()               
         night_grid_mode = allow_night_grid_charge and band_normalized == 'OFFPEAK'     # Modalita' notte attiva o no
 

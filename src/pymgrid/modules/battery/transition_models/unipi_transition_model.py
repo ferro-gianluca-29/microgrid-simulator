@@ -482,7 +482,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             soe_new = self.soe - (current_a * voc * delta_t / 1000) / self.nominal_energy_kwh   
             soe_new = np.clip(soe_new, min_capacity/max_capacity, 1)
             internal_energy_change = (soe_new - self.soe) * self.nominal_energy_kwh
-            internal_energy_change = np.clip(internal_energy_change, -max_discharge, max_charge)
+            #internal_energy_change = np.clip(internal_energy_change, -max_discharge, max_charge)
 
             # Energy conversion from external EMS to internal battery chemical model (using dynamic efficiency)
             """if external_energy_change >= 0:
@@ -599,7 +599,7 @@ class UnipiChemistryTransitionModel(BatteryTransitionModel):
             soe_new = np.clip(soe_new, min_capacity/max_capacity, 1)
 
             internal_energy_change = (soe_new - soe) * self.nominal_energy_kwh
-            internal_energy_change = np.clip(internal_energy_change, -max_discharge, max_charge)
+            #internal_energy_change = np.clip(internal_energy_change, -max_discharge, max_charge)
 
             # Energy conversion from external EMS to internal battery chemical model (using dynamic efficiency)
             """if external_energy_change >= 0:

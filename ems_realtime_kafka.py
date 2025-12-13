@@ -1,4 +1,4 @@
-﻿import os
+﻿﻿import os
 import sys
 import time
 from collections import deque
@@ -298,6 +298,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-

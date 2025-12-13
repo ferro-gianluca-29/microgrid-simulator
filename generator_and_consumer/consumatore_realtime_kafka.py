@@ -12,8 +12,8 @@ import os
 
 ODA_URL = "http://oda-nest.bologna.enea.it:50005"
 TOPIC = "dhomus.aggregator.1"
-BUFFER_SIZE = 96                 # 24h simulati (96 x 15min)
-CSV_UPDATE_INTERVAL = 50         # Salvataggio CSV ogni 50 messaggi
+BUFFER_SIZE = 960               # 24h simulati (96 x 15min)
+CSV_UPDATE_INTERVAL = 960         # Salvataggio CSV ogni 50 messaggi
 CSV_FILE = "misure_realtime.csv"
 
 # ============================================================================
@@ -39,7 +39,7 @@ kafka_endpoint = response.json()["KAFKA_ENDPOINT"]
 consumer = Consumer({
     'bootstrap.servers': kafka_endpoint,
     'group.id': 'consumer_realtime',
-    'auto.offset.reset': 'latest'
+    'auto.offset.reset': 'earliest'
 })
 
 consumer.subscribe([TOPIC])

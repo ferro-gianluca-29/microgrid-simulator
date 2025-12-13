@@ -209,4 +209,3 @@ print(f"   Record inviati: {iteration}/{len(df)}")
 print(f"   Timestamp iniziale (CSV): {start_timestamp.strftime('%Y-%m-%d %H:%M:%S %Z')}")
 print(f"   Tempo totale: {elapsed:.1f} secondi")
 print(f"   Throughput: {iteration/elapsed:.2f} record/sec")
-

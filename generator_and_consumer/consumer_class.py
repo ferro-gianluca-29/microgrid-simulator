@@ -105,8 +105,8 @@ class KafkaConsumer:
                 l_kw = max(0.0, float(dati['load']['value']))      # Valore load medio (kW)
 
                 # Converte potenze quartorarie in energie per step (kWh)
-                s = s_kw * self.sample_time_hours
-                l = l_kw * self.sample_time_hours
+                s = s_kw * self.sample_time_hours / 1000
+                l = l_kw * self.sample_time_hours / 1000
                 
                 # Aggiungi a buffer
                 self.timestamps.append(timestamp)             # Aggiungi timestamp

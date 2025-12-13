@@ -127,17 +127,19 @@ class BatteryModule(BaseMicrogridModule):
 
     def update(self, external_energy_change, as_source=False, as_sink=False):
         assert as_source + as_sink == 1, 'Must act as either source or sink but not both or neither.'
+        self._min_act, self._max_act = self._set_min_max_act()
 
         if as_source:
             info_key = 'provided_energy'
             internal_energy_change = self.model_transition(-1.0 * external_energy_change)
-            assert internal_energy_change <= 0 and (-1 * internal_energy_change <= self.max_discharge or
-                                                    np.isclose(-1 * internal_energy_change, self.max_discharge))
+            assert internal_energy_change <= 0 and (-1 * internal_energy_change <= self._max_act or
+                                                    np.isclose(-1 * internal_energy_change, self._max_act))
         else:
             info_key = 'absorbed_energy'
             internal_energy_change = self.model_transition(external_energy_change)
-            assert internal_energy_change >= 0 and (internal_energy_change <= self.max_charge or
-                                                    np.isclose(internal_energy_change, self.max_charge))
+            assert internal_energy_change >= 0 and (internal_energy_change <= -self._min_act or
+                                                    np.isclose(internal_energy_change, -self._min_act))
+
 
         self._update_state(internal_energy_change)
         reward = -1.0 * self.get_cost(internal_energy_change)

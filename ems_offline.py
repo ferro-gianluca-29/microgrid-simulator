@@ -109,13 +109,14 @@ battery_module = microgrid.battery[0]                           # Ottiene il mod
 transition_model = battery_module.battery_transition_model      # Ottiene il modello di transizione della batteria
 
 history = transition_model.get_transition_history()                 # Ottiene la cronologia delle transizioni della batteria
-eta_dynamic = [entry['eta_dynamic'] for entry in history]           # Estrae l'efficienza dinamica dalla cronologia
+#eta_dynamic = [entry['eta_dynamic'] for entry in history]           # Estrae l'efficienza dinamica dalla cronologia
+
 
 additional_columns = {
     ('datetime', 0, 'timestamp'): time_series['datetime'].to_numpy()[:len(microgrid_df)],
     ('pv', 0, 'pv_prod_input'): time_series['solar'].to_numpy()[:len(microgrid_df)],             # Aggiunge la produzione PV in input come colonna al DataFrame della microgrid
     ('load', 0, 'consumption_input'): time_series['load'].to_numpy()[:len(microgrid_df)],        # Aggiunge il consumo in input come colonna al DataFrame della microgrid
-    ('battery', 0, 'eta_dynamic'): np.asarray(eta_dynamic),                                       # Aggiunge l'efficienza dinamica al DataFrame della microgrid
+   # ('battery', 0, 'eta_dynamic'): np.asarray(eta_dynamic),                                       # Aggiunge l'efficienza dinamica al DataFrame della microgrid
     ('price', 0, 'price_buy'): price_buy_time_series[: len(microgrid_df)],                       # Aggiunge la colonna price_buy al DataFrame della microgrid
     ('price', 0, 'price_sell'): price_sell_time_series[: len(microgrid_df)]                      # Aggiunge la colonna price_sell al DataFrame della microgrid
 }
